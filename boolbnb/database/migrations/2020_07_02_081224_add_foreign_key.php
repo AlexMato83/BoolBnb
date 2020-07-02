@@ -15,9 +15,9 @@ class AddForeignKey extends Migration
     {
       Schema::table('apartments', function (Blueprint $table) {
 
-        $table->foreign('owner_id', 'owner_apt')
+        $table->foreign('user_id', 'user_apt')
               ->references('id')
-              ->on('owners')
+              ->on('users')
               ->onDelete('cascade');
         $table->foreign('category_id', 'category_apt')
               ->references('id')
@@ -72,7 +72,7 @@ class AddForeignKey extends Migration
     {
         Schema::table('apartments', function (Blueprint $table) {
 
-          $table->dropForeign('owner_apt');
+          $table->dropForeign('user_apt');
           $table->dropForeign('category_apt');
 
         });

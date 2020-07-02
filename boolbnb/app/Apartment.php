@@ -11,9 +11,9 @@ class Apartment extends Model
       'images' => 'array'
     ];
 
-    public function owner(){
+    public function user(){
 
-      return $this->belongsTo(Owner::class);
+      return $this->belongsTo(User::class);
     }
 
     public function category(){

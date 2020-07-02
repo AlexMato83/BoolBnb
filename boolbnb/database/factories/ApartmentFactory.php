@@ -5,7 +5,9 @@
 use App\Apartment;
 use Faker\Generator as Faker;
 
+
 $factory->define(Apartment::class, function (Faker $faker) {
+
     return [
       'name'=>$faker -> sentence(3),
       'mq'=> rand(35,150),
@@ -14,18 +16,6 @@ $factory->define(Apartment::class, function (Faker $faker) {
       'rooms'=>rand(1,6),
       'bathrooms'=>rand(1,6),
       'images'=> "'[" . $faker-> imageUrl() . "," . $faker-> imageUrl() . "," . $faker-> imageUrl() . "]'",
-
-    //   function($faker){
-    //     $n = rand(5,10);
-    //     $imgArray = [];
-    //     for ($i=0; $i < $n; $i++) {
-    //         // dd($faker);
-    //        $imgUrl = $faker -> imageUrl();
-    //        $imgArray[] = $imgUrl;
-    //     }
-    //     return $imgArray;
-
-    //   },
-      'views'=>rand(0,20)
+      'views'=>rand(0,20),
     ];
 });

@@ -24,7 +24,7 @@ class CreateApartmentsTable extends Migration
             $table->json('images');
             $table->integer('views');
             $table->bigInteger('category_id')->unsigned()->index();
-            $table->bigInteger('owner_id')->unsigned()->index();
+            $table->bigInteger('user_id')->unsigned()->index();
             $table->timestamps();
         });
     }
