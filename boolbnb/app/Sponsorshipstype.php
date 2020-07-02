@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sponsorshipstype extends Model
 {
-    protected $table = 'sponsorshipstype';
+    protected $table = 'sponsorshipstypes';
 
     public function sponsorships() {
 

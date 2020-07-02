@@ -13,15 +13,19 @@ $factory->define(Apartment::class, function (Faker $faker) {
       'longitude'=>$faker ->longitude(),
       'rooms'=>rand(1,6),
       'bathrooms'=>rand(1,6),
-      'images'=>function(){
-        $n = rand(5,10);
-        $imgArray = [];
-        for ($i=0; $i < $n; $i++) {
-           $imgUrl = $faker -> imageUrl(640,480);
-           $imgArray[] = $imgUrl;
-        }
-        return $imgArray;
-      }
+      'images'=> "'[" . $faker-> imageUrl() . "," . $faker-> imageUrl() . "," . $faker-> imageUrl() . "]'",
+
+    //   function($faker){
+    //     $n = rand(5,10);
+    //     $imgArray = [];
+    //     for ($i=0; $i < $n; $i++) {
+    //         // dd($faker);
+    //        $imgUrl = $faker -> imageUrl();
+    //        $imgArray[] = $imgUrl;
+    //     }
+    //     return $imgArray;
+
+    //   },
       'views'=>rand(0,20)
     ];
 });

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Sponsorshipstype;
 class SponsorshipstypeSeeder extends Seeder
 {
     /**
@@ -11,6 +11,6 @@ class SponsorshipstypeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Sponsorshipstype::class, 3) -> create();
     }
 }
