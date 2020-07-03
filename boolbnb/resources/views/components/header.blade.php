@@ -1,6 +1,6 @@
 <div class="col-xs-3 col-md-3 col-lg-3 col-xl-3">
     <div class="logo">
-        <img src="/img/logo.png">
+        <img src="/img/logo.jpg">
     </div>
 </div>
 <div class="col-xs-offset-4 col-md-offset-4 col-lg-offset-4 col-xl-offset-4 col-xs-5 col-md-5 col-lg-5 col-xl-5">

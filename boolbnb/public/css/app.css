@@ -10928,40 +10928,44 @@ a.text-dark:focus {
   }
 }
 
-.header {
+body {
+  background-color: white;
+}
+
+body .header {
   height: 80px;
   width: 100%;
   color: #1b3c59;
   background-color: white;
 }
 
-.header .logo img {
+body .header .logo img {
   margin-top: 5%;
   height: 70%;
   width: 70%;
 }
 
-.header .navigazione {
+body .header .navigazione {
   margin-left: 0;
 }
 
-.header .navigazione ul {
+body .header .navigazione ul {
   float: none;
 }
 
-.header .navigazione ul li {
+body .header .navigazione ul li {
   list-style: none;
   display: inline-block;
   margin: 2%;
   margin-top: 7%;
 }
 
-.header .navigazione ul li a {
+body .header .navigazione ul li a {
   color: #1b3c59;
   font-size: 15px;
 }
 
-.header .navigazione ul li button {
+body .header .navigazione ul li button {
   font-size: 15px;
   padding: 6% 18%;
   background-color: #1b3c59;
@@ -10970,8 +10974,8 @@ a.text-dark:focus {
   border-radius: 5px;
 }
 
-.accedi,
-.registrati {
+body .accedi,
+body .registrati {
   width: 35%;
   border: 1px solid #DDDDDD;
   margin: auto;
@@ -10980,8 +10984,8 @@ a.text-dark:focus {
   text-align: center;
 }
 
-.accedi h1,
-.registrati h1 {
+body .accedi h1,
+body .registrati h1 {
   font-size: 20px;
   color: #1b3c59;
   font-weight: bold;
@@ -10989,21 +10993,21 @@ a.text-dark:focus {
   margin: 6%;
 }
 
-.accedi .input,
-.registrati .input {
+body .accedi .input,
+body .registrati .input {
   margin: auto;
 }
 
-.accedi .input #mail,
-.accedi .input #password,
-.accedi .input #nome,
-.accedi .input #cognome,
-.accedi .input #dataDiNascita,
-.registrati .input #mail,
-.registrati .input #password,
-.registrati .input #nome,
-.registrati .input #cognome,
-.registrati .input #dataDiNascita {
+body .accedi .input #mail,
+body .accedi .input #password,
+body .accedi .input #nome,
+body .accedi .input #cognome,
+body .accedi .input #dataDiNascita,
+body .registrati .input #mail,
+body .registrati .input #password,
+body .registrati .input #nome,
+body .registrati .input #cognome,
+body .registrati .input #dataDiNascita {
   height: 50px;
   width: 80%;
   margin-left: 10%;
@@ -11011,13 +11015,13 @@ a.text-dark:focus {
   font-size: 18px;
 }
 
-.accedi .continua,
-.registrati .continua {
+body .accedi .continua,
+body .registrati .continua {
   text-align: center;
 }
 
-.accedi .continua button,
-.registrati .continua button {
+body .accedi .continua button,
+body .registrati .continua button {
   font-size: 18px;
   font-weight: bold;
   padding: 2% 5%;
@@ -11029,11 +11033,11 @@ a.text-dark:focus {
   border: none;
 }
 
-.off {
+body .off {
   display: none;
 }
 
-.on {
+body .on {
   display: block;
 }
 

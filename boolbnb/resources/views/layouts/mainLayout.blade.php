@@ -24,8 +24,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="content">
-                    @include('components.navBar')
+                <div class="content">                    
                     @yield('content')
                 </div>
             </div>

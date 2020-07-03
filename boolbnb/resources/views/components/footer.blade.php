@@ -1,6 +1,3 @@
-<p>
-  <a href="{{ route('about') }}">
-    
-  </a>
+<div class="footer">
 
-</p>
+</div>
