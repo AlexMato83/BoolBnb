@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Apartment extends Model
@@ -34,5 +35,11 @@ class Apartment extends Model
     }
 
 
+}
 
+
+
+class Article extends Model
+{
+    use Searchable;
 }

@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <form  action="" method="post" enctype="multipart/form-data">
+  <form  action="{{route('update_apartment' , $apartment['id'])}}" method="post" enctype="multipart/form-data">
     @csrf
     @method("POST")
     @if ($errors->any())
@@ -23,13 +23,13 @@
     <input type="text" name="mq" value="{{$apartment['mq']}}">
 
     <label for="rooms">ROOMS</label>
-    <input type="text" name="rooms" value="{{$apartment['address']}}">
+    <input type="text" name="rooms" value="{{$apartment['rooms']}}">
 
     <label for="bathrooms">BATHROOMS</label>
-    <input type="text" name="bathrooms" value="{{$apartment['rooms']}}">
+    <input type="text" name="bathrooms" value="{{$apartment['bathrooms']}}">
 
     <label for="address">ADDRESS</label>
-    <input type="text" name="address" value="{{$apartment['bathrooms']}}">
+    <input type="text" name="address" value="{{$apartment['address']}}">
 
     <label for="images">IMAGES</label>
     <input type="file" name="images" value="{{$apartment['images']}}">
@@ -50,7 +50,7 @@
 
 
 
-    <input type="submit" name="" value="Create">
+    <input type="submit" name="" value="Update">
 
   </form>
 

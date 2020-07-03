@@ -1,7 +1,7 @@
 @extends('layouts.main_layout')
 
 @section('content')
-  
+
   @if (Route::has('login'))
       <div class="top-right links">
           @auth
@@ -15,5 +15,5 @@
           @endauth
       </div>
   @endif
-
+  <input type="search" id="address-input" placeholder="Where are we going?" />
 @endsection

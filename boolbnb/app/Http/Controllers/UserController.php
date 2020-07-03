@@ -69,31 +69,61 @@ class UserController extends Controller
     public function show_apartments()
     {
 
-        // $user_id =Auth::user() ->id;
         $user = Auth::user();
-        // $user = User::findOrFail($user_id);
-        $apartments = Apartment::all();
-        $user_apartments = [];
-        foreach ($apartments as $apartment) {
-            foreach ($user -> apartments() as $us_apartment) {
+        $apartments = $user -> apartments;
 
-                dd($user -> apartments());
-                if ($us_apartment -> id === $apartment['id']) {
-                    $user_apartments[] = $apartment;
-                }
-            }
-
-
-        }
-        // dd($us_apartments);
+        return view("user_apartment" ,compact("apartments"));
     }
 
     public function edit($id)
     {
         $apartment = Apartment::findOrFail($id);
-        $services = Services::all();
+        $services = Service::all();
 
         return view('edit_apartment', compact('apartment', 'services'));
+    }
+
+    public function update(Request $request, $id)
+    {
+
+       $user_id =Auth::user() ->id;
+       $apartment = Apartment::findOrFail($id);
+
+       $validate = $request -> validate([
+
+            "name" => "required",
+            "mq" => "required",
+            "address" => "required",
+            "rooms" => "required",
+            "bathrooms" => "required",
+            "images" => "required|image",
+            "services" => "required"
+            ]);
+
+        $apartment["name"] = $validate["name"];
+        $apartment["mq"] = $validate["mq"];
+        $apartment["address"] = $validate["address"];
+        $apartment["rooms"] = $validate["rooms"];
+        $apartment["bathrooms"] = $validate["bathrooms"];
+        $apartment["images"] = $validate["images"];
+        $apartment["views"] = 0;
+        $apartment["user_id"] = $user_id;
+
+        // *********************************
+
+        $image = $request->file('images');
+        $name = Str::slug($request->input('name')).'_'.time();
+        $folder = '/uploads/images';
+        $ext = $image->getClientOriginalExtension();
+        $filePath = $folder . $name. '.' . $ext;
+        $image->storeAs($folder, $name.'.'. $ext, 'public');
+        $apartment->images = $filePath;
+        $apartment -> save();
+
+        // *******************************
+        $apartment -> services() -> sync($validate['services']);
+
+        return redirect() -> route('user_apartment');
     }
 
 }

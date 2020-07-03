@@ -1,1 +1,4 @@
-stampare in pagina tutti gli apparytasmenti per aggiungere tasto edit e fare la prova dell'edit
+stampare in pagina tutti gli apparytasmenti per aggiungere tasto edit e fare la prova dell'edit {FATTO}
+Aggiungere in tabella appartamento --> visibile si/no
+Creare tabella visualizzazioni one to Many con apartment
+Eliminare carta di credito e modificare i dati necessari per la registrazione
