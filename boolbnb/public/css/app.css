@@ -10937,12 +10937,13 @@ body .header {
   width: 100%;
   color: #1b3c59;
   background-color: white;
+  border: 1px black solid;
 }
 
 body .header .logo img {
   margin-top: 5%;
-  height: 70%;
-  width: 70%;
+  height: 90%;
+  width: 90%;
 }
 
 body .header .navigazione {
@@ -10957,7 +10958,7 @@ body .header .navigazione ul li {
   list-style: none;
   display: inline-block;
   margin: 2%;
-  margin-top: 7%;
+  margin-top: 6%;
 }
 
 body .header .navigazione ul li a {
