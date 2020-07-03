@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@charset "UTF-8";
 
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
@@ -10926,5 +10926,114 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+.header {
+  height: 80px;
+  width: 100%;
+  color: #1b3c59;
+  background-color: white;
+}
+
+.header .logo img {
+  margin-top: 5%;
+  height: 70%;
+  width: 70%;
+}
+
+.header .navigazione {
+  margin-left: 0;
+}
+
+.header .navigazione ul {
+  float: none;
+}
+
+.header .navigazione ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 2%;
+  margin-top: 7%;
+}
+
+.header .navigazione ul li a {
+  color: #1b3c59;
+  font-size: 15px;
+}
+
+.header .navigazione ul li button {
+  font-size: 15px;
+  padding: 6% 18%;
+  background-color: #1b3c59;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+}
+
+.accedi,
+.registrati {
+  width: 35%;
+  border: 1px solid #DDDDDD;
+  margin: auto;
+  margin-top: 80px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.accedi h1,
+.registrati h1 {
+  font-size: 20px;
+  color: #1b3c59;
+  font-weight: bold;
+  text-align: center;
+  margin: 6%;
+}
+
+.accedi .input,
+.registrati .input {
+  margin: auto;
+}
+
+.accedi .input #mail,
+.accedi .input #password,
+.accedi .input #nome,
+.accedi .input #cognome,
+.accedi .input #dataDiNascita,
+.registrati .input #mail,
+.registrati .input #password,
+.registrati .input #nome,
+.registrati .input #cognome,
+.registrati .input #dataDiNascita {
+  height: 50px;
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.accedi .continua,
+.registrati .continua {
+  text-align: center;
+}
+
+.accedi .continua button,
+.registrati .continua button {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 2% 5%;
+  background-color: #61ce4e;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+  margin: 5% 0;
+  border: none;
+}
+
+.off {
+  display: none;
+}
+
+.on {
+  display: block;
 }
 

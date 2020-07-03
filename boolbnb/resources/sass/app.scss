@@ -1,8 +1,102 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.header {
+  height: 80px;
+  width: 100%;
+  color: #1b3c59;
+  background-color: white ;
+
+  .logo{
+
+    img{
+      margin-top: 5%;
+      height:70%;
+      width:70%;
+    }
+  }
+
+  .navigazione {
+    margin-left: 0;
+
+    ul{
+      float: none;
+
+      li{
+        list-style: none;
+        display: inline-block;
+        margin: 2%;
+        margin-top: 7%;
+
+        a{
+          color: #1b3c59;
+          font-size: 15px;
+        }
+
+        button{
+          font-size: 15px;
+          padding: 6% 18%;
+          background-color: #1b3c59;
+          color: white;
+          box-shadow: none;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+.accedi, .registrati{
+  width:35%;
+  border:1px solid #DDDDDD;
+  margin:auto;
+  margin-top:80px;
+  border-radius:5px;
+  text-align: center;
+
+
+  h1{
+    font-size: 20px;
+    color: #1b3c59;
+    font-weight: bold;
+    text-align: center;
+    margin: 6%;
+  }
+  .input{
+    margin:auto;
+
+    #mail, #password, #nome, #cognome, #dataDiNascita{
+      height:50px;
+      width:80%;
+      margin-left:10%;
+      margin-bottom:10px;
+      font-size: 18px;
+    }
+  }
+
+  .continua{
+    text-align: center;
+
+    button{
+      font-size: 18px;
+      font-weight: bold;
+      padding: 2% 5%;
+      background-color:#61ce4e ;
+      color: white;
+      box-shadow: none;
+      border-radius: 5px;
+      margin: 5% 0;
+      border: none;
+    }
+  }
+
+}
+
+.off{
+  display: none;
+}
+.on {
+  display: block;
+}
