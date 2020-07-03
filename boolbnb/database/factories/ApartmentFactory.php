@@ -11,11 +11,10 @@ $factory->define(Apartment::class, function (Faker $faker) {
     return [
       'name'=>$faker -> sentence(3),
       'mq'=> rand(35,150),
-      'latitude'=>$faker ->latitude(),
-      'longitude'=>$faker ->longitude(),
+      'address'=>$faker ->address(),
       'rooms'=>rand(1,6),
       'bathrooms'=>rand(1,6),
-      'images'=> "'[" . $faker-> imageUrl() . "," . $faker-> imageUrl() . "," . $faker-> imageUrl() . "]'",
+      'images'=> $faker-> imageUrl(),
       'views'=>rand(0,20),
     ];
 });

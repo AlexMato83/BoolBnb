@@ -17,13 +17,12 @@ class CreateApartmentsTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('mq');
-            $table->float('latitude');
-            $table->float('longitude');
+            $table->string('address');
             $table->tinyInteger('rooms');
             $table->tinyInteger('bathrooms');
-            $table->json('images');
+            $table->string('images')->nullable();
             $table->integer('views');
-            $table->bigInteger('category_id')->unsigned()->index();
+            $table->bigInteger('category_id')->unsigned()->index()->nullable();
             $table->bigInteger('user_id')->unsigned()->index();
             $table->timestamps();
         });

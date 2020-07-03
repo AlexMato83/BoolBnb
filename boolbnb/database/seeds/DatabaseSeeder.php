@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             SponsorshipstypeSeeder::class,
             ApartmentSeeder::class,
-            SponsorshipstypeSeeder::class,
+            SponsorshipSeeder::class,
             ServiceSeeder::class,
             MessageSeeder::class
         ]);
