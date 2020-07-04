@@ -1,4 +1,18 @@
+Obiettivi:
+
 stampare in pagina tutti gli apparytasmenti per aggiungere tasto edit e fare la prova dell'edit {FATTO}
 Aggiungere in tabella appartamento --> visibile si/no
 Creare tabella visualizzazioni one to Many con apartment
 Eliminare carta di credito e modificare i dati necessari per la registrazione
+Ripristinare long e lat nella tabella appartamenti
+
+
+Docs:
+
+le funzioni
+-address_to_coord()
+-turfjs()
+gestiscono la geolocalizzazione ed il salvataggio dati in database
+
+la view my-map è un esempio funzionante di geolocalizzazione
+my-map0 cancellabile

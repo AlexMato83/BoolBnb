@@ -15,5 +15,5 @@
           @endauth
       </div>
   @endif
-  <input type="search" id="address-input" placeholder="Where are we going?" />
+  <a href="{{route('prova_tomtom')}}">prova</a>
 @endsection

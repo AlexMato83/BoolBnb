@@ -29,7 +29,10 @@
     <input type="text" name="bathrooms" value="{{$apartment['bathrooms']}}">
 
     <label for="address">ADDRESS</label>
-    <input type="text" name="address" value="{{$apartment['address']}}">
+    <input id="apt_address" type="text" name="address" value="{{$apartment['address']}}">
+
+    <input class="dispna" id="longitude" type="text" name="longitude" value="">
+    <input class="dispna" id="latitude" type="text" name="latitude" value="">
 
     <label for="images">IMAGES</label>
     <input type="file" name="images" value="{{$apartment['images']}}">
@@ -48,9 +51,27 @@
         </div>
     @endforeach
 
+    <label for="category_id">Category</label>
+    <select class="" name="category_id">
+      @foreach ($categories as $category)
+        <option value="{{$category['id']}}"
+        @if ($apartment["category_id"] == $category["id"] )
+          selected
+        @endif
+        >{{$category['name']}}</option>
 
+      @endforeach
+    </select>
 
-    <input type="submit" name="" value="Update">
+    <label for="visibility">visibility</label>
+    <select class="" name="visibility">
+      <option value="0">No</option>
+      <option value="1" selected>Si</option>
+
+    </select>
+
+    <button id="create2" type="text" name="" value="">Update</button>
+    <input id="create" class="dispna" type="submit" name="" value="">
 
   </form>
 
