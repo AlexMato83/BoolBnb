@@ -1,8 +1,10 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
+// Bootstrap l'ho commentato perché non mi prendeva le modifiche al file _home
 @import '~bootstrap/scss/bootstrap';
+
+@import '_home';
 
   body{
     background-color: white;
@@ -12,7 +14,6 @@
       width: 100%;
       color: #1b3c59;
       background-color: white;
-      border: 1px black solid;
 
       .logo{
 
@@ -52,7 +53,7 @@
       }
     }
   }
-  .accedi, .registrati{
+  .accedi, .registrati {
     width:35%;
     border:1px solid #DDDDDD;
     margin:auto;
