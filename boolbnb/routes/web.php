@@ -16,5 +16,9 @@ Route::post('/store_apartment', 'UserController@store')->name('store_apartment')
 Route::get('/edit_apartment/{id}', 'UserController@edit')->name('edit_apartment');
 Route::post('/update_apartment/{id}', 'UserController@update')->name('update_apartment');
 Route::get('/user_apartment', 'UserController@show_apartments')->name('user_apartment');
-
 Route::get('/map', 'UserController@prova_tomtom')->name('prova_tomtom');
+
+
+//******* Prova rotte per api *******//
+
+Route::get('/welcome_show', 'ApiController@welcome_show')->name('welcome_show');

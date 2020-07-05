@@ -136,7 +136,7 @@ class UserController extends Controller
           $image->storeAs($folder, $name.'.'. $ext, 'public');
           $apartment->images = $filePath;
         }
-        $apartment -> save(); 
+        $apartment -> save();
 
         // *******************************
         $apartment -> services() -> sync($validate['services']);
@@ -146,7 +146,7 @@ class UserController extends Controller
 
     public function prova_tomtom(){
 
-      return view("my-map0");
+      return view("my-map");
     }
 
 }

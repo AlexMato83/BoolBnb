@@ -12,10 +12,7 @@ require('./bootstrap');
 // const app = new Vue({
 //     el: '#app',
 // });
-
-
-
-
+//*****************//
 function turfjs(){
   var apiKey = 'luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt';
   var map = tt.map({
@@ -99,61 +96,61 @@ function turfjs(){
 
   }
 
-//   function calculateTurfArea(geometryData) {
-//     var turfPolygon = turf.polygon(geometryData);
-//     var areaInMeters = turf.area(turfPolygon);
-//     var areaInKilometers = turf.round(turf.convertArea(areaInMeters, 'meters', 'kilometers'),2);
-//   }
-//
-//   function calculateTurfArea(geometryData) {
-//   var turfPolygon = turf.polygon(geometryData);
-//   var areaInMeters = turf.area(turfPolygon);
-//   var areaInKilometers = turf.round(turf.convertArea(areaInMeters, 'meters', 'kilometers'),2);
-//   var areaInfo = document.getElementById('area-info');
-//   areaInfo.innerText = areaInKilometers;
-// }
-//
-// function processAdditionalDataResponse(additionalDataResponse) {
-//   if (additionalDataResponse.additionalData && additionalDataResponse.additionalData.length) {
-//     var geometryData = displayPolygonOnTheMap(additionalDataResponse.additionalData[0]);
-//     calculateTurfArea(geometryData);
-//   }
-// }
-// var markerCoordinates = [
-//   [4.899431, 52.379189],
-//   [4.8255823, 52.3734312],
-//   [4.7483138, 52.4022803],
-//   [4.797049, 52.435065],
-//   [4.885911, 52.320235]
-// ];
-//
-// function drawPointsInsideAndOutsideOfPolygon(geometryData) {
-//   var customInsidePolygonMarkerIcon = 'img/inside_marker.png';
-//   var customOutsideMarkerIcon = 'img/outside_marker.png';
-//   var turfPolygon = turf.polygon(geometryData);
-//   var points = turf.points(markerCoordinates);
-//   var pointsWithinPolygon = turf.pointsWithinPolygon(points, turfPolygon);
-//   markerCoordinates.forEach(function (markerCoordinate) {
-//     const markerElement = document.createElement('div');
-//     markerElement.innerHTML = createMarkerElementInnerHTML(customOutsideMarkerIcon);
-//     pointsWithinPolygon.features.forEach(function (pointWithinPolygon) {
-//       if (markerCoordinate[0] === pointWithinPolygon.geometry.coordinates[0] &&
-//         markerCoordinate[1] === pointWithinPolygon.geometry.coordinates[1]) {
-//           markerElement.innerHTML = createMarkerElementInnerHTML(customInsidePolygonMarkerIcon);
-//       }
-//     });
-//     var marker = new tt.Marker({ element: markerElement}).setLngLat(markerCoordinate);
-//     marker.addTo(map);
-//   });
-// }
-//
-// function processAdditionalDataResponse(additionalDataResponse) {
-//   if (additionalDataResponse.additionalData && additionalDataResponse.additionalData.length) {
-//     var geometryData = displayPolygonOnTheMap(additionalDataResponse.additionalData[0]);
-//     calculateTurfArea(geometryData);
-//     drawPointsInsideAndOutsideOfPolygon(geometryData);
-//   }
-// }
+  function calculateTurfArea(geometryData) {
+    var turfPolygon = turf.polygon(geometryData);
+    var areaInMeters = turf.area(turfPolygon);
+    var areaInKilometers = turf.round(turf.convertArea(areaInMeters, 'meters', 'kilometers'),2);
+  }
+
+  function calculateTurfArea(geometryData) {
+  var turfPolygon = turf.polygon(geometryData);
+  var areaInMeters = turf.area(turfPolygon);
+  var areaInKilometers = turf.round(turf.convertArea(areaInMeters, 'meters', 'kilometers'),2);
+  var areaInfo = document.getElementById('area-info');
+  areaInfo.innerText = areaInKilometers;
+}
+
+function processAdditionalDataResponse(additionalDataResponse) {
+  if (additionalDataResponse.additionalData && additionalDataResponse.additionalData.length) {
+    var geometryData = displayPolygonOnTheMap(additionalDataResponse.additionalData[0]);
+    calculateTurfArea(geometryData);
+  }
+}
+var markerCoordinates = [
+  [4.899431, 52.379189],
+  [4.8255823, 52.3734312],
+  [4.7483138, 52.4022803],
+  [4.797049, 52.435065],
+  [4.885911, 52.320235]
+];
+
+function drawPointsInsideAndOutsideOfPolygon(geometryData) {
+  var customInsidePolygonMarkerIcon = 'img/inside_marker.png';
+  var customOutsideMarkerIcon = 'img/outside_marker.png';
+  var turfPolygon = turf.polygon(geometryData);
+  var points = turf.points(markerCoordinates);
+  var pointsWithinPolygon = turf.pointsWithinPolygon(points, turfPolygon);
+  markerCoordinates.forEach(function (markerCoordinate) {
+    const markerElement = document.createElement('div');
+    markerElement.innerHTML = createMarkerElementInnerHTML(customOutsideMarkerIcon);
+    pointsWithinPolygon.features.forEach(function (pointWithinPolygon) {
+      if (markerCoordinate[0] === pointWithinPolygon.geometry.coordinates[0] &&
+        markerCoordinate[1] === pointWithinPolygon.geometry.coordinates[1]) {
+          markerElement.innerHTML = createMarkerElementInnerHTML(customInsidePolygonMarkerIcon);
+      }
+    });
+    var marker = new tt.Marker({ element: markerElement}).setLngLat(markerCoordinate);
+    marker.addTo(map);
+  });
+}
+
+function processAdditionalDataResponse(additionalDataResponse) {
+  if (additionalDataResponse.additionalData && additionalDataResponse.additionalData.length) {
+    var geometryData = displayPolygonOnTheMap(additionalDataResponse.additionalData[0]);
+    calculateTurfArea(geometryData);
+    drawPointsInsideAndOutsideOfPolygon(geometryData);
+  }
+}
 }
 
 function address_to_coord(){
@@ -184,11 +181,29 @@ function address_to_coord(){
     });
   }
 
-
-function init(){
-  address_to_coord()
-  turfjs()
-  // findGeometry()
+//****************//
+function prova_api(){
+  console.log("ciao");
+  $("#provaApi").click(function(){
+    $.ajax({
+      url:"http://localhost:8000/welcome_show",
+      method: "GET",
+      success: function(data){
+        console.log(data);
+      }
+    })
+  });
 }
 
-$(document).ready(init)
+function init(){
+  if (document.getElementById("map")) {
+    turfjs();
+    address_to_coord();
+  }
+  if (document.getElementById("provaApi")) {
+    prova_api();
+  }
+
+}
+
+$(document).ready(init);

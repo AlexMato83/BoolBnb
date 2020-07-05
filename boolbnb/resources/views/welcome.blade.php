@@ -16,4 +16,6 @@
       </div>
   @endif
   <a href="{{route('prova_tomtom')}}">prova</a>
+  <button id="provaApi" type="button" name="button">Prova Api</button>
+
 @endsection
