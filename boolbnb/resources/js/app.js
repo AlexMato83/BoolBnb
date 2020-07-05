@@ -32,7 +32,7 @@ $(document).ready(function() {
     }
   );
 
-  //sezione apartament in evidenza
+  //sezione apartament in evidenza da collegare al database
 
   // var source = $('.apartment-template').html();
   // var template = Handlebars.compile(source);

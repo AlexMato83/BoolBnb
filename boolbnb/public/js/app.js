@@ -49698,7 +49698,7 @@ $(document).ready(function () {
   });
   $(".continua").click(function () {
     $(".registrati").removeClass("on").addClass("off");
-  }); //sezione apartament in evidenza
+  }); //sezione apartament in evidenza da collegare al database
   // var source = $('.apartment-template').html();
   // var template = Handlebars.compile(source);
   //

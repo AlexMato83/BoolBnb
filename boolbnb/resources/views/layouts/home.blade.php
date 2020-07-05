@@ -9,6 +9,7 @@
     </div>
   </div>
 
+  {{-- debug --}}
   <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
     <div class="evidenza">
 
@@ -47,6 +48,21 @@
       </div>
     </div>
   </div>
+  {{-- debug --}}
+
+
+  {{-- Da collegare con il database --}}
+  
+  {{-- <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <div class="evidenza">
+
+      <h1>Appartamenti consigliati</h1>
+
+      <div class="apartments">
+
+      </div>
+    </div>
+  </div> --}}
   {{-- <script class="apartment-template" type="text/x-handlebars-template">  
 				<div class="apartment">
 					<div class="foto">
