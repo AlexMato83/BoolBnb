@@ -153,9 +153,9 @@ function processAdditionalDataResponse(additionalDataResponse) {
 }
 }
 
-function address_to_coord(){
+function address_to_coord(button, submit){
 
-  $("#create2").click(function(){
+  $(button).click(function(){
     var address = $("#apt_address").val();
     var longitude,latitude;
     $.ajax({
@@ -170,12 +170,14 @@ function address_to_coord(){
           var position = data.results[0]["position"];
         latitude =  position.lat;
         longitude = position.lon;
-      },
+        console.log(data);
+
+        },
         complete: function(){
           $("#latitude").val(latitude);
           $("#longitude").val(longitude);
           console.log(latitude);
-          document.getElementById("create").click()
+          document.getElementById(submit).click()
         }
       })
     });
@@ -183,7 +185,6 @@ function address_to_coord(){
 
 //****************//
 function prova_api(){
-  console.log("ciao");
   $("#provaApi").click(function(){
     $.ajax({
       url:"http://localhost:8000/welcome_show",
@@ -194,15 +195,15 @@ function prova_api(){
     })
   });
 }
-
 function init(){
   if (document.getElementById("map")) {
     turfjs();
-    address_to_coord();
   }
   if (document.getElementById("provaApi")) {
-    prova_api();
+        prova_api();
   }
+  address_to_coord('#create2', 'create');
+  address_to_coord('#search2', 'search');
 
 }
 

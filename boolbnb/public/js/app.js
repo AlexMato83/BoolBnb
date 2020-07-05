@@ -37367,8 +37367,8 @@ function turfjs() {
   }
 }
 
-function address_to_coord() {
-  $("#create2").click(function () {
+function address_to_coord(button, submit) {
+  $(button).click(function () {
     var address = $("#apt_address").val();
     var longitude, latitude;
     $.ajax({
@@ -37383,12 +37383,13 @@ function address_to_coord() {
         var position = data.results[0]["position"];
         latitude = position.lat;
         longitude = position.lon;
+        console.log(data);
       },
       complete: function complete() {
         $("#latitude").val(latitude);
         $("#longitude").val(longitude);
         console.log(latitude);
-        document.getElementById("create").click();
+        document.getElementById(submit).click();
       }
     });
   });
@@ -37396,7 +37397,6 @@ function address_to_coord() {
 
 
 function prova_api() {
-  console.log("ciao");
   $("#provaApi").click(function () {
     $.ajax({
       url: "http://localhost:8000/welcome_show",
@@ -37411,12 +37411,14 @@ function prova_api() {
 function init() {
   if (document.getElementById("map")) {
     turfjs();
-    address_to_coord();
   }
 
   if (document.getElementById("provaApi")) {
     prova_api();
   }
+
+  address_to_coord('#create2', 'create');
+  address_to_coord('#search2', 'search');
 }
 
 $(document).ready(init);
@@ -37486,8 +37488,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\RepoGitNuovo\BoolBnb\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\RepoGitNuovo\BoolBnb\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/paolo/Desktop/Github/Boolean/BoolBnb/boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/paolo/Desktop/Github/Boolean/BoolBnb/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

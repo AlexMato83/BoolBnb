@@ -28,6 +28,9 @@
     <label for="bathrooms">BATHROOMS</label>
     <input type="text" name="bathrooms" value="">
 
+    <label for="beds">beds</label>
+    <input type="text" name="beds" value="">
+
     <label for="address">ADDRESS</label>
     <input id="apt_address" type="text" name="address" value="">
 

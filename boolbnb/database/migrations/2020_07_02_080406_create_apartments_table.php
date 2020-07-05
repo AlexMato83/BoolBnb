@@ -22,6 +22,7 @@ class CreateApartmentsTable extends Migration
             $table->float('Latitude');
             $table->tinyInteger('rooms');
             $table->tinyInteger('bathrooms');
+            $table->tinyInteger('beds');
             $table->string('images')->nullable();
             $table->boolean('visibility');
             $table->bigInteger('category_id')->unsigned()->index()->nullable();

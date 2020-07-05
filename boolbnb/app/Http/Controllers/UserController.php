@@ -36,6 +36,7 @@ class UserController extends Controller
           "address" => "required",
           "rooms" => "required",
           "bathrooms" => "required",
+          "beds" => "required",
           "images" => "required|image",
           "services" => "required",
           "category_id" => "required",
@@ -51,6 +52,7 @@ class UserController extends Controller
       $apartment["rooms"] = $validate["rooms"];
       $apartment["address"] = $validate["address"];
       $apartment["bathrooms"] = $validate["bathrooms"];
+      $apartment["beds"] = $validate["beds"];
       $apartment["images"] = $validate["images"];
       $apartment["visibility"] = $validate["visibility"];
       $apartment["user_id"] = $user_id;
@@ -105,6 +107,7 @@ class UserController extends Controller
             "address" => "required",
             "rooms" => "required",
             "bathrooms" => "required",
+            "beds" => "required",
             "images" => "image",
             "services" => "required",
             "category_id" => "required",
@@ -119,6 +122,7 @@ class UserController extends Controller
         $apartment["address"] = $validate["address"];
         $apartment["rooms"] = $validate["rooms"];
         $apartment["bathrooms"] = $validate["bathrooms"];
+        $apartment["beds"] = $validate["beds"];
         $apartment["images"] = $request["images"];
         $apartment["user_id"] = $user_id;
         $apartment["visibility"] = $validate["visibility"];
