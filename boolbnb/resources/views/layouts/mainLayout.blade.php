@@ -18,21 +18,25 @@
 
   </head>
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <div class="header">
           @include('components.header')
         </div>
       </div>
+    </div>
+    <div class="container">
       <div class="row">
         <div class="content">
             @yield('content')
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="footer">
-        @include('components.footer')
+    <div class="container-fluid">
+      <div class="row">
+        <div class="footer">
+          @include('components.footer')
+        </div>
       </div>
     </div>
   </body>

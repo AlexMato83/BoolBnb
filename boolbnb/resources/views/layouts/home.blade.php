@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6 col-xl-offset-3 col-xl-6">
+  <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
     <div class="search">
       <input class="dove" type="text" id="dove" class="form-control" placeholder="Dove vuoi andare?">
       <button class="cerca" type="button" name="button"><i class="fas fa-search"></i><strong>Cerca</strong></button>

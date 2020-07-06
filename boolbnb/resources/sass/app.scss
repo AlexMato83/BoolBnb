@@ -13,61 +13,11 @@
   body{
     background-color: white;
 
-    .header {
-      height: 80px;
-      width: 100%;
-      color: #1b3c59;
-      background-color: white;
-      position: fixed;
-      z-index: 99;
-
-      .logo{
-
-        img{
-          margin-top: 5%;
-          height:90%;
-          width:90%;
-        }
-      }
-
-    .navigazione {
-      margin-left: 0;
-
-      ul{
-        float: none;
-
-        li{
-          list-style: none;
-          display: inline-block;
-          margin: 2%;
-          margin-top: 6%;
-
-          a{
-            color: #1b3c59;
-            font-size: 15px;
-          }
-
-          button{
-            font-size: 15px;
-            padding: 6% 18%;
-            background-color: #1b3c59;
-            color: white;
-            box-shadow: none;
-            border-radius: 5px;
-          }
-          a{
-            color: #1b3c59;
-            font-size: 15px;
-          }
-        }
-      }
-    }
-  }
   .accedi, .registrati {
-    width:35%;
+    width:413px;
     border:1px solid #DDDDDD;
-    margin:auto;
-    margin-top:80px;
+    margin: auto;
+    margin-top:150px;
     border-radius:5px;
     text-align: center;
     background-color: white;
@@ -115,25 +65,4 @@
     display: block;
   }
 
-  .hamburger-menu{
-  float:right;
-  ul{
-    display:inline;
-    li{
-      margin-bottom:2px;
-      list-style: none;
-      button{
-        font-size:20px;
-        background-color: #1b3c59;
-        color: white;
-        box-shadow: none;
-        border-radius: 5px;
-      }
-      a{
-        font-size:20px;
-        color:#1b3c59;
-      }
-    }
-  }
-}
 }

@@ -1,4 +1,4 @@
-<div class="col-4 col-sm-4 col-md-3 col-lg-3 col-xl-3">
+<div class="offset-1 col-5 offset-sm-1 col-sm-5 offset-md-1 col-md-5 offset-lg-1 col-lg-3 offset-xl-1 col-xl-3">
   <div class="logo">
     <img src="/img/logo.jpg">
   </div>
@@ -9,7 +9,7 @@
   </div>
 </div>
 
-  <div class="col-md-offset-3 col-lg-offset-4 col-xl-offset-4 col-xs-5 col-md-5 col-lg-5 col-xl-5">
+  <div class="offset-md-1 col-md-5 offset-lg-3 col-lg-5 offset-xl-3 col-xl-5">
 
     <div class="navigazione prova">
       <ul>

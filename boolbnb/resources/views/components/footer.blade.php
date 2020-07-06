@@ -1,5 +1,5 @@
 
-<div class="col-12 col-sm-12 offset-md-1 col-md-4 col-lg-offset-1 col-lg-4 col-xl-offset-2 col-xl-4">
+<div class="col-12 col-sm-12 offset-md-1 col-md-4 col-lg-offset-1 col-lg-4 offset-xl-2 col-xl-4">
   <div class="logo_menu">
     <div class="logo_footer">
       <img src="/img/logoboolbnbfooter.png" alt="">
@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<div class="col-12 col-sm-12 offset-md-4 col-md-3 col-lg-offset-5 col-lg-3 col-xl-offset-3 col-xl-3">
+<div class="col-12 col-sm-12 offset-md-4 col-md-3 offset-lg-5 col-lg-3 offset-xl-3 col-xl-3">
   <div class="menu_footer">
     <ul>
       <li><a href="#">Accedi</a></li>
