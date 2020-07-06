@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'UiController@index') -> name('welcome');
 Route::post('/ui_apartments', 'UiController@show_ui_apartments') -> name('ui_apartments');
 Route::get('/ui_apartment/{id}', 'UiController@show_ui_apartment') -> name('ui_apartment');
+Route::post('/send_message/{id}', 'UiController@send_message_upra') -> name('send_message_upra');
 
 
 Auth::routes();

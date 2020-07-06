@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Service;
 use App\Category;
 use App\Apartment;
+use App\Message;
+
 class UiController extends Controller
 {
     public function index()
@@ -35,4 +37,16 @@ class UiController extends Controller
 
       return view('ui_apartment',compact('apartment'));
     }
+    public function send_message_upra(Request $request, $id)
+    {
+        // dd($request);
+        $message = new Message;
+        $message['apartment_id'] = $id;
+        $message['email'] = $request['email'];
+        $message['text'] = $request['text'];
+        $message -> save();
+
+        return redirect()->route('ui_apartment', $id);
+    }
+
 }
