@@ -45,6 +45,34 @@
             <h3><a href="#">Private room</a></h3>
           </div>
         </div>
+        <div class="apartment">
+
+          <div class="foto">
+            <img src="/img/1-1.jpeg"/>
+          </div>
+
+          <div class="titolo">
+            <h3><a href="#">Beautiful suit near Duomo</a></h3>
+          </div>
+
+        </div>
+
+        <div class="apartment">
+          <div class="foto">
+            <img src="/img/2-1.jpeg"/>
+          </div>
+          <div class="titolo">
+            <h3><a href="#">Residenza Toselli</a></h3>
+          </div>
+        </div>
+        <div class="apartment">
+          <div class="foto">
+            <img src="/img/3-1.jpeg"/>
+          </div>
+          <div class="titolo">
+            <h3><a href="#">Private room</a></h3>
+          </div>
+        </div>
       </div>
     </div>
   </div>

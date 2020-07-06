@@ -29,10 +29,10 @@
             @yield('content')
         </div>
       </div>
-      <div class="row">
-        <div class="footer">
-          @include('components.footer')
-        </div>
+    </div>
+    <div class="row">
+      <div class="footer">
+        @include('components.footer')
       </div>
     </div>
   </body>

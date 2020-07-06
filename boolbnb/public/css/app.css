@@ -10935,7 +10935,7 @@ a.text-dark:focus {
   border: 1px solid #DDDDDD;
   padding: 3px;
   border-radius: 5px;
-  margin: 50px auto 60px auto;
+  margin: 150px auto 60px auto;
   background-color: #f0f1f2;
 }
 
@@ -11007,6 +11007,7 @@ a.text-dark:focus {
 }
 
 .footer {
+  width: 100%;
   margin-top: 40px;
   padding-top: 40px;
   background-color: #1b3c59;
@@ -11023,11 +11024,10 @@ a.text-dark:focus {
   font-size: 16px;
   font-weight: 600;
   padding: 10px;
-  text-align: left;
 }
 
 .footer .menu_footer {
-  float: right;
+  height: 100%;
   margin-top: 5%;
 }
 
@@ -11035,7 +11035,6 @@ a.text-dark:focus {
   list-style: none;
   font-size: 20px;
   font-weight: 600;
-  text-align: right;
 }
 
 .footer .menu_footer ul li a {
@@ -11057,6 +11056,42 @@ a.text-dark:focus {
   padding: 20px;
 }
 
+@media screen and (min-width: 767.98px) {
+  .logo_menu {
+    text-align: left;
+  }
+
+  .logo_menu .logo_footer h3 {
+    text-align: left;
+  }
+
+  .menu_footer ul li {
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .logo_menu {
+    text-align: center;
+  }
+
+  .logo_menu .logo_footer img {
+    padding-left: 45px;
+  }
+
+  .logo_menu .logo_footer h3 {
+    text-align: center;
+  }
+
+  .menu_footer ul {
+    padding-left: 0;
+  }
+
+  .menu_footer ul li {
+    text-align: center;
+  }
+}
+
 .search {
   font-size: 18px;
   width: 413px;
@@ -11064,7 +11099,7 @@ a.text-dark:focus {
   border: 1px solid #DDDDDD;
   padding: 3px;
   border-radius: 5px;
-  margin: 50px auto 60px auto;
+  margin: 150px auto 60px auto;
   background-color: #f0f1f2;
 }
 
@@ -11154,7 +11189,8 @@ a.text-dark:focus {
 
 @media screen and (max-width: 991px) {
   .fa-bars {
-    margin-top: 2%;
+    margin-top: -3%;
+    margin-right: 4%;
     display: inline-block;
     position: fixed;
     right: 20px;
@@ -11174,6 +11210,8 @@ body .header {
   width: 100%;
   color: #1b3c59;
   background-color: white;
+  position: fixed;
+  z-index: 99;
 }
 
 body .header .logo img {
@@ -11224,6 +11262,7 @@ body .registrati {
   margin-top: 80px;
   border-radius: 5px;
   text-align: center;
+  background-color: white;
 }
 
 body .accedi h1,
