@@ -18,9 +18,21 @@ class UiController extends Controller
     public function show_ui_apartments(Request $request)
     {
         $apartments = Apartment::all();
-        dd($request);
 
+        $apartments_found = [];
+        foreach ($apartments as $apartment) {
+          if ($apartment['address'] === $request['address']) {
+            $apartments_found[] = $apartment;
+          }
+        }
 
-        return view("ui_apartments", compact('apartments'));
+        return view("ui_apartments", compact('apartments','apartments_found'));
+    }
+
+    public function show_ui_apartment($id){
+
+      $apartment = Apartment::findOrFail($id);
+
+      return view('ui_apartment',compact('apartment'));
     }
 }

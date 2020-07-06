@@ -33,7 +33,10 @@ class Apartment extends Model
       return $this->hasMany(Sponsorship::class);
     }
 
+    public function views(){
 
+      return $this->hasMany(View::class);
+    }
 }
 
 namespace App;
@@ -48,5 +51,5 @@ class Post extends Model
     public function searchableAs()
     {
       return 'posts_index';
-    }   
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Apartment;
+use App\View;
 use Str;
 use Auth;
 use App\Service;
@@ -152,5 +153,21 @@ class UserController extends Controller
 
       return view("my-map");
     }
+
+    public function show_upra_apartment($id){
+
+      $apartment = Apartment::findOrFail($id);
+      $views = View::all();
+      return view("show_upra_apartment", compact('apartment'));
+    }
+
+    public function delete_apartment($id){
+
+      $apartment = Apartment::findOrFail($id);
+      $apartment ->delete();
+      return redirect()-> route('user_apartment');
+    }
+
+
 
 }

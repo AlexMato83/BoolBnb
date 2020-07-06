@@ -61,6 +61,14 @@ class AddForeignKey extends Migration
               ->onDelete('cascade');
 
       });
+
+      Schema::table('views', function (Blueprint $table) {
+
+        $table->foreign('apartment_id', 'apart_view')
+              ->references('id')
+              ->on('apartments')
+              ->onDelete('cascade');
+        });
     }
 
     /**
@@ -95,6 +103,11 @@ class AddForeignKey extends Migration
           $table->dropForeign('apart_serv');
           $table->dropForeign('service');
 
+        });
+
+        Schema::table('views', function (Blueprint $table) {
+
+          $table->dropForeign('apart_view');    
         });
     }
 }

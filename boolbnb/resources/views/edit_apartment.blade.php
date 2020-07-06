@@ -73,9 +73,9 @@
 
     </select>
 
-    <button id="create2" type="text" name="" value="">Update</button>
     <input id="create" class="dispna" type="submit" name="" value="">
 
   </form>
+  <button id="create2" type="text" name="" value="">Update</button>
 
 @endsection
