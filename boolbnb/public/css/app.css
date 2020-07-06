@@ -10936,7 +10936,7 @@ a.text-dark:focus {
   padding: 3px;
   border-radius: 5px;
   margin: 50px auto 60px auto;
-  background-color: #1b3c59;
+  background-color: #f0f1f2;
 }
 
 .search .dove {
@@ -11002,6 +11002,10 @@ a.text-dark:focus {
   padding-top: 10px;
 }
 
+.evidenza .apartments .apartment .titolo h3 a {
+  color: #1b3c59;
+}
+
 .footer {
   margin-top: 40px;
   padding-top: 40px;
@@ -11011,8 +11015,8 @@ a.text-dark:focus {
 
 .footer .logo_menu .logo_footer img {
   margin-top: 5%;
-  height: 100%;
-  width: 100%;
+  height: 90%;
+  width: 90%;
 }
 
 .footer .logo_menu .logo_footer h3 {
@@ -11051,6 +11055,114 @@ a.text-dark:focus {
 .footer h3 {
   text-align: center;
   padding: 20px;
+}
+
+.search {
+  font-size: 18px;
+  width: 413px;
+  height: 49px;
+  border: 1px solid #DDDDDD;
+  padding: 3px;
+  border-radius: 5px;
+  margin: 50px auto 60px auto;
+  background-color: #f0f1f2;
+}
+
+.search .dove {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #DDDDDD;
+  border-radius: 5px;
+  padding-left: 2%;
+}
+
+.search button {
+  width: 100px;
+  height: 40px;
+  font-weight: bold;
+  background-color: #61ce4e;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+  border: none;
+}
+
+.search button i {
+  padding-right: 7px;
+  font-size: 15px;
+  font-weight: 550;
+}
+
+.evidenza {
+  margin: auto;
+}
+
+.evidenza h1 {
+  text-align: left;
+  padding-left: 30px;
+  font-size: 30px;
+}
+
+.evidenza .apartments {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 20pX;
+}
+
+.evidenza .apartments .apartment {
+  width: calc((100% / 3) - 4%);
+  height: 250px;
+  margin: 2%;
+  padding: 5px;
+  text-align: center;
+}
+
+.evidenza .apartments .apartment .foto img {
+  width: 100%;
+  height: 100%;
+  border-radius: 3%;
+}
+
+.evidenza .apartments .apartment .titolo h3 {
+  font-size: 18px;
+  padding-top: 10px;
+}
+
+.evidenza .apartments .apartment .titolo h3 a {
+  color: #1b3c59;
+}
+
+.fa-bars {
+  margin-top: 2%;
+  float: right;
+  font-size: 20px;
+  color: #1b3c59;
+  display: none;
+}
+
+.fa-times {
+  margin-top: 2%;
+  color: #1b3c59;
+  font-size: 25px;
+  display: inline-block;
+  position: fixed;
+  right: 20px;
+}
+
+@media screen and (max-width: 991px) {
+  .fa-bars {
+    margin-top: 2%;
+    display: inline-block;
+    position: fixed;
+    right: 20px;
+  }
+
+  .prova {
+    display: none;
+  }
 }
 
 body {
@@ -11097,6 +11209,11 @@ body .header .navigazione ul li button {
   color: white;
   box-shadow: none;
   border-radius: 5px;
+}
+
+body .header .navigazione ul li a {
+  color: #1b3c59;
+  font-size: 15px;
 }
 
 body .accedi,
@@ -11164,5 +11281,31 @@ body .off {
 
 body .on {
   display: block;
+}
+
+body .hamburger-menu {
+  float: right;
+}
+
+body .hamburger-menu ul {
+  display: inline;
+}
+
+body .hamburger-menu ul li {
+  margin-bottom: 2px;
+  list-style: none;
+}
+
+body .hamburger-menu ul li button {
+  font-size: 20px;
+  background-color: #1b3c59;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+}
+
+body .hamburger-menu ul li a {
+  font-size: 20px;
+  color: #1b3c59;
 }
 

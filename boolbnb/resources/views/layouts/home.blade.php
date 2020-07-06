@@ -52,7 +52,7 @@
 
 
   {{-- Da collegare con il database --}}
-  
+
   {{-- <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <div class="evidenza">
 
@@ -63,7 +63,7 @@
       </div>
     </div>
   </div> --}}
-  {{-- <script class="apartment-template" type="text/x-handlebars-template">  
+  {{-- <script class="apartmentEvidence-template" type="text/x-handlebars-template">  
 				<div class="apartment">
 					<div class="foto">
 						<img src=""/>

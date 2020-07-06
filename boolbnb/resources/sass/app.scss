@@ -6,6 +6,9 @@
 
 @import '_home';
 @import '_footer';
+@import '_home';
+@import '_searchResults';
+@import '_header';
 
   body{
     background-color: white;
@@ -49,6 +52,10 @@
             color: white;
             box-shadow: none;
             border-radius: 5px;
+          }
+          a{
+            color: #1b3c59;
+            font-size: 15px;
           }
         }
       }
@@ -106,4 +113,26 @@
   .on {
     display: block;
   }
+
+  .hamburger-menu{
+  float:right;
+  ul{
+    display:inline;
+    li{
+      margin-bottom:2px;
+      list-style: none;
+      button{
+        font-size:20px;
+        background-color: #1b3c59;
+        color: white;
+        box-shadow: none;
+        border-radius: 5px;
+      }
+      a{
+        font-size:20px;
+        color:#1b3c59;
+      }
+    }
   }
+}
+}

@@ -1,0 +1,25 @@
+.fa-bars{
+  margin-top:2%;
+  float:right;
+  font-size:20px;
+  color:#1b3c59;
+  display:none;
+}
+.fa-times {
+  margin-top:2%;
+  color:#1b3c59;
+  font-size:25px;
+  display:inline-block;
+  position: fixed;
+  right: 20px;
+}
+@media screen and (max-width: 991px){
+  .fa-bars{
+    margin-top:2%;
+    display:inline-block;
+    position: fixed;
+    right: 20px;  }
+  .prova{
+    display:none;
+  }
+}
