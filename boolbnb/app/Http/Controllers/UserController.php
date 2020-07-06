@@ -168,6 +168,14 @@ class UserController extends Controller
       return redirect()-> route('user_apartment');
     }
 
+    public function create_view($id){
+
+      $view = new View;
+      $view['apartment_id'] = $id;
+      $view->save();
+      return redirect()->route('show_upra_apartment',$id);
+    }
+
 
 
 }
