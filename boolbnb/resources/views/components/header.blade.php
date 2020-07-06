@@ -20,18 +20,21 @@
     </div>
   </div>
 
-
-<div class="hamburger-menu off">
-  <div class="chiusura">
-    <a href="#" class="close">
-      <i class="fas fa-times"></i>
-    </a>
+<div class="lista_ham">
+  <div class="hamburger-menu off">
+    <div class="chiusura">
+      <a href="#" class="close">
+        <i class="fas fa-times"></i>
+      </a>
+    </div>
+    <div class="ham">
+      <ul>
+        <li><a href="#" ><strong>Diventa un host</strong></a><li>
+        <li><a class="reg" href="#"><strong>Registrati</strong></a><li>
+        <li><button class="tasto" type="button" name="button"><strong>Accedi</strong></button></li>
+      </ul>
+    </div>
   </div>
-  <ul>
-    <li><a href="#" ><strong>Diventa un host</strong></a><li>
-    <li><a class="reg" href="#"><strong>Registrati</strong></a><li>
-    <li><button class="tasto" type="button" name="button"><strong>Accedi</strong></button></li>
-  </ul>
 </div>
 
 <div class="accedi off">

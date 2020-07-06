@@ -10935,7 +10935,7 @@ a.text-dark:focus {
   border: 1px solid #DDDDDD;
   padding: 3px;
   border-radius: 5px;
-  margin: 150px auto 60px auto;
+  margin: 180px auto 60px auto;
   background-color: #f0f1f2;
 }
 
@@ -11016,8 +11016,8 @@ a.text-dark:focus {
 
 .footer .logo_menu .logo_footer img {
   margin-top: 5%;
-  height: 90%;
-  width: 90%;
+  height: 70px;
+  width: auto;
 }
 
 .footer .logo_menu .logo_footer h3 {
@@ -11099,7 +11099,7 @@ a.text-dark:focus {
   border: 1px solid #DDDDDD;
   padding: 3px;
   border-radius: 5px;
-  margin: 150px auto 60px auto;
+  margin: 180px auto 60px auto;
   background-color: #f0f1f2;
 }
 
@@ -11181,8 +11181,8 @@ a.text-dark:focus {
 
 .header .logo img {
   margin-top: 5%;
-  height: 90%;
-  width: 90%;
+  height: 65px;
+  width: auto;
 }
 
 .header .navigazione {
@@ -11223,16 +11223,23 @@ a.text-dark:focus {
   float: right;
 }
 
-.hamburger-menu ul {
+.hamburger-menu .ham {
+  height: 100%;
+  width: 100%;
+  margin-top: 3px;
+  margin-right: 65px;
+}
+
+.hamburger-menu .ham ul {
   display: inline;
 }
 
-.hamburger-menu ul li {
+.hamburger-menu .ham ul li {
   margin-bottom: 2px;
   list-style: none;
 }
 
-.hamburger-menu ul li button {
+.hamburger-menu .ham ul li button {
   font-size: 20px;
   background-color: #1b3c59;
   color: white;
@@ -11240,7 +11247,7 @@ a.text-dark:focus {
   border-radius: 5px;
 }
 
-.hamburger-menu ul li a {
+.hamburger-menu .ham ul li a {
   font-size: 20px;
   color: #1b3c59;
 }
@@ -11276,6 +11283,12 @@ a.text-dark:focus {
   }
 }
 
+@media screen and (min-width: 991px) {
+  .lista_ham {
+    display: none;
+  }
+}
+
 body {
   background-color: white;
 }
@@ -11285,7 +11298,7 @@ body .registrati {
   width: 413px;
   border: 1px solid #DDDDDD;
   margin: auto;
-  margin-top: 150px;
+  margin-top: 100px;
   border-radius: 5px;
   text-align: center;
   background-color: white;

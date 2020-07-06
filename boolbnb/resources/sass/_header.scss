@@ -9,8 +9,8 @@
 
     img{
       margin-top: 5%;
-      height:90%;
-      width:90%;
+      height:65px;
+      width: auto;
     }
   }
   .navigazione {
@@ -45,22 +45,28 @@
 }
 
 .hamburger-menu{
-float:right;
-  ul{
-    display:inline;
-    li{
-      margin-bottom:2px;
-      list-style: none;
-      button{
-        font-size:20px;
-        background-color: #1b3c59;
-        color: white;
-        box-shadow: none;
-        border-radius: 5px;
-      }
-      a{
-        font-size:20px;
-        color:#1b3c59;
+  float:right;
+  .ham {
+    height: 100%;
+    width: 100%;
+    margin-top: 3px;
+    margin-right: 65px;
+    ul{
+      display:inline;
+      li{
+        margin-bottom:2px;
+        list-style: none;
+        button{
+          font-size:20px;
+          background-color: #1b3c59;
+          color: white;
+          box-shadow: none;
+          border-radius: 5px;
+        }
+        a{
+          font-size:20px;
+          color:#1b3c59;
+        }
       }
     }
   }
@@ -91,4 +97,11 @@ float:right;
   .prova{
     display:none;
   }
+}
+
+@media screen and (min-width: 991px){
+
+  .lista_ham {
+    display: none;
+  }
 }
