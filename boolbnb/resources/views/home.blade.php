@@ -19,6 +19,6 @@
             </div>
         </div>
     </div>
-    <a href="{{route('user_apartment')}}">APARTMENTS</a>
+    
 </div>
 @endsection
