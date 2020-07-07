@@ -1,3 +1,5 @@
+
+
 <div class="offset-1 col-5 offset-sm-1 col-sm-5 offset-md-1 col-md-5 offset-lg-1 col-lg-3 offset-xl-1 col-xl-3">
   <div class="logo">
     <img src="/img/logo.jpg">
@@ -9,16 +11,16 @@
   </div>
 </div>
 
-  <div class="offset-md-1 col-md-5 offset-lg-3 col-lg-5 offset-xl-3 col-xl-5">
+<div class="offset-md-1 col-md-5 offset-lg-3 col-lg-5 offset-xl-3 col-xl-5">
 
-    <div class="navigazione prova">
-      <ul>
-        <li><a href="#"><strong>Diventa un host</strong></a><li>
-        <li ><a class="reg" href="#"><strong>Registrati</strong></a><li>
-        <li><button class="tasto" type="button" name="button"><strong>Accedi</strong></button></li>
-      </ul>
-    </div>
+  <div class="navigazione prova">
+    <ul>
+      <li><a href="#"><strong>Diventa un host</strong></a><li>
+      <li ><a class="reg" href="#"><strong>Registrati</strong></a><li>
+      <li><button class="tasto" type="button" name="button"><strong>Accedi</strong></button></li>
+    </ul>
   </div>
+</div>
 
 <div class="lista_ham">
   <div class="hamburger-menu off">

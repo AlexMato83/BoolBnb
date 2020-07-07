@@ -21,7 +21,9 @@
     <div class="container-fluid">
       <div class="row">
         <div class="header">
-          @include('components.header')
+          
+            @include('components.header')
+
         </div>
       </div>
     </div>
