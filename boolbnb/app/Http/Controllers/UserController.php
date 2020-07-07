@@ -10,6 +10,7 @@ use Auth;
 use App\Service;
 use App\User;
 use App\Category;
+use App\Message;
 class UserController extends Controller
 {
     public function __construct()
@@ -174,6 +175,28 @@ class UserController extends Controller
       $view['apartment_id'] = $id;
       $view->save();
       return redirect()->route('show_upra_apartment',$id);
+    }
+
+    public function show_messages(){
+
+      $user = Auth::user();
+      $apartments = $user -> apartments;
+
+      $user_messages = [];
+      foreach ($apartments as $apartment) {
+        $messages = $apartment-> messages;
+
+        foreach ($messages as $message) {
+
+            $user_messages[] = $message;
+
+        }
+      }
+      $array_messages = collect($user_messages);
+
+      $ordered_messages = $array_messages->sortByDesc('id');
+
+      return view('upra_messages',compact('ordered_messages'));
     }
 
 

@@ -10,6 +10,7 @@ Obiettivi:
 - creare pagina show per ogni appartamento, inserire in un div la mappa con etichetta.
 https://developer.tomtom.com/maps-sdk-web/tutorials-use-cases/turfjs-integration Marker
 - Inviare il form di ricerca e la formula della distanza
+-aggiungere chiave ip nella tabella views
 Docs:
 
 le funzioni
