@@ -12,14 +12,15 @@ class UiController extends Controller
 {
     public function index()
     {
-        $services = Service::all();
-        $categories = Category::all();
 
-        return view("welcome", compact('services', 'categories'));
+
+        return view("welcome");
     }
     public function show_ui_apartments(Request $request)
     {
         $apartments = Apartment::all();
+        $services = Service::all();
+        $categories = Category::all();
 
         $apartments_found = [];
         foreach ($apartments as $apartment) {
@@ -27,9 +28,10 @@ class UiController extends Controller
             $apartments_found[] = $apartment;
           }
         }
-
-        return view("ui_apartments", compact('apartments','apartments_found'));
+         // AGGIUNGERE FUNZIONE MAGICA PER FILTRARE APPARTAMENTI ENTRO 20KM
+        return view("ui_apartments", compact('apartments','apartments_found','services','categories'));
     }
+
 
     public function show_ui_apartment($id){
 
@@ -48,5 +50,61 @@ class UiController extends Controller
 
         return redirect()->route('ui_apartment', $id);
     }
+
+    public function filter_ui_apartments(Request $request){
+      $apartments = Apartment::all();
+      $services = Service::all();
+      $categories = Category::all();
+              $validate = $request -> validate([
+                  //
+                  "address" => "required",
+                  // "rooms" => "required",
+                  "search_radius" => "required",
+                  // "beds" => "required",
+                  // "services" => "required",
+                  // "category_id" => "required",
+                  ]);
+              $search_radius = ($validate["search_radius"] * 1000);
+              $center_lat = $request["latitude"];
+              $center_long = $request["longitude"];
+
+              //*************************LA FUNZIONE CHE SEGUE INVECE E' FOLLIA PURA MA VA BENE COSI
+              //CALCOLO DISTANZA TRA DUE PUNTI
+              // la lunghezza dell' equatore è pari a 2*M_PI*R.
+              // Il raggio del parallelo di latitudine L è pari a R*cos(L)
+              // la lunghezza del parallelo di latitudine L è 2*M_PI*6378137*cos(L).
+              // 1 grado latitudine = 1109467 metri
+              // 6378137 metri = raggio terrestre.
+              function In_radius($apartments,$latitude, $longitude,$search_radius){ // inserire coordinate del punto centro di ricerca. il search radius sarà in metri
+                $equator_radius = 6378137;
+                $mt_for_long_deg = (2*M_PI*$equator_radius* cos((abs($latitude)*M_PI)/180)/360);
+                $mt_for_lat_deg = 110946;
+                $results = [];
+                $center_of_search = [                                    // sarà l'appartamento o l'indirizzo digitato
+                  "lat" => ($latitude),
+                  "long" => ($longitude)
+                ];
+                foreach ($apartments as $apartment) {
+                  $dist_lat = abs($center_of_search["lat"] - $apartment["latitude"])* $mt_for_lat_deg;
+
+                  $dist_long = abs($center_of_search["long"] - $apartment["longitude"])* $mt_for_long_deg;
+                  $dist = sqrt(($dist_lat*$dist_lat) + ($dist_long*$dist_long));
+                  // dd($dist_lat,$dist_long,$dist);
+                  if ($dist <= $search_radius) {
+                    $apartment["dist"] = $dist/1000;
+                    $results[] = $apartment;
+                  }
+                }
+                // dd($results,$center_of_search["lat"],$center_of_search["long"]);
+                return $results;
+              }
+              $apartments_found=In_radius($apartments,$center_lat, $center_long,$search_radius);
+              // dd($apartments_found);
+    return view("ui_apartments", compact("apartments_found",'apartments','services','categories'));
+
+    // AGGIUNGERE FILTRI : N° stanze, N° posti letto, servizi
+    }
+
+
 
 }

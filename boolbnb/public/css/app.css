@@ -10968,3 +10968,7 @@ body {
   position: absolute;
 }
 
+header {
+  border: 1px solid grey;
+}
+
