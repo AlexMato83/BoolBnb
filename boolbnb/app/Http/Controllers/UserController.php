@@ -64,7 +64,7 @@ class UserController extends Controller
 
       $image = $request->file('images');
       $name = Str::slug($request->input('name')).'_'.time();
-      $folder = '/uploads/images';
+      $folder = '/uploads/images/';
       $ext = $image->getClientOriginalExtension();
       $filePath = $folder . $name. '.' . $ext;
       $image->storeAs($folder, $name.'.'. $ext, 'public');
@@ -155,10 +155,6 @@ class UserController extends Controller
         return redirect() -> route('user_apartment');
     }
 
-    public function prova_tomtom(){
-
-      return view("my-map");
-    }
 
     public function show_upra_apartment($id){
       $user = Auth::user();

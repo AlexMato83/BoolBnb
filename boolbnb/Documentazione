@@ -2,15 +2,19 @@ Obiettivi:
 
 - stampare in pagina tutti gli apparytasmenti per aggiungere tasto edit e fare la prova dell'edit
 - Aggiungere in tabella appartamento --> visibile si/no {FATTO}
-- Creare tabella visualizzazioni one to Many con apartment
-- Eliminare carta di credito e modificare i dati necessari per la registrazione{FATTO}
+- Creare tabella visualizzazioni one to Many con apartment {FATTO}
+- Eliminare carta di credito e modificare i dati necessari per la registrazione {FATTO}
 - Ripristinare long e lat nella tabella appartamenti {FATTO}
-- creare nella welcome le possibilità di ricerca con filtro.
-- creare pagina show per tutti gli appartamenti
+- creare nella welcome le possibilità di ricerca per località. {FATTO}
+- creare pagina show per tutti gli appartamenti {FATTO}
 - creare pagina show per ogni appartamento, inserire in un div la mappa con etichetta.
 https://developer.tomtom.com/maps-sdk-web/tutorials-use-cases/turfjs-integration Marker
-- Inviare il form di ricerca e la formula della distanza
+- Inviare il form di ricerca e la formula della distanza {FATTO}
 -aggiungere chiave ip nella tabella views
+
+- Gestire immagini multiple e cambio immagine nell'edit apartment
+
+
 Docs:
 
 le funzioni

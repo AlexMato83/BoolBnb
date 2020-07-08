@@ -13,88 +13,91 @@ require('./bootstrap');
 //     el: '#app',
 // });
 //*****************//
-// function turfjs(){
-//   var apiKey = 'luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt';
-//   var map = tt.map({
-//   key: apiKey,
-//   container: 'map',
-//   // center: geometryData[1][0],
-//   style: 'tomtom://vector/1/basic-main',
-//   zoom: 10
-//   });
-//
-//   function findGeometry() {
-//     var SEARCH_QUERY = 'Roma';
-//     tt.services.fuzzySearch({
-//         key: apiKey,
-//         query: SEARCH_QUERY
-//       })
-//       .go()
-//       .then(getAdditionalData);
-//
-//   }
-//   findGeometry();
-//
-//   function getAdditionalData(fuzzySearchResults) {
-//     var geometryId = fuzzySearchResults.results[0].dataSources.geometry.id;
-//     tt.services.additionalData({
-//       key: apiKey,
-//       geometries: [geometryId],
-//         geometriesZoom: 12
-//       })
-//       .go()
-//       .then(processAdditionalDataResponse);
-//   }
-//
-//   function buildLayer(id, data) {
-//     return {
-//       'id': id,
-//       'type': 'fill',
-//       'source': {
-//           'type': 'geojson',
-//           'data': {
-//               'type': 'Feature',
-//               'geometry': {
-//                   'type': 'Polygon',
-//                   'coordinates': data
-//               }
-//           }
-//       },
-//       'layout': {},
-//       'paint': {
-//           'fill-color': '#2FAAFF',
-//           'fill-opacity': 0.8,
-//           'fill-outline-color': 'black'
-//       }
-//     }
-//   }
-//
-//   function displayPolygonOnTheMap(additionalDataResult) {
-//     var geometryData = additionalDataResult.geometryData.features[0].geometry.coordinates[0];
-//     map.addLayer(buildLayer('fill_shape_id', geometryData));
-//     console.log(geometryData[0]);
-//     function reset_position(geometryData){
-//       console.log(geometryData);
-//       var apiKey = 'luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt';
-//       var newmap = tt.map({
-//         key: apiKey,
-//         container: 'map',
-//         center: geometryData[0],
-//         style: 'tomtom://vector/1/basic-main',
-//         zoom: 10
-//       });
-//     }
-//     reset_position(geometryData);
-//
-//     return geometryData;
-//   }
-//
-//   function processAdditionalDataResponse(additionalDataResponse) {
-//     if (additionalDataResponse.additionalData && additionalDataResponse.additionalData.length) {
-//       var geometryData = displayPolygonOnTheMap(additionalDataResponse.additionalData[0]);
-//     }
-//
-//   }
+function turfjs(){
+  var lat = $("#latitude").html();
+  var long = $("#longitude").html();
+  var center = [ long , lat];
+  var apiKey = 'luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt';
+  var map = tt.map({
+  key: apiKey,
+  container: 'map',
+  center: center,
+  style: 'tomtom://vector/1/basic-main',
+  zoom: 10  
+  });
+
+  function findGeometry() {
+    var SEARCH_QUERY = 'Roma';
+    tt.services.fuzzySearch({
+        key: apiKey,
+        query: SEARCH_QUERY
+      })
+      .go()
+      .then(getAdditionalData);
+
+  }
+  findGeometry();
+
+  function getAdditionalData(fuzzySearchResults) {
+    var geometryId = fuzzySearchResults.results[0].dataSources.geometry.id;
+    tt.services.additionalData({
+      key: apiKey,
+      geometries: [geometryId],
+        geometriesZoom: 12
+      })
+      .go()
+      .then(processAdditionalDataResponse);
+  }
+
+  function buildLayer(id, data) {
+    return {
+      'id': id,
+      'type': 'fill',
+      'source': {
+          'type': 'geojson',
+          'data': {
+              'type': 'Feature',
+              'geometry': {
+                  'type': 'Polygon',
+                  'coordinates': data
+              }
+          }
+      },
+      'layout': {},
+      'paint': {
+          'fill-color': '#2FAAFF',
+          'fill-opacity': 0.8,
+          'fill-outline-color': 'black'
+      }
+    }
+  }
+
+  function displayPolygonOnTheMap(additionalDataResult) {
+    var geometryData = additionalDataResult.geometryData.features[0].geometry.coordinates[0];
+    map.addLayer(buildLayer('fill_shape_id', geometryData));
+    console.log(geometryData[0]);
+    function reset_position(geometryData){
+      console.log(geometryData);
+      var apiKey = 'luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt';
+      var newmap = tt.map({
+        key: apiKey,
+        container: 'map',
+        center: geometryData[0],
+        style: 'tomtom://vector/1/basic-main',
+        zoom: 10
+      });
+    }
+    reset_position(geometryData);
+
+    return geometryData;
+  }
+
+  function processAdditionalDataResponse(additionalDataResponse) {
+    if (additionalDataResponse.additionalData && additionalDataResponse.additionalData.length) {
+      var geometryData = displayPolygonOnTheMap(additionalDataResponse.additionalData[0]);
+    }
+
+  }
 
 //   function calculateTurfArea(geometryData) {
 //     var turfPolygon = turf.polygon(geometryData);
@@ -151,7 +154,7 @@ require('./bootstrap');
 //     drawPointsInsideAndOutsideOfPolygon(geometryData);
 //   }
 // }
-// }
+}
 
 function address_to_coord(button, submit){
 

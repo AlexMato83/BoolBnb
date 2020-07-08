@@ -7,6 +7,7 @@ use App\Service;
 use App\Category;
 use App\Apartment;
 use App\Message;
+use App\View;
 
 class UiController extends Controller
 {
@@ -105,19 +106,22 @@ class UiController extends Controller
                   }
                   if (isset($r_services)) {
                     foreach ($In_radius_apartments as $key => $apartment) {
-                        foreach ($r_services as $r_service){
-                            if (!in_array($r_service, $apartment -> services) ) {
-                                array_splice($In_radius_apartments, $key, 1);
-                                $key = $key - 1;
+                      foreach ($r_services as $r_service){
+                        $possible_apt = false;
+                        foreach ($apartment-> services as $service) {
+                          if ($r_service["id"] == $service["id"]){
+                            $possible_apt = true;
                             break;
-                            }
+                          }
                         }
+                        if (!$possible_apt) {
+                          array_splice($In_radius_apartments, $key, 1);
+                          $key = $key - 1;
+                        }
+                        break;
                       }
-
+                    }
                   }
-                //   if (isset($beds)) {
-                //       foreach ($)
-                //   }
                 return $In_radius_apartments;
               }
 
@@ -151,14 +155,17 @@ class UiController extends Controller
                 // dd($results,$center_of_search["lat"],$center_of_search["long"]);
                 return $results;
               }
-              $apartments_found=In_radius($apartments,$center_lat, $center_long,$search_radius);
-              $prova = filters($rooms, $beds, $r_services, $apartments_found);
-              dd($prova);
+              $apartments_in_radius=In_radius($apartments,$center_lat, $center_long,$search_radius);
+              $apartments_found = filters($rooms, $beds, $r_services, $apartments_in_radius);
     return view("ui_apartments", compact("apartments_found",'apartments','services','categories'));
 
     // AGGIUNGERE FILTRI : N° stanze, N° posti letto, servizi
     }
 
+    public function prova_tomtom(){
+
+      return view("my-map");
+    }
 
 
 }

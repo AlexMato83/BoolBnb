@@ -10933,8 +10933,8 @@ body {
 }
 
 #map {
-  height: 100vh;
-  width: 100vw;
+  height: 200px;
+  width: 200px;
 }
 
 #polygon-info-box {

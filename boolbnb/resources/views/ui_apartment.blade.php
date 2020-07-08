@@ -8,7 +8,15 @@
     {{$apartment['rooms']}}<br>
     {{$apartment['bathrooms']}}<br>
     {{$apartment['beds']}}<br>
-    {{$apartment['images']}}
+    <div id="latitude" class="dispna">
+      {{$apartment["latitude"]}}
+    </div>
+    <div id="longitude" class="dispna">
+      {{$apartment["longitude"]}}
+    </div>
+    <img src="{{ asset($apartment['images']) }}" style="width: 40px; height: 40px; border-radius: 50%;">
+    <div id='map'></div>
+
   </div>
   <form action="{{route('send_message_upra', $apartment['id'])}}" method="post">
       @csrf
