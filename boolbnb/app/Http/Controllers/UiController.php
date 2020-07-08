@@ -21,10 +21,10 @@ class UiController extends Controller
         $services = Service::all();
         $categories = Category::all();
 
-        $apartments_found = [];
+        $apartments_filtered = [];
         foreach ($apartments as $apartment) {
           if ($apartment['address'] === $request['address']) {
-            $apartments_found[] = $apartment;
+            $apartments_filtered[] = $apartment;
           }
         }
          // AGGIUNGERE FUNZIONE MAGICA PER FILTRARE APPARTAMENTI ENTRO 20KM
@@ -77,11 +77,12 @@ class UiController extends Controller
         $center_long = $request["longitude"];
         $rooms = $request['rooms'];
         $beds = $request['beds'];
-
-        foreach ($services as $service) {
+        if (isset($request['services'])) {
+          foreach ($services as $service) {
             if (in_array($service['id'], $request['services'])) {
-                $r_services [] = $service;
+              $r_services [] = $service;
             }
+          }
         }
 
               function filters($rooms, $beds, $r_services, $In_radius_apartments)
@@ -125,6 +126,24 @@ class UiController extends Controller
                 return $In_radius_apartments;
               }
 
+              function ordered_by_dist($apartments_list){
+                $array_dist =[];
+                $array_complete = [];
+
+                foreach ($apartments_list as $apartment) {
+                  $array_dist[] = $apartment["dist"];
+                }
+                asort($array_dist);
+                foreach ($array_dist as $dist) {
+                  foreach ($apartments_list as $apartment) {
+                    if ($dist == $apartment["dist"]) {
+                      $array_complete[]= $apartment;
+                    }
+                  }
+                }
+                return $array_complete;
+              }
+
               //*************************LA FUNZIONE CHE SEGUE INVECE E' FOLLIA PURA MA VA BENE COSI
               //CALCOLO DISTANZA TRA DUE PUNTI
               // la lunghezza dell' equatore è pari a 2*M_PI*R.
@@ -156,7 +175,8 @@ class UiController extends Controller
                 return $results;
               }
               $apartments_in_radius=In_radius($apartments,$center_lat, $center_long,$search_radius);
-              $apartments_found = filters($rooms, $beds, $r_services, $apartments_in_radius);
+              $apartments_filtered = filters($rooms, $beds, $r_services, $apartments_in_radius);
+              $apartments_found = ordered_by_dist($apartments_filtered);
     return view("ui_apartments", compact("apartments_found",'apartments','services','categories'));
 
     // AGGIUNGERE FILTRI : N° stanze, N° posti letto, servizi

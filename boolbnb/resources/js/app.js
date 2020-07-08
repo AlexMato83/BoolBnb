@@ -8,36 +8,12 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
-$(document).ready(function() {
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
   //funzioni riguardanti i tasti accedi e registrati da rivedere con collegamento al database
 
-  $(".tasto").click(
-    function() {
-      $(".accedi").removeClass("off").addClass("on");
-      $(".registrati").removeClass("on").addClass("off");
-    }
-  );
-  $(".continua").click(
-    function() {
-      $(".accedi").removeClass("on").addClass("off");
-    }
-  );
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-  $(".reg").click(
-    function() {
-      $(".registrati").removeClass("off").addClass("on");
-      $(".accedi").removeClass("on").addClass("off");
-    }
-  );
-  $(".continua").click(
-    function() {
-      $(".registrati").removeClass("on").addClass("off");
-    }
-  );
 
 // const app = new Vue({
 //     el: '#app',
@@ -53,30 +29,10 @@ function turfjs(){
   container: 'map',
   center: center,
   style: 'tomtom://vector/1/basic-main',
-  zoom: 10  
+  zoom: 10
   });
-  $(".fa-bars").click(
-    function() {
-      $(".hamburger-menu").removeClass("off").addClass("on");
-      $(".barre").removeClass("on").addClass("off");
-    }
-  );
-  $(".continua").click(
-    function() {
-      $(".accedi").removeClass("on").addClass("off");
-    }
-  );
-  $(".fa-times").click(
-    function() {
-      $(".hamburger-menu").removeClass("on").addClass("off");
-      $(".barre").addClass("on");
-    }
-  );
-  $(".continua").click(
-    function() {
-      $(".registrati").removeClass("on").addClass("off");
-    }
-  );
+
+
 
   function findGeometry() {
     var SEARCH_QUERY = 'Roma';
@@ -138,7 +94,7 @@ function turfjs(){
   //     alert("Chiamata fallita!!!");
   //   }
   // })
-});
+// });
 
   }
   findGeometry();
@@ -258,8 +214,8 @@ function turfjs(){
 //     calculateTurfArea(geometryData);
 //     drawPointsInsideAndOutsideOfPolygon(geometryData);
 //   }
-// }
 }
+
 
 function address_to_coord(button, submit){
 
@@ -299,7 +255,8 @@ function prova_api(){
       url:"http://localhost:8000/welcome_show",
       method: "GET",
       success: function(data){
-        console.log(JSON.encode(data));
+        var variabile = JSON.parse(data)
+        console.log(variabile);
       }
     })
   });
@@ -316,5 +273,52 @@ function init(){
   address_to_coord('#filtered2', 'filtered');
 
 }
+
+  $(".tasto").click(
+    function() {
+      $(".accedi").removeClass("off").addClass("on");
+      $(".registrati").removeClass("on").addClass("off");
+    }
+  );
+  $(".continua").click(
+    function() {
+      $(".accedi").removeClass("on").addClass("off");
+    }
+  );
+
+  // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+  $(".reg").click(
+    function() {
+      $(".registrati").removeClass("off").addClass("on");
+      $(".accedi").removeClass("on").addClass("off");
+    }
+  );
+  $(".continua").click(
+    function() {
+      $(".registrati").removeClass("on").addClass("off");
+    }
+  );
+  $(".fa-bars").click(
+    function() {
+      $(".hamburger-menu").removeClass("off").addClass("on");
+      $(".barre").removeClass("on").addClass("off");
+    }
+  );
+  $(".continua").click(
+    function() {
+      $(".accedi").removeClass("on").addClass("off");
+    }
+  );
+  $(".fa-times").click(
+    function() {
+      $(".hamburger-menu").removeClass("on").addClass("off");
+      $(".barre").addClass("on");
+    }
+  );
+  $(".continua").click(
+    function() {
+      $(".registrati").removeClass("on").addClass("off");
+    }
+  );
 
 $(document).ready(init);

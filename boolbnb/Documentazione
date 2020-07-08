@@ -13,7 +13,8 @@ https://developer.tomtom.com/maps-sdk-web/tutorials-use-cases/turfjs-integration
 -aggiungere chiave ip nella tabella views
 
 - Gestire immagini multiple e cambio immagine nell'edit apartment
-
+- sistemare il filtro ordinare per distanza,
+- aggiungere chiave ip a tabella view
 
 Docs:
 
