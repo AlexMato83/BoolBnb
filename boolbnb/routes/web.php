@@ -18,7 +18,7 @@ Route::get('/create_apartment', 'UserController@create')->name('create_apartment
 Route::post('/store_apartment', 'UserController@store')->name('store_apartment');
 Route::get('/edit_apartment/{id}', 'UserController@edit')->name('edit_apartment');
 Route::post('/update_apartment/{id}', 'UserController@update')->name('update_apartment');
-Route::get('/user_apartment', 'UserController@show_apartments')->name('user_apartment');
+Route::get('/user_apartments', 'UserController@show_apartments')->name('user_apartments');
 Route::get('/map', 'UserController@prova_tomtom')->name('prova_tomtom');
 Route::get('/show_upra_apartment/{id}', 'UserController@show_upra_apartment')->name('show_upra_apartment');
 Route::get('/delete_apartment/{id}', 'UserController@delete_apartment')->name('delete_apartment');

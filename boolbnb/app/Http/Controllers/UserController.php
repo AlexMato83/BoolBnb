@@ -83,17 +83,22 @@ class UserController extends Controller
         $user = Auth::user();
         $apartments = $user -> apartments;
 
-        return view("user_apartment" ,compact("apartments"));
+        return view("user_apartments" ,compact("apartments", 'user'));
     }
 
     public function edit($id)
     {
+        $user = Auth::user();
         $apartment = Apartment::findOrFail($id);
         $services = Service::all();
         $categories = Category::all();
+        if ($apartment -> user_id == $user-> id) {
+            return view('edit_apartment', compact('apartment', 'services','categories'));
+        }else {
+            return view('error');
+        }
 
 
-        return view('edit_apartment', compact('apartment', 'services','categories'));
     }
 
     public function update(Request $request, $id)
@@ -156,10 +161,16 @@ class UserController extends Controller
     }
 
     public function show_upra_apartment($id){
-
+      $user = Auth::user();
       $apartment = Apartment::findOrFail($id);
-      $views = View::all();
-      return view("show_upra_apartment", compact('apartment'));
+      if ($apartment -> user_id === $user -> id) {
+
+        return view("show_upra_apartment", compact('apartment'));
+    }else{
+        return view("error");
+    }
+
+    //   $views = View::all();
     }
 
     public function delete_apartment($id){
@@ -167,14 +178,6 @@ class UserController extends Controller
       $apartment = Apartment::findOrFail($id);
       $apartment ->delete();
       return redirect()-> route('user_apartment');
-    }
-
-    public function create_view($id){
-
-      $view = new View;
-      $view['apartment_id'] = $id;
-      $view->save();
-      return redirect()->route('show_upra_apartment',$id);
     }
 
     public function show_messages(){

@@ -12,8 +12,6 @@ class UiController extends Controller
 {
     public function index()
     {
-
-
         return view("welcome");
     }
     public function show_ui_apartments(Request $request)
@@ -50,23 +48,78 @@ class UiController extends Controller
 
         return redirect()->route('ui_apartment', $id);
     }
+    public function create_view($id){
+
+      $view = new View;
+      $view['apartment_id'] = $id;
+      $view->save();
+      return redirect()->route('ui_apartment',$id);
+    }
 
     public function filter_ui_apartments(Request $request){
       $apartments = Apartment::all();
       $services = Service::all();
       $categories = Category::all();
-              $validate = $request -> validate([
-                  //
-                  "address" => "required",
-                  // "rooms" => "required",
-                  "search_radius" => "required",
-                  // "beds" => "required",
-                  // "services" => "required",
-                  // "category_id" => "required",
-                  ]);
-              $search_radius = ($validate["search_radius"] * 1000);
-              $center_lat = $request["latitude"];
-              $center_long = $request["longitude"];
+      $r_services = [];
+      $validate = $request -> validate([
+          //
+          "address" => "required",
+          "rooms" => "",
+          "search_radius" => "required",
+          "beds" => "",
+          "services[]" => "array"
+          //   "category_id" => "",
+          ]);
+
+        $search_radius = ($validate["search_radius"] * 1000);
+        $center_lat = $request["latitude"];
+        $center_long = $request["longitude"];
+        $rooms = $request['rooms'];
+        $beds = $request['beds'];
+
+        foreach ($services as $service) {
+            if (in_array($service['id'], $request['services'])) {
+                $r_services [] = $service;
+            }
+        }
+
+              function filters($rooms, $beds, $r_services, $In_radius_apartments)
+              {
+                  if (isset($rooms)) {
+                      foreach ($In_radius_apartments as $key => $apartment) {
+                        if ($apartment['rooms'] < $rooms) {
+                            array_splice($In_radius_apartments, $key, 1);
+                            $key = $key - 1;
+                        }
+
+                      }
+                  }
+                  if (isset($beds)) {
+                      foreach ($In_radius_apartments as $key => $apartment) {
+                        if ($apartment['beds'] < $beds) {
+                            array_splice($In_radius_apartments, $key, 1);
+                            $key = $key - 1;
+                        }
+
+                      }
+                  }
+                  if (isset($r_services)) {
+                    foreach ($In_radius_apartments as $key => $apartment) {
+                        foreach ($r_services as $r_service){
+                            if (!in_array($r_service, $apartment -> services) ) {
+                                array_splice($In_radius_apartments, $key, 1);
+                                $key = $key - 1;
+                            break;
+                            }
+                        }
+                      }
+
+                  }
+                //   if (isset($beds)) {
+                //       foreach ($)
+                //   }
+                return $In_radius_apartments;
+              }
 
               //*************************LA FUNZIONE CHE SEGUE INVECE E' FOLLIA PURA MA VA BENE COSI
               //CALCOLO DISTANZA TRA DUE PUNTI
@@ -99,7 +152,8 @@ class UiController extends Controller
                 return $results;
               }
               $apartments_found=In_radius($apartments,$center_lat, $center_long,$search_radius);
-              // dd($apartments_found);
+              $prova = filters($rooms, $beds, $r_services, $apartments_found);
+              dd($prova);
     return view("ui_apartments", compact("apartments_found",'apartments','services','categories'));
 
     // AGGIUNGERE FILTRI : N° stanze, N° posti letto, servizi

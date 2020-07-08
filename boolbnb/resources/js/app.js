@@ -191,7 +191,7 @@ function prova_api(){
       url:"http://localhost:8000/welcome_show",
       method: "GET",
       success: function(data){
-        console.log(data);
+        console.log(JSON.encode(data));
       }
     })
   });
