@@ -1,0 +1,40 @@
+.filtri {
+  margin: 0 auto;
+  float: left;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 30px;
+  button {
+    background-color: white;
+    color: #1b3c59;
+    margin-right: 15px;
+    border-radius: 10px;
+    font-size: 15px;
+    height: auto;
+    width: auto;
+    border: 1px solid #8f8e8e;
+    font-size: 18px;
+    padding: 4px 7px;
+  }
+}
+
+.results {
+  margin: 20px 0;
+  h1 {
+    margin: 20px 0;
+  }
+  .apartments {
+    .apartment {
+      .foto {
+        img {
+          height: 200px;
+          width: 300px;
+        }
+      }
+      .caratteristiche {
+        height: 200px;
+        width: 400px;
+      }
+    }
+  }
+}

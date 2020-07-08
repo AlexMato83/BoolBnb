@@ -1,15 +1,72 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
 
-// Bootstrap
+// Bootstrap l'ho commentato perché non mi prendeva le modifiche al file _home
 @import '~bootstrap/scss/bootstrap';
 
-body {
-  margin: 0;
+@import '_home';
+@import '_footer';
+@import '_home';
+@import '_searchResults';
+@import '_header';
+
+  body{
+    background-color: white;
+
+  .accedi, .registrati {
+    width:413px;
+    border:1px solid #DDDDDD;
+    margin: auto;
+    margin-top:100px;
+    border-radius:5px;
+    text-align: center;
+    background-color: white;
+
+    h1{
+      font-size: 20px;
+      color: #1b3c59;
+      font-weight: bold;
+      text-align: center;
+      margin: 6%;
+    }
+    .input{
+      margin:auto;
+
+      #mail, #password, #nome, #cognome, #dataDiNascita{
+        height:50px;
+        width:80%;
+        margin-left:10%;
+        margin-bottom:10px;
+        font-size: 18px;
+      }
+    }
+
+    .continua{
+      text-align: center;
+
+      button{
+        font-size: 18px;
+        font-weight: bold;
+        padding: 2% 5%;
+        background-color:#61ce4e ;
+        color: white;
+        box-shadow: none;
+        border-radius: 5px;
+        margin: 5% 0;
+        border: none;
+      }
+    }
+  }
+
+  .off{
+    display: none;
+  }
+  .on {
+    display: block;
+  }
+
 }
+
 #map {
   height: 200px;
   width: 200px;
@@ -44,8 +101,4 @@ body {
 .dispna{
   display: none;
   position: absolute;;
-}
-
-header {
-  border:1px solid grey;
 }

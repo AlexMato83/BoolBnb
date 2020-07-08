@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@charset "UTF-8";
 
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
@@ -10928,47 +10928,475 @@ a.text-dark:focus {
   }
 }
 
-body {
-  margin: 0;
+.search {
+  font-size: 18px;
+  width: 413px;
+  height: 49px;
+  border: 1px solid #DDDDDD;
+  padding: 3px;
+  border-radius: 5px;
+  margin: 180px auto 60px auto;
+  background-color: #f0f1f2;
 }
 
-#map {
-  height: 200px;
-  width: 200px;
+.search .dove {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #DDDDDD;
+  border-radius: 5px;
+  padding-left: 2%;
 }
 
-#polygon-info-box {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  padding: 10px;
-  margin: 10px;
-  z-index: 1100;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.45) 2px 2px 2px 0px;
-}
-
-#polygon-info-box label {
-  font-size: 1.3em;
+.search button {
+  width: 100px;
+  height: 40px;
   font-weight: bold;
-  line-height: 2;
+  background-color: #61ce4e;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+  border: none;
 }
 
-#polygon-info-box span {
-  font-size: 1.2em;
+.search button i {
+  padding-right: 7px;
+  font-size: 15px;
+  font-weight: 550;
 }
 
-#polygon-info-box {
-  text-align: right;
+.evidenza {
+  margin: auto;
 }
 
-.dispna {
+.evidenza h1 {
+  text-align: left;
+  padding-left: 30px;
+  font-size: 30px;
+}
+
+.evidenza .apartments {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 20pX;
+}
+
+.evidenza .apartments .apartment {
+  width: calc((100% / 3) - 4%);
+  height: 250px;
+  margin: 2%;
+  padding: 5px;
+  text-align: center;
+}
+
+.evidenza .apartments .apartment .foto img {
+  width: 100%;
+  height: 100%;
+  border-radius: 3%;
+}
+
+.evidenza .apartments .apartment .titolo h3 {
+  font-size: 18px;
+  padding-top: 10px;
+}
+
+.evidenza .apartments .apartment .titolo h3 a {
+  color: #1b3c59;
+}
+
+.footer {
+  width: 100%;
+  margin-top: 40px;
+  padding-top: 40px;
+  background-color: #1b3c59;
+  color: white;
+}
+
+.footer .logo_menu .logo_footer img {
+  margin-top: 5%;
+  height: 70px;
+  width: auto;
+}
+
+.footer .logo_menu .logo_footer h3 {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.footer .menu_footer {
+  height: 100%;
+  margin-top: 5%;
+}
+
+.footer .menu_footer ul li {
+  list-style: none;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.footer .menu_footer ul li a {
+  color: white;
+}
+
+.footer .social {
+  text-align: center;
+  font-size: 30px;
+  padding-top: 30px;
+}
+
+.footer .social i {
+  padding: 10px;
+}
+
+.footer h3 {
+  text-align: center;
+  padding: 20px;
+}
+
+@media screen and (min-width: 767.98px) {
+  .logo_menu {
+    text-align: left;
+  }
+
+  .logo_menu .logo_footer h3 {
+    text-align: left;
+  }
+
+  .menu_footer ul li {
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .logo_menu {
+    text-align: center;
+  }
+
+  .logo_menu .logo_footer img {
+    padding-left: 45px;
+  }
+
+  .logo_menu .logo_footer h3 {
+    text-align: center;
+  }
+
+  .menu_footer ul {
+    padding-left: 0;
+  }
+
+  .menu_footer ul li {
+    text-align: center;
+  }
+}
+
+.search {
+  font-size: 18px;
+  width: 413px;
+  height: 49px;
+  border: 1px solid #DDDDDD;
+  padding: 3px;
+  border-radius: 5px;
+  margin: 180px auto 60px auto;
+  background-color: #f0f1f2;
+}
+
+.search .dove {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #DDDDDD;
+  border-radius: 5px;
+  padding-left: 2%;
+}
+
+.search button {
+  width: 100px;
+  height: 40px;
+  font-weight: bold;
+  background-color: #61ce4e;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+  border: none;
+}
+
+.search button i {
+  padding-right: 7px;
+  font-size: 15px;
+  font-weight: 550;
+}
+
+.evidenza {
+  margin: auto;
+}
+
+.evidenza h1 {
+  text-align: left;
+  padding-left: 30px;
+  font-size: 30px;
+}
+
+.evidenza .apartments {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 20pX;
+}
+
+.evidenza .apartments .apartment {
+  width: calc((100% / 3) - 4%);
+  height: 250px;
+  margin: 2%;
+  padding: 5px;
+  text-align: center;
+}
+
+.evidenza .apartments .apartment .foto img {
+  width: 100%;
+  height: 100%;
+  border-radius: 3%;
+}
+
+.evidenza .apartments .apartment .titolo h3 {
+  font-size: 18px;
+  padding-top: 10px;
+}
+
+.evidenza .apartments .apartment .titolo h3 a {
+  color: #1b3c59;
+}
+
+.filtri {
+  margin: 0 auto;
+  float: left;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.filtri button {
+  background-color: white;
+  color: #1b3c59;
+  margin-right: 15px;
+  border-radius: 10px;
+  font-size: 15px;
+  height: auto;
+  width: auto;
+  border: 1px solid #8f8e8e;
+  font-size: 18px;
+  padding: 4px 7px;
+}
+
+.results {
+  margin: 20px 0;
+}
+
+.results h1 {
+  margin: 20px 0;
+}
+
+.results .apartments .apartment .foto img {
+  height: 200px;
+  width: 300px;
+}
+
+.results .apartments .apartment .caratteristiche {
+  height: 200px;
+  width: 400px;
+}
+
+.header {
+  height: 80px;
+  width: 100%;
+  color: #1b3c59;
+  background-color: white;
+  position: fixed;
+  z-index: 99;
+}
+
+.header .logo img {
+  margin-top: 5%;
+  height: 65px;
+  width: auto;
+}
+
+.header .navigazione {
+  margin-left: 0;
+}
+
+.header .navigazione ul {
+  float: none;
+}
+
+.header .navigazione ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 2%;
+  margin-top: 6%;
+}
+
+.header .navigazione ul li a {
+  color: #1b3c59;
+  font-size: 15px;
+}
+
+.header .navigazione ul li button {
+  font-size: 15px;
+  padding: 6% 18%;
+  background-color: #1b3c59;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+}
+
+.header .navigazione ul li a {
+  color: #1b3c59;
+  font-size: 15px;
+}
+
+.hamburger-menu {
+  float: right;
+}
+
+.hamburger-menu .ham {
+  height: 100%;
+  width: 100%;
+  margin-top: 3px;
+  margin-right: 65px;
+}
+
+.hamburger-menu .ham ul {
+  display: inline;
+}
+
+.hamburger-menu .ham ul li {
+  margin-bottom: 2px;
+  list-style: none;
+}
+
+.hamburger-menu .ham ul li button {
+  font-size: 20px;
+  background-color: #1b3c59;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+}
+
+.hamburger-menu .ham ul li a {
+  font-size: 20px;
+  color: #1b3c59;
+}
+
+.fa-bars {
+  margin-top: 2%;
+  float: right;
+  font-size: 20px;
+  color: #1b3c59;
   display: none;
-  position: absolute;
 }
 
-header {
-  border: 1px solid grey;
+.fa-times {
+  margin-top: 2%;
+  color: #1b3c59;
+  font-size: 25px;
+  display: inline-block;
+  position: fixed;
+  right: 20px;
+}
+
+@media screen and (max-width: 991px) {
+  .fa-bars {
+    margin-top: -3%;
+    margin-right: 4%;
+    display: inline-block;
+    position: fixed;
+    right: 20px;
+  }
+
+  .prova {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 991px) {
+  .lista_ham {
+    display: none;
+  }
+}
+
+body {
+  background-color: white;
+}
+
+body .accedi,
+body .registrati {
+  width: 413px;
+  border: 1px solid #DDDDDD;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: white;
+}
+
+body .accedi h1,
+body .registrati h1 {
+  font-size: 20px;
+  color: #1b3c59;
+  font-weight: bold;
+  text-align: center;
+  margin: 6%;
+}
+
+body .accedi .input,
+body .registrati .input {
+  margin: auto;
+}
+
+body .accedi .input #mail,
+body .accedi .input #password,
+body .accedi .input #nome,
+body .accedi .input #cognome,
+body .accedi .input #dataDiNascita,
+body .registrati .input #mail,
+body .registrati .input #password,
+body .registrati .input #nome,
+body .registrati .input #cognome,
+body .registrati .input #dataDiNascita {
+  height: 50px;
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+body .accedi .continua,
+body .registrati .continua {
+  text-align: center;
+}
+
+body .accedi .continua button,
+body .registrati .continua button {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 2% 5%;
+  background-color: #61ce4e;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+  margin: 5% 0;
+  border: none;
+}
+
+body .off {
+  display: none;
+}
+
+body .on {
+  display: block;
 }
 
