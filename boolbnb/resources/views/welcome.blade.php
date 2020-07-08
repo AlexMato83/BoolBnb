@@ -24,6 +24,8 @@
 
     <input class="dispna" id="longitude" type="text" name="longitude" value="">
     <input class="dispna" id="latitude" type="text" name="latitude" value="">
+    <input id="search_radius" class="dispna" type="number" name="search_radius" value="20">
+
 
     <input id="search" class="dispna" type="submit" name="">
   </form>

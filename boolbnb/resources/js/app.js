@@ -29,7 +29,7 @@ function turfjs(){
   container: 'map',
   center: center,
   style: 'tomtom://vector/1/basic-main',
-  zoom: 10
+  zoom: 15
   });
 
 
@@ -97,68 +97,66 @@ function turfjs(){
 // });
 
   }
-  findGeometry();
+  // findGeometry();
+  //
+  // function getAdditionalData(fuzzySearchResults) {
+  //   var geometryId = fuzzySearchResults.results[0].dataSources.geometry.id;
+  //   tt.services.additionalData({
+  //     key: apiKey,
+  //     geometries: [geometryId],
+  //       geometriesZoom: 12
+  //     })
+  //     .go()
+  //     .then(processAdditionalDataResponse);
+  // }
 
-  function getAdditionalData(fuzzySearchResults) {
-    var geometryId = fuzzySearchResults.results[0].dataSources.geometry.id;
-    tt.services.additionalData({
-      key: apiKey,
-      geometries: [geometryId],
-        geometriesZoom: 12
-      })
-      .go()
-      .then(processAdditionalDataResponse);
-  }
+  // function buildLayer(id, data) {
+  //   return {
+  //     'id': id,
+  //     'type': 'fill',
+  //     'source': {
+  //         'type': 'geojson',
+  //         'data': {
+  //             'type': 'Feature',
+  //             'geometry': {
+  //                 'type': 'Polygon',
+  //                 'coordinates': data
+  //             }
+  //         }
+  //     },
+  //     'layout': {},
+  //     'paint': {
+  //         'fill-color': '#2FAAFF',
+  //         'fill-opacity': 0.8,
+  //         'fill-outline-color': 'black'
+  //     }
+  //   }
+  // }
 
-  function buildLayer(id, data) {
-    return {
-      'id': id,
-      'type': 'fill',
-      'source': {
-          'type': 'geojson',
-          'data': {
-              'type': 'Feature',
-              'geometry': {
-                  'type': 'Polygon',
-                  'coordinates': data
-              }
-          }
-      },
-      'layout': {},
-      'paint': {
-          'fill-color': '#2FAAFF',
-          'fill-opacity': 0.8,
-          'fill-outline-color': 'black'
-      }
-    }
-  }
+  // function displayPolygonOnTheMap(additionalDataResult) {
+  //   var geometryData = additionalDataResult.geometryData.features[0].geometry.coordinates[0];
+  //   map.addLayer(buildLayer('fill_shape_id', geometryData));
+    // function reset_position(geometryData){
+    //   var apiKey = 'luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt';
+    //   var newmap = tt.map({
+    //     key: apiKey,
+    //     container: 'map',
+    //     center: geometryData[0],
+    //     style: 'tomtom://vector/1/basic-main',
+    //     zoom: 10
+    //   });
+    // }
+    // reset_position(geometryData);
 
-  function displayPolygonOnTheMap(additionalDataResult) {
-    var geometryData = additionalDataResult.geometryData.features[0].geometry.coordinates[0];
-    map.addLayer(buildLayer('fill_shape_id', geometryData));
-    console.log(geometryData[0]);
-    function reset_position(geometryData){
-      console.log(geometryData);
-      var apiKey = 'luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt';
-      var newmap = tt.map({
-        key: apiKey,
-        container: 'map',
-        center: geometryData[0],
-        style: 'tomtom://vector/1/basic-main',
-        zoom: 10
-      });
-    }
-    reset_position(geometryData);
-
-    return geometryData;
-  }
-
-  function processAdditionalDataResponse(additionalDataResponse) {
-    if (additionalDataResponse.additionalData && additionalDataResponse.additionalData.length) {
-      var geometryData = displayPolygonOnTheMap(additionalDataResponse.additionalData[0]);
-    }
-
-  }
+  //   return geometryData;
+  // }
+  //
+  // function processAdditionalDataResponse(additionalDataResponse) {
+  //   if (additionalDataResponse.additionalData && additionalDataResponse.additionalData.length) {
+  //     var geometryData = displayPolygonOnTheMap(additionalDataResponse.additionalData[0]);
+  //   }
+  //
+  // }
 
 //   function calculateTurfArea(geometryData) {
 //     var turfPolygon = turf.polygon(geometryData);
@@ -220,7 +218,6 @@ function turfjs(){
 function address_to_coord(button, submit){
 
   $(button).click(function(){
-    console.log("eccolo");
     var address = $("#apt_address").val();
     var longitude,latitude;
     $.ajax({
@@ -235,13 +232,11 @@ function address_to_coord(button, submit){
           var position = data.results[0]["position"];
         latitude =  position.lat;
         longitude = position.lon;
-        console.log(data);
 
         },
         complete: function(){
           $("#latitude").val(latitude);
           $("#longitude").val(longitude);
-          console.log(latitude);
           document.getElementById(submit).click()
         }
       })
@@ -272,7 +267,7 @@ function init(){
   address_to_coord('#search2', 'search');
   address_to_coord('#filtered2', 'filtered');
 
-}
+
 
   $(".tasto").click(
     function() {
@@ -320,5 +315,5 @@ function init(){
       $(".registrati").removeClass("on").addClass("off");
     }
   );
-
+}
 $(document).ready(init);
