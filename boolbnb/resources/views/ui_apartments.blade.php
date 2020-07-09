@@ -1,4 +1,4 @@
-@extends('layouts.main_layout')
+@extends('layouts.mainLayout')
 @section('content')
   <form  action="{{route('ui_filtered_apt')}}" method="post">
   @csrf
@@ -20,7 +20,7 @@
   <input type="text" name="beds" value="">
 
   <label for="address">ADDRESS</label>
-  <input id="apt_address" type="text" name="address" value="">
+  <input id="apt_address" type="location" name="address" value="">
 
   <label for="search_radius">Search Radius Km</label>
   <input id="search_radius" type="number" name="search_radius" value="20">
