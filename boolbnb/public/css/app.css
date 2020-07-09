@@ -11331,13 +11331,13 @@ body {
 
 body .accedi,
 body .registrati {
-  width: 413px;
-  border: 1px solid #DDDDDD;
+  width: 340px;
   margin: auto;
   margin-top: 100px;
   border-radius: 5px;
   text-align: center;
   background-color: white;
+  font-size: 15px;
 }
 
 body .accedi h1,
@@ -11389,6 +11389,10 @@ body .registrati .continua button {
   border: none;
 }
 
+body .card-header {
+  display: none;
+}
+
 body .off {
   display: none;
 }
@@ -11397,9 +11401,45 @@ body .on {
   display: block;
 }
 
+body .card-body {
+  height: 100%;
+  border: none;
+}
+
+body .card {
+  width: 340px;
+  height: 100%;
+  margin: auto;
+  border-radius: 5px;
+  text-align: center;
+  border: none;
+  border: 1px solid #DDDDDD;
+}
+
+body .bordo {
+  border-top: none;
+}
+
+body .btn-primary {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 2% 5%;
+  background-color: #61ce4e;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+  margin: 5% 0;
+  border: none;
+  margin-top: 30px;
+}
+
 #map {
   height: 200px;
   width: 200px;
+}
+
+.form-check-label {
+  padding-left: 20px;
 }
 
 .dispna {
@@ -11409,5 +11449,10 @@ body .on {
 
 .content {
   padding-top: 100px;
+}
+
+.form-control {
+  height: 40px;
+  font-size: 15px;
 }
 

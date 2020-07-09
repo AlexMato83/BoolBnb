@@ -3,7 +3,6 @@
 
 // Bootstrap l'ho commentato perché non mi prendeva le modifiche al file _home
 @import '~bootstrap/scss/bootstrap';
-
 @import '_home';
 @import '_footer';
 @import '_home';
@@ -13,14 +12,14 @@
   body{
     background-color: white;
 
-  .accedi, .registrati {
-    width:413px;
-    border:1px solid #DDDDDD;
+  .accedi, .registrati,  {
+    width:340px;
     margin: auto;
     margin-top:100px;
     border-radius:5px;
     text-align: center;
     background-color: white;
+    font-size: 15px;
 
     h1{
       font-size: 20px;
@@ -57,12 +56,42 @@
       }
     }
   }
-
+.card-header{
+  display:none;
+}
   .off{
     display: none;
   }
   .on {
     display: block;
+  }
+  .card-body{
+    height: 100%;
+    border:none;
+  }
+  .card{
+    width:340px;
+    height:100%;
+    margin: auto;
+    border-radius:5px;
+    text-align: center;
+    border:none;
+    border:1px solid #DDDDDD;
+  }
+  .bordo{
+    border-top:none;
+  }
+  .btn-primary{
+    font-size: 18px;
+    font-weight: bold;
+    padding: 2% 5%;
+    background-color:#61ce4e ;
+    color: white;
+    box-shadow: none;
+    border-radius: 5px;
+    margin: 5% 0;
+    border: none;
+    margin-top:30px;
   }
 
 }
@@ -97,11 +126,17 @@
 // #polygon-info-box {
 //   text-align: right;
 // }
-
+.form-check-label{
+  padding-left:20px;
+}
 .dispna{
   display: none;
   position: absolute;;
 }
 .content{
   padding-top: 100px;
+}
+.form-control{
+  height:40px;
+  font-size: 15px;
 }
