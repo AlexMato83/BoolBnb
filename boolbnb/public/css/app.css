@@ -11239,11 +11239,6 @@ a.text-dark:focus {
   margin-top: 6%;
 }
 
-.header .navigazione ul li a {
-  color: #1b3c59;
-  font-size: 15px;
-}
-
 .header .navigazione ul li button {
   font-size: 15px;
   padding: 6% 18%;
@@ -11253,9 +11248,11 @@ a.text-dark:focus {
   border-radius: 5px;
 }
 
-.header .navigazione ul li a {
+.header .navigazione ul li .reg {
+  background-color: white;
   color: #1b3c59;
-  font-size: 15px;
+  border: none;
+  margin-right: 10px;
 }
 
 .hamburger-menu {

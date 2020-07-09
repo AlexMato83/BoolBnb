@@ -22,11 +22,6 @@
         display: inline-block;
         margin: 2%;
         margin-top: 6%;
-        a{
-          color: #1b3c59;
-          font-size: 15px;
-        }
-
         button{
           font-size: 15px;
           padding: 6% 18%;
@@ -35,9 +30,11 @@
           box-shadow: none;
           border-radius: 5px;
         }
-        a{
+        .reg {
+          background-color: white;
           color: #1b3c59;
-          font-size: 15px;
+          border: none;
+          margin-right: 10px;
         }
       }
     }

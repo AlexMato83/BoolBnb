@@ -173,7 +173,7 @@ class UserController extends Controller
 
       $apartment = Apartment::findOrFail($id);
       $apartment ->delete();
-      return redirect()-> route('user_apartment');
+      return redirect()-> route('user_apartments');
     }
 
     public function show_messages(){

@@ -1,11 +1,12 @@
 
 
+{{-- LOGO HEADER--}}
+
 <div class="offset-1 col-5 offset-sm-1 col-sm-5 offset-md-1 col-md-5 offset-lg-1 col-lg-3 offset-xl-1 col-xl-3">
   <div class="logo">
     <a href="{{route('welcome')}}"><img src="/img/logo.jpg"></a>
-
-
   </div>
+  {{-- TRE BARRE HAMBURGER MENU --}}
   <div class="barre">
     <a href="#">
       <i class="fas fa-bars"></i>
@@ -13,19 +14,17 @@
   </div>
 </div>
 
-<div class="offset-md-1 col-md-5 offset-lg-3 col-lg-5 offset-xl-3 col-xl-5">
-
+{{-- MENU HEADER --}}
+<div class="offset-md-2 col-md-4 offset-lg-4 col-lg-4 offset-xl-4 col-xl-4">
   <div class="navigazione prova">
     <ul>
-      <li><a href="#"><strong>Diventa un host</strong></a><li>
-        <li><a class="reg" href="#"><strong>Registrati</strong></a><li>
-          {{-- <li><a class="reg" href="{{ route('login') }}"><strong>Registrati</strong></a><li> --}}
-
+      <li><button class="reg" type="button" name="button"><strong>Registrati</strong></button><li>
       <li><button class="tasto" type="button" name="button"><strong>Accedi</strong></button></li>
     </ul>
   </div>
 </div>
 
+{{-- HAMBURGER MENU --}}
 <div class="lista_ham">
   <div class="hamburger-menu off">
     <div class="chiusura">
@@ -35,28 +34,23 @@
     </div>
     <div class="ham">
       <ul>
-        <li><a href="#" ><strong>Diventa un host</strong></a><li>
-          @if (Route::has('login'))
-            {{-- <div class="top-right links"> --}}
-            @auth
-              {{-- <a href="{{ url('/home') }}">Home</a> --}}
+        @if (Route::has('login'))
+          @auth
             @else
               <li><a class="reg" href="#"><strong>Registrati</strong></a><li>
-                {{-- <li><a class="reg" href="{{ route('login') }}"><strong>Registrati</strong></a><li> --}}
-              @if (Route::has('register'))
-                {{-- <li><button class="tasto" type="button" name="button"><strong>Accedi</strong></button></li> --}}
-                <a class="tasto" href="{{ route('register') }}">Register</a>
-              @endif
-            @endauth
-            {{-- </div> --}}
-          @endif
-
+            @if (Route::has('register'))
+              <a class="tasto" href="{{route('register') }}">Accedi</a> {{-- CHIEDERE BE --}}
+            @endif
+          @endauth
+        @endif
       </ul>
     </div>
   </div>
 </div>
 
-<div class="accedi off">
+
+
+{{-- <div class="accedi off">
   <h1>Accedi</h1>
   <div class="container">
       <div class="row justify-content-center">
@@ -128,7 +122,7 @@
       </div>
   </div>
 
-</div>
+</div> --}}
 
 <div class="registrati off">
   <h1>Registrati</h1>
