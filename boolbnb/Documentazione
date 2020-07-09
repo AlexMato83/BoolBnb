@@ -25,3 +25,15 @@ gestiscono la geolocalizzazione ed il salvataggio dati in database
 
 la view my-map è un esempio funzionante di geolocalizzazione
 my-map0 cancellabile
+
+
+
+in base alla variabile globale register_global:
+
+$ip = @$REMOTE_ADDR;echo "<b> indirizzo IP $ip = </ b>";
+
+@$ip = $ REMOTE_ADDR;
+
+$ip = $_SERVER [‘REMOTE_ADDR’];
+
+in questo modo troviamo l'indirizzo ip del client del nostro sito

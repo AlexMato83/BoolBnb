@@ -1,9 +1,8 @@
-@extends('layouts.main_layout')
+@extends('layouts.mainLayout')
 
 @section('content')
 
 
-  <a href="{{route('prova_tomtom')}}">prova</a>
   <button id="provaApi" type="button" name="button">Prova Api</button>
 
     <form  action="{{route('ui_apartments')}}" method="post">
