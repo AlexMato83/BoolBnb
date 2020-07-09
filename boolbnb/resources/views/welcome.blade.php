@@ -26,8 +26,8 @@
 
         <input id="search" class="dispna" type="submit" name="">
       </form>
-      <button class="cerca" id="search2" type="text" name="" value="">search</button>
-      <button id="provaApi" type="button" name="button">Prova Api</button>
+      <button class="cerca" id="search2" type="text" name="" value="">Cerca</button>
+      {{-- <button id="provaApi" type="button" name="button">Prova Api</button> --}}
       {{-- <input class="dove" type="text" id="dove" class="form-control" placeholder="Dove vuoi andare?">
       <button class="cerca" type="button" name="button"><i class="fas fa-search"></i><strong>Cerca</strong></button> --}}
     </div>

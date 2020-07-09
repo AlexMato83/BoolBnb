@@ -10956,6 +10956,8 @@ a.text-dark:focus {
   box-shadow: none;
   border-radius: 5px;
   border: none;
+  margin-top: -40px;
+  float: right;
 }
 
 .search button i {
@@ -11120,6 +11122,8 @@ a.text-dark:focus {
   box-shadow: none;
   border-radius: 5px;
   border: none;
+  margin-top: -40px;
+  float: right;
 }
 
 .search button i {
@@ -11283,9 +11287,11 @@ a.text-dark:focus {
   border-radius: 5px;
 }
 
-.hamburger-menu .ham ul li a {
+.hamburger-menu .ham ul li .reg {
   font-size: 20px;
   color: #1b3c59;
+  background-color: white;
+  border: none;
 }
 
 .fa-bars {
