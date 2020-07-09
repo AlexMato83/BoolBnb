@@ -173,7 +173,7 @@ class UserController extends Controller
 
       $apartment = Apartment::findOrFail($id);
       $apartment ->delete();
-      return redirect()-> route('user_apartment');
+      return redirect()-> route('user_apartments');
     }
 
     public function show_messages(){
@@ -196,6 +196,50 @@ class UserController extends Controller
       $ordered_messages = $array_messages->sortByDesc('id');
 
       return view('upra_messages',compact('ordered_messages'));
+    }
+
+    public function show_statistics($id){
+
+      $apartment = Apartment::findOrFail($id);
+      // $views = View::all();
+      $views = $apartment -> views;
+      $num_views = count($views);
+      $all_views_month = [];
+      foreach ($views as $view) {
+        $date = $view['created_at'];
+        // setlocale(LC_TIME, 'de_CH');
+        // $month_name = date('F', mktime(0, 0, 0, $i));
+        $months = date("F", strtotime($date));
+        $all_views_month[] = $months;
+      }
+
+      $arrayMultidimensionaleMesi = [
+          'January'=> 0,
+          'February'=> 0,
+          'March'=> 0,
+          'April'=> 0,
+          'May'=> 0,
+          'June'=> 0,
+          'July'=> 0,
+          'August'=> 0,
+          'September'=> 0,
+          'October'=> 0,
+          'November'=> 0,
+          'December'=> 0
+      ];
+      foreach ($arrayMultidimensionaleMesi as $arrayMultidimensionaleMese=> $numeroView){
+
+          foreach ($all_views_month as $month){
+
+              if($arrayMultidimensionaleMese == $month){
+
+                $numeroView ++;
+                  $arrayMultidimensionaleMesi[$month] = $numeroView;
+
+              }
+          }
+      }
+      return view('statistics',compact('arrayMultidimensionaleMesi','num_views'));
     }
 
 

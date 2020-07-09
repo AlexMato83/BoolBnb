@@ -1,7 +1,7 @@
 @extends('layouts.mainLayout')
 
 @section('content')
-  <p>
-  
-  </p>
+
+  <canvas id="line"></canvas>
+
 @endsection

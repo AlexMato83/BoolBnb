@@ -213,10 +213,7 @@ class UiController extends Controller
     // AGGIUNGERE FILTRI : N° stanze, N° posti letto, servizi
     }
 
-    public function prova_tomtom(){
-
-      return view("my-map");
-    }
+    
 
 
 }
