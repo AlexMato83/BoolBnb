@@ -1,5 +1,9 @@
 <?php
 
+// ===========================================================
+//                    * USER CONTROLLER *
+// ===========================================================
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -18,7 +22,7 @@ class UserController extends Controller
     $this->middleware('auth');
   }
 
-
+    // funzione per creare un appartamento
     public function create(){
 
         $services = Service::all();
@@ -27,6 +31,7 @@ class UserController extends Controller
       return view("create_apartment", compact('services', "categories"));
     }
 
+    // funzione per salvare l'appartamento creato
     public function store(Request $request){
 
       $user_id =Auth::user() ->id;
@@ -44,7 +49,7 @@ class UserController extends Controller
           "category_id" => "required",
           "visibility" => "required"
           ]);
-        //   dd($request);
+
       $apartment = new Apartment;
 
       $apartment["name"] = $validate["name"];
@@ -77,6 +82,7 @@ class UserController extends Controller
       return redirect() -> route("home");
     }
 
+    // funzione per mostrare gli appartamenti
     public function show_apartments()
     {
 
@@ -86,6 +92,7 @@ class UserController extends Controller
         return view("user_apartments" ,compact("apartments", 'user'));
     }
 
+    // funzione per modificare un appartamento
     public function edit($id)
     {
         $user = Auth::user();
@@ -101,6 +108,7 @@ class UserController extends Controller
 
     }
 
+    // funzione per validare le modifiche ad un appartamento
     public function update(Request $request, $id)
     {
 
@@ -155,20 +163,19 @@ class UserController extends Controller
         return redirect() -> route('user_apartment');
     }
 
-
+    // funzione per mostrare l'appartemento selezionato
     public function show_upra_apartment($id){
       $user = Auth::user();
       $apartment = Apartment::findOrFail($id);
+
       if ($apartment -> user_id === $user -> id) {
-
         return view("show_upra_apartment", compact('apartment'));
-    }else{
-        return view("error");
+      } else {
+          return view("error");
+      }
     }
 
-    //   $views = View::all();
-    }
-
+    // funzione per cancellare appartamento
     public function delete_apartment($id){
 
       $apartment = Apartment::findOrFail($id);
@@ -176,6 +183,7 @@ class UserController extends Controller
       return redirect()-> route('user_apartments');
     }
 
+    // funzione per mostrare i messaggi
     public function show_messages(){
 
       $user = Auth::user();
@@ -188,7 +196,6 @@ class UserController extends Controller
         foreach ($messages as $message) {
 
             $user_messages[] = $message;
-
         }
       }
       $array_messages = collect($user_messages);
@@ -198,22 +205,21 @@ class UserController extends Controller
       return view('upra_messages',compact('ordered_messages'));
     }
 
+    // funzione per le statistiche dell'appartamento selezionato
     public function show_statistics($id){
 
       $apartment = Apartment::findOrFail($id);
-      // $views = View::all();
       $views = $apartment -> views;
-      $num_views = count($views);
+      $total_views = count($views); //num views totali
+
       $all_views_month = [];
       foreach ($views as $view) {
         $date = $view['created_at'];
-        // setlocale(LC_TIME, 'de_CH');
-        // $month_name = date('F', mktime(0, 0, 0, $i));
         $months = date("F", strtotime($date));
         $all_views_month[] = $months;
       }
 
-      $arrayMultidimensionaleMesi = [
+      $list_of_months = [
           'January'=> 0,
           'February'=> 0,
           'March'=> 0,
@@ -227,21 +233,19 @@ class UserController extends Controller
           'November'=> 0,
           'December'=> 0
       ];
-      foreach ($arrayMultidimensionaleMesi as $arrayMultidimensionaleMese=> $numeroView){
+      // suddivisione views per mese(chiave)
+      foreach ($list_of_months as $each_month=> $view_num){
 
           foreach ($all_views_month as $month){
 
-              if($arrayMultidimensionaleMese == $month){
+              if($each_month == $month){
 
-                $numeroView ++;
-                  $arrayMultidimensionaleMesi[$month] = $numeroView;
-
+                $view_num ++;
+                  $list_of_months[$month] = $view_num;
               }
           }
       }
-      return view('statistics',compact('arrayMultidimensionaleMesi','num_views'));
+      dd($list_of_months);
+      return view('statistics',compact('list_of_months','total_views'));
     }
-
-
-
 }

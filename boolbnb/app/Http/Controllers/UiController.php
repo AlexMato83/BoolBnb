@@ -1,5 +1,10 @@
 <?php
 
+// ===========================================================
+//                    * UI  CONTROLLER *
+// ===========================================================
+
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -213,7 +218,7 @@ class UiController extends Controller
     // AGGIUNGERE FILTRI : N° stanze, N° posti letto, servizi
     }
 
-    
+
 
 
 }

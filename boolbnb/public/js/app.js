@@ -49676,6 +49676,11 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+// ===========================================================
+//                    * JAVASCRIPT *
+// ===========================================================
+//                        app.js
+// ===========================================================
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window.Vue = require('vue');
 
 

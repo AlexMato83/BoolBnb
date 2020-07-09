@@ -1,5 +1,10 @@
 <?php
 
+// ===========================================================
+//                    * API CONTROLLER *
+// ===========================================================
+
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
