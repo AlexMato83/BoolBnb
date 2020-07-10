@@ -208,6 +208,7 @@ class UserController extends Controller
     // funzione per le statistiche dell'appartamento selezionato
     public function show_statistics($id){
 
+      $user = Auth::user();
       $apartment = Apartment::findOrFail($id);
       // foreach ($apartment -> message as $message) {
       //
@@ -263,7 +264,13 @@ class UserController extends Controller
       }
       $list_of_views = create_chart($all_views_month);
       $list_of_messages = create_chart($all_mex_month);
-      
-      return view('statistics',compact('list_of_views','list_of_messages','total_views','total_messages'));
+
+      if ($apartment -> user_id === $user -> id) {
+        return view('statistics',compact('list_of_views','list_of_messages','total_views','total_messages'));
+      } else {
+          return view("error");
+      }
+
+
     }
 }

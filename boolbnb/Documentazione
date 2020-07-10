@@ -41,3 +41,4 @@ $ip = @$REMOTE_ADDR;echo "<b> indirizzo IP $ip = </ b>";
 $ip = $_SERVER [‘REMOTE_ADDR’];
 
 in questo modo troviamo l'indirizzo ip del client del nostro sito
+
