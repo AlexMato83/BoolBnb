@@ -1,40 +1,78 @@
 @extends('layouts.mainLayout')
 
 @section('content')
-  <div class="">
-    {{$apartment['name']}}<br>
-    {{$apartment['mq']}}<br>
-    {{$apartment['address']}}<br>
-    {{$apartment['rooms']}}<br>
-    {{$apartment['bathrooms']}}<br>
-    {{$apartment['beds']}}<br>
-    <div id="latitude" class="dispna">
-      {{$apartment["latitude"]}}
+  <!-- titolo e foto appartamento -->
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+      <h1>{{$apartment['name']}}</h1>
+      <div class="foto">
+        <img src="{{ asset($apartment['images']) }}"/>
+      </div>
     </div>
-    <div id="longitude" class="dispna">
-      {{$apartment["longitude"]}}
+
+  <!-- descrizione appartamento  -->
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+      <div class="descr">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor7
+         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+         exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      </div>
     </div>
-    <img src="{{ asset($apartment['images']) }}" style="width: 40px; height: 40px; border-radius: 50%;">
-    <div id='map'></div>
 
-  </div>
-  <form action="{{route('send_message_upra', $apartment['id'])}}" method="post">
-      @csrf
-      @method('POST')
-      <label for="email">EMAIL</label>
-      <input type="email"
-      @if (isset(Auth::user() -> email))
-      value="{{Auth::user() -> email}}"
-      @else
-      value=""
-      @endif
+  <!-- caratteristiche appartamento -->
+    <div class="col-12 col-sm-12 offset-md-3 col-md-3 offset-lg-3 col-lg-3 offset-xl-3 col-xl-3 ">
+      <div class="carat">
+        <ul>
+          <li>{{$apartment['rooms']}} stanze</li>
+          <li>{{$apartment['beds']}} letti</li>
+          <li>{{$apartment['bathrooms']}} bagni</li>
+          <li>{{$apartment['mq']}} mq</li>
+          <li>{{$apartment['address']}}</li>
+        </ul>
+      </div>
+    </div>
 
-      name="email">
 
-      <label for="text">TEXT</label>
-      <input type="text" name="text">
 
-      <input type="submit" value="Send">
 
-  </form>
+  {{-- MAPPA --}}
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
+      <div class="map">
+
+        <div id="latitude" class="dispna">
+          {{$apartment["latitude"]}}
+        </div>
+        <div id="longitude" class="dispna">
+          {{$apartment["longitude"]}}
+        </div>
+        <div id='map'></div>
+      </div>
+    </div>
+
+  <!-- scrivi + email + messaggio -->
+    <div class="col-12 col-sm-12 col-md-12 offset-lg-1 col-lg-5 offset-xl-1 col-xl-5 ">
+      <div class="bordo">
+        <div class="msg">
+          <h1> <strong>Scrivi al proprietario</strong> </h1>
+          <form class="" action="{{route('send_message_upra', $apartment['id'])}}" method="post">
+            @csrf
+            @method('POST')
+            <div class="insert_dati">
+              <input type="email"
+              @if (isset(Auth::user() -> email))
+              value="{{Auth::user() -> email}}"
+              @else
+              value=""
+              @endif
+              name="mail" id="mail_msg" class="form-control" placeholder="Email">
+            </div>
+            <div class="insert_dati">
+              <input type="text" name="message" id="message" class="form-control" placeholder="Scrivi il tuo messaggio">
+            </div>
+            <div class="invia">
+              <button type="submit" value="Send" class="rimuovi" name="button">Invia</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 @endsection

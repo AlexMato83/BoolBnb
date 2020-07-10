@@ -28,78 +28,32 @@
       </form>
       <button class="cerca" id="search2" type="text" name="" value="">Cerca</button>
       {{-- <button id="provaApi" type="button" name="button">Prova Api</button> --}}
+
       {{-- <input class="dove" type="text" id="dove" class="form-control" placeholder="Dove vuoi andare?">
       <button class="cerca" type="button" name="button"><i class="fas fa-search"></i><strong>Cerca</strong></button> --}}
     </div>
   </div>
 
-  {{-- debug --}}
-  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+  {{-- <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
     <div class="evidenza">
-
-      <h1>Appartamenti consigliati</h1>
-
+      <h1>Appartamenti consigliati
+      </h1>
       <div class="apartments">
 
-        <div class="apartment">
-
-          <div class="foto">
-            <img src="/img/1-1.jpeg"/>
+          <div class="apartment">
+            <div class="foto">
+              <a href="{{route('create_view',$apartment['id'])}}"><img src="{{ asset($apartment['images'])}}"></a>
+            </div>
+            <div class="titolo">
+              <h3>
+                <a href="{{route('create_view',$apartment['id'])}}"> {{ $apartment['name']}}</a>
+              </h3>
+            </div>
           </div>
 
-          <div class="titolo">
-            <h3><a href="#">Beautiful suit near Duomo</a></h3>
-          </div>
-
-        </div>
-
-        <div class="apartment">
-          <div class="foto">
-            <img src="/img/2-1.jpeg"/>
-          </div>
-          <div class="titolo">
-            <h3><a href="#">Residenza Toselli</a></h3>
-          </div>
-        </div>
-        <div class="apartment">
-          <div class="foto">
-            <img src="/img/3-1.jpeg"/>
-          </div>
-          <div class="titolo">
-            <h3><a href="#">Private room</a></h3>
-          </div>
-        </div>
-        <div class="apartment">
-
-          <div class="foto">
-            <img src="/img/1-1.jpeg"/>
-          </div>
-
-          <div class="titolo">
-            <h3><a href="#">Beautiful suit near Duomo</a></h3>
-          </div>
-
-        </div>
-
-        <div class="apartment">
-          <div class="foto">
-            <img src="/img/2-1.jpeg"/>
-          </div>
-          <div class="titolo">
-            <h3><a href="#">Residenza Toselli</a></h3>
-          </div>
-        </div>
-        <div class="apartment">
-          <div class="foto">
-            <img src="/img/3-1.jpeg"/>
-          </div>
-          <div class="titolo">
-            <h3><a href="#">Private room</a></h3>
-          </div>
-        </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 
 
 @endsection

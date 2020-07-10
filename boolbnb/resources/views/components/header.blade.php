@@ -258,17 +258,23 @@
 <header>
 
 
+
 @auth
-  <a class="dropdown-item" href="{{ route('logout') }}"
-     onclick="event.preventDefault();
-                   document.getElementById('logout-form').submit();">
-      {{ __('Logout') }}
-  </a>
+
+
+  <div class="loginlogout">
+
   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
       @csrf
   </form>
- <a href="{{route('user_apartments')}}">APARTMENTS</a><br>
- <a href="{{route('show_messages')}}">User Message</a><br>
+ <a class="accesso_effettuato sinistra" href="{{route('user_apartments')}}">I Miei Appartamenti</a><br>
+ <a class="accesso_effettuato destra" href="{{route('show_messages')}}">I miei Messaggi</a><br>
+ <button class="dropdown-item" style=color:"green" href="{{ route('logout') }}"
+    onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+     {{ __('Logout') }}
+ </button>
+</div>
 @endauth
 
 </header>

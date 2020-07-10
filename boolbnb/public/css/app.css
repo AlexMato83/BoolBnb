@@ -11217,6 +11217,7 @@ a.text-dark:focus {
   height: 100%;
   width: 100%;
   margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 .filtri button {
@@ -11381,7 +11382,7 @@ a.text-dark:focus {
 }
 
 .header {
-  height: 80px;
+  height: 127px;
   width: 100%;
   color: #1b3c59;
   background-color: white;
@@ -11495,6 +11496,153 @@ a.text-dark:focus {
 @media screen and (min-width: 991px) {
   .lista_ham {
     display: none;
+  }
+}
+
+.dropdown-item {
+  float: right;
+  color: white;
+  background-color: #1b3c59;
+  font-weight: 700;
+  height: 42px;
+  width: 77px;
+  font-size: 15px;
+  border-radius: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  margin-right: 0;
+  display: inline !important;
+}
+
+.loginlogout {
+  float: right;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  position: -webkit-sticky;
+  position: sticky;
+  height: 115px;
+  width: 50%;
+  background-color: white;
+  margin-top: -81px;
+  margin-right: 30px;
+  padding-top: 30px;
+}
+
+.loginlogout a {
+  font-weight: 700;
+  margin-top: 20px;
+  width: 150px;
+  float: left;
+  height: 20px;
+  background-color: white;
+  font-size: 15px;
+  color: #1b3c59;
+}
+
+.loginlogout .sinistra {
+  margin-left: 405px;
+}
+
+.loginlogout .destra {
+  margin-right: 30px;
+}
+
+.content {
+  margin: 0 7%;
+}
+
+h1 {
+  margin-top: 30px;
+}
+
+.foto {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  height: 90%;
+  width: 90%;
+  text-align: center;
+}
+
+.foto img {
+  height: 80%;
+  width: 100%;
+  margin-bottom: 60px;
+  border-radius: 5px;
+}
+
+.descr {
+  font-size: 20px;
+  text-align: center;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+.carat {
+  text-align: left;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+.carat ul li {
+  font-size: 20px;
+}
+
+.map {
+  text-align: center;
+  height: 100%;
+  margin-top: 40px;
+}
+
+.map #map {
+  height: 350px !important;
+  width: 300px !important;
+}
+
+.msg {
+  border: 1px solid #1b3c59;
+  margin-top: 40px;
+  text-align: center;
+  height: 350px !important;
+  width: 300px !important;
+}
+
+.msg h1 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.insert_dati #mail_msg {
+  height: 50px;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.insert_dati #message {
+  height: 100px;
+  width: 80%;
+  font-size: 18px;
+  margin: auto;
+}
+
+.invia button {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 2% 5%;
+  background-color: #1b3c59;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+  margin: 5% 0;
+  border: none;
+}
+
+@media screen and (min-width: 767.98px) {
+  .descr {
+    text-align: left;
   }
 }
 

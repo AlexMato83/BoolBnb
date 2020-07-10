@@ -49954,14 +49954,17 @@ function init() {
   $(".continua").click(function () {
     $(".registrati").removeClass("on").addClass("off");
   }); // BOTTONE FILTRO TIPO DI ALLOGGIO
-
-  $(".tipo").click(function () {
-    if ($(".tipo_di_alloggio").hasClass("off")) {
-      $(".tipo_di_alloggio").removeClass("off").addClass("on");
-    } else {
-      $(".tipo_di_alloggio").removeClass("on").addClass("off");
-    }
-  }); // BOTTONE FILTRO SERVIZI
+  // $(".tipo").click(
+  //   function() {
+  //     if ($(".tipo_di_alloggio").hasClass("off")){
+  //       $(".tipo_di_alloggio").removeClass("off").addClass("on")
+  //     }
+  //     else {
+  //         $(".tipo_di_alloggio").removeClass("on").addClass("off")
+  //     }
+  //   }
+  // );
+  // BOTTONE FILTRO SERVIZI
 
   $(".serv").click(function () {
     if ($(".servizi").hasClass("off")) {
