@@ -20,7 +20,7 @@
   <input type="text" name="beds" value="">
 
   <label for="address">ADDRESS</label>
-  <input id="apt_address" type="location" name="address" value="">
+  <input id="apt_address" type="location" name="address" value="{{$add}}">
 
   <label for="search_radius">Search Radius Km</label>
   <input id="search_radius" type="number" name="search_radius" value="20">

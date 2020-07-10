@@ -62,7 +62,8 @@ class UiController extends Controller
         // }
         // dd($request["latitude"]);
          // AGGIUNGERE FUNZIONE MAGICA PER FILTRARE APPARTAMENTI ENTRO 20KM
-        return view("ui_apartments", compact('apartments_found','services','categories'));
+         $add = $request['address'];
+        return view("ui_apartments", compact('apartments_found','services','categories', "add"));
     }
 
 
@@ -213,7 +214,9 @@ class UiController extends Controller
         $apartments_filtered = filters($rooms, $beds, $r_services, $apartments_in_radius);
         $apartments_found = ordered_by_dist($apartments_filtered);
         // dd($apartments_found);
-    return view("ui_apartments", compact("apartments_found",'apartments','services','categories'));
+        $add = $request['address'];
+
+    return view("ui_apartments", compact("apartments_found",'apartments','services','categories','add'));
 
     // AGGIUNGERE FILTRI : N° stanze, N° posti letto, servizi
     }

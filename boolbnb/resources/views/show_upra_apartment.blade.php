@@ -13,4 +13,6 @@
   <a href="{{route('edit_apartment',$apartment['id'])}}">MODIFICA appartamento</a><br>
   <a href="{{route('delete_apartment',$apartment['id'])}}">CANCELLA appartamento</a>
   <a href="{{route('show_statistics',$apartment['id'])}}">STATISTICHE appartamento</a>
+
+
 @endsection

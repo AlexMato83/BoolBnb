@@ -209,6 +209,9 @@ class UserController extends Controller
     public function show_statistics($id){
 
       $apartment = Apartment::findOrFail($id);
+      // foreach ($apartment -> message as $message) {
+      //
+      // }
       $views = $apartment -> views;
       $total_views = count($views); //num views totali
 
@@ -245,7 +248,6 @@ class UserController extends Controller
               }
           }
       }
-      dd($list_of_months);
       return view('statistics',compact('list_of_months','total_views'));
     }
 }
