@@ -68,8 +68,12 @@
 
     <label for="visibility">visibility</label>
     <select class="" name="visibility">
-      <option value="0">No</option>
-      <option value="1" selected>Si</option>
+      <option value="0" @if ($apartment["visibility"] == 0)
+        selected
+      @endif>No</option>
+      <option value="1" @if ($apartment["visibility"] == 1)
+        selected
+      @endif>Si</option>
 
     </select>
 

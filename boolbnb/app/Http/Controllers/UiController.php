@@ -22,7 +22,13 @@ class UiController extends Controller
     }
     public function show_ui_apartments(Request $request)
     {
-        $apartments = Apartment::all();
+        $apartments_all = Apartment::all();
+        $apartments = [];
+        foreach ($apartments_all as $apartment) {
+          if ($apartment["visibility"] == 1) {
+            $apartments[] = $apartment;
+          }
+        }
         $services = Service::all();
         $categories = Category::all();
         $center_lat = $request["latitude"];
@@ -93,7 +99,13 @@ class UiController extends Controller
     }
 
     public function filter_ui_apartments(Request $request){
-      $apartments = Apartment::all();
+      $apartments_all = Apartment::all();
+      $apartments = [];
+      foreach ($apartments_all as $apartment) {
+        if ($apartment["visibility"] == 1) {
+          $apartments[] = $apartment;
+        }
+      }
       $services = Service::all();
       $categories = Category::all();
       $r_services = [];

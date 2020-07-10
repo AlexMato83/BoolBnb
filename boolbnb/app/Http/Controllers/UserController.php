@@ -130,6 +130,12 @@ class UserController extends Controller
 
             ]);
 
+            if ($validate["visibility"] == "Si") {
+              $validate["visibility"] = 1;
+            }else {
+              $validate["visibility"] = 0;
+            }
+
         $apartment["name"] = $validate["name"];
         $apartment["mq"] = $validate["mq"];
         $apartment["latitude"] = $request["latitude"];
@@ -160,7 +166,7 @@ class UserController extends Controller
         // *******************************
         $apartment -> services() -> sync($validate['services']);
 
-        return redirect() -> route('user_apartment');
+        return redirect() -> route('user_apartments');
     }
 
     // funzione per mostrare l'appartemento selezionato
