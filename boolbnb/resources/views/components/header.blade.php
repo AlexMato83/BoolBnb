@@ -179,7 +179,7 @@
                               <label for="lastname" class="col-md-1 col-form-label text-md-right">{{ __('') }}</label>
 
                               <div class="col-md-10">
-                                  <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="Lastname" placeholder="Cognome"  value="{{ old('lastname') }}"  autofocus>
+                                  <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" placeholder="Cognome"  value="{{ old('lastname') }}"  autofocus>
 
                                   @error('lastname')
                                       <span class="invalid-feedback" role="alert">

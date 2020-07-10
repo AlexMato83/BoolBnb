@@ -7,13 +7,7 @@
   border-radius:5px;
   margin: 180px auto 60px auto;
   background-color: #f0f1f2;
-  .dove {
-    width: 300px;
-    height: 40px;
-    border: 1px solid #DDDDDD;
-    border-radius:5px;
-    padding-left: 2%;
-  }
+
   button{
     width: 100px;
     height: 40px;
@@ -32,7 +26,13 @@
     }
   }
 }
-
+.dove {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #DDDDDD;
+  border-radius:5px;
+  padding-left: 2%;
+}
 
 .filtri {
   margin: 0 auto;
@@ -180,17 +180,22 @@
   h1 {
     margin: 20px 0;
   }
-  .apartments {
-    .apartment {
-      .foto {
+  .apartments_reserch {
+    .apartment_reserch {
+      margin: 40px 10px 0 10px;
+
+      width: calc(50% - 40px);
+      height: auto;
+      .foto_reserch {
         img {
-          height: 200px;
-          width: 300px;
+          height: 100%;
+          width: 100%;
+          margin-bottom: 20px;
         }
       }
-      .caratteristiche {
-        height: 200px;
-        width: 400px;
+      .caratteristiche_reserch {
+        height: 100%;
+        width: 100%;
       }
     }
   }

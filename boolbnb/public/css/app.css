@@ -11185,14 +11185,6 @@ a.text-dark:focus {
   background-color: #f0f1f2;
 }
 
-.search_Apartments .dove {
-  width: 300px;
-  height: 40px;
-  border: 1px solid #DDDDDD;
-  border-radius: 5px;
-  padding-left: 2%;
-}
-
 .search_Apartments button {
   width: 100px;
   height: 40px;
@@ -11209,6 +11201,14 @@ a.text-dark:focus {
   padding-right: 7px;
   font-size: 15px;
   font-weight: 550;
+}
+
+.dove {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #DDDDDD;
+  border-radius: 5px;
+  padding-left: 2%;
 }
 
 .filtri {
@@ -11363,14 +11363,21 @@ a.text-dark:focus {
   margin: 20px 0;
 }
 
-.results .apartments .apartment .foto img {
-  height: 200px;
-  width: 300px;
+.results .apartments_reserch .apartment_reserch {
+  margin: 40px 10px 0 10px;
+  width: calc(50% - 40px);
+  height: auto;
 }
 
-.results .apartments .apartment .caratteristiche {
-  height: 200px;
-  width: 400px;
+.results .apartments_reserch .apartment_reserch .foto_reserch img {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.results .apartments_reserch .apartment_reserch .caratteristiche_reserch {
+  height: 100%;
+  width: 100%;
 }
 
 .header {
@@ -11611,6 +11618,10 @@ body .btn-primary {
 .dispna {
   display: none;
   position: absolute;
+}
+
+.content {
+  padding-top: 100px;
 }
 
 .form-control {

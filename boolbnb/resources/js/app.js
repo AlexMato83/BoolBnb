@@ -31,7 +31,7 @@ function turfjs(){
   style: 'tomtom://vector/1/basic-main',
   zoom: 15
   });
-
+}
 
 
   function findGeometry() {
@@ -42,6 +42,7 @@ function turfjs(){
       })
       .go()
       .then(getAdditionalData);
+  }
   //sezione apartament in evidenza da collegare al database
 
   // var source = $('.apartmentEvidence-template').html();
@@ -68,35 +69,34 @@ function turfjs(){
   // })
 
 
-  //sezione reserch apartament da collegare al database
+  // sezione reserch apartament da collegare al database
 
   // var source = $('.apartmentReserch-template').html();
   // var template = Handlebars.compile(source);
   //
   // $.ajax({
-  //   url: ,
+  //   url: "http://localhost:8000/welcome_show",
   //   method: "GET",
   //   success: function(data,stato) {
   //     var apartament = data.response;
-  //
+  //     console.log(apartament);
   //     for (var i = 0; i < apartment.length; i++) {
   //       var context = {
-  //         foto: apartment[i].foto,
-  //         title: apartment[i].title,
-  //         description: apartment[i].description,
-  //         location: apartment[i].location,
+  //         name: apartment[i].name,
+  //         images: apartment[i].images,
+  //         category_id: apartment[i].category_id,
   //       };
   //       var html = template(context);
-  //       $('.apartments').append(html);
+  //       $('.apartment_reserch').append(html);
   //     }
   //   },
   //   error: function(richiesta,stato,errore){
   //     alert("Chiamata fallita!!!");
   //   }
   // })
-// });
 
-  }
+
+
   // findGeometry();
   //
   // function getAdditionalData(fuzzySearchResults) {
@@ -212,8 +212,6 @@ function turfjs(){
 //     calculateTurfArea(geometryData);
 //     drawPointsInsideAndOutsideOfPolygon(geometryData);
 //   }
-}
-
 
 function address_to_coord(button, submit){
 
@@ -362,6 +360,6 @@ function init(){
       }
     }
   );
-
 }
+
 $(document).ready(init);
