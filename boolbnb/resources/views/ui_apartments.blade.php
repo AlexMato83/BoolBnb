@@ -1,5 +1,25 @@
 @extends('layouts.mainLayout')
 @section('content')
+  {{-- BARRA DI RICERCA --}}
+  {{-- <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="search">
+      <input class="dove" type="text" id="dove" class="form-control" placeholder="Dove vuoi andare?">
+      <button class="cerca" type="button" name="button"><i class="fas fa-search"></i><strong>Cerca</strong></button>
+    </div>
+  </div> --}}
+
+  {{-- FILTRI DI RICERCA --}}
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+    <div class="filtri">
+        {{-- <button class="tipo" type="button" name="button">Tipo di alloggio</button> --}}
+        <button class="stanze" type="button" name="button">Stanze e letti</button>
+        <button class="serv" type="button" name="button">Servizi</button>
+        <input class="dove" type="text" id="dove" class="form-control" placeholder="Dove vuoi andare?">
+        <button class="dist" type="button" name="button">Distanza</button>
+        <button id="filtered2" type="text" name="" value=""><strong>Cerca</strong></button>
+    </div>
+  </div>
+
   <form  action="{{route('ui_filtered_apt')}}" method="post">
   @csrf
   @method("POST")
@@ -12,41 +32,87 @@
           </ul>
       </div>
   @endif
-  <label for="rooms">ROOMS</label>
-  <input type="text" name="rooms" value="">
 
-  <label for="beds">BEDS</label>
-  <input type="text" name="beds" value="">
+    {{-- MENU A TENDINA TIPO DI ALLOGGIO --}}
+    {{-- <div class="tipo_di_alloggio off">
+      @foreach ($categories as $category)
+        <div>
+          <input class="checkbox" type="checkbox" name="category[]" value="{{$category['id']}}">
+          {{$category['name']}}
+        </div>
+      @endforeach
+    </div> --}}
 
-  <label for="address">ADDRESS</label>
-  <input id="apt_address" type="location" name="address" value="{{$add}}">
+    {{-- MENU A TENDINA SERVIZI --}}
+    <div class="servizi off">
+      @foreach ($services as $service)
+          <div>
+              <input class="checkbox" type="checkbox" name="services[]" value="{{$service['id']}}">
+              {{$service['name']}}
+          </div>
+      @endforeach
+    </div>
 
-  <label for="search_radius">Search Radius Km</label>
-  <input id="search_radius" type="number" name="search_radius" value="20">
+    {{-- MENU A TENDINA STANZE E LETTI --}}
 
-  <input class="dispna" id="longitude" type="text" name="longitude" value="">
-  <input class="dispna" id="latitude" type="text" name="latitude" value="">
-
-  <label for="services[]">SERVICES</label>
-  @foreach ($services as $service)
-      <div>
-          <input class="checkbox" type="checkbox" name="services[]" value="{{$service['id']}}">
-          {{$service['name']}}
+    <div class="stanze_letti off">
+      <div class="bedrooms">
+        <label for="rooms">Stanze</label>
+        <input type="text" name="rooms" value="">
       </div>
-  @endforeach
-  <label for="category_id">Category</label>
-  <select class="" name="category_id">
-    @foreach ($categories as $category)
-      <option value="{{$category['id']}}">{{$category['name']}}</option>
+      <div class="bedrooms">
+        <label for="rooms">Letti</label>
+        <input type="text" name="beds" value="">
+      </div>
+    </div>
 
-    @endforeach
-  </select>
+    {{-- MENU A TENDINA kM --}}
 
-  <input id="filtered" class="dispna" type="submit" name="">
-</form>
-<button id="filtered2" type="text" name="" value="">search</button>
+    <div class="distanza off">
+      <div class="km">
+        <label for="address">Città</label>
+        <input id="apt_address" type="location" name="address" value="">
+      </div>
+      <div class="km">
+        <label for="search_radius">Distanza</label>
+        <input id="search_radius" type="number" name="search_radius" value="20">
+      </div>
+        <input class="dispna" id="longitude" type="text" name="longitude" value="">
+        <input class="dispna" id="latitude" type="text" name="latitude" value="">
+    </div>
 
-    @foreach ($apartments_found as $apartment)
-        <a href="{{route('create_view',$apartment['id'])}}">{{$apartment['name']}}<img src="{{ asset($apartment['images']) }}" style="width: 40px; height: 40px; border-radius: 50%;"></a><br>
-    @endforeach
+    <input id="filtered" class="dispna" type="submit" name="">
+  </form>
+
+  <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="results ">
+      <h1>Risultati ricerca</h1>
+      <div class="apartments_reserch">
+        <div class="row">
+          @foreach ($apartments_found as $apartment)
+            <div class="apartment_reserch">
+              <div class="foto_reserch">
+                <a href="{{route('create_view',$apartment['id'])}}"><img src="{{ asset($apartment['images'])}}"></a>
+              </div>
+              <div class="caratteristiche_reserch">
+                <h2>
+                  <a href="{{route('create_view',$apartment['id'])}}"> {{ $apartment['name']}}</a>
+                </h2>
+                {{-- <h3>{{$apartment['category_id']}}</h3> --}}
+                <h3>
+                  {{$apartment['rooms']}} stanze - {{$apartment['beds']}} letti - {{$apartment['bathrooms']}} bagni
+                </h3>
+                <h3>
+                  @foreach ($apartment -> services as $service)
+                    <span>{{$service['name']}}</span>
+                  @endforeach
+                </h3>
+              </div>
+            </div>
+          @endforeach
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
 @endsection

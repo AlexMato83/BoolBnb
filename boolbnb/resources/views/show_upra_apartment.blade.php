@@ -1,18 +1,61 @@
 @extends('layouts.mainLayout')
 
 @section('content')
-  <div class="">
-    {{$apartment['name']}}<br>
-    {{$apartment['mq']}}<br>
-    {{$apartment['address']}}<br>
-    {{$apartment['rooms']}}<br>
-    {{$apartment['bathrooms']}}<br>
-    {{$apartment['beds']}}<br>
-    <img src="{{ asset($apartment['images']) }}" style="width: 40px; height: 40px; border-radius: 50%;">
+
+<!-- titolo e foto appartamento -->
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <h1>{{$apartment['name']}}</h1>
+    <h3>{{$apartment['address']}}</h3>
+    <div class="foto">
+      <img src="{{ asset($apartment['images']) }}"/>
+    </div>
   </div>
-  <a href="{{route('edit_apartment',$apartment['id'])}}">MODIFICA appartamento</a><br>
-  <a href="{{route('delete_apartment',$apartment['id'])}}">CANCELLA appartamento</a>
-  <a href="{{route('show_statistics',$apartment['id'])}}">STATISTICHE appartamento</a>
+
+<!-- descrizione appartamento  -->
+  <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
+    <div class="descr">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor7
+       incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+       exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </div>
+  </div>
+
+<!-- caratteristiche appartamento -->
+  <div class="col-12 col-sm-12 offset-md-2 col-md-3 offset-lg-2 col-lg-3 offset-xl-2 col-xl-3 ">
+    <div class="carat">
+      <ul>
+        <li>{{$apartment['rooms']}} stanze</li>
+        <li>{{$apartment['beds']}} letti</li>
+        <li>{{$apartment['bathrooms']}} bagni</li>
+        <li>{{$apartment['mq']}} mq</li>
+      </ul>
+    </div>
+  </div>
+
+  {{-- MAPPA --}}
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="map_proprietario">
+      <div id="latitude" class="dispna">
+        {{$apartment["latitude"]}}
+      </div>
+      <div id="longitude" class="dispna">
+        {{$apartment["longitude"]}}
+      </div>
+      <div class="big" id='map'></div>
+    </div>
+  </div>
+
+  {{-- BOTTONI DI MODIFICA --}}
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="modifica">
+      <div>
+        <a href="{{route('edit_apartment',$apartment['id'])}}">MODIFICA APPARTAMENTO</a>
+      </div>
+      <div>
+        <a href="{{route('delete_apartment',$apartment['id'])}}">CANCELLA APPARTAMENTO</a>
+      </div>
+    </div>
+  </div>
 
 
 @endsection

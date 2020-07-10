@@ -10956,6 +10956,8 @@ a.text-dark:focus {
   box-shadow: none;
   border-radius: 5px;
   border: none;
+  margin-top: -40px;
+  float: right;
 }
 
 .search button i {
@@ -11120,6 +11122,8 @@ a.text-dark:focus {
   box-shadow: none;
   border-radius: 5px;
   border: none;
+  margin-top: -40px;
+  float: right;
 }
 
 .search button i {
@@ -11170,12 +11174,50 @@ a.text-dark:focus {
   color: #1b3c59;
 }
 
+.search_Apartments {
+  font-size: 18px;
+  width: 413px;
+  height: 49px;
+  border: 1px solid #DDDDDD;
+  padding: 3px;
+  border-radius: 5px;
+  margin: 180px auto 60px auto;
+  background-color: #f0f1f2;
+}
+
+.search_Apartments button {
+  width: 100px;
+  height: 40px;
+  font-weight: bold;
+  background-color: #61ce4e;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+  border: none;
+  float: right;
+}
+
+.search_Apartments button i {
+  padding-right: 7px;
+  font-size: 15px;
+  font-weight: 550;
+}
+
+.dove {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #DDDDDD;
+  border-radius: 5px;
+  padding-left: 2%;
+}
+
 .filtri {
   margin: 0 auto;
   float: left;
   height: 100%;
   width: 100%;
   margin-bottom: 30px;
+  margin-top: 30px;
 }
 
 .filtri button {
@@ -11188,7 +11230,130 @@ a.text-dark:focus {
   width: auto;
   border: 1px solid #8f8e8e;
   font-size: 18px;
-  padding: 4px 7px;
+  padding: 4px 9px;
+}
+
+.filtri #filtered2 {
+  background-color: #1b3c59;
+  color: white;
+  margin-left: 15px;
+}
+
+@media screen and (max-width: 575px) {
+  #filtered2 {
+    margin-left: 210px;
+  }
+}
+
+.tipo_di_alloggio {
+  height: auto;
+  width: 175px;
+  border: 1px solid #8f8e8e;
+  border-radius: 5px;
+  background-color: white;
+  margin-top: 350px;
+  margin-left: 14px;
+  padding: 10px;
+  color: #1b3c59;
+}
+
+.tipo_di_alloggio div {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+.tipo_di_alloggio div input {
+  margin: 4px 9px 6px;
+}
+
+.servizi {
+  height: auto;
+  width: 175px;
+  border: 1px solid #8f8e8e;
+  border-radius: 5px;
+  background-color: white;
+  margin-top: 350px;
+  margin-left: 400px;
+  padding: 10px;
+  color: #1b3c59;
+}
+
+.servizi div {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+.servizi div input {
+  margin: 4px 9px 6px;
+}
+
+.stanze_letti {
+  height: auto;
+  width: 123px;
+  border: 1px solid #8f8e8e;
+  border-radius: 5px;
+  background-color: white;
+  margin-top: 350px;
+  margin-left: 166px;
+  color: #1b3c59;
+  align-items: center;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.stanze_letti .bedrooms {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.stanze_letti .bedrooms label {
+  font-weight: 500;
+}
+
+.stanze_letti input {
+  margin: 4px 9px 6px;
+  width: 20px;
+  height: 22px;
+}
+
+.distanza {
+  height: auto;
+  width: 132px;
+  border: 1px solid #8f8e8e;
+  border-radius: 5px;
+  background-color: white;
+  margin-top: 350px;
+  margin-left: 300px;
+  color: #1b3c59;
+  align-items: center;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.distanza .km {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.distanza .km label {
+  font-weight: 500;
+}
+
+.distanza input {
+  margin: 4px 9px 6px;
+  height: 22px;
+}
+
+.distanza #apt_address {
+  margin: 4px 9px 6px;
+  width: 70px;
+}
+
+.distanza #search_radius {
+  margin: 4px 9px 6px;
+  width: 35px;
 }
 
 .results {
@@ -11199,18 +11364,25 @@ a.text-dark:focus {
   margin: 20px 0;
 }
 
-.results .apartments .apartment .foto img {
-  height: 200px;
-  width: 300px;
+.results .apartments_reserch .apartment_reserch {
+  margin: 40px 10px 0 10px;
+  width: calc(50% - 40px);
+  height: auto;
 }
 
-.results .apartments .apartment .caratteristiche {
-  height: 200px;
-  width: 400px;
+.results .apartments_reserch .apartment_reserch .foto_reserch img {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.results .apartments_reserch .apartment_reserch .caratteristiche_reserch {
+  height: 100%;
+  width: 100%;
 }
 
 .header {
-  height: 80px;
+  height: 127px;
   width: 100%;
   color: #1b3c59;
   background-color: white;
@@ -11239,11 +11411,6 @@ a.text-dark:focus {
   margin-top: 6%;
 }
 
-.header .navigazione ul li a {
-  color: #1b3c59;
-  font-size: 15px;
-}
-
 .header .navigazione ul li button {
   font-size: 15px;
   padding: 6% 18%;
@@ -11253,9 +11420,11 @@ a.text-dark:focus {
   border-radius: 5px;
 }
 
-.header .navigazione ul li a {
+.header .navigazione ul li .reg {
+  background-color: white;
   color: #1b3c59;
-  font-size: 15px;
+  border: none;
+  margin-right: 10px;
 }
 
 .hamburger-menu {
@@ -11286,9 +11455,11 @@ a.text-dark:focus {
   border-radius: 5px;
 }
 
-.hamburger-menu .ham ul li a {
+.hamburger-menu .ham ul li .reg {
   font-size: 20px;
   color: #1b3c59;
+  background-color: white;
+  border: none;
 }
 
 .fa-bars {
@@ -11328,19 +11499,193 @@ a.text-dark:focus {
   }
 }
 
+.dropdown-item {
+  float: right;
+  color: white;
+  background-color: #1b3c59;
+  font-weight: 700;
+  height: 42px;
+  width: 77px;
+  font-size: 15px;
+  border-radius: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  margin-right: 0;
+  display: inline !important;
+}
+
+.loginlogout {
+  float: right;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  position: -webkit-sticky;
+  position: sticky;
+  height: 115px;
+  width: 50%;
+  background-color: white;
+  margin-top: -81px;
+  margin-right: 30px;
+  padding-top: 30px;
+}
+
+.loginlogout a {
+  font-weight: 700;
+  margin-top: 20px;
+  width: 150px;
+  float: left;
+  height: 20px;
+  background-color: white;
+  font-size: 15px;
+  color: #1b3c59;
+}
+
+.loginlogout .sinistra {
+  margin-left: 405px;
+}
+
+.loginlogout .destra {
+  margin-right: 30px;
+}
+
+.content {
+  margin: 0 7%;
+}
+
+h1 {
+  margin-top: 30px;
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.foto {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.foto img {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 60px;
+  border-radius: 5px;
+}
+
+.descr {
+  font-size: 20px;
+  text-align: center;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+.carat {
+  text-align: left;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+.carat ul li {
+  font-size: 20px;
+}
+
+.map {
+  text-align: center;
+  height: 100%;
+  margin-top: 40px;
+}
+
+.map #map {
+  height: 350px !important;
+  width: 450px !important;
+}
+
+.map_proprietario {
+  height: 350px;
+  width: 100%;
+  margin: 5% 0;
+}
+
+.map_proprietario #map {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.msg {
+  border: 1px solid #1b3c59;
+  margin-top: 40px;
+  text-align: center;
+  height: 350px !important;
+  width: 450px !important;
+}
+
+.msg h1 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.modifica {
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+}
+
+.modifica div {
+  font-size: 20px;
+}
+
+.insert_dati #mail_msg {
+  height: 50px;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.insert_dati #message {
+  height: 100px;
+  width: 80%;
+  font-size: 18px;
+  margin: auto;
+}
+
+.invia button {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 2% 5%;
+  background-color: #1b3c59;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+  margin: 5% 0;
+  border: none;
+}
+
+@media screen and (min-width: 767.98px) {
+  .descr {
+    text-align: left;
+  }
+}
+
+.crea_appartamento {
+  margin-top: 30px;
+}
+
 body {
   background-color: white;
 }
 
 body .accedi,
 body .registrati {
-  width: 413px;
-  border: 1px solid #DDDDDD;
+  width: 340px;
   margin: auto;
   margin-top: 100px;
   border-radius: 5px;
   text-align: center;
   background-color: white;
+  font-size: 15px;
 }
 
 body .accedi h1,
@@ -11392,6 +11737,10 @@ body .registrati .continua button {
   border: none;
 }
 
+body .card-header {
+  display: none;
+}
+
 body .off {
   display: none;
 }
@@ -11400,9 +11749,40 @@ body .on {
   display: block;
 }
 
-#map {
-  height: 200px;
-  width: 200px;
+body .card-body {
+  height: 100%;
+  border: none;
+}
+
+body .card {
+  width: 340px;
+  height: 100%;
+  margin: auto;
+  border-radius: 5px;
+  text-align: center;
+  border: none;
+  border: 1px solid #DDDDDD;
+}
+
+body .bordo {
+  border-top: none;
+}
+
+body .btn-primary {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 2% 5%;
+  background-color: #61ce4e;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+  margin: 5% 0;
+  border: none;
+  margin-top: 30px;
+}
+
+.form-check-label {
+  padding-left: 20px;
 }
 
 .dispna {
@@ -11412,5 +11792,10 @@ body .on {
 
 .content {
   padding-top: 200px;
+}
+
+.form-control {
+  height: 40px;
+  font-size: 15px;
 }
 

@@ -37,7 +37,7 @@ function turfjs(){
   style: 'tomtom://vector/1/basic-main',
   zoom: 15
   });
-
+}
 
 
   function findGeometry() {
@@ -53,7 +53,6 @@ function turfjs(){
     draggable: false
 }).setLngLat(center).addTo(map);
 }
-
 
 function address_to_coord(button, submit){
 
@@ -219,5 +218,53 @@ function init(){
   );
   getData(list_of_views,'views','line');
   getData(list_of_messages,'messages','line');
+  // BOTTONE FILTRO TIPO DI ALLOGGIO
+  // $(".tipo").click(
+  //   function() {
+  //     if ($(".tipo_di_alloggio").hasClass("off")){
+  //       $(".tipo_di_alloggio").removeClass("off").addClass("on")
+  //     }
+  //     else {
+  //         $(".tipo_di_alloggio").removeClass("on").addClass("off")
+  //     }
+  //   }
+  // );
+
+  // BOTTONE FILTRO SERVIZI
+  $(".serv").click(
+    function() {
+      if ($(".servizi").hasClass("off")){
+        $(".servizi").removeClass("off").addClass("on")
+      }
+      else {
+          $(".servizi").removeClass("on").addClass("off")
+      }
+    }
+  );
+
+  // BOTTONE FILTRO STANZE E LETTI
+  $(".stanze").click(
+    function() {
+      if ($(".stanze_letti").hasClass("off")){
+        $(".stanze_letti").removeClass("off").addClass("on")
+      }
+      else {
+          $(".stanze_letti").removeClass("on").addClass("off")
+      }
+    }
+  );
+
+  // BOTTONE FILTRO STANZE E LETTI
+  $(".dist").click(
+    function() {
+      if ($(".distanza").hasClass("off")){
+        $(".distanza").removeClass("off").addClass("on")
+      }
+      else {
+          $(".distanza").removeClass("on").addClass("off")
+      }
+    }
+  );
 }
+
 $(document).ready(init);
