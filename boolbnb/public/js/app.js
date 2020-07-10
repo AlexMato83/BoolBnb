@@ -37259,7 +37259,6 @@ function turfjs() {
     style: 'tomtom://vector/1/basic-main',
     zoom: 15
   });
-}
 
   function findGeometry() {
     var SEARCH_QUERY = 'Roma';
@@ -37312,7 +37311,6 @@ function prova_api() {
   });
 }
 
-
 function getData(data, id_canvas, type) {
   var months = [];
   var views = [];
@@ -37360,16 +37358,17 @@ function init() {
     turfjs();
   }
 
-  if (document.getElementById("provaApi")) {
-    prova_api();
-  }
-
+  prova_api();
   address_to_coord('#create2', 'create');
   address_to_coord('#search2', 'search');
   address_to_coord('#filtered2', 'filtered');
 
-  if (typeof list_of_months != "undefined") {
-    getData(list_of_months);
+  if (typeof list_of_views != "undefined") {
+    getData(list_of_views, 'views', 'line');
+  }
+
+  if (typeof list_of_messages != "undefined") {
+    getData(list_of_messages, 'messages', 'line');
   }
 
   $(".tasto").click(function () {
@@ -37400,7 +37399,8 @@ function init() {
   });
   $(".continua").click(function () {
     $(".registrati").removeClass("on").addClass("off");
-  }); // BOTTONE FILTRO TIPO DI ALLOGGIO
+  }); //***********************************
+  // BOTTONE FILTRO TIPO DI ALLOGGIO
   // $(".tipo").click(
   //   function() {
   //     if ($(".tipo_di_alloggio").hasClass("off")){
@@ -37411,6 +37411,7 @@ function init() {
   //     }
   //   }
   // );
+  //**************************************
   // BOTTONE FILTRO SERVIZI
 
   $(".serv").click(function () {
@@ -37436,8 +37437,6 @@ function init() {
       $(".distanza").removeClass("on").addClass("off");
     }
   });
-  getData(list_of_views, 'views', 'line');
-  getData(list_of_messages, 'messages', 'line');
 }
 
 $(document).ready(init);
@@ -37507,8 +37506,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/paolo/Desktop/Github/Boolean/BoolBnb/boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/paolo/Desktop/Github/Boolean/BoolBnb/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\RepoGitNuovo\BoolBnb\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\RepoGitNuovo\BoolBnb\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

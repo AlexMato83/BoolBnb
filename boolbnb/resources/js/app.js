@@ -28,7 +28,7 @@ require('./bootstrap');
 function turfjs(){
   var lat = $("#latitude").html();
   var long = $("#longitude").html();
-  var center = [ long , lat];
+  var center = [long,lat];
   var apiKey = 'luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt';
   var map = tt.map({
   key: apiKey,
@@ -37,22 +37,22 @@ function turfjs(){
   style: 'tomtom://vector/1/basic-main',
   zoom: 15
   });
-}
-
-
   function findGeometry() {
     var SEARCH_QUERY = 'Roma';
     tt.services.fuzzySearch({
-        key: apiKey,
-        query: SEARCH_QUERY
-      })
-      .go()
-      .then(getAdditionalData);
+      key: apiKey,
+      query: SEARCH_QUERY
+    })
+    .go()
+    .then(getAdditionalData);
   }
   var marker = new tt.Marker({
     draggable: false
-}).setLngLat(center).addTo(map);
+  }).setLngLat(center).addTo(map);
 }
+
+
+
 
 function address_to_coord(button, submit){
 
@@ -158,14 +158,15 @@ function init(){
   if (document.getElementById("map")) {
     turfjs();
   }
-  if (document.getElementById("provaApi")) {
-        prova_api();
-  }
+  prova_api();
   address_to_coord('#create2', 'create');
   address_to_coord('#search2', 'search');
   address_to_coord('#filtered2', 'filtered');
-  if (typeof(list_of_months) != "undefined") {
-    getData(list_of_months);
+  if (typeof(list_of_views) != "undefined") {
+    getData(list_of_views,'views','line');
+  }
+  if (typeof(list_of_messages) != "undefined") {
+    getData(list_of_messages,'messages','line');
   }
 
 
@@ -216,8 +217,7 @@ function init(){
       $(".registrati").removeClass("on").addClass("off");
     }
   );
-  getData(list_of_views,'views','line');
-  getData(list_of_messages,'messages','line');
+  //***********************************
   // BOTTONE FILTRO TIPO DI ALLOGGIO
   // $(".tipo").click(
   //   function() {
@@ -229,7 +229,7 @@ function init(){
   //     }
   //   }
   // );
-
+//**************************************
   // BOTTONE FILTRO SERVIZI
   $(".serv").click(
     function() {

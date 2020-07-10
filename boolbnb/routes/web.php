@@ -28,5 +28,4 @@ Route::get('/show_statistics/{id}', 'UserController@show_statistics')->name('sho
 
 
 //******* Prova rotte per api *******//
-// Route::get('/statistics_bridge', 'UserController@show_statistics')->name('show_statistics');
 Route::get('/welcome_show', 'ApiController@welcome_show')->name('welcome_show');
