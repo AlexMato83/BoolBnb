@@ -37311,22 +37311,23 @@ function prova_api() {
   });
 }
 
-function getData(list_of_months) {
+
+function getData(data, id_canvas, type) {
   var months = [];
   var views = [];
 
-  for (var month in list_of_months) {
+  for (var month in data) {
     months.push(month);
-    views.push(list_of_months[month]);
+    views.push(data[month]);
   }
 
-  var ctx = $("#line");
+  var ctx = $('#' + id_canvas);
   var myChart = new Chart(ctx, {
-    type: "line",
+    type: type,
     data: {
       labels: getMonth(),
       datasets: [{
-        label: "Views",
+        label: id_canvas,
         data: views,
         backgroundColor: ['rgba(150, 33, 146, 1)', 'rgba(82, 40, 204, 1)', 'rgba(4, 51, 255, 1)', 'rgba(0, 146, 146, 1)', 'rgba(0, 249, 0, 1)', 'rgba(202, 250, 0, 1)', 'rgba(255, 251, 0, 1)', 'rgba(255, 199, 0, 1)', 'rgba(255, 147, 0, 1)', 'rgba(255, 80, 0, 1)', 'rgba(255, 38, 0, 1)', 'rgba(216, 34, 83, 1)'],
         borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
@@ -37399,6 +37400,8 @@ function init() {
   $(".continua").click(function () {
     $(".registrati").removeClass("on").addClass("off");
   });
+  getData(list_of_views, 'views', 'line');
+  getData(list_of_messages, 'messages', 'line');
 }
 
 $(document).ready(init);
@@ -37468,8 +37471,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\RepoGitNuovo\BoolBnb\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\RepoGitNuovo\BoolBnb\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/paolo/Desktop/Github/Boolean/BoolBnb/boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/paolo/Desktop/Github/Boolean/BoolBnb/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -95,20 +95,20 @@ function prova_api(){
     })
 }
 
-function getData(list_of_months) {
+function getData(data,id_canvas,type) {
   var months = [];
   var views = [];
-  for (var month in list_of_months) {
+  for (var month in data) {
     months.push(month)
-    views.push(list_of_months[month])
+    views.push(data[month])
   }
-  var ctx = $("#line");
+  var ctx = $('#' + id_canvas);
   var myChart = new Chart(ctx, {
-      type: "line",
+      type: type,
       data: {
           labels: getMonth(),
           datasets: [{
-              label: "Views",
+              label: id_canvas,
               data: views,
               backgroundColor: [
                 'rgba(150, 33, 146, 1)',
@@ -217,5 +217,7 @@ function init(){
       $(".registrati").removeClass("on").addClass("off");
     }
   );
+  getData(list_of_views,'views','line');
+  getData(list_of_messages,'messages','line');
 }
 $(document).ready(init);

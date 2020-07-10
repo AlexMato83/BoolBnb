@@ -12,7 +12,6 @@
           </ul>
       </div>
   @endif
-
   <label for="rooms">ROOMS</label>
   <input type="text" name="rooms" value="">
 
