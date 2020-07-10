@@ -6,9 +6,10 @@
 @import '_home';
 @import '_footer';
 @import '_home';
-@import '_searchResults';
+@import '_ui_apartaments';
 @import '_header';
-@import '_show_upra_apartment';
+@import '_show_ui_apartment';
+@import '_user_apartments';
 
   body{
     background-color: white;
@@ -94,13 +95,8 @@
     border: none;
     margin-top:30px;
   }
-
 }
 
-#map {
-  height: 200px;
-  width: 200px;
-}
 
 // #polygon-info-box {
 //   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;

@@ -7,7 +7,6 @@
   border-radius:5px;
   margin: 180px auto 60px auto;
   background-color: #f0f1f2;
-
   button{
     width: 100px;
     height: 40px;
@@ -17,7 +16,6 @@
     box-shadow: none;
     border-radius: 5px;
     border: none;
-
     float: right;
     i{
       padding-right: 7px;
@@ -138,7 +136,6 @@
     width: 20px;
     height: 22px;
   }
-
 }
 // KM
 
@@ -164,17 +161,16 @@
   input{
     margin: 4px 9px 6px;
     height: 22px;
-      }
-    #apt_address{
-      margin: 4px 9px 6px;
-      width: 70px;
-    }
-    #search_radius{
-      margin: 4px 9px 6px;
-      width: 35px;
-    }
+  }
+  #apt_address{
+    margin: 4px 9px 6px;
+    width: 70px;
+  }
+  #search_radius{
+    margin: 4px 9px 6px;
+    width: 35px;
+  }
 }
-
 
 .results {
   margin: 20px 0;
@@ -184,7 +180,6 @@
   .apartments_reserch {
     .apartment_reserch {
       margin: 40px 10px 0 10px;
-
       width: calc(50% - 40px);
       height: auto;
       .foto_reserch {

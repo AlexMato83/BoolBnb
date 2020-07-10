@@ -27,9 +27,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="header">
-
             @include('components.header')
-
         </div>
       </div>
     </div>
@@ -47,6 +45,5 @@
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
   </body>
 </html>

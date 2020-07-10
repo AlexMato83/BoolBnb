@@ -4,17 +4,18 @@
   <!-- titolo e foto appartamento -->
     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
       <h1>{{$apartment['name']}}</h1>
+      <h3>{{$apartment['address']}}</h3>
       <div class="foto">
         <img src="{{ asset($apartment['images']) }}"/>
       </div>
     </div>
 
   <!-- descrizione appartamento  -->
-    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+    <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
       <div class="descr">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor7
          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-         exercitation ullamco laboris nisi ut aliquip ex ea commodo
+         exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
       </div>
     </div>
 
@@ -26,7 +27,6 @@
           <li>{{$apartment['beds']}} letti</li>
           <li>{{$apartment['bathrooms']}} bagni</li>
           <li>{{$apartment['mq']}} mq</li>
-          <li>{{$apartment['address']}}</li>
         </ul>
       </div>
     </div>
