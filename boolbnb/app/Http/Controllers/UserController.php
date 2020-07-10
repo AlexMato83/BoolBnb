@@ -212,8 +212,18 @@ class UserController extends Controller
       // foreach ($apartment -> message as $message) {
       //
       // }
+      $messages = $apartment -> messages;
+      $total_messages = count($messages); //num mex totali
       $views = $apartment -> views;
-      $total_views = count($views); //num views totali
+      $total_views = count($views);       //num views totali
+
+      $all_mex_month = [];
+      foreach ($messages as $message) {
+        $date_mex = $message['created_at'];
+        $mex_months = date("F", strtotime($date_mex));
+        $all_mex_month[] = $mex_months;
+      }
+
 
       $all_views_month = [];
       foreach ($views as $view) {
@@ -221,33 +231,39 @@ class UserController extends Controller
         $months = date("F", strtotime($date));
         $all_views_month[] = $months;
       }
+      function create_chart($data_for_month){
 
-      $list_of_months = [
-          'January'=> 0,
-          'February'=> 0,
-          'March'=> 0,
-          'April'=> 0,
-          'May'=> 0,
-          'June'=> 0,
-          'July'=> 0,
-          'August'=> 0,
-          'September'=> 0,
-          'October'=> 0,
-          'November'=> 0,
-          'December'=> 0
-      ];
-      // suddivisione views per mese(chiave)
-      foreach ($list_of_months as $each_month=> $view_num){
+        $list_of_months = [
+            'January'=> 0,
+            'February'=> 0,
+            'March'=> 0,
+            'April'=> 0,
+            'May'=> 0,
+            'June'=> 0,
+            'July'=> 0,
+            'August'=> 0,
+            'September'=> 0,
+            'October'=> 0,
+            'November'=> 0,
+            'December'=> 0
+        ];
+        // suddivisione views per mese(chiave)
+        foreach ($list_of_months as $each_month=> $data){
 
-          foreach ($all_views_month as $month){
+            foreach ($data_for_month as $month){
 
-              if($each_month == $month){
+                if($each_month == $month){
 
-                $view_num ++;
-                  $list_of_months[$month] = $view_num;
-              }
-          }
+                  $data ++;
+                    $list_of_months[$month] = $data;
+                }
+            }
+        }
+        return $list_of_months;
       }
-      return view('statistics',compact('list_of_months','total_views'));
+      $list_of_views = create_chart($all_views_month);
+      $list_of_messages = create_chart($all_mex_month);
+      
+      return view('statistics',compact('list_of_views','list_of_messages','total_views','total_messages'));
     }
 }
