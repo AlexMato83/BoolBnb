@@ -11174,6 +11174,43 @@ a.text-dark:focus {
   color: #1b3c59;
 }
 
+.search_Apartments {
+  font-size: 18px;
+  width: 413px;
+  height: 49px;
+  border: 1px solid #DDDDDD;
+  padding: 3px;
+  border-radius: 5px;
+  margin: 180px auto 60px auto;
+  background-color: #f0f1f2;
+}
+
+.search_Apartments .dove {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #DDDDDD;
+  border-radius: 5px;
+  padding-left: 2%;
+}
+
+.search_Apartments button {
+  width: 100px;
+  height: 40px;
+  font-weight: bold;
+  background-color: #61ce4e;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+  border: none;
+  float: right;
+}
+
+.search_Apartments button i {
+  padding-right: 7px;
+  font-size: 15px;
+  font-weight: 550;
+}
+
 .filtri {
   margin: 0 auto;
   float: left;
@@ -11192,7 +11229,130 @@ a.text-dark:focus {
   width: auto;
   border: 1px solid #8f8e8e;
   font-size: 18px;
-  padding: 4px 7px;
+  padding: 4px 9px;
+}
+
+.filtri #filtered2 {
+  background-color: #1b3c59;
+  color: white;
+  margin-left: 15px;
+}
+
+@media screen and (max-width: 575px) {
+  #filtered2 {
+    margin-left: 210px;
+  }
+}
+
+.tipo_di_alloggio {
+  height: auto;
+  width: 175px;
+  border: 1px solid #8f8e8e;
+  border-radius: 5px;
+  background-color: white;
+  margin-top: 350px;
+  margin-left: 14px;
+  padding: 10px;
+  color: #1b3c59;
+}
+
+.tipo_di_alloggio div {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+.tipo_di_alloggio div input {
+  margin: 4px 9px 6px;
+}
+
+.servizi {
+  height: auto;
+  width: 175px;
+  border: 1px solid #8f8e8e;
+  border-radius: 5px;
+  background-color: white;
+  margin-top: 350px;
+  margin-left: 400px;
+  padding: 10px;
+  color: #1b3c59;
+}
+
+.servizi div {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+.servizi div input {
+  margin: 4px 9px 6px;
+}
+
+.stanze_letti {
+  height: auto;
+  width: 123px;
+  border: 1px solid #8f8e8e;
+  border-radius: 5px;
+  background-color: white;
+  margin-top: 350px;
+  margin-left: 166px;
+  color: #1b3c59;
+  align-items: center;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.stanze_letti .bedrooms {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.stanze_letti .bedrooms label {
+  font-weight: 500;
+}
+
+.stanze_letti input {
+  margin: 4px 9px 6px;
+  width: 20px;
+  height: 22px;
+}
+
+.distanza {
+  height: auto;
+  width: 132px;
+  border: 1px solid #8f8e8e;
+  border-radius: 5px;
+  background-color: white;
+  margin-top: 350px;
+  margin-left: 300px;
+  color: #1b3c59;
+  align-items: center;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.distanza .km {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.distanza .km label {
+  font-weight: 500;
+}
+
+.distanza input {
+  margin: 4px 9px 6px;
+  height: 22px;
+}
+
+.distanza #apt_address {
+  margin: 4px 9px 6px;
+  width: 70px;
+}
+
+.distanza #search_radius {
+  margin: 4px 9px 6px;
+  width: 35px;
 }
 
 .results {
@@ -11451,10 +11611,6 @@ body .btn-primary {
 .dispna {
   display: none;
   position: absolute;
-}
-
-.content {
-  padding-top: 100px;
 }
 
 .form-control {

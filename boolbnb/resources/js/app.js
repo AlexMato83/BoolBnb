@@ -315,5 +315,53 @@ function init(){
       $(".registrati").removeClass("on").addClass("off");
     }
   );
+  // BOTTONE FILTRO TIPO DI ALLOGGIO
+  $(".tipo").click(
+    function() {
+      if ($(".tipo_di_alloggio").hasClass("off")){
+        $(".tipo_di_alloggio").removeClass("off").addClass("on")
+      }
+      else {
+          $(".tipo_di_alloggio").removeClass("on").addClass("off")
+      }
+    }
+  );
+
+  // BOTTONE FILTRO SERVIZI
+  $(".serv").click(
+    function() {
+      if ($(".servizi").hasClass("off")){
+        $(".servizi").removeClass("off").addClass("on")
+      }
+      else {
+          $(".servizi").removeClass("on").addClass("off")
+      }
+    }
+  );
+
+  // BOTTONE FILTRO STANZE E LETTI
+  $(".stanze").click(
+    function() {
+      if ($(".stanze_letti").hasClass("off")){
+        $(".stanze_letti").removeClass("off").addClass("on")
+      }
+      else {
+          $(".stanze_letti").removeClass("on").addClass("off")
+      }
+    }
+  );
+
+  // BOTTONE FILTRO STANZE E LETTI
+  $(".dist").click(
+    function() {
+      if ($(".distanza").hasClass("off")){
+        $(".distanza").removeClass("off").addClass("on")
+      }
+      else {
+          $(".distanza").removeClass("on").addClass("off")
+      }
+    }
+  );
+
 }
 $(document).ready(init);
