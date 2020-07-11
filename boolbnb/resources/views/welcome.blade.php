@@ -42,11 +42,11 @@
 
           <div class="apartment">
             <div class="foto">
-              <a href="{{route('create_view',$apartment['id'])}}"><img src="{{ asset($apartment['images'])}}"></a>
+              <a href="{{route('create_view',$random_apartments['id'])}}"><img src="{{ asset($random_apartments['images'])}}"></a>
             </div>
             <div class="titolo">
               <h3>
-                <a href="{{route('create_view',$apartment['id'])}}"> {{ $apartment['name']}}</a>
+                <a href="{{route('create_view',$random_apartments['id'])}}"> {{ $random_apartments['name']}}</a>
               </h3>
             </div>
           </div>

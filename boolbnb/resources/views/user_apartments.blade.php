@@ -2,14 +2,24 @@
 
 @section('content')
   <div class="crea_appartamento">
-    <h2><a href="{{route('create_apartment')}}">Crea nuovo appartamento</a>
-    </h2> 
+    <h1><a href="{{route('create_apartment')}}">Crea nuovo appartamento</a>
+    </h1>
   </div>
   <div class="appartamenti_proprietario">
     @foreach ($apartments as $apartment)
-      <a href="{{route('show_upra_apartment',$apartment['id'])}}">
-        {{$apartment["name"]}}
-        <img src="{{ asset($apartment['images']) }}"></a><br>
+      <div class="appartamenti_proprietario_foto">
+        <a href="{{route('show_upra_apartment',$apartment['id'])}}">
+          <img src="{{ asset($apartment['images'])}}">
+        </a>
+      </div>
+      <div class="appartamenti_proprietario_nome">
+        <a href="{{route('show_upra_apartment',$apartment['id'])}}">
+          {{$apartment["name"]}}
+        </a>
+      </div>
+
+
+
     @endforeach
   </div>
 

@@ -37302,7 +37302,7 @@ function address_to_coord(button, submit) {
 
 function prova_api() {
   $.ajax({
-    url: "http://localhost:8000/welcome_show",
+    url: "http://127.0.0.1:8000/welcome_show",
     method: "GET",
     success: function success(data) {
       var variabile = JSON.parse(data);
@@ -37354,11 +37354,13 @@ function getMonth() {
 }
 
 function init() {
+  console.log("ciao");
+  prova_api();
+
   if (document.getElementById("map")) {
     turfjs();
   }
 
-  prova_api();
   address_to_coord('#create2', 'create');
   address_to_coord('#search2', 'search');
   address_to_coord('#filtered2', 'filtered');

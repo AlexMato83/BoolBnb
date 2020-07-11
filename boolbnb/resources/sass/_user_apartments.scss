@@ -1,3 +1,22 @@
 .crea_appartamento {
   margin-top: 30px;
+  h1 {
+    margin: 20px 0;
+  }
+}
+.appartamenti_proprietario {
+  margin: 40px 10px 0 10px;
+  width: calc(50% - 40px);
+  height: auto;
+  .appartamenti_proprietario_foto {
+    img {
+      height: 100%;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  .appartamenti_proprietario_nome {
+    height: 100%;
+    width: 100%;
+  }
 }

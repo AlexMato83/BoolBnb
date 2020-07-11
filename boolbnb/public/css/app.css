@@ -10928,84 +10928,171 @@ a.text-dark:focus {
   }
 }
 
-.search {
-  font-size: 18px;
-  width: 413px;
-  height: 49px;
-  border: 1px solid #DDDDDD;
-  padding: 3px;
-  border-radius: 5px;
-  margin: 180px auto 60px auto;
-  background-color: #f0f1f2;
+.header {
+  height: 127px;
+  width: 100%;
+  color: #1b3c59;
+  background-color: white;
+  position: fixed;
+  z-index: 99;
 }
 
-.search .dove {
-  width: 300px;
-  height: 40px;
-  border: 1px solid #DDDDDD;
-  border-radius: 5px;
-  padding-left: 2%;
+.header .logo img {
+  margin-top: 5%;
+  height: 65px;
+  width: auto;
 }
 
-.search button {
-  width: 100px;
-  height: 40px;
-  font-weight: bold;
-  background-color: #61ce4e;
+.header .navigazione {
+  margin-left: 0;
+}
+
+.header .navigazione ul {
+  float: none;
+}
+
+.header .navigazione ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 2%;
+  margin-top: 6%;
+}
+
+.header .navigazione ul li button {
+  font-size: 15px;
+  padding: 6% 18%;
+  background-color: #1b3c59;
   color: white;
   box-shadow: none;
   border-radius: 5px;
+}
+
+.header .navigazione ul li .reg {
+  background-color: white;
+  color: #1b3c59;
   border: none;
-  margin-top: -40px;
+  margin-right: 10px;
+}
+
+.hamburger-menu {
   float: right;
 }
 
-.search button i {
-  padding-right: 7px;
-  font-size: 15px;
-  font-weight: 550;
-}
-
-.evidenza {
-  margin: auto;
-}
-
-.evidenza h1 {
-  text-align: left;
-  padding-left: 30px;
-  font-size: 30px;
-}
-
-.evidenza .apartments {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  padding-top: 20pX;
-}
-
-.evidenza .apartments .apartment {
-  width: calc((100% / 3) - 4%);
-  height: 250px;
-  margin: 2%;
-  padding: 5px;
-  text-align: center;
-}
-
-.evidenza .apartments .apartment .foto img {
-  width: 100%;
+.hamburger-menu .ham {
   height: 100%;
-  border-radius: 3%;
+  width: 100%;
+  margin-top: 3px;
+  margin-right: 65px;
 }
 
-.evidenza .apartments .apartment .titolo h3 {
-  font-size: 18px;
-  padding-top: 10px;
+.hamburger-menu .ham ul {
+  display: inline;
 }
 
-.evidenza .apartments .apartment .titolo h3 a {
+.hamburger-menu .ham ul li {
+  margin-bottom: 2px;
+  list-style: none;
+}
+
+.hamburger-menu .ham ul li button {
+  font-size: 20px;
+  background-color: #1b3c59;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+}
+
+.hamburger-menu .ham ul li .reg {
+  font-size: 20px;
   color: #1b3c59;
+  background-color: white;
+  border: none;
+}
+
+.fa-bars {
+  margin-top: 2%;
+  float: right;
+  font-size: 20px;
+  color: #1b3c59;
+  display: none;
+}
+
+.fa-times {
+  margin-top: 2%;
+  color: #1b3c59;
+  font-size: 25px;
+  display: inline-block;
+  position: fixed;
+  right: 20px;
+}
+
+@media screen and (max-width: 991px) {
+  .fa-bars {
+    margin-top: -3%;
+    margin-right: 4%;
+    display: inline-block;
+    position: fixed;
+    right: 20px;
+  }
+
+  .prova {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 991px) {
+  .lista_ham {
+    display: none;
+  }
+}
+
+.dropdown-item {
+  float: right;
+  color: white;
+  background-color: #1b3c59;
+  font-weight: 700;
+  height: 42px;
+  width: 77px;
+  font-size: 15px;
+  border-radius: 5px;
+  position: -webkit-sticky;
+  position: sticky;
+  margin-right: 0;
+  display: inline !important;
+}
+
+.loginlogout {
+  float: right;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  position: -webkit-sticky;
+  position: sticky;
+  height: 115px;
+  width: 50%;
+  background-color: white;
+  margin-top: -81px;
+  margin-right: 30px;
+  padding-top: 30px;
+}
+
+.loginlogout a {
+  font-weight: 700;
+  margin-top: 20px;
+  width: 150px;
+  float: left;
+  height: 20px;
+  background-color: white;
+  font-size: 15px;
+  color: #1b3c59;
+}
+
+.loginlogout .sinistra {
+  margin-left: 405px;
+}
+
+.loginlogout .destra {
+  margin-right: 30px;
 }
 
 .footer {
@@ -11245,28 +11332,6 @@ a.text-dark:focus {
   }
 }
 
-.tipo_di_alloggio {
-  height: auto;
-  width: 175px;
-  border: 1px solid #8f8e8e;
-  border-radius: 5px;
-  background-color: white;
-  margin-top: 350px;
-  margin-left: 14px;
-  padding: 10px;
-  color: #1b3c59;
-}
-
-.tipo_di_alloggio div {
-  display: flex;
-  align-items: center;
-  font-size: 15px;
-}
-
-.tipo_di_alloggio div input {
-  margin: 4px 9px 6px;
-}
-
 .servizi {
   height: auto;
   width: 175px;
@@ -11379,173 +11444,6 @@ a.text-dark:focus {
 .results .apartments_reserch .apartment_reserch .caratteristiche_reserch {
   height: 100%;
   width: 100%;
-}
-
-.header {
-  height: 127px;
-  width: 100%;
-  color: #1b3c59;
-  background-color: white;
-  position: fixed;
-  z-index: 99;
-}
-
-.header .logo img {
-  margin-top: 5%;
-  height: 65px;
-  width: auto;
-}
-
-.header .navigazione {
-  margin-left: 0;
-}
-
-.header .navigazione ul {
-  float: none;
-}
-
-.header .navigazione ul li {
-  list-style: none;
-  display: inline-block;
-  margin: 2%;
-  margin-top: 6%;
-}
-
-.header .navigazione ul li button {
-  font-size: 15px;
-  padding: 6% 18%;
-  background-color: #1b3c59;
-  color: white;
-  box-shadow: none;
-  border-radius: 5px;
-}
-
-.header .navigazione ul li .reg {
-  background-color: white;
-  color: #1b3c59;
-  border: none;
-  margin-right: 10px;
-}
-
-.hamburger-menu {
-  float: right;
-}
-
-.hamburger-menu .ham {
-  height: 100%;
-  width: 100%;
-  margin-top: 3px;
-  margin-right: 65px;
-}
-
-.hamburger-menu .ham ul {
-  display: inline;
-}
-
-.hamburger-menu .ham ul li {
-  margin-bottom: 2px;
-  list-style: none;
-}
-
-.hamburger-menu .ham ul li button {
-  font-size: 20px;
-  background-color: #1b3c59;
-  color: white;
-  box-shadow: none;
-  border-radius: 5px;
-}
-
-.hamburger-menu .ham ul li .reg {
-  font-size: 20px;
-  color: #1b3c59;
-  background-color: white;
-  border: none;
-}
-
-.fa-bars {
-  margin-top: 2%;
-  float: right;
-  font-size: 20px;
-  color: #1b3c59;
-  display: none;
-}
-
-.fa-times {
-  margin-top: 2%;
-  color: #1b3c59;
-  font-size: 25px;
-  display: inline-block;
-  position: fixed;
-  right: 20px;
-}
-
-@media screen and (max-width: 991px) {
-  .fa-bars {
-    margin-top: -3%;
-    margin-right: 4%;
-    display: inline-block;
-    position: fixed;
-    right: 20px;
-  }
-
-  .prova {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 991px) {
-  .lista_ham {
-    display: none;
-  }
-}
-
-.dropdown-item {
-  float: right;
-  color: white;
-  background-color: #1b3c59;
-  font-weight: 700;
-  height: 42px;
-  width: 77px;
-  font-size: 15px;
-  border-radius: 5px;
-  position: -webkit-sticky;
-  position: sticky;
-  margin-right: 0;
-  display: inline !important;
-}
-
-.loginlogout {
-  float: right;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  position: -webkit-sticky;
-  position: sticky;
-  height: 115px;
-  width: 50%;
-  background-color: white;
-  margin-top: -81px;
-  margin-right: 30px;
-  padding-top: 30px;
-}
-
-.loginlogout a {
-  font-weight: 700;
-  margin-top: 20px;
-  width: 150px;
-  float: left;
-  height: 20px;
-  background-color: white;
-  font-size: 15px;
-  color: #1b3c59;
-}
-
-.loginlogout .sinistra {
-  margin-left: 405px;
-}
-
-.loginlogout .destra {
-  margin-right: 30px;
 }
 
 .content {
@@ -11671,6 +11569,27 @@ h1 {
 
 .crea_appartamento {
   margin-top: 30px;
+}
+
+.crea_appartamento h1 {
+  margin: 20px 0;
+}
+
+.appartamenti_proprietario {
+  margin: 40px 10px 0 10px;
+  width: calc(50% - 40px);
+  height: auto;
+}
+
+.appartamenti_proprietario .appartamenti_proprietario_foto img {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.appartamenti_proprietario .appartamenti_proprietario_nome {
+  height: 100%;
+  width: 100%;
 }
 
 body {
