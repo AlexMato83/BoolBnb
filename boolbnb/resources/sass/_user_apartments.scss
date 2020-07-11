@@ -1,22 +1,35 @@
 .crea_appartamento {
-  margin-top: 30px;
-  h1 {
-    margin: 20px 0;
-  }
-}
-.appartamenti_proprietario {
   margin: 40px 10px 0 10px;
-  width: calc(50% - 40px);
-  height: auto;
-  .appartamenti_proprietario_foto {
-    img {
-      height: 100%;
-      width: 100%;
-      margin-bottom: 20px;
+  width: 500px;
+  height: 500px;
+  background-color: grey;
+  text-align: center;
+  h1 {
+    margin: auto;
+    a {
+      color: #1b3c59
     }
   }
-  .appartamenti_proprietario_nome {
-    height: 100%;
-    width: 100%;
+}
+.risultati_appartamenti_proprietario {
+  .appartamenti_proprietario {
+    margin: 40px 10px 0 10px;
+    width: 500px;
+    height: auto;
+    .appartamenti_proprietario_foto {
+      img {
+        height: 100%;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+    .appartamenti_proprietario_nome {
+      height: 100%;
+      width: 100%;
+      a {
+        color: #1b3c59;
+        font-size: 20px;
+      }
+    }
   }
 }

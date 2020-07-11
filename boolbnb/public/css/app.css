@@ -11568,28 +11568,41 @@ h1 {
 }
 
 .crea_appartamento {
-  margin-top: 30px;
+  margin: 40px 10px 0 10px;
+  width: 500px;
+  height: 500px;
+  background-color: grey;
+  text-align: center;
 }
 
 .crea_appartamento h1 {
-  margin: 20px 0;
+  margin: auto;
 }
 
-.appartamenti_proprietario {
+.crea_appartamento h1 a {
+  color: #1b3c59;
+}
+
+.risultati_appartamenti_proprietario .appartamenti_proprietario {
   margin: 40px 10px 0 10px;
-  width: calc(50% - 40px);
+  width: 500px;
   height: auto;
 }
 
-.appartamenti_proprietario .appartamenti_proprietario_foto img {
+.risultati_appartamenti_proprietario .appartamenti_proprietario .appartamenti_proprietario_foto img {
   height: 100%;
   width: 100%;
   margin-bottom: 20px;
 }
 
-.appartamenti_proprietario .appartamenti_proprietario_nome {
+.risultati_appartamenti_proprietario .appartamenti_proprietario .appartamenti_proprietario_nome {
   height: 100%;
   width: 100%;
+}
+
+.risultati_appartamenti_proprietario .appartamenti_proprietario .appartamenti_proprietario_nome a {
+  color: #1b3c59;
+  font-size: 20px;
 }
 
 body {
