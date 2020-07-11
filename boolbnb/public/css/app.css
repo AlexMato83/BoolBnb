@@ -11188,7 +11188,7 @@ a.text-dark:focus {
   border: 1px solid #DDDDDD;
   padding: 3px;
   border-radius: 5px;
-  margin: 180px auto 60px auto;
+  margin: 150px auto 60px auto;
   background-color: #f0f1f2;
 }
 
@@ -11261,43 +11261,6 @@ a.text-dark:focus {
   color: #1b3c59;
 }
 
-.search_Apartments {
-  font-size: 18px;
-  width: 413px;
-  height: 49px;
-  border: 1px solid #DDDDDD;
-  padding: 3px;
-  border-radius: 5px;
-  margin: 180px auto 60px auto;
-  background-color: #f0f1f2;
-}
-
-.search_Apartments button {
-  width: 100px;
-  height: 40px;
-  font-weight: bold;
-  background-color: #61ce4e;
-  color: white;
-  box-shadow: none;
-  border-radius: 5px;
-  border: none;
-  float: right;
-}
-
-.search_Apartments button i {
-  padding-right: 7px;
-  font-size: 15px;
-  font-weight: 550;
-}
-
-.dove {
-  width: 300px;
-  height: 40px;
-  border: 1px solid #DDDDDD;
-  border-radius: 5px;
-  padding-left: 2%;
-}
-
 .filtri {
   margin: 0 auto;
   float: left;
@@ -11324,6 +11287,14 @@ a.text-dark:focus {
   background-color: #1b3c59;
   color: white;
   margin-left: 15px;
+}
+
+.filtri .dove {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #DDDDDD;
+  border-radius: 5px;
+  padding-left: 2%;
 }
 
 @media screen and (max-width: 575px) {
@@ -11381,44 +11352,6 @@ a.text-dark:focus {
   margin: 4px 9px 6px;
   width: 20px;
   height: 22px;
-}
-
-.distanza {
-  height: auto;
-  width: 132px;
-  border: 1px solid #8f8e8e;
-  border-radius: 5px;
-  background-color: white;
-  margin-top: 350px;
-  margin-left: 300px;
-  color: #1b3c59;
-  align-items: center;
-  font-size: 15px;
-  padding: 10px;
-}
-
-.distanza .km {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.distanza .km label {
-  font-weight: 500;
-}
-
-.distanza input {
-  margin: 4px 9px 6px;
-  height: 22px;
-}
-
-.distanza #apt_address {
-  margin: 4px 9px 6px;
-  width: 70px;
-}
-
-.distanza #search_radius {
-  margin: 4px 9px 6px;
-  width: 35px;
 }
 
 .results {
@@ -11570,7 +11503,7 @@ h1 {
 .crea_appartamento {
   margin: 40px 10px 0 10px;
   width: 500px;
-  height: 500px;
+  height: 300px;
   background-color: grey;
   text-align: center;
 }
@@ -11603,6 +11536,123 @@ h1 {
 .risultati_appartamenti_proprietario .appartamenti_proprietario .appartamenti_proprietario_nome a {
   color: #1b3c59;
   font-size: 20px;
+}
+
+.contenitore_messaggi {
+  height: 100%;
+  width: 100%;
+}
+
+.contenitore_messaggi .messaggio_destinatario p {
+  color: black;
+}
+
+.contenitore_statistiche {
+  margin-top: 100px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.contenitore_statistiche h1 {
+  margin-bottom: 30px;
+}
+
+.contenitore_statistiche .statistics {
+  width: 100%;
+  height: 100%;
+}
+
+.dim {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  font-size: 15px;
+  margin-top: 100px;
+}
+
+.dim .dimdue {
+  float: left;
+  color: #1b3c59;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 20px;
+}
+
+.dim label {
+  margin-top: 30px;
+  color: #1b3c59;
+  font-size: 15px;
+}
+
+.dim input {
+  float: right;
+}
+
+.ridim input {
+  height: 100%;
+}
+
+.display {
+  display: inline-block;
+}
+
+.display .flexino {
+  height: 50px;
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  align-items: baseline;
+  margin-right: 2%;
+  margin-bottom: 5%;
+  font-size: 20px;
+}
+
+.display .flexino .checkbox {
+  margin-right: 8%;
+}
+
+.color {
+  width: 100%;
+  margin-top: 40px;
+  float: left;
+  font-size: 20px;
+  color: #1b3c59;
+}
+
+.bt {
+  width: 100%;
+}
+
+#create2 {
+  width: 100% !important;
+  height: 50px;
+  float: right;
+  color: white;
+  background-color: #1b3c59;
+  font-weight: 700;
+  height: 42px;
+  width: 77px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.selectsi {
+  margin-bottom: 15px;
+}
+
+.selectsi label {
+  margin-top: 30px;
+  color: #1b3c59;
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+.selectsi select {
+  height: 20px;
+  width: 40px;
 }
 
 body {
@@ -11723,7 +11773,9 @@ body .btn-primary {
 }
 
 .content {
-  padding-top: 200px;
+  padding-top: 100px;
+  width: 100%;
+  height: 100%;
 }
 
 .form-control {

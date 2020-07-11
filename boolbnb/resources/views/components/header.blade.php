@@ -71,7 +71,7 @@
                   <label for="email" class="col-md-1 col-form-label text-md-right">{{ __('') }}</label>
 
                   <div class="col-md-10">
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                       @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -85,7 +85,7 @@
                     <label for="password" class="col-md-1 col-form-label text-md-right">{{ __('') }}</label>
 
                     <div class="col-md-10">
-                      <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" required autocomplete="current-password">
+                      <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" required autocomplete="current-password">
 
                         @error('password')
                           <span class="invalid-feedback" role="alert">
@@ -125,7 +125,7 @@
               </div>
             </div>
           </div>
-        </div>        
+        </div>
       </div>
 
       <div class="registrati off">

@@ -90,6 +90,7 @@ function prova_api(){
       success: function(data){
         var variabile = JSON.parse(data);
         console.log(variabile);
+        
       }
     })
 }
@@ -155,7 +156,6 @@ function getMonth(){
 }
 
 function init(){
-  console.log("ciao");
   prova_api();
   if (document.getElementById("map")) {
     turfjs();

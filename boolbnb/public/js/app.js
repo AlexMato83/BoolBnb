@@ -37354,7 +37354,6 @@ function getMonth() {
 }
 
 function init() {
-  console.log("ciao");
   prova_api();
 
   if (document.getElementById("map")) {

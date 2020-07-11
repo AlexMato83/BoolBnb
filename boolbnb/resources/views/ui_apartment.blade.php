@@ -63,7 +63,7 @@
               @else
               value=""
               @endif
-              name="mail" id="mail_msg" class="form-control" placeholder="Email">
+              name="email" id="mail_msg" class="form-control" placeholder="Email">
             </div>
             <div class="insert_dati">
               <input type="text" name="message" id="message" class="form-control" placeholder="Scrivi il tuo messaggio">
