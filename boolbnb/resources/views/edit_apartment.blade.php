@@ -19,32 +19,32 @@
 
       <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue">
         <label for="name">Nome</label>
-        <input type="text" name="name" value="">
+        <input type="text" name="name" value="{{$apartment['name']}}">
       </div>
 
       <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue ridim">
         <label for="mq">Metri Quadri</label>
-        <input  type="number" name="mq" value="">
+        <input  type="number" name="mq" value="{{$apartment['mq']}}">
       </div>
 
       <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue ridim">
         <label for="rooms">Stanze</label>
-        <input  type="number" name="rooms" value="">
+        <input  type="number" name="rooms" value="{{$apartment['rooms']}}">
       </div>
 
       <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue">
         <label for="address">Indirizzo</label>
-        <input id="apt_address" type="text" name="address" value="">
+        <input id="apt_address" type="text" name="address" value="{{$apartment['address']}}">
       </div>
 
       <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue ridim">
         <label for="bathrooms">Bagni</label>
-        <input  type="number" name="bathrooms" value="">
+        <input  type="number" name="bathrooms" value="{{$apartment['bathrooms']}}">
       </div>
 
       <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue ridim">
         <label for="beds">Posti Letto</label>
-        <input type="number" name="beds" value="">
+        <input type="number" name="beds" value="{{$apartment['beds']}}">
       </div>
       <!-- <div class="ciaociao"> -->
 
@@ -56,13 +56,13 @@
 
       <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue">
         <label for="descr">Descrizione</label>
-        <input type="tex" name="descr" value="">
+        <input type="text" name="descr" value="">
       </div>
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 dimdue">
 
 
         <label for="images">Foto</label>
-        <input  type="file" name="images" value=""><br>
+        <input  type="file" name="images" value="{{$apartment['images']}}"><br>
       </div>
     </div>
     <!-- <div class="space"> -->

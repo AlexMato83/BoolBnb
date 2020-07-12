@@ -11263,11 +11263,10 @@ a.text-dark:focus {
 
 .filtri {
   margin: 0 auto;
-  float: left;
-  height: 100%;
+  height: 42px;
   width: 100%;
-  margin-bottom: 30px;
-  margin-top: 30px;
+  margin: 30px 0;
+  display: flex;
 }
 
 .filtri button {
@@ -11275,7 +11274,6 @@ a.text-dark:focus {
   color: #1b3c59;
   margin-right: 15px;
   border-radius: 10px;
-  font-size: 15px;
   height: auto;
   width: auto;
   border: 1px solid #8f8e8e;
@@ -11283,18 +11281,18 @@ a.text-dark:focus {
   padding: 4px 9px;
 }
 
+.filtri #apt_address,
+.filtri #search_radius {
+  height: 100%;
+  width: auto;
+  border: 1px solid #8f8e8e;
+  border-radius: 10px;
+}
+
 .filtri #filtered2 {
   background-color: #1b3c59;
   color: white;
   margin-left: 15px;
-}
-
-.filtri .dove {
-  width: 300px;
-  height: 40px;
-  border: 1px solid #DDDDDD;
-  border-radius: 5px;
-  padding-left: 2%;
 }
 
 @media screen and (max-width: 575px) {

@@ -56,7 +56,7 @@
 
     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue">
       <label for="descr">Descrizione</label>
-      <input type="tex" name="descr" value="">
+      <input type="text" name="descr" value="">
     </div>
 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 dimdue">
 
