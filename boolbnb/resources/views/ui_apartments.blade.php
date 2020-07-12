@@ -18,14 +18,48 @@
 
     <div class="filtri">
       {{-- <button class="tipo" type="button" name="button">Tipo di alloggio</button> --}}
-      <button class="stanze" type="button" name="button">Stanze e letti</button>
-      <button class="serv" type="button" name="button">Servizi</button>
+
+      <div class="stanze" id="ciaociao">
+        <button type="button" name="button">Stanze e letti</button>
+        {{-- MENU A TENDINA STANZE E LETTI --}}
+
+        <div class="stanze_letti off">
+          <div class="bedrooms">
+            <label for="rooms">Stanze</label>
+            <input type="text" name="rooms" value="">
+          </div>
+          <div class="bedrooms">
+            <label for="rooms">Letti</label>
+            <input type="text" name="beds" value="">
+          </div>
+        </div>
+      </div>
+
+      <div class="serv" id="ciao">
+        <button  type="button" name="button">Servizi</button>
+        {{-- MENU A TENDINA SERVIZI --}}
+        <div class="servizi off">
+          @foreach ($services as $service)
+            <div>
+              <input class="checkbox" type="checkbox" name="services[]" value="{{$service['id']}}">
+              {{$service['name']}}
+            </div>
+          @endforeach
+        </div>
+      </div>
 
       <input id="apt_address" type="location" name="address" value="" class="form-control" placeholder="Dove vuoi andare?">
 
-      <input class="dist" id="search_radius" type="number" name="search_radius" value="20">
+      <div class="distanza">
+        <span>Distanza</span>
+        <input class="dist" id="search_radius" type="number" name="search_radius" value="20">
+        <span>Km</span>
+      </div>
 
-      <button id="filtered2" type="text" name="" value=""><strong>Cerca</strong></button>
+      <div class="filtro_cerca">
+        <button id="filtered2" type="text" name="" value=""><strong>Cerca</strong></button>
+      </div>
+
     </div>
 
     {{-- MENU A TENDINA TIPO DI ALLOGGIO --}}
@@ -38,28 +72,6 @@
   @endforeach
   </div> --}}
 
-    {{-- MENU A TENDINA SERVIZI --}}
-    <div class="servizi off">
-      @foreach ($services as $service)
-        <div>
-          <input class="checkbox" type="checkbox" name="services[]" value="{{$service['id']}}">
-          {{$service['name']}}
-        </div>
-      @endforeach
-    </div>
-
-    {{-- MENU A TENDINA STANZE E LETTI --}}
-
-    <div class="stanze_letti off">
-      <div class="bedrooms">
-        <label for="rooms">Stanze</label>
-        <input type="text" name="rooms" value="">
-      </div>
-      <div class="bedrooms">
-        <label for="rooms">Letti</label>
-        <input type="text" name="beds" value="">
-      </div>
-    </div>
 
     <input class="dispna" id="longitude" type="text" name="longitude" value="">
     <input class="dispna" id="latitude" type="text" name="latitude" value="">
@@ -69,7 +81,7 @@
 
 
 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-  <div class="results ">
+  <div class="results">
     <h1>Risultati ricerca</h1>
     <div class="apartments_reserch">
       <div class="row">
