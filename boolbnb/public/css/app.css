@@ -11087,10 +11087,6 @@ a.text-dark:focus {
   color: #1b3c59;
 }
 
-.loginlogout .sinistra {
-  margin-left: 405px;
-}
-
 .loginlogout .destra {
   margin-right: 30px;
 }
@@ -11262,55 +11258,95 @@ a.text-dark:focus {
 }
 
 .filtri {
-  margin: 0 auto;
+  background-color: white;
+  margin: 300px auto;
   height: 42px;
   width: 100%;
   margin: 30px 0;
   display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-.filtri button {
+.filtri #ciaociao,
+.filtri #ciao {
+  height: 100%;
+  width: auto;
+}
+
+.filtri .stanze,
+.filtri .serv {
   background-color: white;
   color: #1b3c59;
   margin-right: 15px;
   border-radius: 10px;
-  height: auto;
-  width: auto;
   border: 1px solid #8f8e8e;
   font-size: 18px;
   padding: 4px 9px;
+  margin: 20px 0;
+  position: relative;
 }
 
-.filtri #apt_address,
-.filtri #search_radius {
+.filtri .stanze button,
+.filtri .serv button {
+  background-color: white;
+  color: #1b3c59;
+  border: none;
+}
+
+.filtri #apt_address {
   height: 100%;
   width: auto;
   border: 1px solid #8f8e8e;
   border-radius: 10px;
+  font-size: 18px;
+  padding: 4px 9px;
+  margin: 20px 0;
 }
 
-.filtri #filtered2 {
+.filtri .distanza {
+  height: 100%;
+  border: 1px solid #8f8e8e;
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 4px 9px;
+  margin: 20px 0;
+}
+
+.filtri .distanza input {
+  padding-left: 15px;
+  width: 60px;
+  border: none;
+}
+
+.filtri .filtro_cerca {
   background-color: #1b3c59;
   color: white;
-  margin-left: 15px;
+  margin-right: 15px;
+  border-radius: 10px;
+  border: 1px solid #1b3c59;
+  font-size: 18px;
+  padding: 4px 9px;
+  margin: 20px 0;
 }
 
-@media screen and (max-width: 575px) {
-  #filtered2 {
-    margin-left: 210px;
-  }
+.filtri .filtro_cerca button {
+  border: none;
+  background-color: #1b3c59;
+  color: white;
 }
 
 .servizi {
   height: auto;
   width: 175px;
-  border: 1px solid #8f8e8e;
   border-radius: 5px;
   background-color: white;
-  margin-top: 350px;
-  margin-left: 400px;
   padding: 10px;
   color: #1b3c59;
+  position: absolute;
+  border: 1px solid #8f8e8e;
+  margin-top: 10px;
+  z-index: 99;
 }
 
 .servizi div {
@@ -11326,15 +11362,15 @@ a.text-dark:focus {
 .stanze_letti {
   height: auto;
   width: 123px;
-  border: 1px solid #8f8e8e;
   border-radius: 5px;
   background-color: white;
-  margin-top: 350px;
-  margin-left: 166px;
   color: #1b3c59;
   align-items: center;
   font-size: 15px;
   padding: 10px;
+  border: 1px solid #8f8e8e;
+  margin-top: 10px;
+  z-index: 99;
 }
 
 .stanze_letti .bedrooms {
@@ -11353,7 +11389,7 @@ a.text-dark:focus {
 }
 
 .results {
-  margin: 20px 0;
+  margin: 100px 0;
 }
 
 .results h1 {
@@ -11362,7 +11398,7 @@ a.text-dark:focus {
 
 .results .apartments_reserch .apartment_reserch {
   margin: 40px 10px 0 10px;
-  width: calc(50% - 40px);
+  width: calc(50% - 20px);
   height: auto;
 }
 
@@ -11375,6 +11411,12 @@ a.text-dark:focus {
 .results .apartments_reserch .apartment_reserch .caratteristiche_reserch {
   height: 100%;
   width: 100%;
+}
+
+@media screen and (max-width: 575px) {
+  .results {
+    margin: 150px 0;
+  }
 }
 
 .content {
@@ -11552,7 +11594,7 @@ h1 {
   font-size: 250%;
 }
 
-.prova {
+.prova2 {
   border-radius: 5px;
   width: 500px;
   height: 300px;
@@ -11562,11 +11604,6 @@ h1 {
 .contenitore_messaggi {
   height: 100%;
   width: 100%;
-}
-
-.contenitore_messaggi .email_destinatario {
-  margin-top: 50px;
-  float: right;
 }
 
 .contenitore_messaggi .messaggio_destinatario {
