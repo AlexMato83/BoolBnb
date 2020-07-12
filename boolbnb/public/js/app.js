@@ -37353,6 +37353,19 @@ function getMonth() {
   ;
 }
 
+function upra_payment(price) {
+  $.ajax({
+    type: "get",
+    url: "url",
+    data: {
+      "price": price
+    },
+    success: function success(price) {
+      console.log(price);
+    }
+  });
+}
+
 function init() {
   prova_api();
 

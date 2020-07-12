@@ -154,7 +154,19 @@ function getMonth(){
   moment.locale("it");
   return moment.months();;
 }
+function upra_payment(price) {
+    $.ajax({
+        type: "get",
+        url: "url",
+        data: {
+            "price": price,
+        },
+        success: function (price) {
+            console.log(price);
 
+        }
+    });
+  }
 function init(){
   prova_api();
   if (document.getElementById("map")) {

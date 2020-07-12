@@ -25,6 +25,7 @@ Route::get('/show_upra_apartment/{id}', 'UserController@show_upra_apartment')->n
 Route::get('/delete_apartment/{id}', 'UserController@delete_apartment')->name('delete_apartment');
 Route::get('/show_messages', 'UserController@show_messages')->name('show_messages');
 Route::get('/show_statistics/{id}', 'UserController@show_statistics')->name('show_statistics');
+Route::post('/sponsorship_pay/{id}', 'UserController@sponsorship_pay')->name('sponsorship_pay');
 
 
 //******* Prova rotte per api *******//

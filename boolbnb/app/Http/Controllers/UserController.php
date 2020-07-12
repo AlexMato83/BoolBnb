@@ -15,6 +15,7 @@ use App\Service;
 use App\User;
 use App\Category;
 use App\Message;
+use App\Sponsorshipstype;
 class UserController extends Controller
 {
     public function __construct()
@@ -279,4 +280,13 @@ class UserController extends Controller
 
 
     }
+    function sponsorship_pay(Request $request, $id)
+    {
+        $user = Auth::user();
+        $apartment = Apartment::findOrFail($id);
+        $sponsorship = Sponsorshipstype::findOrFail($request['sponsorship_type']);
+
+        return view('upra_payment', compact('apartment', 'sponsorship'));
+    }
+
 }

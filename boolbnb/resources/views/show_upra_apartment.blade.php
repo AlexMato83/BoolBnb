@@ -54,6 +54,21 @@
       <div>
         <a href="{{route('delete_apartment',$apartment['id'])}}">CANCELLA APPARTAMENTO</a>
       </div>
+      <div>
+        <form action="{{route('sponsorship_pay', $apartment['id'])}}" method="post">
+              @csrf
+              @method('POST')
+              <label for="sponsorship_type">Sponsorizzazione</label>
+              <select name="sponsorship_type" id="">
+                  <option value="" selected> - </option>
+                  <option value="1">2.99€ - 24H</option>
+                  <option value="2">5.99€ - 72H</option>
+                  <option value="3">9.99€ - 144H</option>
+              </select>
+              <input type="submit" value="Vai al pagamento">
+          </form>
+      </div>
+
     </div>
   </div>
 
