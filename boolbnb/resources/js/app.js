@@ -90,7 +90,7 @@ function prova_api(){
       success: function(data){
         var variabile = JSON.parse(data);
         console.log(variabile);
-        
+
       }
     })
 }
@@ -256,17 +256,7 @@ function init(){
     }
   );
 
-  // BOTTONE FILTRO STANZE E LETTI
-  $(".dist").click(
-    function() {
-      if ($(".distanza").hasClass("off")){
-        $(".distanza").removeClass("off").addClass("on")
-      }
-      else {
-          $(".distanza").removeClass("on").addClass("off")
-      }
-    }
-  );
+  
 }
 
 $(document).ready(init);

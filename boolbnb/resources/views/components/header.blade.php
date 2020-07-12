@@ -261,7 +261,7 @@
           @auth
 
 
-            <div class="loginlogout">
+            <div class="loginlogout col-6 col-sm-6 col-md-6 col-lg-3 col-xl-6">
 
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf

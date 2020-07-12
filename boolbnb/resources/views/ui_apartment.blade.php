@@ -11,7 +11,10 @@
     </div>
 
   <!-- descrizione appartamento  -->
-    <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+
+    <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
       <div class="descr">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor7
          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -20,7 +23,7 @@
     </div>
 
   <!-- caratteristiche appartamento -->
-    <div class="col-12 col-sm-12 offset-md-3 col-md-3 offset-lg-3 col-lg-3 offset-xl-3 col-xl-3 ">
+    <div class="col-12 col-sm-12 offset-md-2 col-md-4 offset-lg-2 col-lg-4 offset-xl-2 col-xl-4 ">
       <div class="carat">
         <ul>
           <li>{{$apartment['rooms']}} stanze</li>
@@ -29,6 +32,7 @@
           <li>{{$apartment['mq']}} mq</li>
         </ul>
       </div>
+    </div>
     </div>
 
 
@@ -46,10 +50,11 @@
         </div>
         <div id='map'></div>
       </div>
+
     </div>
 
   <!-- scrivi + email + messaggio -->
-    <div class="col-12 col-sm-12 col-md-12 offset-lg-1 col-lg-5 offset-xl-1 col-xl-5 ">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-5  col-xl-5 ">
       <div class="bordo">
         <div class="msg">
           <h1> <strong>Scrivi al proprietario</strong> </h1>

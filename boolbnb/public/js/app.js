@@ -37429,14 +37429,6 @@ function init() {
     } else {
       $(".stanze_letti").removeClass("on").addClass("off");
     }
-  }); // BOTTONE FILTRO STANZE E LETTI
-
-  $(".dist").click(function () {
-    if ($(".distanza").hasClass("off")) {
-      $(".distanza").removeClass("off").addClass("on");
-    } else {
-      $(".distanza").removeClass("on").addClass("off");
-    }
   });
 }
 
