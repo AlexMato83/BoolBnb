@@ -284,9 +284,9 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $apartment = Apartment::findOrFail($id);
-        $sponsorship = Sponsorshipstype::findOrFail($request['sponsorship_type']);
+        $sponsorshipstype = Sponsorshipstype::findOrFail($request['sponsorship_type']);
 
-        return view('upra_payment', compact('apartment', 'sponsorship'));
+        return view('upra_payment', compact('apartment', 'sponsorshipstype'));
     }
 
 }

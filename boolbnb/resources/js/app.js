@@ -154,20 +154,60 @@ function getMonth(){
   moment.locale("it");
   return moment.months();;
 }
-function upra_payment(price) {
+function create_drop_in_container() {
+    var button = document.querySelector('#submit-button');
+    var token;
     $.ajax({
-        type: "get",
-        url: "url",
-        data: {
-            "price": price,
-        },
-        success: function (price) {
-            console.log(price);
 
+        type: "GET",
+        url: "http://127.0.0.1:8000/token_generate",
+        success: function (token_generate) {
+
+            token = token_generate;
+            console.log(token);
+
+            braintree.dropin.create({
+                authorization: "sandbox_g42y39zw_348pk9cgf3bgyw2b",
+                selector: '#dropin-container'
+            }, function (err, instance) {
+                button.addEventListener('click', function () {
+                instance.requestPaymentMethod(function (err, payload) { 
+                    var apartment_id = $('#id').html();
+                    var price = $('#price').html();
+                    var title = $('#title').val();
+                    var start_date = $('#start_date').val();
+
+                    $.ajax({
+                        headers: {
+                          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        url: "http://127.0.0.1:8000/payment",
+                        method: "POST",
+                        data:{
+                          nonce: payload.nonce,
+                          apartment_id: apartment_id,
+                          price: price,
+                          title: title,
+                          start_date: start_date
+                        },
+                        success: function(speriamo){
+                            console.log(apartment_id, price, title, start_date);
+
+                        },complete: function(speriamo){
+                          console.log(speriamo);
+                        }
+                      }) ;
+                });
+            })
+            });
         }
     });
-  }
+
+} 
+
 function init(){
+  create_drop_in_container();
+
   prova_api();
   if (document.getElementById("map")) {
     turfjs();
@@ -268,7 +308,7 @@ function init(){
     }
   );
 
-  
+
 }
 
 $(document).ready(init);

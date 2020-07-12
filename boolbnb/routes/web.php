@@ -30,3 +30,6 @@ Route::post('/sponsorship_pay/{id}', 'UserController@sponsorship_pay')->name('sp
 
 //******* Prova rotte per api *******//
 Route::get('/welcome_show', 'ApiController@welcome_show')->name('welcome_show');
+Route::get('/token_generate', 'ApiController@token_generate')->name('token_generate');
+Route::post('/payment', 'ApiController@payment')->name('payment');
+
