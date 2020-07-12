@@ -11262,94 +11262,55 @@ a.text-dark:focus {
 }
 
 .filtri {
-  background-color: white;
-  margin: 300px auto;
+  margin: 0 auto;
   height: 42px;
   width: 100%;
   margin: 30px 0;
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
 }
 
-.filtri #ciaociao,
-.filtri #ciao {
-  height: 100%;
-  width: auto;
-}
-
-.filtri .stanze,
-.filtri .serv {
+.filtri button {
   background-color: white;
   color: #1b3c59;
   margin-right: 15px;
   border-radius: 10px;
+  height: auto;
+  width: auto;
   border: 1px solid #8f8e8e;
   font-size: 18px;
   padding: 4px 9px;
-  margin: 20px 0;
-  position: relative;
 }
 
-.filtri .stanze button,
-.filtri .serv button {
-  background-color: white;
-  color: #1b3c59;
-  border: none;
-}
-
-.filtri #apt_address {
+.filtri #apt_address,
+.filtri #search_radius {
   height: 100%;
   width: auto;
   border: 1px solid #8f8e8e;
   border-radius: 10px;
-  font-size: 18px;
-  padding: 4px 9px;
-  margin: 20px 0;
 }
 
-.filtri .distanza {
-  height: 100%;
-  border: 1px solid #8f8e8e;
-  border-radius: 10px;
-  font-size: 18px;
-  padding: 4px 9px;
-  margin: 20px 0;
-}
-
-.filtri .distanza input {
-  padding-left: 15px;
-  width: 60px;
-  border: none;
-}
-
-.filtri .filtro_cerca {
+.filtri #filtered2 {
   background-color: #1b3c59;
   color: white;
-  margin-right: 15px;
-  border-radius: 10px;
-  border: 1px solid #1b3c59;
-  font-size: 18px;
-  padding: 4px 9px;
-  margin: 20px 0;
+  margin-left: 15px;
 }
 
-.filtri .filtro_cerca button {
-  border: none;
-  background-color: #1b3c59;
-  color: white;
+@media screen and (max-width: 575px) {
+  #filtered2 {
+    margin-left: 210px;
+  }
 }
 
 .servizi {
   height: auto;
   width: 175px;
+  border: 1px solid #8f8e8e;
   border-radius: 5px;
   background-color: white;
+  margin-top: 350px;
+  margin-left: 400px;
   padding: 10px;
   color: #1b3c59;
-  position: absolute;
-  border: 1px solid #8f8e8e;
-  margin-top: 10px;
 }
 
 .servizi div {
@@ -11365,14 +11326,15 @@ a.text-dark:focus {
 .stanze_letti {
   height: auto;
   width: 123px;
+  border: 1px solid #8f8e8e;
   border-radius: 5px;
   background-color: white;
+  margin-top: 350px;
+  margin-left: 166px;
   color: #1b3c59;
   align-items: center;
   font-size: 15px;
   padding: 10px;
-  border: 1px solid #8f8e8e;
-  margin-top: 10px;
 }
 
 .stanze_letti .bedrooms {
@@ -11391,7 +11353,7 @@ a.text-dark:focus {
 }
 
 .results {
-  margin: 100px 0;
+  margin: 20px 0;
 }
 
 .results h1 {
@@ -11400,7 +11362,7 @@ a.text-dark:focus {
 
 .results .apartments_reserch .apartment_reserch {
   margin: 40px 10px 0 10px;
-  width: calc(50% - 20px);
+  width: calc(50% - 40px);
   height: auto;
 }
 
@@ -11413,12 +11375,6 @@ a.text-dark:focus {
 .results .apartments_reserch .apartment_reserch .caratteristiche_reserch {
   height: 100%;
   width: 100%;
-}
-
-@media screen and (max-width: 575px) {
-  .results {
-    margin: 150px 0;
-  }
 }
 
 .content {
@@ -11543,10 +11499,14 @@ h1 {
 }
 
 .crea_appartamento {
-  margin: 40px 10px 0 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
   width: 500px;
   height: 300px;
-  background-color: grey;
+  background-color: #DBDBDB;
+  opacity: 0.5;
   text-align: center;
 }
 
@@ -11559,14 +11519,20 @@ h1 {
 }
 
 .risultati_appartamenti_proprietario .appartamenti_proprietario {
-  margin: 40px 10px 0 10px;
+  float: left;
   width: 500px;
   height: auto;
 }
 
-.risultati_appartamenti_proprietario .appartamenti_proprietario .appartamenti_proprietario_foto img {
+.risultati_appartamenti_proprietario .appartamenti_proprietario .appartamenti_proprietario_foto {
   height: 100%;
   width: 100%;
+}
+
+.risultati_appartamenti_proprietario .appartamenti_proprietario .appartamenti_proprietario_foto img {
+  border-radius: 5px;
+  width: 500px;
+  height: 300px;
   margin-bottom: 20px;
 }
 
@@ -11580,13 +11546,52 @@ h1 {
   font-size: 20px;
 }
 
+.fas {
+  padding-top: 20px;
+  padding-right: 20px;
+  font-size: 250%;
+}
+
+.prova {
+  border-radius: 5px;
+  width: 500px;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
 .contenitore_messaggi {
   height: 100%;
   width: 100%;
 }
 
+.contenitore_messaggi .email_destinatario {
+  margin-top: 50px;
+  float: right;
+}
+
+.contenitore_messaggi .messaggio_destinatario {
+  height: 100%;
+  width: 70%;
+  margin-top: 25px;
+  border-bottom: 1px dotted grey;
+}
+
+.contenitore_messaggi .messaggio_destinatario h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1b3c59 !important;
+}
+
 .contenitore_messaggi .messaggio_destinatario p {
+  color: #1b3c59 !important;
+  font-size: 15px;
   color: black;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin-bottom: 60px;
+  color: #1b3c59 !important;
 }
 
 .contenitore_statistiche {

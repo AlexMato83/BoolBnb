@@ -1,75 +1,40 @@
 .filtri {
-  background-color: white;
-  margin: 300px auto;
+  margin: 0 auto;
   height: 42px;
   width: 100%;
   margin: 30px 0;
   display: flex;
-  justify-content:space-around;
-  flex-wrap:wrap;
-  #ciaociao, #ciao {
-    height: 100%;
-    width: auto;
-  }
-
-  .stanze, .serv {
+  
+  button {
     background-color: white;
     color: #1b3c59;
     margin-right: 15px;
     border-radius: 10px;
+    height: auto;
+    width: auto;
     border: 1px solid #8f8e8e;
     font-size: 18px;
     padding: 4px 9px;
-    margin: 20px 0;
-    position: relative;
-    button {
-      background-color: white;
-      color: #1b3c59;
-      border: none;
-    }
   }
-  #apt_address {
+  #apt_address, #search_radius {
     height: 100%;
     width: auto;
     border: 1px solid #8f8e8e;
     border-radius: 10px;
-    font-size: 18px;
-    padding: 4px 9px;
-    margin: 20px 0;
   }
-
-  .distanza {
-    height: 100%;
-    border: 1px solid #8f8e8e;
-    border-radius: 10px;
-    font-size: 18px;
-    padding: 4px 9px;
-    margin: 20px 0;
-    input {
-      padding-left: 15px;
-      width: 60px;
-      border: none;
-    }
-  }
-
-  .filtro_cerca {
+  #filtered2 {
     background-color: #1b3c59;
     color: white;
-    margin-right: 15px;
-    border-radius: 10px;
-    border: 1px solid #1b3c59;
-    font-size: 18px;
-    padding: 4px 9px;
-    margin: 20px 0;
-    button {
-      border: none;
-      background-color: #1b3c59;
-      color: white;
-    }
+    margin-left: 15px;
   }
 }
 
+@media screen and (max-width: 575px){
 
+  #filtered2{
+    margin-left: 210px;
+  }
+}
 
 
 // TIPO DI ALLOGGIO
@@ -99,13 +64,13 @@
 .servizi {
   height: auto;
   width: 175px;
+  border: 1px solid #8f8e8e;
   border-radius: 5px;
   background-color: white;
+  margin-top: 350px;
+  margin-left: 400px;
   padding: 10px;
   color: #1b3c59;
-  position: absolute;
-  border: 1px solid #8f8e8e;
-  margin-top: 10px;
   div {
     display: flex;
     align-items: center;
@@ -121,14 +86,15 @@
 .stanze_letti {
   height: auto;
   width: 123px;
+  border: 1px solid #8f8e8e;
   border-radius: 5px;
   background-color: white;
+  margin-top: 350px;
+  margin-left: 166px;
   color: #1b3c59;
   align-items: center;
   font-size: 15px;
   padding: 10px;
-  border: 1px solid #8f8e8e;
-  margin-top: 10px;
   .bedrooms {
     display: flex;
     flex-wrap: nowrap;
@@ -145,14 +111,14 @@
 
 
 .results {
-  margin: 100px 0;
+  margin: 20px 0;
   h1 {
     margin: 20px 0;
   }
   .apartments_reserch {
     .apartment_reserch {
       margin: 40px 10px 0 10px;
-      width: calc(50% - 20px);
+      width: calc(50% - 40px);
       height: auto;
       .foto_reserch {
         img {
@@ -166,11 +132,5 @@
         width: 100%;
       }
     }
-  }
-}
-
-@media screen and (max-width: 575px){
-  .results {
-    margin: 150px 0;
   }
 }
