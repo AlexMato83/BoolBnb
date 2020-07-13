@@ -11116,6 +11116,45 @@ a.text-dark:focus {
   margin-top: 5%;
 }
 
+.footer .menu_footer ul .tasto {
+  background-color: #1b3c59;
+  color: white;
+  border: none;
+  padding: 0;
+}
+
+.footer .menu_footer ul .tasto:focus {
+  border: none;
+  outline: 0;
+  box-shadow: none;
+}
+
+.footer .menu_footer ul .reg {
+  background-color: #1b3c59;
+  color: white;
+  border: none;
+  padding: 0;
+}
+
+.footer .menu_footer ul .reg:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.footer .menu_footer ul .btnlog {
+  font-size: 20px;
+  width: 100%;
+  background-color: #1b3c59;
+  color: white;
+  border: none;
+  padding: 0;
+}
+
+.footer .menu_footer ul .btnlog:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
 .footer .menu_footer ul li {
   list-style: none;
   font-size: 20px;

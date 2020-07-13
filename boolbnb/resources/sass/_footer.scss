@@ -25,6 +25,39 @@
     height: 100%;
     margin-top: 5%;
     ul {
+      .tasto{
+        background-color: #1b3c59;
+        color:white;
+        border: none;
+        padding:0;
+      }
+      .tasto:focus{
+        border:none;
+        outline: 0;
+        box-shadow: none;
+      }
+      .reg{
+        background-color: #1b3c59;
+        color:white;
+        border: none;
+        padding:0;
+      }
+      .reg:focus{
+        outline: 0;
+        box-shadow: none;
+      }
+      .btnlog{
+        font-size: 20px;
+        width:100%;
+        background-color: #1b3c59;
+        color:white;
+        border: none;
+          padding:0;
+      }
+      .btnlog:focus{
+        outline: 0;
+        box-shadow: none;
+      }
       li {
         list-style: none;
         font-size: 20px;
