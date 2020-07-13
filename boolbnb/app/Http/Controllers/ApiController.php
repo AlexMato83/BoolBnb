@@ -11,11 +11,25 @@ use Illuminate\Http\Request;
 use App\Apartment;
 use App\Sponsorshipstype;
 use Auth;
+use App\Sponsorship;
 
 class ApiController extends Controller
 {
     public function welcome_show(){
-        $apartments = Apartment::all();
+        $apartments = [];
+        $sponsorships = Sponsorship::all();
+        foreach ($sponsorships as $sponsorship) {
+            $date=date_create($sponsorship['startDate']);
+            $duration = $sponsorship -> sponsorshipstype -> duration;
+            date_add($date,date_interval_create_from_date_string($duration . ' days'));
+            // date_add($date,date_interval_create_from_date_string("3 days"));
+            $end_date = date_format($date,"Y-m-d");
+            if (($sponsorship['startDate'] < date('Y-m-d')) && ($end_date > date('Y-m-d'))) {
+                $apartments [] = $sponsorship -> apartment;
+            }
+
+        }
+
         return view("prova_api" , compact("apartments"));
     }
     public function token_generate()

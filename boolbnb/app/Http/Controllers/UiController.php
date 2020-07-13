@@ -14,6 +14,7 @@ use App\Apartment;
 use App\Message;
 use App\View;
 use DateTime;
+use App\Sponsorship;
 
 class UiController extends Controller
 {
@@ -25,6 +26,19 @@ class UiController extends Controller
     {
         $apartments_all = Apartment::all();
         $apartments = [];
+        $sponsorships = Sponsorship::all();
+
+        foreach ($sponsorships as $sponsorship) {
+            $date=date_create($sponsorship['startDate']);
+            $duration = $sponsorship -> sponsorshipstype -> duration;
+            date_add($date,date_interval_create_from_date_string($duration . ' days'));
+            // date_add($date,date_interval_create_from_date_string("3 days"));
+            $end_date = date_format($date,"Y-m-d");
+            if (($sponsorship['startDate'] < date('Y-m-d')) && ($end_date > date('Y-m-d'))) {
+                $sponsor_apt [] = $sponsorship -> apartment;
+            }
+        }
+        $apartments_found['sponsored'] = $sponsor_apt;
         foreach ($apartments_all as $apartment) {
           if ($apartment["visibility"] == 1) {
             $apartments[] = $apartment;
@@ -59,8 +73,14 @@ class UiController extends Controller
           // dd($results,$center_of_search["lat"],$center_of_search["long"]);
           return $results;
         }
-        $apartments_found=In_radius($apartments,$center_lat, $center_long,$search_radius);
-
+        $apartments_found['normal'] = In_radius($apartments,$center_lat, $center_long,$search_radius);
+        foreach ($apartments_found['sponsored'] as $sponsored) {
+            foreach ($apartments_found['normal'] as $key => $normal) {
+                if ($sponsored['id'] == $normal['id']) {
+                    unset($apartments_found['normal'][$key]);
+                }
+            }
+        }
         // $apartments_found = [];
         // foreach ($apartments as $apartment) {
         //   if ($apartment['address'] === $request['address']) {
@@ -134,6 +154,7 @@ class UiController extends Controller
     public function filter_ui_apartments(Request $request){
       $apartments_all = Apartment::all();
       $apartments = [];
+      $sponsorships = Sponsorship::all();
       foreach ($apartments_all as $apartment) {
         if ($apartment["visibility"] == 1) {
           $apartments[] = $apartment;
@@ -164,7 +185,20 @@ class UiController extends Controller
             }
           }
         }
+        function filter_by_sponsorship($sponsorships){
 
+            foreach ($sponsorships as $sponsorship) {
+                $date=date_create($sponsorship['startDate']);
+                $duration = $sponsorship -> sponsorshipstype -> duration;
+                date_add($date,date_interval_create_from_date_string($duration . ' days'));
+                // date_add($date,date_interval_create_from_date_string("3 days"));
+                $end_date = date_format($date,"Y-m-d");
+                if (($sponsorship['startDate'] < date('Y-m-d')) && ($end_date > date('Y-m-d'))) {
+                    $sponsor_filtered_apt [] = $sponsorship -> apartment;
+                }
+            }
+            return $sponsor_filtered_apt;
+        }
         function filters($rooms, $beds, $r_services, $In_radius_apartments)
         {
             if (isset($rooms)) {
@@ -255,10 +289,21 @@ class UiController extends Controller
           // dd($results,$center_of_search["lat"],$center_of_search["long"]);
           return $results;
         }
+
+        $filter_by_sponsorship = filter_by_sponsorship($sponsorships);
         $apartments_in_radius=In_radius($apartments,$center_lat, $center_long,$search_radius);
         $apartments_filtered = filters($rooms, $beds, $r_services, $apartments_in_radius);
-        $apartments_found = ordered_by_dist($apartments_filtered);
-        // dd($apartments_found);
+        $apartments_found['sponsored'] = filters($rooms, $beds, $r_services, $filter_by_sponsorship);
+        $apartments_found['normal'] = ordered_by_dist($apartments_filtered);
+
+        foreach ($apartments_found['sponsored'] as $sponsored) {
+            foreach ($apartments_found['normal'] as $key => $normal) {
+                if ($sponsored['id'] == $normal['id']) {
+                    unset($apartments_found['normal'][$key]);
+                }
+            }
+        }
+
         $add = $request['address'];
 
     return view("ui_apartments", compact("apartments_found",'apartments','services','categories','add'));

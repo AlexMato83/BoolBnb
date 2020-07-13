@@ -16,29 +16,28 @@ $result = $gateway->transaction()->sale([
 
   if ($result->success) {
     // print_r("success!: " . $result->transaction->id);
-    $result = "successo";
+    $result_payment = "successo";
     $sponsorship = new Sponsorship;
     $sponsorship['startDate'] = $start_date;
     $sponsorship['title'] = $title;
     $sponsorship['apartment_id'] = $apartment['id'];
     $sponsorship['sponsorshipstype_id'] = $sponsorshipstype['id'];
     $sponsorship -> save();
-    return view("error");
 
   }
   else if ($result->transaction) {
-    $result = "error";
+    $result_payment = "error";
 
     // print_r("Error processing transaction:");
     // print_r("\n  code: " . $result->transaction->processorResponseCode);
     // print_r("\n  text: " . $result->transaction->processorResponseText);
   }
 else {
-  $result = "fallimento";
+  $result_payment = "fallimento";
 
     // print_r("validation error\n");
     // print_r($result->errors->deepAll());
 }
 
   // $gianfranco = 'marco rimane a fare front';
-echo json_encode($result);
+echo json_encode($result_payment);

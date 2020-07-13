@@ -294,7 +294,6 @@ class UserController extends Controller
     }
 
     function result_payment($data) {
-        $result = '';
            if ($data === "ok") {
              $result = "transazione effettuata";
            } else {

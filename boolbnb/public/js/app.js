@@ -37398,7 +37398,7 @@ function create_paymethond_and_pay() {
       },
       success: function success(speriamo) {},
       complete: function complete(speriamo) {
-        console.log(speriamo.responseText);
+        console.log(speriamo);
 
         if (speriamo.responseText == '"successo"') {
           var data = "ok";
