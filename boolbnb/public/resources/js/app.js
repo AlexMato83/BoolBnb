@@ -87,7 +87,7 @@ function address_to_coord(button, submit){
 
   function prova_api(){
     $.ajax({
-      url:"http://localhost:8000/welcome_show",
+      url:"http://127.0.0.1:8000/welcome_show",
       method: "GET",
       success: function(data){
         var variabile = JSON.parse(data);
@@ -95,7 +95,7 @@ function address_to_coord(button, submit){
 
         for (var i = 0; i < variabile.length; i++) {
 
-          $(".apartment").append('<div class="col-4"><img src='+variabile[i].images+'><h3>'+variabile[i].name+'</h3></div>');
+          $(".apartment").append('<img src='+variabile[i].images+'>').append('<h3>'+variabile[i].name+'</h3>');
         }
       }
     })
@@ -205,7 +205,7 @@ function create_paymethond_and_pay() {
 
 
         },complete: function(speriamo){
-          console.log(speriamo);
+          console.log(speriamo.responseText);
           if (speriamo.responseText == '"successo"') {
             var data = "ok";
           } else {

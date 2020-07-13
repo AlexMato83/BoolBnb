@@ -37,6 +37,24 @@ class Apartment extends Model
 
       return $this->hasMany(View::class);
     }
+
+    public function getRandom6(){
+
+      $app = \DB::table('apartments') //from
+      ->join('sponsorships' , 'apartments.id' , '=', 'sponsorships.apartment_id')
+      ->distinct()
+      ->select('apartments.*') //select *
+      ->limit(6)
+      ->get();
+
+      // $app = \DB::select("SELECT DISTINCT(apartments.id) , apartments.*
+      // FROM apartments
+      // join sponsorships on apartments.id = sponsorships.apartment_id
+      // ORDER BY RAND() limit 6");
+
+      return $app;
+
+    }
 }
 
 namespace App;
