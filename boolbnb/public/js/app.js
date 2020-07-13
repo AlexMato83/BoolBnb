@@ -37356,6 +37356,10 @@ function prova_api() {
     success: function success(data) {
       var variabile = JSON.parse(data);
       console.log(variabile);
+
+      for (var i = 0; i < variabile.length; i++) {
+        $(".evidenza").append('<p>' + variabile[i].nome + '</p>');
+      }
     }
   });
 }

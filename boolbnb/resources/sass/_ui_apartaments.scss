@@ -4,9 +4,6 @@
   height: 42px;
   width: 100%;
   margin: 30px 0;
-  display: flex;
-  justify-content:space-around;
-  flex-wrap:wrap;
   #ciaociao, #ciao {
     height: 100%;
     width: auto;
@@ -47,7 +44,7 @@
     margin: 20px 0;
     input {
       padding-left: 15px;
-      width: 60px;
+      width: 65px;
       border: none;
     }
   }
@@ -105,7 +102,7 @@
   color: #1b3c59;
   position: absolute;
   border: 1px solid #8f8e8e;
-  margin-top: 10px;
+  margin-left: 163px;
   z-index: 99;
   div {
     display: flex;
@@ -121,7 +118,7 @@
 
 .stanze_letti {
   height: auto;
-  width: 123px;
+  width: 132px;
   border-radius: 5px;
   background-color: white;
   color: #1b3c59;
@@ -129,8 +126,10 @@
   font-size: 15px;
   padding: 10px;
   border: 1px solid #8f8e8e;
-  margin-top: 10px;
+  margin-top: 71px;
+  margin-left: -322px;
   z-index: 99;
+  position: absolute;
   .bedrooms {
     display: flex;
     flex-wrap: nowrap;

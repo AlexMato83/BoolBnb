@@ -16,36 +16,15 @@
       </div>
     @endif
 
-    <div class="filtri">
+    <div class="filtri d-flex justify-content-around flex-wrap">
       {{-- <button class="tipo" type="button" name="button">Tipo di alloggio</button> --}}
 
       <div class="stanze" id="ciaociao">
         <button type="button" name="button">Stanze e letti</button>
-        {{-- MENU A TENDINA STANZE E LETTI --}}
-
-        <div class="stanze_letti off">
-          <div class="bedrooms">
-            <label for="rooms">Stanze</label>
-            <input type="text" name="rooms" value="">
-          </div>
-          <div class="bedrooms">
-            <label for="rooms">Letti</label>
-            <input type="text" name="beds" value="">
-          </div>
-        </div>
       </div>
 
       <div class="serv" id="ciao">
         <button  type="button" name="button">Servizi</button>
-        {{-- MENU A TENDINA SERVIZI --}}
-        <div class="servizi off">
-          @foreach ($services as $service)
-            <div>
-              <input class="checkbox" type="checkbox" name="services[]" value="{{$service['id']}}">
-              {{$service['name']}}
-            </div>
-          @endforeach
-        </div>
       </div>
 
       <input id="apt_address" type="location" name="address" value="" class="form-control" placeholder="Dove vuoi andare?">
@@ -60,7 +39,28 @@
         <button id="filtered2" type="text" name="" value=""><strong>Cerca</strong></button>
       </div>
 
+      {{-- MENU A TENDINA STANZE E LETTI --}}
+      <div class="stanze_letti off">
+        <div class="bedrooms">
+          <label for="rooms">Stanze</label>
+          <input type="text" name="rooms" value="">
+        </div>
+        <div class="bedrooms">
+          <label for="beds">Letti</label>
+          <input type="text" name="beds" value="">
+        </div>
+      </div>
     </div>
+
+    {{-- MENU A TENDINA SERVIZI --}}
+  <div class="servizi off">
+    @foreach ($services as $service)
+      <div>
+        <input class="checkbox" type="checkbox" name="services[]" value="{{$service['id']}}">
+        {{$service['name']}}
+      </div>
+    @endforeach
+  </div>
 
     {{-- MENU A TENDINA TIPO DI ALLOGGIO --}}
     {{-- <div class="tipo_di_alloggio off">

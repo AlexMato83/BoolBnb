@@ -54,7 +54,11 @@
       <div>
         <a href="{{route('delete_apartment',$apartment['id'])}}">CANCELLA APPARTAMENTO</a>
       </div>
-<<<<<<< Updated upstream
+
+      <div>
+          <a href="{{route('show_statistics',$apartment['id'])}}">STATISTICHE APPARTAMENTO</a>
+      </div>
+
       <div>
         <form action="{{route('sponsorship_pay', $apartment['id'])}}" method="post">
               @csrf
@@ -69,14 +73,6 @@
               <input type="submit" value="Vai al pagamento">
           </form>
       </div>
-
-=======
-      <div >
-          <a href="{{route('show_statistics',$apartment['id'])}}">STATISTICHE APPARTAMENTO</a>
-      </div>
->>>>>>> Stashed changes
     </div>
   </div>
-
-
 @endsection

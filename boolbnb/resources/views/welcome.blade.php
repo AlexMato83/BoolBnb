@@ -29,10 +29,17 @@
       <button class="cerca" id="search2" type="text" name="" value="">Cerca</button>
       {{-- <button id="provaApi" type="button" name="button">Prova Api</button> --}}
 
-      {{-- <input class="dove" type="text" id="dove" class="form-control" placeholder="Dove vuoi andare?">
-      <button class="cerca" type="button" name="button"><i class="fas fa-search"></i><strong>Cerca</strong></button> --}}
     </div>
   </div>
+
+  <div class="evidenza">
+
+  </div>
+
+  {{-- <script class="apartment-template" type="text/x-handlebars-template">  
+
+
+  </script> --}}
 
   {{-- <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
     <div class="evidenza">
@@ -42,11 +49,11 @@
 
           <div class="apartment">
             <div class="foto">
-              <a href="{{route('create_view',$random_apartments['id'])}}"><img src="{{ asset($random_apartments['images'])}}"></a>
+              <a href="{{route('create_view',$random_apartments ?? ''['id'])}}"><img src="{{ asset($random_apartments ?? ''['images'])}}"></a>
             </div>
             <div class="titolo">
               <h3>
-                <a href="{{route('create_view',$random_apartments['id'])}}"> {{ $random_apartments['name']}}</a>
+                <a href="{{route('create_view',$random_apartments ?? ''['id'])}}"> {{ $random_apartments ?? ''['name']}}</a>
               </h3>
             </div>
           </div>
