@@ -37309,7 +37309,7 @@ function prova_api() {
       console.log(variabile);
 
       for (var i = 0; i < variabile.length; i++) {
-        $(".evidenza").append('<p>' + variabile[i].nome + '</p>');
+        $(".apartment").append('<img src=' + variabile[i].images + '>').append('<h3>' + variabile[i].name + '</h3>');
       }
     }
   });

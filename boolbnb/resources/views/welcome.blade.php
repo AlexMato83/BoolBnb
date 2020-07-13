@@ -32,35 +32,17 @@
     </div>
   </div>
 
+
   <div class="evidenza">
-
-  </div>
-
-  {{-- <script class="apartment-template" type="text/x-handlebars-template">  
-
-
-  </script> --}}
-
-  {{-- <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-    <div class="evidenza">
-      <h1>Appartamenti consigliati
-      </h1>
-      <div class="apartments">
-
-          <div class="apartment">
-            <div class="foto">
-              <a href="{{route('create_view',$random_apartments ?? ''['id'])}}"><img src="{{ asset($random_apartments ?? ''['images'])}}"></a>
-            </div>
-            <div class="titolo">
-              <h3>
-                <a href="{{route('create_view',$random_apartments ?? ''['id'])}}"> {{ $random_apartments ?? ''['name']}}</a>
-              </h3>
-            </div>
-          </div>
+    <h1>Appartamenti consigliati
+    </h1>
+    <div class="apartments">
+      <div class="apartment">
 
       </div>
     </div>
-  </div> --}}
+  </div>
+
 
 
 @endsection

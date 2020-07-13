@@ -92,8 +92,10 @@ function address_to_coord(button, submit){
       success: function(data){
         var variabile = JSON.parse(data);
         console.log(variabile);
+
         for (var i = 0; i < variabile.length; i++) {
-          $(".evidenza").append('<p>'+variabile[i].nome+'</p>');
+
+          $(".apartment").append('<img src='+variabile[i].images+'>').append('<h3>'+variabile[i].name+'</h3>');
         }
       }
     })
