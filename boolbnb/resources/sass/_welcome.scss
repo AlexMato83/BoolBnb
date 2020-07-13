@@ -46,32 +46,27 @@
   .apartments{
   	margin: 0 auto;
   	display: flex;
-  	justify-content: center;
-  	align-items: center;
-  	flex-wrap: wrap;
   	padding-top: 20pX;
     .apartment {
-    	width: calc((100% / 3) - 4%);
-    	height: 250px;
-    	margin: 2%;
-    	padding: 5px;
-    	text-align: center;
-      .foto {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      overflow:auto;
         img {
-          width: 100%;
-          height: 100%;
+          width: calc((100% / 3) - 4%);
+          height: 250px;
+          margin: 2%;
+        	padding: 5px;
           border-radius: 3%;
         }
-      }
-      .titolo {
         h3 {
+          width: calc((100% / 3) - 4%);
+          height: 250px;
+          margin: 2%;
           font-size: 18px;
           padding-top: 10px;
-          a {
-            color: #1b3c59;
-          }
         }
-      }
+
     }
   }
 }
