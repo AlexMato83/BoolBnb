@@ -15,8 +15,8 @@ $result = $gateway->transaction()->sale([
   ]);
 
   if ($result->success) {
-    print_r("success!: " . $result->transaction->id);
-
+    // print_r("success!: " . $result->transaction->id);
+    $result = "successo";
     $sponsorship = new Sponsorship;
     $sponsorship['startDate'] = $start_date;
     $sponsorship['title'] = $title;
@@ -26,14 +26,18 @@ $result = $gateway->transaction()->sale([
 
   }
   else if ($result->transaction) {
-    print_r("Error processing transaction:");
-    print_r("\n  code: " . $result->transaction->processorResponseCode);
-    print_r("\n  text: " . $result->transaction->processorResponseText);
+    $result = "error";
+
+    // print_r("Error processing transaction:");
+    // print_r("\n  code: " . $result->transaction->processorResponseCode);
+    // print_r("\n  text: " . $result->transaction->processorResponseText);
   }
 else {
-    print_r("validation error\n");
-    print_r($result->errors->deepAll());
+  $result = "fallimento";
+
+    // print_r("validation error\n");
+    // print_r($result->errors->deepAll());
 }
 
-  $result = 'marco rimane a fare front';
+  // $gianfranco = 'marco rimane a fare front';
 echo json_encode($result);

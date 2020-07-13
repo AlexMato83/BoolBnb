@@ -293,4 +293,16 @@ class UserController extends Controller
         return view('upra_payment', compact('apartment', 'sponsorshipstype'));
     }
 
+    function result_payment($data) {
+        $result = '';
+           if ($data === "ok") {
+             $result = "transazione effettuata";
+           } else {
+             $result = "transazione negata";
+
+           }
+
+      return view('successo', compact('result'));
+    }
+
 }

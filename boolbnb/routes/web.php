@@ -26,10 +26,10 @@ Route::get('/delete_apartment/{id}', 'UserController@delete_apartment')->name('d
 Route::get('/show_messages', 'UserController@show_messages')->name('show_messages');
 Route::get('/show_statistics/{id}', 'UserController@show_statistics')->name('show_statistics');
 Route::post('/sponsorship_pay/{id}', 'UserController@sponsorship_pay')->name('sponsorship_pay');
+Route::get('/successo/{data}', 'UserController@result_payment')->name('result_payment');
 
 
 //******* Prova rotte per api *******//
 Route::get('/welcome_show', 'ApiController@welcome_show')->name('welcome_show');
 Route::get('/token_generate', 'ApiController@token_generate')->name('token_generate');
 Route::post('/payment', 'ApiController@payment')->name('payment');
-

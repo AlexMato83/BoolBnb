@@ -37396,11 +37396,17 @@ function create_paymethond_and_pay() {
         title: title,
         start_date: start_date
       },
-      success: function success(speriamo) {
-        console.log(apartment_id, price, title, start_date);
-      },
+      success: function success(speriamo) {},
       complete: function complete(speriamo) {
-        console.log(speriamo);
+        console.log(speriamo.responseText);
+
+        if (speriamo.responseText == '"successo"') {
+          var data = "ok";
+        } else {
+          var data = "NO";
+        }
+
+        window.location.href = 'http://127.0.0.1:8000/successo/' + data;
       }
     });
   });
@@ -37601,8 +37607,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/paolo/Desktop/Github/Boolean/BoolBnb/boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/paolo/Desktop/Github/Boolean/BoolBnb/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/alemato/Desktop/BOOLEAN/BoolBnb/boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/alemato/Desktop/BOOLEAN/BoolBnb/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

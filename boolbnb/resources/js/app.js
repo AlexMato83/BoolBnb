@@ -202,9 +202,17 @@ function create_paymethond_and_pay() {
           start_date: start_date
         },
         success: function(speriamo){
-          console.log(apartment_id, price, title, start_date);
+
+
         },complete: function(speriamo){
-          console.log(speriamo);
+          console.log(speriamo.responseText);
+          if (speriamo.responseText == '"successo"') {
+            var data = "ok";
+          } else {
+            var data = "NO";
+          }
+          window.location.href = 'http://127.0.0.1:8000/successo/' + data ;
+
         }
       });
     })
