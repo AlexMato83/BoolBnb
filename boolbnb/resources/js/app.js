@@ -83,17 +83,22 @@ function address_to_coord(button, submit){
   }
 
 //****************//
-function prova_api(){
+
+
+  function prova_api(){
     $.ajax({
       url:"http://127.0.0.1:8000/welcome_show",
       method: "GET",
       success: function(data){
         var variabile = JSON.parse(data);
         console.log(variabile);
-
+        for (var i = 0; i < variabile.length; i++) {
+          $(".evidenza").append('<p>'+variabile[i].nome+'</p>');
+        }
       }
     })
-}
+  }
+
 
 function getData(data,id_canvas,type) {
   var months = [];
