@@ -62,7 +62,7 @@
 
 
         <label for="images">Foto</label>
-        <input  type="file" name="images" value="{{$apartment['images']}}"><br>
+        <input  type="file" name="images" value=""><br>
       </div>
     </div>
     <!-- <div class="space"> -->
@@ -113,13 +113,13 @@
       </select>
     </div>
 
-    <input id="create" class="dispna" type="submit" name="" value="Create">
+    <input id="create" class="dispna" type="submit" name="" value="">
 
   </form> <br>
 
 
   <div class="bt">
-    <button id="create2" type="text" name="" value="">Create</button>
+    <button id="create2" type="text" name="" value="">Update</button>
 
   </div>
 

@@ -1,12 +1,15 @@
 <?php
+
+
 use App\Sponsorship;
+// require_once ("token_generate.php");
 header('Content-Type: application/json');
 
 $gateway = new Braintree\Gateway([
     'environment' => 'sandbox',
-    'merchantId' => 'bhdn8xt35v7xfcqh',
-    'publicKey' => 'vrsqzfx3hgsrtmbj',
-    'privateKey' => '3d588878fe228fcb4af950bcb064c499'
+    'merchantId' => '3fq8j6rpxv3kwq76',
+    'publicKey' => 'bf4gncbmkr42nrqy',
+    'privateKey' => '6434d1448254d734fcc5e904ee75fff4'
 ]);
 $result = $gateway->transaction()->sale([
     'amount' => $sponsorshipstype['price'],
@@ -35,5 +38,5 @@ else {
     print_r($result->errors->deepAll());
 }
 
-  $result = 'marco rimane a fare front';
+$result = 'marco rimane a fare front';
 echo json_encode($result);

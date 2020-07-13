@@ -26,11 +26,11 @@
         <div class="stanze_letti off">
           <div class="bedrooms">
             <label for="rooms">Stanze</label>
-            <input type="text" name="rooms" value="">
+            <input type="number" name="rooms" value="">
           </div>
           <div class="bedrooms">
             <label for="rooms">Letti</label>
-            <input type="text" name="beds" value="">
+            <input type="number" name="beds" value="">
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
         </div>
       </div>
 
-      <input id="apt_address" type="location" name="address" value="" class="form-control" placeholder="Dove vuoi andare?">
+      <input id="apt_address" type="location" name="address" value="{{$add}}" class="form-control" placeholder="Dove vuoi andare?">
 
       <div class="distanza">
         <span>Distanza</span>
