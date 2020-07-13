@@ -37316,20 +37316,19 @@ function address_to_coord(button, submit) {
       url: "https://api.tomtom.com/search/2/search/" + address + ".json?",
       method: "get",
       data: {
-        key: "luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt" // query: address,
-        // ext: "json"
-
+        key: "luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt"
       },
       success: function success(data) {
         var position = data.results[0]["position"];
         latitude = position.lat;
         longitude = position.lon;
-      },
-      complete: function complete() {
         $("#latitude").val(latitude);
         $("#longitude").val(longitude);
+      },
+      complete: function complete() {
         document.getElementById(submit).click();
       }
+    }).done(function (submit) {// document.getElementById(submit).click()
     });
   });
 } //****************//
@@ -37503,9 +37502,21 @@ function init() {
     turfjs();
   }
 
-  address_to_coord('#create2', 'create');
-  address_to_coord('#search2', 'search');
-  address_to_coord('#filtered2', 'filtered');
+  if (document.getElementById("create2")) {
+    address_to_coord('#create2', 'create');
+  }
+
+  if (document.getElementById("search2")) {
+    address_to_coord('#search2', 'search');
+  }
+
+  if (document.getElementById("filtered2")) {
+    address_to_coord('#filtered2', 'filtered');
+  }
+
+  if (document.getElementById("update2")) {
+    address_to_coord('#update2', 'update');
+  }
 
   if (typeof list_of_views != "undefined") {
     getData(list_of_views, 'views', 'line');

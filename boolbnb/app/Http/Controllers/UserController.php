@@ -112,10 +112,8 @@ class UserController extends Controller
     // funzione per validare le modifiche ad un appartamento
     public function update(Request $request, $id)
     {
-
        $user_id =Auth::user() ->id;
        $apartment = Apartment::findOrFail($id);
-
        $validate = $request -> validate([
 
             "name" => "required",
@@ -131,11 +129,7 @@ class UserController extends Controller
 
             ]);
 
-            if ($validate["visibility"] == "Si") {
-              $validate["visibility"] = 1;
-            }else {
-              $validate["visibility"] = 0;
-            }
+
 
         $apartment["name"] = $validate["name"];
         $apartment["mq"] = $validate["mq"];
@@ -145,7 +139,9 @@ class UserController extends Controller
         $apartment["rooms"] = $validate["rooms"];
         $apartment["bathrooms"] = $validate["bathrooms"];
         $apartment["beds"] = $validate["beds"];
-        $apartment["images"] = $request["images"];
+        if ($request["images"]) {
+          $apartment["images"] = $request["images"];
+        }
         $apartment["user_id"] = $user_id;
         $apartment["visibility"] = $validate["visibility"];
         $apartment["category_id"] = $validate["category_id"];
@@ -153,10 +149,10 @@ class UserController extends Controller
 
         // *********************************
         if ($request["images"]) {
-          // code...
           $image = $request->file('images');
+
           $name = Str::slug($request->input('name')).'_'.time();
-          $folder = '/uploads/images';
+          $folder = '/uploads/images/';
           $ext = $image->getClientOriginalExtension();
           $filePath = $folder . $name. '.' . $ext;
           $image->storeAs($folder, $name.'.'. $ext, 'public');

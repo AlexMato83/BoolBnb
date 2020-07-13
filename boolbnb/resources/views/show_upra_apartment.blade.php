@@ -55,6 +55,9 @@
         <a href="{{route('delete_apartment',$apartment['id'])}}">CANCELLA APPARTAMENTO</a>
       </div>
       <div>
+          <a href="{{route('show_statistics',$apartment['id'])}}">STATISTICHE APPARTAMENTO</a>
+      </div>
+      <div>
         <form action="{{route('sponsorship_pay', $apartment['id'])}}" method="post">
               @csrf
               @method('POST')
