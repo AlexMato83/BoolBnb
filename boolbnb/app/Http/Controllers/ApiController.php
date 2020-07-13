@@ -16,6 +16,7 @@ class ApiController extends Controller
 {
     public function welcome_show(){
         $apartments = Apartment::all();
+
         return view("prova_api" , compact("apartments"));
     }
     public function token_generate()

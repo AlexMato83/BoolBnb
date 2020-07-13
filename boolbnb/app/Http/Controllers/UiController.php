@@ -19,7 +19,10 @@ class UiController extends Controller
 {
     public function index()
     {
-        return view("welcome");
+      $apartments = new Apartment();
+      $app = $apartments->getRandom6();
+      
+        return view("welcome")->with('app' , $app);
     }
     public function show_ui_apartments(Request $request)
     {

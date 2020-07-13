@@ -197,14 +197,17 @@ class UserController extends Controller
       $apartments = $user -> apartments;
 
       $user_messages = [];
+
       foreach ($apartments as $apartment) {
+        $id_app = $apartment->name;
         $messages = $apartment-> messages;
 
         foreach ($messages as $message) {
-
+            $message['name'] = $id_app;
             $user_messages[] = $message;
         }
       }
+
       $array_messages = collect($user_messages);
 
       $ordered_messages = $array_messages->sortByDesc('id');

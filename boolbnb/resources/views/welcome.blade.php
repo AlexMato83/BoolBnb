@@ -37,9 +37,23 @@
     <h1>Appartamenti consigliati
     </h1>
     <div class="apartments">
-      <div class="apartment">
+      <div class="apartment row">
 
       </div>
+
+    </div>
+    <div class="apartments">
+    <div class="apartment row">
+
+        @foreach ($app as $a)
+          <div class="col-4">
+            <a href="{{route('ui_apartment' , ['id' => $a->id ])}}">
+              <img src='{{$a->images}}'>
+              <h3>{{$a->name}}</h3>
+            </a>
+          </div>
+        @endforeach
+    </div>
     </div>
   </div>
 

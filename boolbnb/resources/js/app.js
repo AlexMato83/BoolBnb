@@ -71,11 +71,11 @@ function address_to_coord(button, submit){
           var position = data.results[0]["position"];
         latitude =  position.lat;
         longitude = position.lon;
+        $("#latitude").val(latitude);
+        $("#longitude").val(longitude);
 
         },
         complete: function(){
-          $("#latitude").val(latitude);
-          $("#longitude").val(longitude);
           document.getElementById(submit).click()
         }
       })
@@ -87,15 +87,15 @@ function address_to_coord(button, submit){
 
   function prova_api(){
     $.ajax({
-      url:"http://127.0.0.1:8000/welcome_show",
+      url:"http://localhost:8000/welcome_show",
       method: "GET",
       success: function(data){
         var variabile = JSON.parse(data);
-        console.log(variabile);
+        // console.log(variabile);
 
         for (var i = 0; i < variabile.length; i++) {
 
-          $(".apartment").append('<img src='+variabile[i].images+'>').append('<h3>'+variabile[i].name+'</h3>');
+          $(".apartment").append('<div class="col-4"><img src='+variabile[i].images+'><h3>'+variabile[i].name+'</h3></div>');
         }
       }
     })
@@ -161,161 +161,199 @@ function getMonth(){
   moment.locale("it");
   return moment.months();;
 }
-function create_drop_in_container() {
+function create_paymethond_and_pay() {
     var button = document.querySelector('#submit-button');
-    var token;
+    var token,apartment_id,price,title,start_date,nonce;
     $.ajax({
-
         type: "GET",
         url: "http://127.0.0.1:8000/token_generate",
         success: function (token_generate) {
-
             token = token_generate;
-            console.log(token);
-
+            // console.log(token);
             braintree.dropin.create({
-                authorization: "sandbox_g42y39zw_348pk9cgf3bgyw2b",
+                authorization: "sandbox_ykkqhk4c_3fq8j6rpxv3kwq76"	,
                 selector: '#dropin-container'
             }, function (err, instance) {
                 button.addEventListener('click', function () {
-                instance.requestPaymentMethod(function (err, payload) { 
-                    var apartment_id = $('#id').html();
-                    var price = $('#price').html();
-                    var title = $('#title').val();
-                    var start_date = $('#start_date').val();
-
-                    $.ajax({
-                        headers: {
-                          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        url: "http://127.0.0.1:8000/payment",
-                        method: "POST",
-                        data:{
-                          nonce: payload.nonce,
-                          apartment_id: apartment_id,
-                          price: price,
-                          title: title,
-                          start_date: start_date
-                        },
-                        success: function(speriamo){
-                            console.log(apartment_id, price, title, start_date);
-
-                        },complete: function(speriamo){
-                          console.log(speriamo);
-                        }
-                      }) ;
+                instance.requestPaymentMethod(function (err, payload) {
+                   nonce = payload.nonce;
+                   apartment_id = $('#id').html();
+                   price = $('#price').html();
+                   title = $('#title').val();
+                   start_date = $('#start_date').val();
+                   $("#pay").removeClass("dispna");
                 });
-            })
-            });
+                })
+               });
         }
     });
-
-} 
-
-function init(){
-  create_drop_in_container();
-
-  prova_api();
-  if (document.getElementById("map")) {
-    turfjs();
-  }
-
-  address_to_coord('#create2', 'create');
-  address_to_coord('#search2', 'search');
-  address_to_coord('#filtered2', 'filtered');
-  if (typeof(list_of_views) != "undefined") {
-    getData(list_of_views,'views','line');
-  }
-  if (typeof(list_of_messages) != "undefined") {
-    getData(list_of_messages,'messages','line');
-  }
+    $("#pay").click(function(){
+      $.ajax({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: "http://127.0.0.1:8000/payment",
+        method: "POST",
+        data:{
+          nonce: nonce,
+          apartment_id: apartment_id,
+          price: price,
+          title: title,
+          start_date: start_date
+        },
+        success: function(speriamo){
 
 
+        },complete: function(speriamo){
+          console.log(speriamo.responseText);
+          if (speriamo.responseText == '"successo"') {
+            var data = "ok";
+          } else {
+            var data = "NO";
+          }
+          window.location.href = 'http://127.0.0.1:8000/successo/' + data ;
 
-  $(".tasto").click(
-    function() {
-      $(".accedi").removeClass("off").addClass("on");
-      $(".registrati").removeClass("on").addClass("off");
-    }
-  );
-  $(".continua").click(
-    function() {
-      $(".accedi").removeClass("on").addClass("off");
-    }
-  );
-
-  // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-  $(".reg").click(
-    function() {
-      $(".registrati").removeClass("off").addClass("on");
-      $(".accedi").removeClass("on").addClass("off");
-    }
-  );
-  $(".continua").click(
-    function() {
-      $(".registrati").removeClass("on").addClass("off");
-    }
-  );
-  $(".fa-bars").click(
-    function() {
-      $(".hamburger-menu").removeClass("off").addClass("on");
-      $(".barre").removeClass("on").addClass("off");
-    }
-  );
-  $(".continua").click(
-    function() {
-      $(".accedi").removeClass("on").addClass("off");
-    }
-  );
-  $(".fa-times").click(
-    function() {
-      $(".hamburger-menu").removeClass("on").addClass("off");
-      $(".barre").addClass("on");
-    }
-  );
-  $(".continua").click(
-    function() {
-      $(".registrati").removeClass("on").addClass("off");
-    }
-  );
-  //***********************************
-  // BOTTONE FILTRO TIPO DI ALLOGGIO
-  // $(".tipo").click(
-  //   function() {
-  //     if ($(".tipo_di_alloggio").hasClass("off")){
-  //       $(".tipo_di_alloggio").removeClass("off").addClass("on")
-  //     }
-  //     else {
-  //         $(".tipo_di_alloggio").removeClass("on").addClass("off")
-  //     }
-  //   }
-  // );
-//**************************************
-  // BOTTONE FILTRO SERVIZI
-  $(".serv").click(
-    function() {
-      if ($(".servizi").hasClass("off")){
-        $(".servizi").removeClass("off").addClass("on")
-      }
-      else {
-          $(".servizi").removeClass("on").addClass("off")
-      }
-    }
-  );
-
-  // BOTTONE FILTRO STANZE E LETTI
-  $(".stanze").click(
-    function() {
-      if ($(".stanze_letti").hasClass("off")){
-        $(".stanze_letti").removeClass("off").addClass("on")
-      }
-      else {
-          $(".stanze_letti").removeClass("on").addClass("off")
-      }
-    }
-  );
-
-
+        }
+      });
+    })
 }
+function keypress(){
+    $(window).ready(function() {
+          $("#apt_address").on("keypress", function (event) {
+              console.log("aaya");
+              var keyPressed = event.keyCode || event.which;
+              if (keyPressed === 13) {
+                event.preventDefault();
+                var address = $("#apt_address").val();
+                var longitude,latitude;
+                $.ajax({
+                    url: "https://api.tomtom.com/search/2/search/"+ address +".json?",
+                    method: "get",
+                    data: {
+                      key: "luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt",
+                      // query: address,
+                      // ext: "json"
+                    },
+                    success: function(data){
+                      var position = data.results[0]["position"];
+                    latitude =  position.lat;
+                    longitude = position.lon;
+                    },
+                    complete: function(){
+                      $("#latitude").val(latitude);
+                      $("#longitude").val(longitude);
+                      document.getElementById('search').click()
+                    }
+                  })
+                  return false;
+              }
+          });
+    });
+  }
+  function layout_commands(){
+    $(".tasto").click(
+        function() {
+          $(".accedi").removeClass("off").addClass("on");
+          $(".registrati").removeClass("on").addClass("off");
+        }
+      );
+      $(".continua").click(
+        function() {
+          $(".accedi").removeClass("on").addClass("off");
+        }
+      );
 
-$(document).ready(init);
+      // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+      $(".reg").click(
+        function() {
+          $(".registrati").removeClass("off").addClass("on");
+          $(".accedi").removeClass("on").addClass("off");
+        }
+      );
+      $(".continua").click(
+        function() {
+          $(".registrati").removeClass("on").addClass("off");
+        }
+      );
+      $(".fa-bars").click(
+        function() {
+          $(".hamburger-menu").removeClass("off").addClass("on");
+          $(".barre").removeClass("on").addClass("off");
+        }
+      );
+      $(".continua").click(
+        function() {
+          $(".accedi").removeClass("on").addClass("off");
+        }
+      );
+      $(".fa-times").click(
+        function() {
+          $(".hamburger-menu").removeClass("on").addClass("off");
+          $(".barre").addClass("on");
+        }
+      );
+      $(".continua").click(
+        function() {
+          $(".registrati").removeClass("on").addClass("off");
+        }
+      );
+ }
+ function filter_commands(){
+  // BOTTONE FILTRO SERVIZI
+    $(".serv").click(
+        function() {
+        if ($(".servizi").hasClass("off")){
+            $(".servizi").removeClass("off").addClass("on")
+        }
+        else {
+            $(".servizi").removeClass("on").addClass("off")
+        }
+        }
+    );
+
+    // BOTTONE FILTRO STANZE E LETTI
+    $(".stanze").click(
+        function() {
+        if ($(".stanze_letti").hasClass("off")){
+            $(".stanze_letti").removeClass("off").addClass("on")
+        }
+        else {
+            $(".stanze_letti").removeClass("on").addClass("off")
+        }
+        }
+    );
+  }
+
+  function init(){
+    if (document.getElementById("search2")) {
+      keypress()
+      //prova_api();
+    }
+    if (document.getElementById("dropin-container")) {
+      create_paymethond_and_pay();
+    }
+    if (document.getElementById("map")) {
+      turfjs();
+    }
+  if (document.getElementById("create2")) {
+    address_to_coord('#create2', 'create');
+  }
+  if (document.getElementById("search2")) {
+    address_to_coord('#search2', 'search');
+  }
+  if (document.getElementById("filtered2")) {
+    address_to_coord('#filtered2', 'filtered');
+  }
+  if (document.getElementById("update2")) {
+    address_to_coord('#update2', 'update');
+  }
+    if (typeof(list_of_views) != "undefined") {
+      getData(list_of_views,'views','line');
+    }
+    if (typeof(list_of_messages) != "undefined") {
+      getData(list_of_messages,'messages','line');
+    }
+    layout_commands();
+    filter_commands();
+  }
+  $(document).ready(init);
