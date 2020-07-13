@@ -80,7 +80,7 @@ class UserController extends Controller
       // *******************************
       $apartment -> services() -> sync($validate['services']);
 
-      return redirect() -> route("home");
+      return redirect() -> route("user_apartments");
     }
 
     // funzione per mostrare gli appartamenti
@@ -113,10 +113,11 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
 
-       $user_id =Auth::user() ->id;
-       $apartment = Apartment::findOrFail($id);
+        $user_id =Auth::user() ->id;
+        $apartment = Apartment::findOrFail($id);
+        // dd($request);
 
-       $validate = $request -> validate([
+        $validate = $request -> validate([
 
             "name" => "required",
             "mq" => "required",
@@ -132,23 +133,26 @@ class UserController extends Controller
             ]);
 
             if ($validate["visibility"] == "Si") {
-              $validate["visibility"] = 1;
+                $validate["visibility"] = 1;
             }else {
-              $validate["visibility"] = 0;
+                $validate["visibility"] = 0;
             }
 
-        $apartment["name"] = $validate["name"];
-        $apartment["mq"] = $validate["mq"];
-        $apartment["latitude"] = $request["latitude"];
-        $apartment["longitude"] = $request["longitude"];
-        $apartment["address"] = $validate["address"];
-        $apartment["rooms"] = $validate["rooms"];
-        $apartment["bathrooms"] = $validate["bathrooms"];
-        $apartment["beds"] = $validate["beds"];
-        $apartment["images"] = $request["images"];
-        $apartment["user_id"] = $user_id;
-        $apartment["visibility"] = $validate["visibility"];
-        $apartment["category_id"] = $validate["category_id"];
+            $apartment["name"] = $validate["name"];
+            $apartment["mq"] = $validate["mq"];
+            $apartment["latitude"] = $request["latitude"];
+            $apartment["longitude"] = $request["longitude"];
+            $apartment["address"] = $validate["address"];
+            $apartment["rooms"] = $validate["rooms"];
+            $apartment["bathrooms"] = $validate["bathrooms"];
+            $apartment["beds"] = $validate["beds"];
+            if (isset($request['images'])) {
+
+                $apartment["images"] = $request["images"];
+            }
+            $apartment["user_id"] = $user_id;
+            $apartment["visibility"] = $validate["visibility"];
+            $apartment["category_id"] = $validate["category_id"];
 
 
         // *********************************
@@ -156,7 +160,7 @@ class UserController extends Controller
           // code...
           $image = $request->file('images');
           $name = Str::slug($request->input('name')).'_'.time();
-          $folder = '/uploads/images';
+          $folder = '/uploads/images/';
           $ext = $image->getClientOriginalExtension();
           $filePath = $folder . $name. '.' . $ext;
           $image->storeAs($folder, $name.'.'. $ext, 'public');

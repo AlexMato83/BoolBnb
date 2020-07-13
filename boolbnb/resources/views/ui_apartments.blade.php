@@ -27,7 +27,7 @@
         <button  type="button" name="button">Servizi</button>
       </div>
 
-      <input id="apt_address" type="location" name="address" value="" class="form-control" placeholder="Dove vuoi andare?">
+      <input id="apt_address" type="location" name="address" value="{{$add}}" class="form-control" placeholder="Dove vuoi andare?">
 
       <div class="distanza">
         <span>Distanza</span>
@@ -36,7 +36,7 @@
       </div>
 
       <div class="filtro_cerca">
-        <button id="filtered2" type="text" name="" value=""><strong>Cerca</strong></button>
+        <button id="filtered2" type="button" name="" value=""><strong>Cerca</strong></button>
       </div>
 
       {{-- MENU A TENDINA STANZE E LETTI --}}

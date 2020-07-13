@@ -8,6 +8,7 @@
 <input type="date" name="start_date" id="start_date">
 <div id="dropin-container"></div>
 <button id="submit-button">Request payment method</button> 
+<button type="button" class="dispna" id="pay">Pay</button>
 @endsection
 
 

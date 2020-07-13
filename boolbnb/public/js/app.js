@@ -37289,10 +37289,10 @@ function address_to_coord(button, submit) {
         var position = data.results[0]["position"];
         latitude = position.lat;
         longitude = position.lon;
-      },
-      complete: function complete() {
         $("#latitude").val(latitude);
         $("#longitude").val(longitude);
+      },
+      complete: function complete() {
         document.getElementById(submit).click();
       }
     });
@@ -37305,8 +37305,7 @@ function prova_api() {
     url: "http://127.0.0.1:8000/welcome_show",
     method: "GET",
     success: function success(data) {
-      var variabile = JSON.parse(data);
-      console.log(variabile);
+      var variabile = JSON.parse(data); // console.log(variabile);
 
       for (var i = 0; i < variabile.length; i++) {
         $(".apartment").append('<img src=' + variabile[i].images + '>').append('<h3>' + variabile[i].name + '</h3>');
@@ -37357,72 +37356,92 @@ function getMonth() {
   ;
 }
 
-function create_drop_in_container() {
+function create_paymethond_and_pay() {
   var button = document.querySelector('#submit-button');
-  var token;
+  var token, apartment_id, price, title, start_date, nonce;
   $.ajax({
     type: "GET",
     url: "http://127.0.0.1:8000/token_generate",
     success: function success(token_generate) {
-      token = token_generate;
-      console.log(token);
+      token = token_generate; // console.log(token);
+
       braintree.dropin.create({
-        authorization: "sandbox_g42y39zw_348pk9cgf3bgyw2b",
+        authorization: "sandbox_ykkqhk4c_3fq8j6rpxv3kwq76",
         selector: '#dropin-container'
       }, function (err, instance) {
         button.addEventListener('click', function () {
           instance.requestPaymentMethod(function (err, payload) {
-            var apartment_id = $('#id').html();
-            var price = $('#price').html();
-            var title = $('#title').val();
-            var start_date = $('#start_date').val();
-            $.ajax({
-              headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              },
-              url: "http://127.0.0.1:8000/payment",
-              method: "POST",
-              data: {
-                nonce: payload.nonce,
-                apartment_id: apartment_id,
-                price: price,
-                title: title,
-                start_date: start_date
-              },
-              success: function success(speriamo) {
-                console.log(apartment_id, price, title, start_date);
-              },
-              complete: function complete(speriamo) {
-                console.log(speriamo);
-              }
-            });
+            nonce = payload.nonce;
+            apartment_id = $('#id').html();
+            price = $('#price').html();
+            title = $('#title').val();
+            start_date = $('#start_date').val();
+            $("#pay").removeClass("dispna");
           });
         });
       });
     }
   });
+  $("#pay").click(function () {
+    $.ajax({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      url: "http://127.0.0.1:8000/payment",
+      method: "POST",
+      data: {
+        nonce: nonce,
+        apartment_id: apartment_id,
+        price: price,
+        title: title,
+        start_date: start_date
+      },
+      success: function success(speriamo) {
+        console.log(apartment_id, price, title, start_date);
+      },
+      complete: function complete(speriamo) {
+        console.log(speriamo);
+      }
+    });
+  });
 }
 
-function init() {
-  create_drop_in_container();
-  prova_api();
+function keypress() {
+  $(window).ready(function () {
+    $("#apt_address").on("keypress", function (event) {
+      console.log("aaya");
+      var keyPressed = event.keyCode || event.which;
 
-  if (document.getElementById("map")) {
-    turfjs();
-  }
+      if (keyPressed === 13) {
+        event.preventDefault();
+        var address = $("#apt_address").val();
+        var longitude, latitude;
+        $.ajax({
+          url: "https://api.tomtom.com/search/2/search/" + address + ".json?",
+          method: "get",
+          data: {
+            key: "luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt" // query: address,
+            // ext: "json"
 
-  address_to_coord('#create2', 'create');
-  address_to_coord('#search2', 'search');
-  address_to_coord('#filtered2', 'filtered');
+          },
+          success: function success(data) {
+            var position = data.results[0]["position"];
+            latitude = position.lat;
+            longitude = position.lon;
+          },
+          complete: function complete() {
+            $("#latitude").val(latitude);
+            $("#longitude").val(longitude);
+            document.getElementById('search').click();
+          }
+        });
+        return false;
+      }
+    });
+  });
+}
 
-  if (typeof list_of_views != "undefined") {
-    getData(list_of_views, 'views', 'line');
-  }
-
-  if (typeof list_of_messages != "undefined") {
-    getData(list_of_messages, 'messages', 'line');
-  }
-
+function layout_commands() {
   $(".tasto").click(function () {
     $(".accedi").removeClass("off").addClass("on");
     $(".registrati").removeClass("on").addClass("off");
@@ -37451,21 +37470,11 @@ function init() {
   });
   $(".continua").click(function () {
     $(".registrati").removeClass("on").addClass("off");
-  }); //***********************************
-  // BOTTONE FILTRO TIPO DI ALLOGGIO
-  // $(".tipo").click(
-  //   function() {
-  //     if ($(".tipo_di_alloggio").hasClass("off")){
-  //       $(".tipo_di_alloggio").removeClass("off").addClass("on")
-  //     }
-  //     else {
-  //         $(".tipo_di_alloggio").removeClass("on").addClass("off")
-  //     }
-  //   }
-  // );
-  //**************************************
-  // BOTTONE FILTRO SERVIZI
+  });
+}
 
+function filter_commands() {
+  // BOTTONE FILTRO SERVIZI
   $(".serv").click(function () {
     if ($(".servizi").hasClass("off")) {
       $(".servizi").removeClass("off").addClass("on");
@@ -37481,6 +37490,48 @@ function init() {
       $(".stanze_letti").removeClass("on").addClass("off");
     }
   });
+}
+
+function init() {
+  if (document.getElementById("search2")) {
+    keypress();
+    prova_api();
+  }
+
+  if (document.getElementById("dropin-container")) {
+    create_paymethond_and_pay();
+  }
+
+  if (document.getElementById("map")) {
+    turfjs();
+  }
+
+  if (document.getElementById("create2")) {
+    address_to_coord('#create2', 'create');
+  }
+
+  if (document.getElementById("search2")) {
+    address_to_coord('#search2', 'search');
+  }
+
+  if (document.getElementById("filtered2")) {
+    address_to_coord('#filtered2', 'filtered');
+  }
+
+  if (document.getElementById("update2")) {
+    address_to_coord('#update2', 'update');
+  }
+
+  if (typeof list_of_views != "undefined") {
+    getData(list_of_views, 'views', 'line');
+  }
+
+  if (typeof list_of_messages != "undefined") {
+    getData(list_of_messages, 'messages', 'line');
+  }
+
+  layout_commands();
+  filter_commands();
 }
 
 $(document).ready(init);
@@ -37550,8 +37601,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/mac/Desktop/Boolean/Github/Progetto finale/BoolBnb/boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/mac/Desktop/Boolean/Github/Progetto finale/BoolBnb/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/paolo/Desktop/Github/Boolean/BoolBnb/boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/paolo/Desktop/Github/Boolean/BoolBnb/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

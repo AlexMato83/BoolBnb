@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <form  action="{{route('store_apartment')}}" method="post" enctype="multipart/form-data">
+  <form  action="{{route('update_apartment' , $apartment['id'])}}" method="post" enctype="multipart/form-data">
     @csrf
     @method("POST")
     @if ($errors->any())
@@ -107,19 +107,23 @@
 
       <label for="visibility">visibility</label>
       <select class="" name="visibility">
-        <option value="0">No</option>
-        <option value="1" selected>Si</option>
+        <option value="0" @if ($apartment["visibility"] == 0)
+          selected
+        @endif>No</option>
+        <option value="1" @if ($apartment["visibility"] == 1)
+          selected
+        @endif>Si</option>
 
       </select>
     </div>
 
-    <input id="create" class="dispna" type="submit" name="" value="Create">
+    <input id="update" class="dispna" type="submit" name="" value="">
 
   </form> <br>
 
 
   <div class="bt">
-    <button id="create2" type="text" name="" value="">Create</button>
+    <button id="update2" type="button" name="" value="">Update</button>
 
   </div>
 

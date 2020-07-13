@@ -108,7 +108,7 @@
 
 
 <div class="bt">
-    <button id="create2" type="text" name="" value="">Create</button>
+    <button id="create2" type="button" name="" value="">Create</button>
 
     </div>
 
