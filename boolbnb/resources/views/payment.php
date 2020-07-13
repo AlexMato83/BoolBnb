@@ -23,6 +23,7 @@ $result = $gateway->transaction()->sale([
     $sponsorship['apartment_id'] = $apartment['id'];
     $sponsorship['sponsorshipstype_id'] = $sponsorshipstype['id'];
     $sponsorship -> save();
+    return view("error");
 
   }
   else if ($result->transaction) {

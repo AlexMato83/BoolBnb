@@ -11757,7 +11757,8 @@ h1 {
   width: 100%;
 }
 
-#create2 {
+#create2,
+#update2 {
   width: 100% !important;
   height: 50px;
   float: right;
