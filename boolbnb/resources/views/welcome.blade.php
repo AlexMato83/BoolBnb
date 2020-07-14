@@ -26,7 +26,7 @@
 
         <input id="search" class="dispna" type="submit" name="">
       </form>
-      <button class="cerca" id="search2" type="text" name="" value="">Cerca</button>
+      <button class="cerca" id="search2" type="button" name="" value="">Cerca</button>
       {{-- <button id="provaApi" type="button" name="button">Prova Api</button> --}}
 
     </div>

@@ -37496,6 +37496,25 @@ function filter_commands() {
       $(".stanze_letti").removeClass("on").addClass("off");
     }
   });
+} // First search Api dal welcome_show
+
+
+function first_search_api() {
+  var add = $('#apt_address').val();
+  var latitude = $('#latitude').val();
+  var longitude = $('#longitude').val();
+  $.ajax({
+    url: 'http://127.0.0.1:8000/first_search',
+    method: 'GET',
+    data: {
+      longitude: longitude,
+      latitude: latitude,
+      add: add
+    },
+    success: function success(data) {
+      console.log(data);
+    }
+  });
 }
 
 function init() {
@@ -37521,6 +37540,7 @@ function init() {
   }
 
   if (document.getElementById("filtered2")) {
+    first_search_api();
     address_to_coord('#filtered2', 'filtered');
   }
 
@@ -37607,8 +37627,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/paolo/Desktop/Github/Boolean/BoolBnb/boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/paolo/Desktop/Github/Boolean/BoolBnb/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/alemato/Desktop/BOOLEAN/BoolBnb/boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/alemato/Desktop/BOOLEAN/BoolBnb/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

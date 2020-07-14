@@ -324,6 +324,30 @@ function keypress(){
     );
   }
 
+  // First search Api dal welcome_show
+
+  function first_search_api(){
+     var add =  $('#apt_address').val();
+    var latitude = $('#latitude').val();
+    var longitude = $('#longitude').val();
+    $.ajax({
+
+      url:'http://127.0.0.1:8000/first_search',
+      method:'GET',
+      data: {
+
+        longitude: longitude,
+        latitude: latitude,
+        add: add
+
+      },
+      success:function(data){
+        console.log(data);
+      }
+    });
+
+  }
+
   function init(){
     if (document.getElementById("search2")) {
       keypress()
@@ -342,6 +366,8 @@ function keypress(){
     address_to_coord('#search2', 'search');
   }
   if (document.getElementById("filtered2")) {
+    first_search_api();
+
     address_to_coord('#filtered2', 'filtered');
   }
   if (document.getElementById("update2")) {

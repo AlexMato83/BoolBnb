@@ -73,8 +73,8 @@
   </div> --}}
 
 
-    <input class="dispna" id="longitude" type="text" name="longitude" value="">
-    <input class="dispna" id="latitude" type="text" name="latitude" value="">
+    <input class="dispna" id="longitude" type="text" name="longitude" value="{{$longitude}}">
+    <input class="dispna" id="latitude" type="text" name="latitude" value="{{$latitude}}">
     <input id="filtered" class="dispna" type="submit" name="">
   </form>
 </div>
@@ -85,7 +85,7 @@
     <h1>Risultati ricerca</h1>
     <div class="apartments_reserch">
       <div class="row">
-        @foreach ($apartments_found['sponsored'] as $apartment)
+         {{-- @foreach ($apartments_found['sponsored'] as $apartment)
           <div class="apartment_reserch">
             <div class="foto_reserch">
               <a href="{{route('create_view',$apartment['id'])}}"><img src="{{ asset($apartment['images'])}}"></a>
@@ -94,7 +94,6 @@
               <h2>
                 <a href="{{route('create_view',$apartment['id'])}}"> {{ $apartment['name']}}</a>
               </h2>
-              {{-- <h3>{{$apartment['category_id']}}</h3> --}}
               <h3 style="color:purple;">
                 {{$apartment['rooms']}} stanze - {{$apartment['beds']}} letti - {{$apartment['bathrooms']}} bagni
               </h3>
@@ -105,8 +104,8 @@
               </h3>
             </div>
           </div>
-        @endforeach
-        @foreach ($apartments_found['normal'] as $apartment)
+        @endforeach --}}
+        {{-- @foreach ($apartments_found['normal'] as $apartment)
           <div class="apartment_reserch">
             <div class="foto_reserch">
               <a href="{{route('create_view',$apartment['id'])}}"><img src="{{ asset($apartment['images'])}}"></a>
@@ -115,7 +114,6 @@
               <h2>
                 <a href="{{route('create_view',$apartment['id'])}}"> {{ $apartment['name']}}</a>
               </h2>
-              {{-- <h3>{{$apartment['category_id']}}</h3> --}}
               <h3>
                 {{$apartment['rooms']}} stanze - {{$apartment['beds']}} letti - {{$apartment['bathrooms']}} bagni
               </h3>
@@ -126,7 +124,7 @@
               </h3>
             </div>
           </div>
-        @endforeach
+        @endforeach  --}}
       </div>
     </div>
   </div>

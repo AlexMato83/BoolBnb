@@ -33,3 +33,4 @@ Route::get('/successo/{data}', 'UserController@result_payment')->name('result_pa
 Route::get('/welcome_show', 'ApiController@welcome_show')->name('welcome_show');
 Route::get('/token_generate', 'ApiController@token_generate')->name('token_generate');
 Route::post('/payment', 'ApiController@payment')->name('payment');
+Route::get('/first_search', 'ApiController@first_search')->name('first_search');

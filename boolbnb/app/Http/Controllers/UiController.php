@@ -22,80 +22,18 @@ class UiController extends Controller
     {
       $apartments = new Apartment();
       $app = $apartments->getRandom6();
-      
+
         return view("welcome")->with('app' , $app);
     }
-    public function show_ui_apartments(Request $request)
-    {
-        $apartments_all = Apartment::all();
-        $apartments = [];
-        $sponsorships = Sponsorship::all();
 
-        foreach ($sponsorships as $sponsorship) {
-            $date=date_create($sponsorship['startDate']);
-            $duration = $sponsorship -> sponsorshipstype -> duration;
-            date_add($date,date_interval_create_from_date_string($duration . ' days'));
-            // date_add($date,date_interval_create_from_date_string("3 days"));
-            $end_date = date_format($date,"Y-m-d");
-            if (($sponsorship['startDate'] < date('Y-m-d')) && ($end_date > date('Y-m-d'))) {
-                $sponsor_apt [] = $sponsorship -> apartment;
-            }
-        }
-        $apartments_found['sponsored'] = $sponsor_apt;
-        foreach ($apartments_all as $apartment) {
-          if ($apartment["visibility"] == 1) {
-            $apartments[] = $apartment;
-          }
-        }
-        $services = Service::all();
-        $categories = Category::all();
-        $center_lat = $request["latitude"];
-        $center_long = $request["longitude"];
-        $search_radius = $request["search_radius"];
-
-        function In_radius($apartments,$latitude, $longitude,$search_radius){ // inserire coordinate del punto centro di ricerca. il search radius sarà in metri
-          $equator_radius = 6378137;
-          $mt_for_long_deg = (2*M_PI*$equator_radius* cos((abs($latitude)*M_PI)/180)/360);
-          $mt_for_lat_deg = 110946;
-          $results = [];
-          $center_of_search = [                                    // sarà l'appartamento o l'indirizzo digitato
-            "lat" => ($latitude),
-            "long" => ($longitude)
-          ];
-          foreach ($apartments as $apartment) {
-            $dist_lat = abs($center_of_search["lat"] - $apartment["latitude"])* $mt_for_lat_deg;
-
-            $dist_long = abs($center_of_search["long"] - $apartment["longitude"])* $mt_for_long_deg;
-            $dist = sqrt(($dist_lat*$dist_lat) + ($dist_long*$dist_long));
-            // dd($dist_lat,$dist_long,$dist);
-            if ($dist <= $search_radius) {
-              $apartment["dist"] = $dist/1000;
-              $results[] = $apartment;
-            }
-          }
-          // dd($results,$center_of_search["lat"],$center_of_search["long"]);
-          return $results;
-        }
-        $apartments_found['normal'] = In_radius($apartments,$center_lat, $center_long,$search_radius);
-        foreach ($apartments_found['sponsored'] as $sponsored) {
-            foreach ($apartments_found['normal'] as $key => $normal) {
-                if ($sponsored['id'] == $normal['id']) {
-                    unset($apartments_found['normal'][$key]);
-                }
-            }
-        }
-        // $apartments_found = [];
-        // foreach ($apartments as $apartment) {
-        //   if ($apartment['address'] === $request['address']) {
-        //     $apartments_found[] = $apartment;
-        //   }
-        // }
-        // dd($request["latitude"]);
-         // AGGIUNGERE FUNZIONE MAGICA PER FILTRARE APPARTAMENTI ENTRO 20KM
-         $add = $request['address'];
-        return view("ui_apartments", compact('apartments_found','services','categories', "add"));
+    public function show_ui_apartments(Request $request){
+       $services = Service::all();
+       $categories = Category::all();
+      $latitude = $request['latitude'];
+      $longitude = $request['longitude'];
+      $add = $request['address'];
+      return view('ui_apartments',compact('latitude','longitude','add','services','categories'));
     }
-
 
     public function show_ui_apartment($id){
 
@@ -196,7 +134,7 @@ class UiController extends Controller
                 date_add($date,date_interval_create_from_date_string($duration . ' days'));
                 // date_add($date,date_interval_create_from_date_string("3 days"));
                 $end_date = date_format($date,"Y-m-d");
-                if (($sponsorship['startDate'] < date('Y-m-d')) && ($end_date > date('Y-m-d'))) {
+                if (($sponsorship['startDate'] <= date('Y-m-d')) && ($end_date > date('Y-m-d'))) {
                     $sponsor_filtered_apt [] = $sponsorship -> apartment;
                 }
             }
