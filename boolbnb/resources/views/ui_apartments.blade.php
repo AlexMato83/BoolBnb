@@ -16,15 +16,36 @@
       </div>
     @endif
 
-    <div class="filtri d-flex justify-content-around flex-wrap">
-      {{-- <button class="tipo" type="button" name="button">Tipo di alloggio</button> --}}
+    <div class="filtri d-flex justify-content-between flex-wrap">
 
-      <div class="stanze" id="ciaociao">
-        <button type="button" name="button">Stanze e letti</button>
+      <div class="dropdown">
+        <button class="stanze btn btn-secondary dropdown-toggle" type="button" name="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Stanze e letti
+        </button>
+        <div class="dropdown-menu stanze_letti" aria-labelledby="dropdownMenuButton">
+          <div class="bedrooms">
+            <label for="rooms">Stanze</label>
+            <input type="text" name="rooms" value="">
+          </div>
+          <div class="bedrooms">
+            <label for="beds">Letti</label>
+            <input type="text" name="beds" value="">
+          </div>
+        </div>
       </div>
 
-      <div class="serv" id="ciao">
-        <button  type="button" name="button">Servizi</button>
+      <div class="dropdown">
+        <button class="serv btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Servizi
+        </button>
+        <div class="servizi dropdown-menu" aria-labelledby="dropdownMenuButton">
+          @foreach ($services as $service)
+            <div>
+              <input class="checkbox" type="checkbox" name="services[]" value="{{$service['id']}}">
+              {{$service['name']}}
+            </div>
+          @endforeach
+        </div>
       </div>
 
       <input id="apt_address" type="location" name="address" value="{{$add}}" class="form-control" placeholder="Dove vuoi andare?">
@@ -38,40 +59,7 @@
       <div class="filtro_cerca">
         <button id="filtered2" type="button" name="" value=""><strong>Cerca</strong></button>
       </div>
-
-      {{-- MENU A TENDINA STANZE E LETTI --}}
-      <div class="stanze_letti off">
-        <div class="bedrooms">
-          <label for="rooms">Stanze</label>
-          <input type="text" name="rooms" value="">
-        </div>
-        <div class="bedrooms">
-          <label for="beds">Letti</label>
-          <input type="text" name="beds" value="">
-        </div>
-      </div>
     </div>
-
-    {{-- MENU A TENDINA SERVIZI --}}
-  <div class="servizi off">
-    @foreach ($services as $service)
-      <div>
-        <input class="checkbox" type="checkbox" name="services[]" value="{{$service['id']}}">
-        {{$service['name']}}
-      </div>
-    @endforeach
-  </div>
-
-    {{-- MENU A TENDINA TIPO DI ALLOGGIO --}}
-    {{-- <div class="tipo_di_alloggio off">
-    @foreach ($categories as $category)
-    <div>
-    <input class="checkbox" type="checkbox" name="category[]" value="{{$category['id']}}">
-    {{$category['name']}}
-    </div>
-  @endforeach
-  </div> --}}
-
 
     <input class="dispna" id="longitude" type="text" name="longitude" value="">
     <input class="dispna" id="latitude" type="text" name="latitude" value="">
@@ -94,7 +82,7 @@
               <h2>
                 <a href="{{route('create_view',$apartment['id'])}}"> {{ $apartment['name']}}</a>
               </h2>
-              {{-- <h3>{{$apartment['category_id']}}</h3> --}}
+
               <h3>
                 {{$apartment['rooms']}} stanze - {{$apartment['beds']}} letti - {{$apartment['bathrooms']}} bagni
               </h3>
@@ -112,3 +100,17 @@
 </div>
 
 @endsection
+
+{{-- <button class="tipo" type="button" name="button">Tipo di alloggio</button> --}}
+
+{{-- MENU A TENDINA TIPO DI ALLOGGIO --}}
+{{-- <div class="tipo_di_alloggio off">
+@foreach ($categories as $category)
+<div>
+<input class="checkbox" type="checkbox" name="category[]" value="{{$category['id']}}">
+{{$category['name']}}
+</div>
+@endforeach
+</div> --}}
+
+{{-- <h3>{{$apartment['category_id']}}</h3> --}}

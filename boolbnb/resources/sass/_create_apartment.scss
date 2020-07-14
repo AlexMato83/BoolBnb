@@ -54,11 +54,7 @@ float: right;
   color:#1b3c59;
 }
 
-.bt{
-  width: 100%;
-}
-#create2
-{
+#create2, #update2 {
   width:100%!important;
   height: 50px;
   float: right;
@@ -71,16 +67,16 @@ float: right;
   border-radius: 5px;
 }
 .selectsi{
-
-    label{
-      margin-top:30px;
-      color:#1b3c59;
-      font-size:15px;
-      margin-right: 10px;
+  label{
+    margin-top:30px;
+    color:#1b3c59;
+    font-size:15px;
+    margin-right: 10px;
   }
   select{
-    height:20px;
-    width:40px;
+    height: 28px;
+    width: 125px;
+    font-size: 15px;
   }
   margin-bottom:15px;
 }

@@ -89,7 +89,7 @@
     <div class="selectsi">
 
 
-      <label for="category_id">Category</label>
+      <label for="category_id">Tipo di appartamento</label>
       <select class="" name="category_id">
         @foreach ($categories as $category)
           <option value="{{$category['id']}}"
@@ -102,29 +102,30 @@
         @endforeach
       </div>
     </select>
-    <div class=" col-12  col-sm-12  col-md-12  col-lg-12  col-xl-12 selectsi">
+    <div class=" col-12  col-sm-12  col-md-12  col-lg-12  col-xl-12 selectsi d-flex align-items-end">
+      <div>
+        <label for="visibility">Appartamento visibile sul sito</label>
+        <select class="" name="visibility">
+          <option value="0" @if ($apartment["visibility"] == 0)
+            selected
+          @endif>No</option>
+          <option value="1" @if ($apartment["visibility"] == 1)
+            selected
+          @endif>Si</option>
 
+        </select>
+      </div>
 
-      <label for="visibility">visibility</label>
-      <select class="" name="visibility">
-        <option value="0" @if ($apartment["visibility"] == 0)
-          selected
-        @endif>No</option>
-        <option value="1" @if ($apartment["visibility"] == 1)
-          selected
-        @endif>Si</option>
-
-      </select>
     </div>
 
     <input id="update" class="dispna" type="submit" name="" value="">
 
   </form> <br>
 
-
   <div class="bt">
-    <button id="update2" type="button" name="" value="">Update</button>
+    <button id="update2" type="button" name="" value="">Modifica appartamento</button>
 
   </div>
+
 
 @endsection

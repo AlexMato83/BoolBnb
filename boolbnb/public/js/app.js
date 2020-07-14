@@ -37528,25 +37528,6 @@ function layout_commands() {
   });
 }
 
-function filter_commands() {
-  // BOTTONE FILTRO SERVIZI
-  $(".serv").click(function () {
-    if ($(".servizi").hasClass("off")) {
-      $(".servizi").removeClass("off").addClass("on");
-    } else {
-      $(".servizi").removeClass("on").addClass("off");
-    }
-  }); // BOTTONE FILTRO STANZE E LETTI
-
-  $(".stanze").click(function () {
-    if ($(".stanze_letti").hasClass("off")) {
-      $(".stanze_letti").removeClass("off").addClass("on");
-    } else {
-      $(".stanze_letti").removeClass("on").addClass("off");
-    }
-  });
-}
-
 function init() {
   if (document.getElementById("search2")) {
     keypress(); //prova_api();
