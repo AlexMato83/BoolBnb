@@ -127,7 +127,7 @@ class UiController extends Controller
           }
         }
         function filter_by_sponsorship($sponsorships){
-
+            $sponsor_filtered_apt = [];
             foreach ($sponsorships as $sponsorship) {
                 $date=date_create($sponsorship['startDate']);
                 $duration = $sponsorship -> sponsorshipstype -> duration;

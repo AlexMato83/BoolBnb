@@ -3,7 +3,7 @@
 
 {{-- FILTRI DI RICERCA --}}
 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
-  <form  action="{{route('ui_filtered_apt')}}" method="post">
+  <form  id="search_form"action="{{route('ui_filtered_apt')}}" method="post">
     @csrf
     @method("POST")
     @if ($errors->any())
@@ -25,11 +25,11 @@
         <div class="dropdown-menu stanze_letti" aria-labelledby="dropdownMenuButton">
           <div class="bedrooms">
             <label for="rooms">Stanze</label>
-            <input type="text" name="rooms" value="">
+            <input id="rooms" type="text" name="rooms" value="">
           </div>
           <div class="bedrooms">
             <label for="beds">Letti</label>
-            <input type="text" name="beds" value="">
+            <input id="beds" type="text" name="beds" value="">
           </div>
         </div>
       </div>
@@ -57,7 +57,6 @@
       </div>
 
       <div class="filtro_cerca">
-        <button id="filtered2" type="button" name="" value=""><strong>Cerca</strong></button>
       </div>
     </div>
 
@@ -84,8 +83,9 @@
 
     <input class="dispna" id="longitude" type="text" name="longitude" value="{{$longitude}}">
     <input class="dispna" id="latitude" type="text" name="latitude" value="{{$latitude}}">
-    <input id="filtered" class="dispna" type="submit" name="">
+    {{-- <input id="filtered" class="dispna" type="submit" name=""> --}}
   </form>
+  <button id="filtered2" type="button" name="" value=""><strong>Cerca</strong></button>
 </div>
 
 
@@ -94,6 +94,27 @@
     <h1>Risultati ricerca</h1>
     <div class="apartments_reserch">
       <div class="row">
+        <div id="appartamenti">
+
+        </div>
+
+        {{-- HANDELBARS --}}
+
+        <script id="giacomino-template" type="text/x-handlebars-template">
+          <div class="container_ @{{add_class}}">
+            <div class="apartment_ ">
+              <a href="/ui_apartment/@{{id}}">@{{title}}</a>
+              <h3>@{{title}}</h3>
+              <img src="@{{image_route}}" alt="">
+               <p>@{{description}}</p>
+               <span>@{{sponsorship}}</span>
+            </div>
+          </div>
+         </script>
+
+
+
+        {{-- HANDELBARS --}}
          {{-- @foreach ($apartments_found['sponsored'] as $apartment)
           <div class="apartment_reserch">
             <div class="foto_reserch">

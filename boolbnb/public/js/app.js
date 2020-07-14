@@ -37225,6 +37225,12 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 // ===========================================================
 //                    * JAVASCRIPT *
 // ===========================================================
@@ -37251,7 +37257,7 @@ function turfjs() {
   var _long = $("#longitude").html();
 
   var center = [_long, lat];
-  var apiKey = 'luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt';
+  var apiKey = 'fSCco31rI9Of9Ud1l5pLOfJen1zv8Gw0';
   var map = tt.map({
     key: apiKey,
     container: 'map',
@@ -37273,7 +37279,7 @@ function turfjs() {
   }).setLngLat(center).addTo(map);
 }
 
-function address_to_coord(button, submit) {
+function address_to_coord(button, submit, next_funct) {
   $(button).click(function () {
     var address = $("#apt_address").val();
     var longitude, latitude;
@@ -37281,9 +37287,7 @@ function address_to_coord(button, submit) {
       url: "https://api.tomtom.com/search/2/search/" + address + ".json?",
       method: "get",
       data: {
-        key: "luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt" // query: address,
-        // ext: "json"
-
+        key: "fSCco31rI9Of9Ud1l5pLOfJen1zv8Gw0"
       },
       success: function success(data) {
         var position = data.results[0]["position"];
@@ -37293,7 +37297,13 @@ function address_to_coord(button, submit) {
         $("#longitude").val(longitude);
       },
       complete: function complete() {
-        document.getElementById(submit).click();
+        if (next_funct) {
+          next_funct();
+        }
+
+        if (submit) {
+          document.getElementById(submit).click();
+        }
       }
     });
   });
@@ -37302,7 +37312,7 @@ function address_to_coord(button, submit) {
 
 function prova_api() {
   $.ajax({
-    url: "http://127.0.0.1:8000/welcome_show",
+    url: "http://localhost:8000/welcome_show",
     method: "GET",
     success: function success(data) {
       var variabile = JSON.parse(data); // console.log(variabile);
@@ -37361,7 +37371,7 @@ function create_paymethond_and_pay() {
   var token, apartment_id, price, title, start_date, nonce;
   $.ajax({
     type: "GET",
-    url: "http://127.0.0.1:8000/token_generate",
+    url: "http://localhost:8000/token_generate",
     success: function success(token_generate) {
       token = token_generate; // console.log(token);
 
@@ -37387,7 +37397,7 @@ function create_paymethond_and_pay() {
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
-      url: "http://127.0.0.1:8000/payment",
+      url: "http://localhost:8000/payment",
       method: "POST",
       data: {
         nonce: nonce,
@@ -37406,41 +37416,22 @@ function create_paymethond_and_pay() {
           var data = "NO";
         }
 
-        window.location.href = 'http://127.0.0.1:8000/successo/' + data;
+        window.location.href = 'http://localhost:8000/successo/' + data;
       }
     });
   });
 }
 
-function keypress() {
+function keypress(button) {
   $(window).ready(function () {
-    $("#apt_address").on("keypress", function (event) {
-      console.log("aaya");
+    $(window).on("keypress", function (event) {
       var keyPressed = event.keyCode || event.which;
 
       if (keyPressed === 13) {
         event.preventDefault();
         var address = $("#apt_address").val();
         var longitude, latitude;
-        $.ajax({
-          url: "https://api.tomtom.com/search/2/search/" + address + ".json?",
-          method: "get",
-          data: {
-            key: "luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt" // query: address,
-            // ext: "json"
-
-          },
-          success: function success(data) {
-            var position = data.results[0]["position"];
-            latitude = position.lat;
-            longitude = position.lon;
-          },
-          complete: function complete() {
-            $("#latitude").val(latitude);
-            $("#longitude").val(longitude);
-            document.getElementById('search').click();
-          }
-        });
+        document.getElementById(button).click();
         return false;
       }
     });
@@ -37454,8 +37445,7 @@ function layout_commands() {
   });
   $(".continua").click(function () {
     $(".accedi").removeClass("on").addClass("off");
-  }); // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
+  });
   $(".reg").click(function () {
     $(".registrati").removeClass("off").addClass("on");
     $(".accedi").removeClass("on").addClass("off");
@@ -37479,47 +37469,108 @@ function layout_commands() {
   });
 }
 
-function filter_commands() {
-  // BOTTONE FILTRO SERVIZI
-  $(".serv").click(function () {
-    if ($(".servizi").hasClass("off")) {
-      $(".servizi").removeClass("off").addClass("on");
-    } else {
-      $(".servizi").removeClass("on").addClass("off");
-    }
-  }); // BOTTONE FILTRO STANZE E LETTI
-
-  $(".stanze").click(function () {
-    if ($(".stanze_letti").hasClass("off")) {
-      $(".stanze_letti").removeClass("off").addClass("on");
-    } else {
-      $(".stanze_letti").removeClass("on").addClass("off");
-    }
-  });
-} // First search Api dal welcome_show
-
-
-function first_search_api() {
+function filtered_search_api() {
   var add = $('#apt_address').val();
   var latitude = $('#latitude').val();
   var longitude = $('#longitude').val();
+  var search_radius = $('#search_radius').val();
+  var rooms = $('#rooms').val();
+  var beds = $('#beds').val();
+  var services = [];
+
+  for (var i = 0; i < $(".checkbox").length; i++) {
+    if ($(".checkbox")[i].checked) {
+      services.push($(".checkbox")[i].getAttribute("value"));
+    }
+  }
+
+  $('#longitude').val();
   $.ajax({
-    url: 'http://127.0.0.1:8000/first_search',
+    url: 'http://localhost:8000/first_search',
     method: 'GET',
     data: {
-      longitude: longitude,
+      add: add,
       latitude: latitude,
-      add: add
+      longitude: longitude,
+      search_radius: search_radius,
+      rooms: rooms,
+      beds: beds,
+      services: services
     },
     success: function success(data) {
-      console.log(data);
+      console.log(JSON.parse(data));
+      var apartments_found = JSON.parse(data); //qui c e da usare handlebars
+
+      var _iterator = _createForOfIteratorHelper(apartments_found["sponsored"]),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var apartment = _step.value;
+          var id = apartment["id"];
+          var add_class = "sponsored_apt";
+          var title = apartment["name"];
+          var image_route = apartment["images"];
+          var description = apartment["address"];
+          var is_sponsored = "SPONSORED";
+          var print_template = set_template(add_class, title, image_route, description, is_sponsored, id);
+          $("#appartamenti").html(print_template);
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+
+      if (!apartments_found["sponsored"].length) {
+        $("#appartamenti").html("");
+      }
+
+      ;
+
+      var _iterator2 = _createForOfIteratorHelper(apartments_found["normal"]),
+          _step2;
+
+      try {
+        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+          var apartment = _step2.value;
+          var id = apartment["id"];
+          var add_class = "normal_apt";
+          var title = apartment["name"];
+          var image_route = apartment["images"];
+          var description = apartment["address"];
+          var is_sponsored = "";
+          var print_template = set_template(add_class, title, image_route, description, is_sponsored, id);
+          $("#appartamenti").append(print_template);
+        }
+      } catch (err) {
+        _iterator2.e(err);
+      } finally {
+        _iterator2.f();
+      }
     }
   });
 }
 
+function set_template(add_class, title, image_route, description, is_sponsored, id) {
+  var source = $("#giacomino-template").html();
+  var template = Handlebars.compile(source);
+  var apartment_template = {
+    "id": id,
+    "add_class": add_class,
+    "title": title,
+    "image_route": image_route,
+    "description": description,
+    "sponsorship": is_sponsored
+  };
+  var print_apt = template(apartment_template);
+  return print_apt;
+}
+
 function init() {
-  if (document.getElementById("search2")) {
-    keypress();
+  if (document.getElementById("search_welcome2")) {
+    address_to_coord('#search_welcome2', 'search_welcome');
+    keypress("search_welcome2");
     prova_api();
   }
 
@@ -37536,12 +37587,14 @@ function init() {
   }
 
   if (document.getElementById("search2")) {
+    keypress("search2");
     address_to_coord('#search2', 'search');
   }
 
   if (document.getElementById("filtered2")) {
-    first_search_api();
-    address_to_coord('#filtered2', 'filtered');
+    keypress("filtered2");
+    address_to_coord('#filtered2', null, filtered_search_api);
+    filtered_search_api();
   }
 
   if (document.getElementById("update2")) {
@@ -37557,7 +37610,6 @@ function init() {
   }
 
   layout_commands();
-  filter_commands();
 }
 
 $(document).ready(init);
@@ -37627,8 +37679,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/alemato/Desktop/BOOLEAN/BoolBnb/boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/alemato/Desktop/BOOLEAN/BoolBnb/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\RepoGitNuovo\BoolBnb\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\RepoGitNuovo\BoolBnb\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

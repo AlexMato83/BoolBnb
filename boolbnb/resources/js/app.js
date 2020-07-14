@@ -29,7 +29,7 @@ function turfjs(){
   var lat = $("#latitude").html();
   var long = $("#longitude").html();
   var center = [long,lat];
-  var apiKey = 'luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt';
+  var apiKey = 'fSCco31rI9Of9Ud1l5pLOfJen1zv8Gw0';
   var map = tt.map({
   key: apiKey,
   container: 'map',
@@ -54,7 +54,7 @@ function turfjs(){
 
 
 
-function address_to_coord(button, submit){
+function address_to_coord(button, submit, next_funct ){
 
   $(button).click(function(){
     var address = $("#apt_address").val();
@@ -63,9 +63,7 @@ function address_to_coord(button, submit){
         url: "https://api.tomtom.com/search/2/search/"+ address +".json?",
         method: "get",
         data: {
-          key: "luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt",
-          // query: address,
-          // ext: "json"
+          key: "fSCco31rI9Of9Ud1l5pLOfJen1zv8Gw0",
         },
         success: function(data){
           var position = data.results[0]["position"];
@@ -73,10 +71,14 @@ function address_to_coord(button, submit){
         longitude = position.lon;
         $("#latitude").val(latitude);
         $("#longitude").val(longitude);
-
         },
         complete: function(){
-          document.getElementById(submit).click()
+          if (next_funct) {
+            next_funct()
+          }
+          if (submit) {
+            document.getElementById(submit).click()
+          }
         }
       })
     });
@@ -87,7 +89,7 @@ function address_to_coord(button, submit){
 
   function prova_api(){
     $.ajax({
-      url:"http://127.0.0.1:8000/welcome_show",
+      url:"http://localhost:8000/welcome_show",
       method: "GET",
       success: function(data){
         var variabile = JSON.parse(data);
@@ -166,7 +168,7 @@ function create_paymethond_and_pay() {
     var token,apartment_id,price,title,start_date,nonce;
     $.ajax({
         type: "GET",
-        url: "http://127.0.0.1:8000/token_generate",
+        url: "http://localhost:8000/token_generate",
         success: function (token_generate) {
             token = token_generate;
             // console.log(token);
@@ -192,7 +194,7 @@ function create_paymethond_and_pay() {
         headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        url: "http://127.0.0.1:8000/payment",
+        url: "http://localhost:8000/payment",
         method: "POST",
         data:{
           nonce: nonce,
@@ -211,40 +213,21 @@ function create_paymethond_and_pay() {
           } else {
             var data = "NO";
           }
-          window.location.href = 'http://127.0.0.1:8000/successo/' + data ;
+          window.location.href = 'http://localhost:8000/successo/' + data ;
 
         }
       });
     })
 }
-function keypress(){
+function keypress(button){
     $(window).ready(function() {
-          $("#apt_address").on("keypress", function (event) {
-              console.log("aaya");
+          $(window).on("keypress", function (event) {
               var keyPressed = event.keyCode || event.which;
               if (keyPressed === 13) {
                 event.preventDefault();
                 var address = $("#apt_address").val();
                 var longitude,latitude;
-                $.ajax({
-                    url: "https://api.tomtom.com/search/2/search/"+ address +".json?",
-                    method: "get",
-                    data: {
-                      key: "luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt",
-                      // query: address,
-                      // ext: "json"
-                    },
-                    success: function(data){
-                      var position = data.results[0]["position"];
-                    latitude =  position.lat;
-                    longitude = position.lon;
-                    },
-                    complete: function(){
-                      $("#latitude").val(latitude);
-                      $("#longitude").val(longitude);
-                      document.getElementById('search').click()
-                    }
-                  })
+                document.getElementById(button).click()
                   return false;
               }
           });
@@ -263,7 +246,6 @@ function keypress(){
         }
       );
 
-      // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
       $(".reg").click(
         function() {
           $(".registrati").removeClass("off").addClass("on");
@@ -297,40 +279,90 @@ function keypress(){
           $(".registrati").removeClass("on").addClass("off");
         }
       );
-  
+
  }
 
-
-
-
-
-  // First search Api dal welcome_show
-
-  function first_search_api(){
-     var add =  $('#apt_address').val();
+  function filtered_search_api(){
+    var add =  $('#apt_address').val();
     var latitude = $('#latitude').val();
     var longitude = $('#longitude').val();
+    var search_radius = $('#search_radius').val();
+    var rooms = $('#rooms').val();
+    var beds = $('#beds').val();
+    var services=[];
+    for (var i = 0; i < $(".checkbox").length; i++) {
+      if ($(".checkbox")[i].checked) {
+        services.push($(".checkbox")[i].getAttribute("value"));
+      }
+    }
+     $('#longitude').val();
+
     $.ajax({
 
-      url:'http://127.0.0.1:8000/first_search',
+      url:'http://localhost:8000/first_search',
       method:'GET',
       data: {
-
-        longitude: longitude,
+        add: add,
         latitude: latitude,
-        add: add
+        longitude: longitude,
+        search_radius: search_radius,
+        rooms: rooms,
+        beds: beds,
+        services: services
 
       },
       success:function(data){
-        console.log(data);
+        console.log(JSON.parse(data));
+        var apartments_found = JSON.parse(data)
+        //qui c e da usare handlebars
+        for (var apartment of apartments_found["sponsored"]) {
+          var id = apartment["id"];
+          var add_class = "sponsored_apt"
+          var title = apartment["name"]
+          var image_route = apartment["images"]
+          var description = apartment["address"]
+          var is_sponsored = "SPONSORED"
+          var print_template = set_template(add_class,title,image_route,description,is_sponsored,id);
+          $("#appartamenti").html(print_template)
+
+        }
+        if(!apartments_found["sponsored"].length){
+          $("#appartamenti").html("");
+        };
+        for (var apartment of apartments_found["normal"]) {
+          var id = apartment["id"];
+          var add_class = "normal_apt";
+          var title = apartment["name"];
+          var image_route = apartment["images"];
+          var description = apartment["address"];
+          var is_sponsored = "";
+          var print_template = set_template(add_class,title,image_route,description,is_sponsored,id);
+          $("#appartamenti").append(print_template)
+        }
       }
     });
 
   }
+  function set_template(add_class,title,image_route,description,is_sponsored,id){
+    var source = $("#giacomino-template").html();
+    var template = Handlebars.compile(source);
+    var apartment_template = {
+    "id": id,
+     "add_class": add_class,
+     "title": title,
+     "image_route": image_route,
+     "description":description,
+     "sponsorship": is_sponsored
+    }
+    var print_apt = template(apartment_template);
+    return print_apt;
+
+  }
 
   function init(){
-    if (document.getElementById("search2")) {
-      keypress()
+    if (document.getElementById("search_welcome2")) {
+      address_to_coord('#search_welcome2', 'search_welcome');
+      keypress("search_welcome2")
       prova_api();
     }
     if (document.getElementById("dropin-container")) {
@@ -343,12 +375,14 @@ function keypress(){
     address_to_coord('#create2', 'create');
   }
   if (document.getElementById("search2")) {
+    keypress("search2");
+
     address_to_coord('#search2', 'search');
   }
   if (document.getElementById("filtered2")) {
-    first_search_api();
-
-    address_to_coord('#filtered2', 'filtered');
+    keypress("filtered2");
+    address_to_coord('#filtered2',null, filtered_search_api);
+    filtered_search_api();
   }
   if (document.getElementById("update2")) {
     address_to_coord('#update2', 'update');
@@ -360,6 +394,5 @@ function keypress(){
       getData(list_of_messages,'messages','line');
     }
     layout_commands();
-    filter_commands();
   }
   $(document).ready(init);

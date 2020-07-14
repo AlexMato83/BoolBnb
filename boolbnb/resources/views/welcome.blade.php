@@ -24,9 +24,9 @@
         <input id="search_radius" class="dispna" type="number" name="search_radius" value="20">
 
 
-        <input id="search" class="dispna" type="submit" name="">
+        <input id="search_welcome" class="dispna" type="submit" name="">
       </form>
-      <button class="cerca" id="search2" type="button" name="" value="">Cerca</button>
+      <button class="cerca" id="search_welcome2" type="button" name="" value="">Cerca</button>
       {{-- <button id="provaApi" type="button" name="button">Prova Api</button> --}}
 
     </div>

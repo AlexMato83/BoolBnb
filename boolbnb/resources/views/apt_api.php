@@ -2,6 +2,6 @@
 
 header('Content-Type: application/json');
 
-echo json_encode($cane);
+echo json_encode($apartments_found);
 
  ?>
