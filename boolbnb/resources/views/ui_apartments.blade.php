@@ -57,6 +57,7 @@
       </div>
 
       <div class="filtro_cerca">
+        <button id="filtered2" type="button" name="" value=""><strong>Cerca</strong></button>
       </div>
     </div>
 
@@ -70,22 +71,12 @@
     @endforeach
   </div>
 
-    {{-- MENU A TENDINA TIPO DI ALLOGGIO --}}
-    {{-- <div class="tipo_di_alloggio off">
-    @foreach ($categories as $category)
-    <div>
-    <input class="checkbox" type="checkbox" name="category[]" value="{{$category['id']}}">
-    {{$category['name']}}
-    </div>
-  @endforeach
-  </div> --}}
 
 
     <input class="dispna" id="longitude" type="text" name="longitude" value="{{$longitude}}">
     <input class="dispna" id="latitude" type="text" name="latitude" value="{{$latitude}}">
     {{-- <input id="filtered" class="dispna" type="submit" name=""> --}}
   </form>
-  <button id="filtered2" type="button" name="" value=""><strong>Cerca</strong></button>
 </div>
 
 
@@ -115,63 +106,9 @@
 
 
         {{-- HANDELBARS --}}
-         {{-- @foreach ($apartments_found['sponsored'] as $apartment)
-          <div class="apartment_reserch">
-            <div class="foto_reserch">
-              <a href="{{route('create_view',$apartment['id'])}}"><img src="{{ asset($apartment['images'])}}"></a>
-            </div>
-            <div class="caratteristiche_reserch">
-              <h2>
-                <a href="{{route('create_view',$apartment['id'])}}"> {{ $apartment['name']}}</a>
-              </h2>
-              <h3 style="color:purple;">
-                {{$apartment['rooms']}} stanze - {{$apartment['beds']}} letti - {{$apartment['bathrooms']}} bagni
-              </h3>
-              <h3>
-                @foreach ($apartment -> services as $service)
-                  <span>{{$service['name']}}</span>
-                @endforeach
-              </h3>
-            </div>
-          </div>
-        @endforeach --}}
-        {{-- @foreach ($apartments_found['normal'] as $apartment)
-          <div class="apartment_reserch">
-            <div class="foto_reserch">
-              <a href="{{route('create_view',$apartment['id'])}}"><img src="{{ asset($apartment['images'])}}"></a>
-            </div>
-            <div class="caratteristiche_reserch">
-              <h2>
-                <a href="{{route('create_view',$apartment['id'])}}"> {{ $apartment['name']}}</a>
-              </h2>
-              <h3>
-                {{$apartment['rooms']}} stanze - {{$apartment['beds']}} letti - {{$apartment['bathrooms']}} bagni
-              </h3>
-              <h3>
-                @foreach ($apartment -> services as $service)
-                  <span>{{$service['name']}}</span>
-                @endforeach
-              </h3>
-            </div>
-          </div>
-        @endforeach  --}}
       </div>
     </div>
   </div>
 </div>
 
 @endsection
-
-{{-- <button class="tipo" type="button" name="button">Tipo di alloggio</button> --}}
-
-{{-- MENU A TENDINA TIPO DI ALLOGGIO --}}
-{{-- <div class="tipo_di_alloggio off">
-@foreach ($categories as $category)
-<div>
-<input class="checkbox" type="checkbox" name="category[]" value="{{$category['id']}}">
-{{$category['name']}}
-</div>
-@endforeach
-</div> --}}
-
-{{-- <h3>{{$apartment['category_id']}}</h3> --}}

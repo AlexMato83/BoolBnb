@@ -51,42 +51,6 @@ function turfjs(){
   }).setLngLat(center).addTo(map);
 }
 
-function keypress(){
-  $(window).ready(function() {
-        $("#apt_address").on("keypress", function (event) {
-            console.log("aaya");
-            var keyPressed = event.keyCode || event.which;
-            if (keyPressed === 13) {
-              event.preventDefault();
-              var address = $("#apt_address").val();
-              var longitude,latitude;
-              $.ajax({
-                  url: "https://api.tomtom.com/search/2/search/"+ address +".json?",
-                  method: "get",
-                  data: {
-                    key: "luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt",
-                    // query: address,
-                    // ext: "json"
-                  },
-                  success: function(data){
-                    var position = data.results[0]["position"];
-                  latitude =  position.lat;
-                  longitude = position.lon;
-                  },
-                  complete: function(){
-                    $("#latitude").val(latitude);
-                    $("#longitude").val(longitude);
-                    document.getElementById('search').click()
-                  }
-                })
-                return false;
-            }
-        });
-        });
-}
-
-
-
 function address_to_coord(button, submit, next_funct ){
 
   $(button).click(function(){
