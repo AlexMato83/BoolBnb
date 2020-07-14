@@ -42,11 +42,11 @@
       </div>
 
     </div>
-    <div class="apartments">
+    <div class="apartments ">
     <div class="apartment row">
 
         @foreach ($app as $a)
-          <div class="col-4">
+          <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
             <a href="{{route('ui_apartment' , ['id' => $a->id ])}}">
               <img src='{{$a->images}}'>
               <h3>{{$a->name}}</h3>

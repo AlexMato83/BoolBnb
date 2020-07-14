@@ -25,6 +25,7 @@
     <script type="text/javascript" src="/js/app.js"></script>
 
     </script>
+    <script type="text/javascript" src='http://maps.google.it/maps/api/js?sensor=false&libraries=places'></script>
 
   </head>
   <body>
