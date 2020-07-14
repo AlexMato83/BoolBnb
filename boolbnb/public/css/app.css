@@ -11293,19 +11293,54 @@ a.text-dark:focus {
 
 .filtri {
   background-color: white;
-  margin: 300px auto;
   height: 42px;
   width: 100%;
   margin: 30px 0;
+  display: flex;
 }
 
-.filtri #ciaociao,
-.filtri #ciao {
-  height: 100%;
-  width: auto;
+.filtri .stanze {
+  background-color: white;
+  color: #1b3c59;
+  margin-right: 15px;
+  border-radius: 10px;
+  border: 1px solid #8f8e8e;
+  font-size: 18px;
+  padding: 4px 9px;
+  margin: 20px 0;
+  position: relative;
 }
 
-.filtri .stanze,
+.filtri button {
+  background-color: white;
+  color: #1b3c59;
+  border: none;
+}
+
+.filtri .stanze_letti {
+  width: 132px;
+  border-radius: 5px;
+  background-color: white;
+  color: #1b3c59;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.filtri .stanze_letti .bedrooms {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.filtri .stanze_letti .bedrooms label {
+  font-weight: 500;
+}
+
+.filtri .stanze_letti .bedrooms input {
+  margin: 4px 9px 6px;
+  width: 20px;
+  height: 22px;
+}
+
 .filtri .serv {
   background-color: white;
   color: #1b3c59;
@@ -11318,11 +11353,29 @@ a.text-dark:focus {
   position: relative;
 }
 
-.filtri .stanze button,
-.filtri .serv button {
+.filtri button {
   background-color: white;
   color: #1b3c59;
   border: none;
+}
+
+.filtri .servizi {
+  height: auto;
+  width: 175px;
+  border-radius: 5px;
+  background-color: white;
+  padding: 10px;
+  color: #1b3c59;
+}
+
+.filtri .servizi div {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+.filtri .servizi div input {
+  margin: 4px 9px 6px;
 }
 
 .filtri #apt_address {
@@ -11365,60 +11418,6 @@ a.text-dark:focus {
   border: none;
   background-color: #1b3c59;
   color: white;
-}
-
-.servizi {
-  height: auto;
-  width: 175px;
-  border-radius: 5px;
-  background-color: white;
-  padding: 10px;
-  color: #1b3c59;
-  position: absolute;
-  border: 1px solid #8f8e8e;
-  margin-left: 163px;
-  z-index: 99;
-}
-
-.servizi div {
-  display: flex;
-  align-items: center;
-  font-size: 15px;
-}
-
-.servizi div input {
-  margin: 4px 9px 6px;
-}
-
-.stanze_letti {
-  height: auto;
-  width: 132px;
-  border-radius: 5px;
-  background-color: white;
-  color: #1b3c59;
-  align-items: center;
-  font-size: 15px;
-  padding: 10px;
-  border: 1px solid #8f8e8e;
-  margin-top: 71px;
-  margin-left: -322px;
-  z-index: 99;
-  position: absolute;
-}
-
-.stanze_letti .bedrooms {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.stanze_letti .bedrooms label {
-  font-weight: 500;
-}
-
-.stanze_letti input {
-  margin: 4px 9px 6px;
-  width: 20px;
-  height: 22px;
 }
 
 .results {
@@ -11745,10 +11744,6 @@ h1 {
   color: #1b3c59;
 }
 
-.bt {
-  width: 100%;
-}
-
 #create2,
 #update2 {
   width: 100% !important;
@@ -11775,8 +11770,9 @@ h1 {
 }
 
 .selectsi select {
-  height: 20px;
-  width: 40px;
+  height: 28px;
+  width: 125px;
+  font-size: 15px;
 }
 
 body {
