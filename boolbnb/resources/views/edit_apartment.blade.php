@@ -62,7 +62,7 @@
 
 
         <label for="images">Foto</label>
-        <input  type="file" name="images" value="{{$apartment['images']}}"><br>
+        <input  type="file" name="images" value=""><br>
       </div>
     </div>
     <!-- <div class="space"> -->
@@ -116,6 +116,17 @@
         </select>
       </div>
 
+      <label for="visibility">visibility</label>
+            <select class="" name="visibility">
+              <option value="0" @if ($apartment["visibility"] == 0)
+                selected
+              @endif>No</option>
+              <option value="1" @if ($apartment["visibility"] == 1)
+                selected
+              @endif>Si</option>
+            </select>
+
+      </select>
     </div>
 
     <input id="update" class="dispna" type="submit" name="" value="">
@@ -126,6 +137,4 @@
     <button id="update2" type="button" name="" value="">Modifica appartamento</button>
 
   </div>
-
-
 @endsection

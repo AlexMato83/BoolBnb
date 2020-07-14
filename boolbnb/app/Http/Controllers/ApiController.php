@@ -53,18 +53,14 @@ class ApiController extends Controller
         }
         $sponsorshipstype = Sponsorshipstype::findOrFail($id_sponsorshiptype);
 
-        // $user = Auth::user();
-        // $id_owner = $apartment -> user_id;
-        // if ($user-> id == $id_owner) {
+        $user = Auth::user();
+        $id_owner = $apartment -> user_id;
+        if ($user-> id == $id_owner) {
+          return view("payment", compact("apartment", 'sponsorshipstype', 'nonce', 'title', 'start_date'));
 
-        // }else {
-        //     return view("error");
-        // }
-
-        return view("payment", compact("apartment", 'sponsorshipstype', 'nonce', 'title', 'start_date'));
-
-
-
+        }else {
+            return view("error");
+        }
 
     }
 

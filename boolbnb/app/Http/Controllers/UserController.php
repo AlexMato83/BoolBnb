@@ -112,12 +112,9 @@ class UserController extends Controller
     // funzione per validare le modifiche ad un appartamento
     public function update(Request $request, $id)
     {
-
-        $user_id =Auth::user() ->id;
-        $apartment = Apartment::findOrFail($id);
-        // dd($request);
-
-        $validate = $request -> validate([
+       $user_id =Auth::user() ->id;
+       $apartment = Apartment::findOrFail($id);
+       $validate = $request -> validate([
 
             "name" => "required",
             "mq" => "required",
@@ -132,11 +129,6 @@ class UserController extends Controller
 
             ]);
 
-            if ($validate["visibility"] == "Si") {
-                $validate["visibility"] = 1;
-            }else {
-                $validate["visibility"] = 0;
-            }
 
             $apartment["name"] = $validate["name"];
             $apartment["mq"] = $validate["mq"];
@@ -157,8 +149,8 @@ class UserController extends Controller
 
         // *********************************
         if ($request["images"]) {
-          // code...
           $image = $request->file('images');
+
           $name = Str::slug($request->input('name')).'_'.time();
           $folder = '/uploads/images/';
           $ext = $image->getClientOriginalExtension();

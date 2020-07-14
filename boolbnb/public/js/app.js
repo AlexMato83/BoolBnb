@@ -37305,6 +37305,7 @@ function address_to_coord(button, submit, next_funct) {
           document.getElementById(submit).click();
         }
       }
+    }).done(function (submit) {// document.getElementById(submit).click()
     });
   });
 } //****************//

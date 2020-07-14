@@ -25,11 +25,11 @@
         <div class="dropdown-menu stanze_letti" aria-labelledby="dropdownMenuButton">
           <div class="bedrooms">
             <label for="rooms">Stanze</label>
-            <input id="rooms" type="text" name="rooms" value="">
+            <input type="number" name="rooms" value="">
           </div>
           <div class="bedrooms">
-            <label for="beds">Letti</label>
-            <input id="beds" type="text" name="beds" value="">
+            <label for="rooms">Letti</label>
+            <input type="number" name="beds" value="">
           </div>
         </div>
       </div>
