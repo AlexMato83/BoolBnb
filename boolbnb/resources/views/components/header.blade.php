@@ -15,7 +15,7 @@
 
 <div class="offset-md-2 col-md-4 offset-lg-4 col-lg-4 offset-xl-4 col-xl-4">
 
-  <div class="navigazione prova">
+  <div class="navigazione prova  " >
     <ul>
       <li><button class="reg" type="button" name="button"><strong>Registrati</strong></button></li>
       {{-- <li><a class="reg" href="{{ route('login') }}"><strong>Registrati</strong></a><li> --}}
@@ -261,7 +261,7 @@
           @auth
 
 
-            <div class="loginlogout col-6 col-sm-6 col-md-6 col-lg-3 col-xl-6">
+            <div class="loginlogout col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf

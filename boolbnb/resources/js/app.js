@@ -297,6 +297,7 @@ function keypress(){
           $(".registrati").removeClass("on").addClass("off");
         }
       );
+  
  }
 
 
