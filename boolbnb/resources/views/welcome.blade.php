@@ -34,12 +34,9 @@
 
 
   <div class="evidenza">
-    <h1>Appartamenti consigliati
-    </h1>
+    <h1>Appartamenti consigliati</h1>
     <div class="apartments">
-      <div class="apartment row">
-
-      </div>
+      <div class="apartment row"></div>
 
     </div>
     <div class="apartments">

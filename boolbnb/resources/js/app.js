@@ -87,7 +87,7 @@ function address_to_coord(button, submit){
 
   function prova_api(){
     $.ajax({
-      url:"http://localhost:8000/welcome_show",
+      url:"http://127.0.0.1:8000/welcome_show",
       method: "GET",
       success: function(data){
         var variabile = JSON.parse(data);
