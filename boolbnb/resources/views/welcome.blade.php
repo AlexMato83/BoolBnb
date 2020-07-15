@@ -38,42 +38,64 @@
 
   <div class="evidenza">
     <h2>Appartamenti consigliati</h2>
-    <div class="apartments">
-      <div class="apartment row"></div>
 
-    </div>
-    <div class="apartments ">
-    <div class="apartment row">
-      <div id="welcome_sponsored_apt">
 
+
+
+
+    <div class="apartments row">
+      <div class="apartment  ">
+        <div id="welcome_sponsored_apt" >
+
+        </div>
       </div>
+    </div>
 
+    <!-- <div class="apartments ">
+    <div class="apartment ">
+      <div class="row"> -->
+
+
+
+</div>
+<div class="row">
 
       {{-- HANDELBARS --}}
 
+
+
       <script id="giacomino-template" type="text/x-handlebars-template">
-        <div class="container_ @{{add_class}}">
-          <div class="apartment_ ">
+        <div class="container  @{{add_class}}">
+
+          <div class="apartment_ col-6">
             <h3><a href="/ui_apartment/@{{id}}">@{{title}}</a></h3>
             <img src="@{{image_route}}" alt="">
              <p>@{{address}}</p>
              <span>@{{sponsorship}}</span>
           </div>
-        </div>
+          </div>
+
        </script>
 
 
 
       {{-- HANDELBARS --}}
 
-        {{-- @foreach ($app as $a)
-          <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+</div>
+
+
+
+       @foreach ($app as $a)
+
+          <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 sisi">
             <a href="{{route('ui_apartment' , ['id' => $a->id ])}}">
               <img src='{{$a->images}}'>
               <h3>{{$a->name}}</h3>
             </a>
           </div>
-        @endforeach --}}
+
+        @endforeach
+
     </div>
     </div>
   </div>

@@ -5,6 +5,7 @@
   background-color: white;
   position: fixed;
   z-index: 99;
+  margin-top:-15px;
   .logo{
     img{
       margin-top: 5%;
@@ -117,11 +118,9 @@
       float: right;
       display: flex;
       align-items: flex-end;
-
       height:100%;
       width: 50%;
       background-color: white;
-      margin-right: 30px;
       padding-top:30px;
 
 
@@ -151,7 +150,8 @@ a{
   color: white;
   box-shadow: none;
   border-radius: 5px;
-  padding: 6% 18%;
+  height: 40px;
+  width:90px;
 }
 .ciaoci{
   text-align: left;

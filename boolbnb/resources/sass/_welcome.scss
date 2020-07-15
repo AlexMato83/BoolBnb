@@ -51,10 +51,8 @@
   }
   .apartments{
   	margin: 0 auto;
-  	display: flex;
-  	padding-top: 20pX;
+  	padding-top: 20px;
     #welcome_sponsored_apt{
-      display: flex;
       margin: auto;
       img {
         height: 250px;
@@ -70,5 +68,11 @@
         padding-top: 10px;
       }
     }
+  }
+}
+.sisi, .apartment_{
+  img{
+    width:100%;
+    height:100%;
   }
 }

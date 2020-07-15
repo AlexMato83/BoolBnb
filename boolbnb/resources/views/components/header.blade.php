@@ -1,3 +1,7 @@
+
+@auth
+  {{-- deve sparire navigazione prova --}}
+@else
 <div class="offset-1 col-5 offset-sm-1 col-sm-5 offset-md-1 col-md-5 offset-lg-1 col-lg-3 offset-xl-1 col-xl-3">
   <div class="logo">
     <a href="{{route('welcome')}}"><img src="/img/logo.jpg"></a>
@@ -7,9 +11,7 @@
     </a>
   </div>
 </div>
-@auth
-  {{-- deve sparire navigazione prova --}}
-@else
+
   <div class="offset-md-2 col-md-4 offset-lg-4 col-lg-4 offset-xl-4 col-xl-4">
     <div class="navigazione prova  " >
       <ul>
@@ -19,34 +21,35 @@
       </ul>
     </div>
   </div>
-@endauth
-<div class="lista_ham">
-  <div class="hamburger-menu off">
-    <div class="chiusura">
-      <a href="#" class="close">
-        <i class="fas fa-times"></i>
-      </a>
-    </div>
-    <div class="ham">
-      <ul>
-        @if (Route::has('login'))
-          {{-- <div class="top-right links"> --}}
-          @auth
-            {{-- <a href="{{ url('/home') }}">Home</a> --}}
-          @else
-            <li><a class="reg" href="#"><strong>Registrati</strong></a><li>
-              {{-- <li><a class="reg" href="{{ route('login') }}"><strong>Registrati</strong></a><li> --}}
-              @if (Route::has('register'))
-                {{-- <li><button class="tasto" type="button" name="button"><strong>Accedi</strong></button></li> --}}
-                <a class="tasto" href="{{ route('register') }}">Accedi</a>
-              @endif
-            @endauth
-            {{-- </div> --}}
-          @endif
-        </ul>
+  <div class="lista_ham">
+    <div class="hamburger-menu off">
+      <div class="chiusura">
+        <a href="#" class="close">
+          <i class="fas fa-times"></i>
+        </a>
+      </div>
+      <div class="ham">
+        <ul>
+          @if (Route::has('login'))
+            {{-- <div class="top-right links"> --}}
+            @auth
+              {{-- <a href="{{ url('/home') }}">Home</a> --}}
+            @else
+              <li><a class="reg" href="#"><strong>Registrati</strong></a><li>
+                {{-- <li><a class="reg" href="{{ route('login') }}"><strong>Registrati</strong></a><li> --}}
+                @if (Route::has('register'))
+                  {{-- <li><button class="tasto" type="button" name="button"><strong>Accedi</strong></button></li> --}}
+                  <a class="tasto" href="{{ route('register') }}">Accedi</a>
+                @endif
+              @endauth
+              {{-- </div> --}}
+            @endif
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
+@endauth
+
   <div class="accedi off">
     <div class="container">
       <div class="row ">
@@ -213,9 +216,21 @@
           </div>
         </div>
         <header>
+@auth
 
-          <div class="dropdown">
-              @auth
+
+
+          <div class="dropdown ">
+              <div class="row">
+              <div class="offset-1 col-5 offset-sm-1 col-sm-5 offset-md-1 col-md-5 offset-lg-1 col-lg-3 offset-xl-1 col-xl-3">
+                <div class="logo">
+                  <a href="{{route('welcome')}}"><img src="/img/logo.jpg"></a>
+                </div>
+                <!-- <div class="barre">
+                    <i class="fas fa-bars"></i>
+                  </a>
+                </div> -->
+              </div>
               <div class="loginlogout  offset-3 offset-sm-3 offset-md-3 offset-lg-3 offset-xl-3 col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf
@@ -233,6 +248,7 @@
                 {{ __('Logout') }}
               </button></li>
             </div>
+          </div>
           </div>
           </div>
             @endauth
