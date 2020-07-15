@@ -114,24 +114,44 @@
   }
 }
 
-
 .results {
   margin: 100px 0;
   h1 {
     margin: 20px 0;
   }
   .apartments_reserch {
-    .apartment_reserch {
-      margin: 40px 10px 0 10px;
-      width: calc(50% - 20px);
-      height: auto;
-      .foto_reserch {
-        img {
-          height: 100%;
-          width: 100%;
-          margin-bottom: 20px;
+    .row {
+      #sponsored_apt,#normal_apt{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        .container_{
+          width: 33%;
+          height: 350px;
+
         }
+        .apartment_{
+          margin: auto;
+          max-width: 95%;
+          img{
+            width: 100%;
+            height: 250px;
+          }
+          h3{
+            font-size: 25px;
+          }
+          p{
+            font-size: 20px;
+          }
+        }
+
       }
+
+      .caratteristiche_reserch {
+        height: 100%;
+        width: 100%;
+      }
+
       .caratteristiche_reserch {
         height: 100%;
         width: 100%;

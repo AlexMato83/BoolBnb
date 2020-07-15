@@ -11220,14 +11220,21 @@ a.text-dark:focus {
   }
 }
 
+.jumbo {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .search {
   font-size: 18px;
-  width: 413px;
+  width: 415px;
   height: 49px;
   border: 1px solid #DDDDDD;
   padding: 3px;
   border-radius: 5px;
-  margin: 150px auto 60px auto;
   background-color: #f0f1f2;
 }
 
@@ -11265,8 +11272,6 @@ a.text-dark:focus {
 }
 
 .evidenza h1 {
-  text-align: left;
-  padding-left: 30px;
   font-size: 30px;
 }
 
@@ -11276,22 +11281,20 @@ a.text-dark:focus {
   padding-top: 20pX;
 }
 
-.evidenza .apartments .apartment {
-  margin: 5px;
-  width: 100%;
-  height: 100%;
+.evidenza .apartments #welcome_sponsored_apt {
   display: flex;
+  margin: auto;
 }
 
-.evidenza .apartments .apartment img {
+.evidenza .apartments #welcome_sponsored_apt img {
   height: 250px;
-  width: 100%;
+  width: 95%;
   margin: 2%;
   padding: 5px;
   border-radius: 3%;
 }
 
-.evidenza .apartments .apartment h3 {
+.evidenza .apartments #welcome_sponsored_apt h3 {
   margin: 2%;
   font-size: 18px;
   padding-top: 10px;
@@ -11434,19 +11437,47 @@ a.text-dark:focus {
   margin: 20px 0;
 }
 
-.results .apartments_reserch .apartment_reserch {
-  margin: 40px 10px 0 10px;
-  width: calc(50% - 20px);
-  height: auto;
+.results .apartments_reserch .row #sponsored_apt,
+.results .apartments_reserch .row #normal_apt {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
-.results .apartments_reserch .apartment_reserch .foto_reserch img {
+.results .apartments_reserch .row #sponsored_apt .container_,
+.results .apartments_reserch .row #normal_apt .container_ {
+  width: 33%;
+  height: 350px;
+}
+
+.results .apartments_reserch .row #sponsored_apt .apartment_,
+.results .apartments_reserch .row #normal_apt .apartment_ {
+  margin: auto;
+  max-width: 95%;
+}
+
+.results .apartments_reserch .row #sponsored_apt .apartment_ img,
+.results .apartments_reserch .row #normal_apt .apartment_ img {
+  width: 100%;
+  height: 250px;
+}
+
+.results .apartments_reserch .row #sponsored_apt .apartment_ h3,
+.results .apartments_reserch .row #normal_apt .apartment_ h3 {
+  font-size: 25px;
+}
+
+.results .apartments_reserch .row #sponsored_apt .apartment_ p,
+.results .apartments_reserch .row #normal_apt .apartment_ p {
+  font-size: 20px;
+}
+
+.results .apartments_reserch .row .caratteristiche_reserch {
   height: 100%;
   width: 100%;
-  margin-bottom: 20px;
 }
 
-.results .apartments_reserch .apartment_reserch .caratteristiche_reserch {
+.results .apartments_reserch .row .caratteristiche_reserch {
   height: 100%;
   width: 100%;
 }
@@ -11796,15 +11827,6 @@ body .registrati {
   font-size: 15px;
 }
 
-body .accedi h1,
-body .registrati h1 {
-  font-size: 20px;
-  color: #1b3c59;
-  font-weight: bold;
-  text-align: center;
-  margin: 6%;
-}
-
 body .accedi .input,
 body .registrati .input {
   margin: auto;
@@ -11902,6 +11924,7 @@ body .btn-primary {
   padding-top: 100px;
   width: 100%;
   height: 100%;
+  padding-top: 130px;
 }
 
 .form-control {

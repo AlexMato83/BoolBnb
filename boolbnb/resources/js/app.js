@@ -91,13 +91,23 @@ function address_to_coord(button, submit, next_funct ){
       url:"http://localhost:8000/welcome_show",
       method: "GET",
       success: function(data){
-        var variabile = JSON.parse(data);
-        // console.log(variabile);
+        console.log(JSON.parse(data));
+        var apartments_found = JSON.parse(data)
+        for (var apartment of apartments_found) {
+          var id = apartment["id"];
+          var add_class = "sponsored_apt"
+          var title = apartment["name"]
+          var image_route = apartment["images"]
+          var address = apartment["address"]
+          var is_sponsored = "SPONSORED"
+          var print_template = set_template(add_class,title,image_route,address,is_sponsored,id);
+          $("#welcome_sponsored_apt").append(print_template)
 
-        for (var i = 0; i < variabile.length; i++) {
-
-          $(".apartment").append('<div class="col-4"><img src='+variabile[i].images+'><h3>'+variabile[i].name+'</h3></div>');
         }
+        // for (var i = 0; i < variabile.length; i++) {
+
+          // $(".apartment").append('<div class="col-4"><img src='+variabile[i].images+'><h3>'+variabile[i].name+'</h3></div>');
+        // }
       }
     })
   }
@@ -218,9 +228,9 @@ function create_paymethond_and_pay() {
       });
     })
 }
-function keypress(button){
+function keypress(button,space){
     $(window).ready(function() {
-          $(window).on("keypress", function (event) {
+          $(space).on("keypress", function (event) {
               var keyPressed = event.keyCode || event.which;
               if (keyPressed === 13) {
                 event.preventDefault();
@@ -311,6 +321,9 @@ function keypress(button){
 
       },
       success:function(data){
+        $("#sponsored_apt").html("");
+        $("#normal_apt").html("");
+
         console.log(JSON.parse(data));
         var apartments_found = JSON.parse(data)
         //qui c e da usare handlebars
@@ -319,10 +332,10 @@ function keypress(button){
           var add_class = "sponsored_apt"
           var title = apartment["name"]
           var image_route = apartment["images"]
-          var description = apartment["address"]
+          var address = apartment["address"]
           var is_sponsored = "SPONSORED"
-          var print_template = set_template(add_class,title,image_route,description,is_sponsored,id);
-          $("#appartamenti").html(print_template)
+          var print_template = set_template(add_class,title,image_route,address,is_sponsored,id);
+          $("#sponsored_apt").append(print_template)
 
         }
         if(!apartments_found["sponsored"].length){
@@ -333,16 +346,16 @@ function keypress(button){
           var add_class = "normal_apt";
           var title = apartment["name"];
           var image_route = apartment["images"];
-          var description = apartment["address"];
+          var address = apartment["address"];
           var is_sponsored = "";
-          var print_template = set_template(add_class,title,image_route,description,is_sponsored,id);
-          $("#appartamenti").append(print_template)
+          var print_template = set_template(add_class,title,image_route,address,is_sponsored,id);
+          $("#normal_apt").append(print_template)
         }
       }
     });
 
   }
-  function set_template(add_class,title,image_route,description,is_sponsored,id){
+  function set_template(add_class,title,image_route,address,is_sponsored,id){
     var source = $("#giacomino-template").html();
     var template = Handlebars.compile(source);
     var apartment_template = {
@@ -350,7 +363,7 @@ function keypress(button){
      "add_class": add_class,
      "title": title,
      "image_route": image_route,
-     "description":description,
+     "address":address,
      "sponsorship": is_sponsored
     }
     var print_apt = template(apartment_template);
@@ -361,7 +374,7 @@ function keypress(button){
   function init(){
     if (document.getElementById("search_welcome2")) {
       address_to_coord('#search_welcome2', 'search_welcome');
-      keypress("search_welcome2")
+      keypress("search_welcome2", ".content")
       prova_api();
     }
     if (document.getElementById("dropin-container")) {
@@ -372,6 +385,7 @@ function keypress(button){
     }
   if (document.getElementById("create2")) {
     address_to_coord('#create2', 'create');
+    keypress("create2",document)
   }
   if (document.getElementById("search2")) {
     keypress("search2");
@@ -379,12 +393,13 @@ function keypress(button){
     address_to_coord('#search2', 'search');
   }
   if (document.getElementById("filtered2")) {
-    keypress("filtered2");
+    keypress("filtered2",".filtri" );
     address_to_coord('#filtered2',null, filtered_search_api);
     filtered_search_api();
   }
   if (document.getElementById("update2")) {
     address_to_coord('#update2', 'update');
+    keypress("update2", document)
   }
     if (typeof(list_of_views) != "undefined") {
       getData(list_of_views,'views','line');

@@ -37316,10 +37316,31 @@ function prova_api() {
     url: "http://localhost:8000/welcome_show",
     method: "GET",
     success: function success(data) {
-      var variabile = JSON.parse(data); // console.log(variabile);
+      console.log(JSON.parse(data));
+      var apartments_found = JSON.parse(data);
 
-      for (var i = 0; i < variabile.length; i++) {
-        $(".apartment").append('<div class="col-4"><img src=' + variabile[i].images + '><h3>' + variabile[i].name + '</h3></div>');
+      var _iterator = _createForOfIteratorHelper(apartments_found),
+          _step;
+
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var apartment = _step.value;
+          var id = apartment["id"];
+          var add_class = "sponsored_apt";
+          var title = apartment["name"];
+          var image_route = apartment["images"];
+          var address = apartment["address"];
+          var is_sponsored = "SPONSORED";
+          var print_template = set_template(add_class, title, image_route, address, is_sponsored, id);
+          $("#welcome_sponsored_apt").append(print_template);
+        } // for (var i = 0; i < variabile.length; i++) {
+        // $(".apartment").append('<div class="col-4"><img src='+variabile[i].images+'><h3>'+variabile[i].name+'</h3></div>');
+        // }
+
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
       }
     }
   });
@@ -37423,9 +37444,9 @@ function create_paymethond_and_pay() {
   });
 }
 
-function keypress(button) {
+function keypress(button, space) {
   $(window).ready(function () {
-    $(window).on("keypress", function (event) {
+    $(space).on("keypress", function (event) {
       var keyPressed = event.keyCode || event.which;
 
       if (keyPressed === 13) {
@@ -37499,28 +37520,30 @@ function filtered_search_api() {
       services: services
     },
     success: function success(data) {
+      $("#sponsored_apt").html("");
+      $("#normal_apt").html("");
       console.log(JSON.parse(data));
       var apartments_found = JSON.parse(data); //qui c e da usare handlebars
 
-      var _iterator = _createForOfIteratorHelper(apartments_found["sponsored"]),
-          _step;
+      var _iterator2 = _createForOfIteratorHelper(apartments_found["sponsored"]),
+          _step2;
 
       try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var apartment = _step.value;
+        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+          var apartment = _step2.value;
           var id = apartment["id"];
           var add_class = "sponsored_apt";
           var title = apartment["name"];
           var image_route = apartment["images"];
-          var description = apartment["address"];
+          var address = apartment["address"];
           var is_sponsored = "SPONSORED";
-          var print_template = set_template(add_class, title, image_route, description, is_sponsored, id);
-          $("#appartamenti").html(print_template);
+          var print_template = set_template(add_class, title, image_route, address, is_sponsored, id);
+          $("#sponsored_apt").append(print_template);
         }
       } catch (err) {
-        _iterator.e(err);
+        _iterator2.e(err);
       } finally {
-        _iterator.f();
+        _iterator2.f();
       }
 
       if (!apartments_found["sponsored"].length) {
@@ -37529,31 +37552,31 @@ function filtered_search_api() {
 
       ;
 
-      var _iterator2 = _createForOfIteratorHelper(apartments_found["normal"]),
-          _step2;
+      var _iterator3 = _createForOfIteratorHelper(apartments_found["normal"]),
+          _step3;
 
       try {
-        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-          var apartment = _step2.value;
+        for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+          var apartment = _step3.value;
           var id = apartment["id"];
           var add_class = "normal_apt";
           var title = apartment["name"];
           var image_route = apartment["images"];
-          var description = apartment["address"];
+          var address = apartment["address"];
           var is_sponsored = "";
-          var print_template = set_template(add_class, title, image_route, description, is_sponsored, id);
-          $("#appartamenti").append(print_template);
+          var print_template = set_template(add_class, title, image_route, address, is_sponsored, id);
+          $("#normal_apt").append(print_template);
         }
       } catch (err) {
-        _iterator2.e(err);
+        _iterator3.e(err);
       } finally {
-        _iterator2.f();
+        _iterator3.f();
       }
     }
   });
 }
 
-function set_template(add_class, title, image_route, description, is_sponsored, id) {
+function set_template(add_class, title, image_route, address, is_sponsored, id) {
   var source = $("#giacomino-template").html();
   var template = Handlebars.compile(source);
   var apartment_template = {
@@ -37561,7 +37584,7 @@ function set_template(add_class, title, image_route, description, is_sponsored, 
     "add_class": add_class,
     "title": title,
     "image_route": image_route,
-    "description": description,
+    "address": address,
     "sponsorship": is_sponsored
   };
   var print_apt = template(apartment_template);
@@ -37571,7 +37594,7 @@ function set_template(add_class, title, image_route, description, is_sponsored, 
 function init() {
   if (document.getElementById("search_welcome2")) {
     address_to_coord('#search_welcome2', 'search_welcome');
-    keypress("search_welcome2");
+    keypress("search_welcome2", ".content");
     prova_api();
   }
 
@@ -37585,6 +37608,7 @@ function init() {
 
   if (document.getElementById("create2")) {
     address_to_coord('#create2', 'create');
+    keypress("create2", document);
   }
 
   if (document.getElementById("search2")) {
@@ -37593,13 +37617,14 @@ function init() {
   }
 
   if (document.getElementById("filtered2")) {
-    keypress("filtered2");
+    keypress("filtered2", ".filtri");
     address_to_coord('#filtered2', null, filtered_search_api);
     filtered_search_api();
   }
 
   if (document.getElementById("update2")) {
     address_to_coord('#update2', 'update');
+    keypress("update2", document);
   }
 
   if (typeof list_of_views != "undefined") {

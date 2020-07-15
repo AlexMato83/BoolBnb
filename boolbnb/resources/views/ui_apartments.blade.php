@@ -85,7 +85,10 @@
     <h1>Risultati ricerca</h1>
     <div class="apartments_reserch">
       <div class="row">
-        <div id="appartamenti">
+        <div id="sponsored_apt">
+
+        </div>
+        <div id="normal_apt">
 
         </div>
 
@@ -94,10 +97,9 @@
         <script id="giacomino-template" type="text/x-handlebars-template">
           <div class="container_ @{{add_class}}">
             <div class="apartment_ ">
-              <a href="/ui_apartment/@{{id}}">@{{title}}</a>
-              <h3>@{{title}}</h3>
+              <h3><a href="/ui_apartment/@{{id}}">@{{title}}</a></h3>
               <img src="@{{image_route}}" alt="">
-               <p>@{{description}}</p>
+               <p>@{{address}}</p>
                <span>@{{sponsorship}}</span>
             </div>
           </div>
