@@ -12,17 +12,21 @@
   </div>
 </div>
 
-<div class="offset-md-2 col-md-4 offset-lg-4 col-lg-4 offset-xl-4 col-xl-4">
+@auth
+  {{-- deve sparire navigazione prova --}}
+@else
 
-  <div class="navigazione prova  " >
-    <ul>
-      <li><button class="reg" type="button" name="button"><strong>Registrati</strong></button></li>
-      {{-- <li><a class="reg" href="{{ route('login') }}"><strong>Registrati</strong></a><li> --}}
+  <div class="offset-md-2 col-md-4 offset-lg-4 col-lg-4 offset-xl-4 col-xl-4">
+    <div class="navigazione prova  " >
+      <ul>
+        <li><button class="reg" type="button" name="button"><strong>Registrati</strong></button></li>
+        {{-- <li><a class="reg" href="{{ route('login') }}"><strong>Registrati</strong></a><li> --}}
 
-      <li><button class="tasto" type="button" name="button"><strong>Accedi</strong></button></li>
-    </ul>
+        <li><button class="tasto" type="button" name="button"><strong>Accedi</strong></button></li>
+      </ul>
+    </div>
   </div>
-</div>
+@endauth
 
 <div class="lista_ham">
   <div class="hamburger-menu off">
