@@ -37290,6 +37290,7 @@ function address_to_coord(button, submit, next_funct) {
         key: "fSCco31rI9Of9Ud1l5pLOfJen1zv8Gw0"
       },
       success: function success(data) {
+        console.log(data);
         var position = data.results[0]["position"];
         latitude = position.lat;
         longitude = position.lon;
@@ -37316,7 +37317,6 @@ function prova_api() {
     url: "http://localhost:8000/welcome_show",
     method: "GET",
     success: function success(data) {
-      console.log(JSON.parse(data));
       var apartments_found = JSON.parse(data);
 
       var _iterator = _createForOfIteratorHelper(apartments_found),
@@ -37395,8 +37395,7 @@ function create_paymethond_and_pay() {
     type: "GET",
     url: "http://localhost:8000/token_generate",
     success: function success(token_generate) {
-      token = token_generate; // console.log(token);
-
+      token = token_generate;
       braintree.dropin.create({
         authorization: "sandbox_ykkqhk4c_3fq8j6rpxv3kwq76",
         selector: '#dropin-container'
@@ -37430,8 +37429,6 @@ function create_paymethond_and_pay() {
       },
       success: function success(speriamo) {},
       complete: function complete(speriamo) {
-        console.log(speriamo);
-
         if (speriamo.responseText == '"successo"') {
           var data = "ok";
         } else {
@@ -37504,7 +37501,8 @@ function filtered_search_api() {
     if ($(".checkbox")[i].checked) {
       services.push($(".checkbox")[i].getAttribute("value"));
     }
-  }
+  } // console.log("service: ",services, "beds: ", beds, "rooms: ", rooms,"add: " ,add);
+
 
   $('#longitude').val();
   $.ajax({
@@ -37522,7 +37520,7 @@ function filtered_search_api() {
     success: function success(data) {
       $("#sponsored_apt").html("");
       $("#normal_apt").html("");
-      console.log(JSON.parse(data));
+      console.log("apart_found: ", JSON.parse(data));
       var apartments_found = JSON.parse(data); //qui c e da usare handlebars
 
       var _iterator2 = _createForOfIteratorHelper(apartments_found["sponsored"]),

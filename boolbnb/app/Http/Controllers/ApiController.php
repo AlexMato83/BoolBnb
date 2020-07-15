@@ -123,7 +123,8 @@ class ApiController extends Controller
           if (isset($rooms)) {
               foreach ($In_radius_apartments as $key => $apartment) {
                 if ($apartment['rooms'] < $rooms) {
-                    array_splice($In_radius_apartments, $key, 1);
+                    unset($In_radius_apartments[$key]);
+                    // array_splice($In_radius_apartments, $key+1, 1);
                     $key = $key - 1;
                 }
 
@@ -132,7 +133,8 @@ class ApiController extends Controller
           if (isset($beds)) {
               foreach ($In_radius_apartments as $key => $apartment) {
                 if ($apartment['beds'] < $beds) {
-                    array_splice($In_radius_apartments, $key, 1);
+                    unset($In_radius_apartments[$key]);
+                    // array_splice($In_radius_apartments, $key+1, 1);
                     $key = $key - 1;
                 }
 
@@ -143,16 +145,17 @@ class ApiController extends Controller
               foreach ($r_services as $r_service){
                 $possible_apt = false;
                 foreach ($apartment-> services as $service) {
-                  if ($r_service["id"] == $service["id"]){
+                  if ($r_service == $service["id"]){
                     $possible_apt = true;
                     break;
                   }
                 }
                 if (!$possible_apt) {
-                  array_splice($In_radius_apartments, $key, 1);
+                  unset($In_radius_apartments[$key]);
+                  // array_splice($In_radius_apartments, $key+1, 1);
                   $key = $key - 1;
+                  break;
                 }
-                break;
               }
             }
           }
@@ -207,9 +210,9 @@ class ApiController extends Controller
         }
 
         $filter_by_sponsorship = filter_by_sponsorship($sponsorships);
+        $apartments_found['sponsored'] = filters($rooms, $beds, $r_services, $filter_by_sponsorship);
         $apartments_in_radius=In_radius($apartments,$center_lat, $center_long,$search_radius);
         $apartments_filtered = filters($rooms, $beds, $r_services, $apartments_in_radius);
-        $apartments_found['sponsored'] = filters($rooms, $beds, $r_services, $filter_by_sponsorship);
         $apartments_found['normal'] = ordered_by_dist($apartments_filtered);
 
 
@@ -228,6 +231,7 @@ class ApiController extends Controller
       //    'categories' => $categories,
       //    "add" => $add
       // ]
+     $a =   $apartments_found;
       return view("apt_api", compact('apartments_found'));
     }
 }

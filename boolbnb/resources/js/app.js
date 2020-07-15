@@ -63,6 +63,7 @@ function address_to_coord(button, submit, next_funct ){
           key: "fSCco31rI9Of9Ud1l5pLOfJen1zv8Gw0",
         },
         success: function(data){
+          console.log(data);
           var position = data.results[0]["position"];
         latitude =  position.lat;
         longitude = position.lon;
@@ -91,7 +92,6 @@ function address_to_coord(button, submit, next_funct ){
       url:"http://localhost:8000/welcome_show",
       method: "GET",
       success: function(data){
-        console.log(JSON.parse(data));
         var apartments_found = JSON.parse(data)
         for (var apartment of apartments_found) {
           var id = apartment["id"];
@@ -180,7 +180,6 @@ function create_paymethond_and_pay() {
         url: "http://localhost:8000/token_generate",
         success: function (token_generate) {
             token = token_generate;
-            // console.log(token);
             braintree.dropin.create({
                 authorization: "sandbox_ykkqhk4c_3fq8j6rpxv3kwq76"	,
                 selector: '#dropin-container'
@@ -216,7 +215,6 @@ function create_paymethond_and_pay() {
 
 
         },complete: function(speriamo){
-          console.log(speriamo);
           if (speriamo.responseText == '"successo"') {
             var data = "ok";
           } else {
@@ -304,6 +302,7 @@ function keypress(button,space){
         services.push($(".checkbox")[i].getAttribute("value"));
       }
     }
+    // console.log("service: ",services, "beds: ", beds, "rooms: ", rooms,"add: " ,add);
      $('#longitude').val();
 
     $.ajax({
@@ -324,7 +323,7 @@ function keypress(button,space){
         $("#sponsored_apt").html("");
         $("#normal_apt").html("");
 
-        console.log(JSON.parse(data));
+        console.log("apart_found: ",JSON.parse(data));
         var apartments_found = JSON.parse(data)
         //qui c e da usare handlebars
         for (var apartment of apartments_found["sponsored"]) {
