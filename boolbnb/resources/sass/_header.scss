@@ -1,12 +1,11 @@
 .header {
-  height: 127px;
+  height: 110px;
   width: 100%;
-  color: #1b3c59;
+  color: #1B3C59;
   background-color: white;
   position: fixed;
   z-index: 99;
   .logo{
-
     img{
       margin-top: 5%;
       height:65px;
@@ -25,14 +24,14 @@
         button{
           font-size: 15px;
           padding: 6% 18%;
-          background-color: #1b3c59;
+          background-color: #1B3C59;
           color: white;
           box-shadow: none;
           border-radius: 5px;
         }
         .reg {
           background-color: white;
-          color: #1b3c59;
+          color: #1B3C59;
           border: none;
           margin-right: 10px;
         }
@@ -40,7 +39,6 @@
     }
   }
 }
-
 .hamburger-menu{
   float:right;
   .ham {
@@ -55,7 +53,7 @@
         list-style: none;
         button{
           font-size:20px;
-          background-color: #1b3c59;
+          background-color: #1B3C59;
           color: white;
           box-shadow: none;
           border-radius: 5px;
@@ -70,45 +68,42 @@
     }
   }
 }
-
 .fa-bars{
   margin-top:2%;
   float:right;
   font-size:20px;
   color:#1b3c59;
   display:none;
-}
-.fa-times {
-  margin-top:2%;
-  color:#1b3c59;
-  font-size:25px;
-  display:inline-block;
-  position: fixed;
-  right: 20px;
 }
-@media screen and (max-width: 991px){
-  .fa-bars{
-    margin-top:-3%;
+.fa-times {
+  margin-top:2%;
+  color:#1b3c59;
+  font-size:25px;
+  display:inline-block;
+  position: fixed;
+  right: 20px;
+}
+@media screen and (max-width: 991px){
+  .fa-bars{
+    margin-top:-3%;
     margin-right:4%;
-    display:inline-block;
-    position: fixed;
-    right: 20px;  }
-  .prova{
-    display:none;
-  }
+    display:inline-block;
+    position: fixed;
+    right: 20px;
+  }
+  .prova{
+    display:none;
+  }
 }
-
 @media screen and (min-width: 991px){
-
   .lista_ham {
     display: none;
   }
 }
-
 .dropdown-item{
   float: right;
       color: white;
-      background-color: #1b3c59;
+      background-color: #1B3C59;
       font-weight: 700;
       height: 42px;
       width: 77px;
@@ -121,15 +116,15 @@
 .loginlogout{
       float: right;
       display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      position: -webkit-sticky;
-      position: sticky;
-      height:115px;
+      align-items: flex-end;
+
+      height:100%;
       width: 50%;
       background-color: white;
       margin-right: 30px;
       padding-top:30px;
+
+
 
 a{
   font-weight: 700;
@@ -139,16 +134,33 @@ a{
     height: 20px;
     background-color: white;
     font-size:15px;
-    color: #1b3c59;
+    color: #1B3C59;
 }
 .sinistra{
 // margin-left: 405px;
 }
 .destra{
   margin-right:30px;
+}
+}
 
+.funziono{
+  font-size: 15px;
+  font-weight: 700;
+  background-color: #1B3C59;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+  padding: 6% 18%;
 }
+.ciaoci{
+  text-align: left;
+  margin:10px;
+  float: center;
+  height: 40px;
+  width:80px;
+  margin-top:15px;
 }
-.guest{
-  display:none;
-}
+// .show{
+//   height: 180px;
+// }

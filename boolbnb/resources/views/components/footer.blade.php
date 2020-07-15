@@ -13,10 +13,12 @@
 <div class="col-12 col-sm-12 offset-md-3 col-md-4 offset-lg-4 col-lg-3 offset-xl-4 col-xl-3">
   <div class="menu_footer">
     <ul>
-    
-      <li><a href="#">Accedi</a></li>
-      <li><a href="#">Registrati</a></li>
-      <li><a href="#">Logout</a></li>
+      <li><a href="#">Made By:</a></li>
+      <li><a href="#">Nunzia Fina</a></li>
+      <li><a href="#">Paolo Fiaschi</a></li>
+      <li><a href="#">Rachele Terzoli</a></li>
+      <li><a href="#">Marco Randazzo</a></li>
+      <li><a href="#">Alessandro Matonti</a></li>
 
       <!-- <li><button class="tasto" type="button" name="button"><strong>Accedi</strong></button></li>
       <li><button class="reg" type="button" name="button"><strong>Registrati</strong></button></li>

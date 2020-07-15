@@ -288,6 +288,11 @@ function keypress(button,space){
           $(".registrati").removeClass("on").addClass("off");
         }
       );
+      $(".tac").click(
+        function(){
+          $(".loginlogout").removeClass("off").addClass("on");
+        }
+      );
 
  }
 

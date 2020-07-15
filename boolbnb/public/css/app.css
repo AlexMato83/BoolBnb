@@ -10929,9 +10929,9 @@ a.text-dark:focus {
 }
 
 .header {
-  height: 127px;
+  height: 110px;
   width: 100%;
-  color: #1b3c59;
+  color: #1B3C59;
   background-color: white;
   position: fixed;
   z-index: 99;
@@ -10961,7 +10961,7 @@ a.text-dark:focus {
 .header .navigazione ul li button {
   font-size: 15px;
   padding: 6% 18%;
-  background-color: #1b3c59;
+  background-color: #1B3C59;
   color: white;
   box-shadow: none;
   border-radius: 5px;
@@ -10969,7 +10969,7 @@ a.text-dark:focus {
 
 .header .navigazione ul li .reg {
   background-color: white;
-  color: #1b3c59;
+  color: #1B3C59;
   border: none;
   margin-right: 10px;
 }
@@ -10996,7 +10996,7 @@ a.text-dark:focus {
 
 .hamburger-menu .ham ul li button {
   font-size: 20px;
-  background-color: #1b3c59;
+  background-color: #1B3C59;
   color: white;
   box-shadow: none;
   border-radius: 5px;
@@ -11049,7 +11049,7 @@ a.text-dark:focus {
 .dropdown-item {
   float: right;
   color: white;
-  background-color: #1b3c59;
+  background-color: #1B3C59;
   font-weight: 700;
   height: 42px;
   width: 77px;
@@ -11064,11 +11064,8 @@ a.text-dark:focus {
 .loginlogout {
   float: right;
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  position: -webkit-sticky;
-  position: sticky;
-  height: 115px;
+  align-items: flex-end;
+  height: 100%;
   width: 50%;
   background-color: white;
   margin-right: 30px;
@@ -11083,15 +11080,30 @@ a.text-dark:focus {
   height: 20px;
   background-color: white;
   font-size: 15px;
-  color: #1b3c59;
+  color: #1B3C59;
 }
 
 .loginlogout .destra {
   margin-right: 30px;
 }
 
-.guest {
-  display: none;
+.funziono {
+  font-size: 15px;
+  font-weight: 700;
+  background-color: #1B3C59;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+  padding: 6% 18%;
+}
+
+.ciaoci {
+  text-align: left;
+  margin: 10px;
+  float: center;
+  height: 40px;
+  width: 80px;
+  margin-top: 15px;
 }
 
 .footer {
@@ -11117,6 +11129,11 @@ a.text-dark:focus {
 .footer .menu_footer {
   height: 100%;
   margin-top: 5%;
+  text-align: center;
+}
+
+.footer .menu_footer ul {
+  text-align: center;
 }
 
 .footer .menu_footer ul .tasto {

@@ -37538,6 +37538,9 @@ function layout_commands() {
   $(".continua").click(function () {
     $(".registrati").removeClass("on").addClass("off");
   });
+  $(".tac").click(function () {
+    $(".loginlogout").removeClass("off").addClass("on");
+  });
 }
 
 function filtered_search_api() {
