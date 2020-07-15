@@ -1,4 +1,8 @@
 @extends('layouts.mainLayout')
 @section('content')
-    <h1>ERRORE</h1>
+
+<div class="col-12 err">
+<img src="/img/err.jpg" alt="">
+</div>
+
 @endsection

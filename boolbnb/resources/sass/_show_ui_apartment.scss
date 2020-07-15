@@ -78,8 +78,25 @@ h1 {
   display: flex;
   margin: auto;
   justify-content:space-around;
+    color:#1b3c59;
+    a{
+      color:#1b3c59;
+    }
   div {
     font-size: 20px;
+  }
+  label{
+    color:#1b3c59;
+  }
+  input{
+    color:#1b3c59;
+    border-radius: 5px;
+    border:1px solid #1b3c59;
+  }
+  select{
+    color:#1b3c59;
+    border-radius: 5px;
+    border:1px solid #1b3c59;
   }
 }
 

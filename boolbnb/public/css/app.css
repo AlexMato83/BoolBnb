@@ -11569,10 +11569,31 @@ h1 {
   display: flex;
   margin: auto;
   justify-content: space-around;
+  color: #1b3c59;
+}
+
+.modifica a {
+  color: #1b3c59;
 }
 
 .modifica div {
   font-size: 20px;
+}
+
+.modifica label {
+  color: #1b3c59;
+}
+
+.modifica input {
+  color: #1b3c59;
+  border-radius: 5px;
+  border: 1px solid #1b3c59;
+}
+
+.modifica select {
+  color: #1b3c59;
+  border-radius: 5px;
+  border: 1px solid #1b3c59;
 }
 
 .insert_dati #mail_msg {
@@ -11811,6 +11832,37 @@ h1 {
   font-size: 15px;
 }
 
+h4 {
+  font-size: 20px;
+}
+
+.sear_bar {
+  border: 1px solid #1b3c59;
+  height: 26px;
+  border-radius: 5px;
+}
+
+#apt_name {
+  font-weight: 700;
+  font-size: 25px;
+  color: #1b3c59;
+}
+
+#submit-button,
+#pay {
+  font-size: 15px;
+  font-weight: 700;
+  height: 30px;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #1b3c59;
+  background-color: #1b3c59;
+}
+
+#pay {
+  background-color: #61ce4e !important;
+}
+
 body {
   background-color: white;
 }
@@ -11929,5 +11981,26 @@ body .btn-primary {
 .form-control {
   height: 40px;
   font-size: 15px;
+}
+
+.err {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+
+.err img {
+  height: 100%;
+  width: 100%;
+}
+
+.paypay {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.paypay h1 {
+  font-size: 50px;
 }
 

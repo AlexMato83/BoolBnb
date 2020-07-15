@@ -62,7 +62,7 @@
         <form action="{{route('sponsorship_pay', $apartment['id'])}}" method="post">
               @csrf
               @method('POST')
-              <label for="sponsorship_type">Sponsorizzazione</label>
+              <label for="sponsorship_type">SPONSORIZZAZIONE</label>
               <select name="sponsorship_type" id="">
                   <option value="" selected> - </option>
                   <option value="1">2.99€ - 24H</option>
