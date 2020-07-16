@@ -11019,7 +11019,6 @@ a.text-dark:focus {
 }
 
 .fa-times {
-  margin-top: 2%;
   color: #1b3c59;
   font-size: 25px;
   display: inline-block;
@@ -11105,6 +11104,11 @@ a.text-dark:focus {
   height: 40px;
   width: 80px;
   margin-top: 15px;
+}
+
+.fas {
+  font-size: 160% !important;
+  padding-top: 0 !important;
 }
 
 .footer {
@@ -12008,7 +12012,7 @@ body .btn-primary {
 .err {
   height: 100%;
   width: 100%;
-  background-repeat: no-repeat;
+  background-color: #fea918;
 }
 
 .err img {

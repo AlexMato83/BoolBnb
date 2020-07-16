@@ -67,7 +67,7 @@
       <script id="giacomino-template" type="text/x-handlebars-template">
         <div class="container  @{{add_class}}">
 
-          <div class="apartment_ col-6">
+          <div class="apartment_ col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
             <h3><a href="/ui_apartment/@{{id}}">@{{title}}</a></h3>
             <img src="@{{image_route}}" alt="">
              <p>@{{address}}</p>
@@ -85,7 +85,7 @@
 
 
 
-       @foreach ($app as $a)
+       <!-- @foreach ($app as $a)
 
           <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 sisi">
             <a href="{{route('ui_apartment' , ['id' => $a->id ])}}">
@@ -94,7 +94,7 @@
             </a>
           </div>
 
-        @endforeach
+        @endforeach -->
 
     </div>
     </div>

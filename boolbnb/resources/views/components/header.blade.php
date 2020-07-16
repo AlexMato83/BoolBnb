@@ -31,18 +31,18 @@
       <div class="ham">
         <ul>
           @if (Route::has('login'))
-            {{-- <div class="top-right links"> --}}
+             <div class="top-right links">
             @auth
-              {{-- <a href="{{ url('/home') }}">Home</a> --}}
+              <a href="{{ url('/home') }}">Home</a>
             @else
-              <li><a class="reg" href="#"><strong>Registrati</strong></a><li>
-                {{-- <li><a class="reg" href="{{ route('login') }}"><strong>Registrati</strong></a><li> --}}
+
+                 <li><a class="reg" href="{{ route('login') }}"><strong>Registrati</strong></a><li>
                 @if (Route::has('register'))
-                  {{-- <li><button class="tasto" type="button" name="button"><strong>Accedi</strong></button></li> --}}
-                  <a class="tasto" href="{{ route('register') }}">Accedi</a>
+                  <li><button class="tasto" type="button" name="button"><strong>Accedi</strong></button></li>
+                  
                 @endif
               @endauth
-              {{-- </div> --}}
+               </div>
             @endif
           </ul>
         </div>

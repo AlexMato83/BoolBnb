@@ -47,10 +47,10 @@ class Apartment extends Model
       ->limit(6)
       ->get();
 
-      // $app = \DB::select("SELECT DISTINCT(apartments.id) , apartments.*
-      // FROM apartments
-      // join sponsorships on apartments.id = sponsorships.apartment_id
-      // ORDER BY RAND() limit 6");
+      $app = \DB::select("SELECT DISTINCT(apartments.id) , apartments.*
+      FROM apartments
+      join sponsorships on apartments.id = sponsorships.apartment_id
+      ORDER BY RAND() limit 6");
 
       return $app;
 
