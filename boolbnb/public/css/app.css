@@ -11114,7 +11114,6 @@ a.text-dark:focus {
 .footer {
   width: 100%;
   margin-top: 40px;
-  padding-top: 40px;
   background-color: #1b3c59;
   color: white;
 }
@@ -11193,7 +11192,6 @@ a.text-dark:focus {
 .footer .social {
   text-align: center;
   font-size: 30px;
-  padding-top: 30px;
 }
 
 .footer .social i {
