@@ -3,7 +3,7 @@
 
 {{-- FILTRI DI RICERCA --}}
 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
-  <form  id="search_form"action="{{route('ui_filtered_apt')}}" method="post">
+  <form  autocomplete="off" id="search_form"action="{{route('ui_filtered_apt')}}" method="post">
     @csrf
     @method("POST")
     @if ($errors->any())

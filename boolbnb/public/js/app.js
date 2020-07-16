@@ -37589,9 +37589,72 @@ function set_template(add_class, title, image_route, address, is_sponsored, id) 
   return print_apt;
 }
 
+function autocomplete() {
+  $(window).ready(function () {
+    $("#apt_address").on("keyup", function () {
+      var address = $("#apt_address").val();
+      address = address.charAt(0).toUpperCase() + address.slice(1);
+      $(".autocomplete ul").html("");
+      $.ajax({
+        url: "https://api.tomtom.com/search/2/search/" + address + ".json?",
+        method: "GET",
+        data: {
+          key: "luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt"
+        },
+        success: function success(data) {
+          console.log(data);
+          var final_address = [];
+
+          for (var i = 0; i < data["results"].length; i++) {
+            var found_address = data["results"][i]["address"];
+
+            for (var variable in found_address) {
+              var found_address_value = found_address[variable];
+              found_address_value = found_address_value.charAt(0).toUpperCase() + found_address_value.slice(1);
+
+              if (found_address_value.includes(address) && !final_address.includes(found_address_value)) {
+                final_address.push(found_address_value);
+              }
+
+              break;
+            }
+          }
+
+          console.log("cinque risultati " + final_address);
+
+          if (final_address.length > 5) {
+            number_autocomplete(5, final_address);
+          } else {
+            number_autocomplete(final_address.length, final_address);
+          }
+        },
+        complete: function complete() {// console.log(data);
+        }
+      }); // return false;
+    });
+  });
+}
+
+function number_autocomplete(array_length, array) {
+  for (var i = 0; i < array_length; i++) {
+    $(".autocomplete ul").append("<li>" + array[i] + "</li>");
+  }
+}
+
+function click_after_autocomplete() {
+  $("body").on("click", ".autocomplete ul li", function () {
+    var each_address = $(this).text();
+    $("#apt_address").val(each_address);
+    document.getElementById("search_welcome2").click();
+  });
+}
+
 function init() {
+  autocomplete();
+
   if (document.getElementById("search_welcome2")) {
     address_to_coord('#search_welcome2', 'search_welcome');
+    click_after_autocomplete();
     keypress("search_welcome2", ".content");
     prova_api();
   }

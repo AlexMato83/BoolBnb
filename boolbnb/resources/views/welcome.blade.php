@@ -6,7 +6,7 @@
     <div class="jumbo">
 
       <div class="search">
-        <form  action="{{route('ui_apartments')}}" method="post">
+        <form  autocomplete="off" action="{{route('ui_apartments')}}" method="post">
           @csrf
           @method("POST")
           @if ($errors->any())
@@ -20,13 +20,17 @@
           @endif
 
           <input class="dove" id="apt_address" type="text" name="address" value="" placeholder="Dove vuoi andare?">
-
+          <div class="autocomplete">
+            <ul>
+            </ul>
+          </div>
           <input class="dispna" id="longitude" type="text" name="longitude" value="">
           <input class="dispna" id="latitude" type="text" name="latitude" value="">
           <input id="search_radius" class="dispna" type="number" name="search_radius" value="20">
 
 
           <input id="search_welcome" class="dispna" type="submit" name="">
+
         </form>
         <button class="cerca" id="search_welcome2" type="button" name="" value="">Cerca</button>
         {{-- <button id="provaApi" type="button" name="button">Prova Api</button> --}}

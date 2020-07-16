@@ -72,3 +72,10 @@
     }
   }
 }
+.autocomplete {
+  position: relative;
+  & > ul {
+    position: absolute;
+    list-style-type: none;
+  }
+}

@@ -11299,6 +11299,15 @@ a.text-dark:focus {
   padding-top: 10px;
 }
 
+.autocomplete {
+  position: relative;
+}
+
+.autocomplete > ul {
+  position: absolute;
+  list-style-type: none;
+}
+
 .filtri {
   background-color: white;
   height: 42px;
