@@ -42,24 +42,22 @@
 
   <div class="evidenza">
     <h2>Appartamenti consigliati</h2>
-    <div class="apartments">
-      <div class="apartment row"></div>
 
-    </div>
-    <div class="apartments ">
-    <div class="apartment row">
-      <div id="welcome_sponsored_apt">
+    <div class="apartments">
+    <div class="apartment">
+      <div id="welcome_sponsored_apt" class="row">
 
       </div>
-
 
       {{-- HANDELBARS --}}
 
       <script id="giacomino-template" type="text/x-handlebars-template">
-        <div class="container_ @{{add_class}}">
+        <div class="container_ col-4 @{{add_class}}">
           <div class="apartment_ ">
             <h3><a href="/ui_apartment/@{{id}}">@{{title}}</a></h3>
-            <img src="@{{image_route}}" alt="">
+            <div class="image-box">
+              <img src="@{{image_route}}" alt="">
+            </div>
              <p>@{{address}}</p>
              <span>@{{sponsorship}}</span>
           </div>

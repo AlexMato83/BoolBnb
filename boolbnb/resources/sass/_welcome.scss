@@ -54,13 +54,25 @@
   	display: flex;
   	padding-top: 20pX;
     #welcome_sponsored_apt{
+      .container_{
+        height: 330px;
+      }
       display: flex;
       margin: auto;
+      .apartment_{
+        width: 100%;
+        .image-box{
+          height: 250px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
       img {
-        height: 250px;
+        max-height:250px;
         width: 95%;
-        margin: 2%;
-        padding: 5px;
+        // margin: 2%;
+        // padding: 5px;
         border-radius: 3%;
       }
 
@@ -71,6 +83,10 @@
       }
     }
   }
+}
+.apartment{
+  width: 100%;
+
 }
 .autocomplete {
   position: relative;

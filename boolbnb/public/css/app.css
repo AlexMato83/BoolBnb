@@ -11285,11 +11285,24 @@ a.text-dark:focus {
   margin: auto;
 }
 
-.evidenza .apartments #welcome_sponsored_apt img {
+.evidenza .apartments #welcome_sponsored_apt .container_ {
+  height: 330px;
+}
+
+.evidenza .apartments #welcome_sponsored_apt .apartment_ {
+  width: 100%;
+}
+
+.evidenza .apartments #welcome_sponsored_apt .apartment_ .image-box {
   height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.evidenza .apartments #welcome_sponsored_apt img {
+  max-height: 250px;
   width: 95%;
-  margin: 2%;
-  padding: 5px;
   border-radius: 3%;
 }
 
@@ -11297,6 +11310,10 @@ a.text-dark:focus {
   margin: 2%;
   font-size: 18px;
   padding-top: 10px;
+}
+
+.apartment {
+  width: 100%;
 }
 
 .autocomplete {
