@@ -1,61 +1,94 @@
 
+{{-- Navbar --}}
 
-<div class="offset-1 col-5 offset-sm-1 col-sm-5 offset-md-1 col-md-5 offset-lg-1 col-lg-3 offset-xl-1 col-xl-3">
-  <div class="logo">
-    <a href="{{route('welcome')}}"><img src="/img/logo.jpg"></a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
 
 
-  </div>
-  <div class="barre">
-      <i class="fas fa-bars"></i>
-    </a>
-  </div>
-</div>
+  <a class="navbar-brand" href="{{route('welcome')}}">
+    <img src="/img/logoNav.png" alt="">
+  </a>
 
-@auth
-  {{-- deve sparire navigazione prova --}}
-@else
 
-  <div class="offset-md-2 col-md-4 offset-lg-4 col-lg-4 offset-xl-4 col-xl-4">
-    <div class="navigazione prova  " >
-      <ul>
-        <li><button class="reg" type="button" name="button"><strong>Registrati</strong></button></li>
-        {{-- <li><a class="reg" href="{{ route('login') }}"><strong>Registrati</strong></a><li> --}}
 
-        <li><button class="tasto" type="button" name="button"><strong>Accedi</strong></button></li>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    @auth
+      {{-- deve sparire navigazione prova --}}
+    @else
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active ">
+        <a class="nav-link" href="{{route('welcome')}}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link reg" href="#">Registrati</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link tasto" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Accedi
+        </a>
+      </li>
+    </ul>
+    @endauth
+
+
+    @auth
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+      </form>
+
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{route('welcome')}}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="accesso_effettuato nav-link" href="{{route('user_apartments')}}">I Miei Appartamenti</a>
+          </li>
+          <li>
+            <a class="accesso_effettuato nav-link" href="{{route('show_messages')}}">I miei Messaggi</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link " href="{{ route('logout') }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+            </a>
+          </li>
       </ul>
-    </div>
-  </div>
-@endauth
+    @endauth
 
-<div class="lista_ham">
-  <div class="hamburger-menu off">
-    <div class="chiusura">
-      <a href="#" class="close">
-        <i class="fas fa-times"></i>
-      </a>
-    </div>
-    <div class="ham">
-      <ul>
-        @if (Route::has('login'))
-          {{-- <div class="top-right links"> --}}
-          @auth
-            {{-- <a href="{{ url('/home') }}">Home</a> --}}
-          @else
-            <li><a class="reg" href="#"><strong>Registrati</strong></a><li>
-              {{-- <li><a class="reg" href="{{ route('login') }}"><strong>Registrati</strong></a><li> --}}
-              @if (Route::has('register'))
-                {{-- <li><button class="tasto" type="button" name="button"><strong>Accedi</strong></button></li> --}}
-                <a class="tasto" href="{{ route('register') }}">Accedi</a>
-              @endif
-            @endauth
-            {{-- </div> --}}
-          @endif
-
-        </ul>
-      </div>
-    </div>
+    {{-- Dove vuoi andare  --}}
+    <form class="form-inline my-2 my-lg-0" action="{{route('ui_apartments')}}" method="post">
+        <form  autocomplete="off" action="{{route('ui_apartments')}}" method="post">
+          @csrf
+             @method("POST")
+             @if ($errors->any())
+               <div class="alert alert-danger">
+                 <ul>
+                   @foreach ($errors->all() as $error)
+                     <li>{{ $error }}</li>
+                   @endforeach
+                 </ul>
+               </div>
+             @endif
+          <input id="apt_address" type="text" name="address" value="" placeholder="Dove vuoi andare?" class="form-control mr-sm-2 dove" type="search" placeholder="Search" aria-label="Search">
+          <div class="autocomplete">
+            <ul>
+            </ul>
+          </div>
+          <input class="dispna" id="longitude" type="text" name="longitude" value="">
+          <input class="dispna" id="latitude" type="text" name="latitude" value="">
+          <input id="search_radius" class="dispna" type="number" name="search_radius" value="20">
+          <input id="search_welcome" class="dispna" type="submit" name="">
+        </form>
+      <button class="cerca btn btn-outline-success my-2 my-sm-0" id="search_welcome2" type="button" name="" value="">Cerca</button>
+    </form>
   </div>
+</nav>
+
 
   <div class="accedi off">
 
@@ -131,26 +164,7 @@
         </div>
       </div>
 
-      <div class="registrati off">
-        <!-- {{-- <div class="input">
-        <h1>Registrati</h1>
-        <input type="email" id="mail" name="email" class="form-control" placeholder="Inserisci la tua email">
-      </div>
-      <div class="input">
-      <input type="password" id="password" class="form-control" placeholder="Inserisci la tua password">
-    </div>
-    <div class="input">
-    <input type="text" id="nome" class="form-control" placeholder="Inserisci il tuo nome">
-  </div>
-  <div class="input">
-  <input type="text" id="cognome" class="form-control" placeholder="Inserisci il tuo cognome">
-</div>
-<div class="input">
-<input type="date" id="dataDiNascita" class="form-control" placeholder="Inserisci la tua data di nascita">
-</div>
-<div class="continua">
-<button type="button" class="rimuovi" name="button">Continua</button>
-</div> --}} -->
+<div class="registrati off">
 
 <div class="container">
   <div class="row justify-content-center">
@@ -256,27 +270,3 @@
           </div>
 
         </div>
-
-        <header>
-
-
-
-          @auth
-
-
-            <div class="loginlogout col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-              </form>
-              <a class="accesso_effettuato sinistra" href="{{route('user_apartments')}}">I Miei Appartamenti</a><br>
-              <a class="accesso_effettuato destra" href="{{route('show_messages')}}">I miei Messaggi</a><br>
-              <button class="dropdown-item" style=color:"green" href="{{ route('logout') }}"
-              onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();">
-              {{ __('Logout') }}
-            </button>
-          </div>
-        @endauth
-
-      </header>

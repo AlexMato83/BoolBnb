@@ -37314,7 +37314,7 @@ function address_to_coord(button, submit, next_funct) {
 
 function prova_api() {
   $.ajax({
-    url: "http://localhost:8000/welcome_show",
+    url: "http://127.0.0.1:8000/welcome_show",
     method: "GET",
     success: function success(data) {
       var apartments_found = JSON.parse(data);
@@ -37333,10 +37333,7 @@ function prova_api() {
           var is_sponsored = "SPONSORED";
           var print_template = set_template(add_class, title, image_route, address, is_sponsored, id);
           $("#welcome_sponsored_apt").append(print_template);
-        } // for (var i = 0; i < variabile.length; i++) {
-        // $(".apartment").append('<div class="col-4"><img src='+variabile[i].images+'><h3>'+variabile[i].name+'</h3></div>');
-        // }
-
+        }
       } catch (err) {
         _iterator.e(err);
       } finally {
@@ -37393,7 +37390,7 @@ function create_paymethond_and_pay() {
   var token, apartment_id, price, title, start_date, nonce;
   $.ajax({
     type: "GET",
-    url: "http://localhost:8000/token_generate",
+    url: "http://127.0.0.1:8000/token_generate",
     success: function success(token_generate) {
       token = token_generate;
       braintree.dropin.create({
@@ -37418,7 +37415,7 @@ function create_paymethond_and_pay() {
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
-      url: "http://localhost:8000/payment",
+      url: "http://127.0.0.1:8000/payment",
       method: "POST",
       data: {
         nonce: nonce,
@@ -37435,7 +37432,7 @@ function create_paymethond_and_pay() {
           var data = "NO";
         }
 
-        window.location.href = 'http://localhost:8000/successo/' + data;
+        window.location.href = 'http://127.0.0.1:8000/successo/' + data;
       }
     });
   });
@@ -37506,7 +37503,7 @@ function filtered_search_api() {
 
   $('#longitude').val();
   $.ajax({
-    url: 'http://localhost:8000/first_search',
+    url: 'http://127.0.0.1:8000/first_search',
     method: 'GET',
     data: {
       add: add,
