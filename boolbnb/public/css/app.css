@@ -10928,6 +10928,10 @@ a.text-dark:focus {
   }
 }
 
+nav {
+  position: fixed;
+}
+
 nav a img {
   height: 60px;
 }
@@ -10998,133 +11002,57 @@ footer img {
   font-size: 18px;
 }
 
-.filtri {
-  background-color: white;
-  height: 42px;
+.space_search {
   width: 100%;
-  margin: 30px 0;
-  display: flex;
+  height: 20px;
 }
 
-.filtri .stanze {
-  background-color: white;
-  color: #1b3c59;
-  margin-right: 15px;
-  border-radius: 10px;
-  border: 1px solid #8f8e8e;
+.dove {
   font-size: 18px;
-  padding: 4px 9px;
-  margin: 20px 0;
-  position: relative;
-}
-
-.filtri button {
-  background-color: white;
   color: #1b3c59;
-  border: none;
+  border: 1px solid #ced4da;
+  border-top-right-radius: 5px;
+  width: 100%;
+  height: 50px;
 }
 
-.filtri .stanze_letti {
-  width: 132px;
-  border-radius: 5px;
-  background-color: white;
-  color: #1b3c59;
-  font-size: 15px;
-  padding: 10px;
-}
-
-.filtri .stanze_letti .bedrooms {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.filtri .stanze_letti .bedrooms label {
-  font-weight: 500;
-}
-
-.filtri .stanze_letti .bedrooms input {
-  margin: 4px 9px 6px;
-  width: 20px;
-  height: 22px;
-}
-
-.filtri .serv {
-  background-color: white;
-  color: #1b3c59;
-  margin-right: 15px;
-  border-radius: 10px;
-  border: 1px solid #8f8e8e;
+.filtri {
+  border: 1px solid #ced4da;
+  border-top: none;
   font-size: 18px;
-  padding: 4px 9px;
-  margin: 20px 0;
-  position: relative;
-}
-
-.filtri button {
-  background-color: white;
-  color: #1b3c59;
-  border: none;
-}
-
-.filtri .servizi {
-  height: auto;
-  width: 175px;
-  border-radius: 5px;
-  background-color: white;
-  padding: 10px;
   color: #1b3c59;
 }
 
-.filtri .servizi div {
-  display: flex;
-  align-items: center;
-  font-size: 15px;
-}
-
-.filtri .servizi div input {
+.filtri #rooms,
+.filtri #beds {
   margin: 4px 9px 6px;
+  width: 45px;
+  height: 25px;
+  text-align: center;
+  border-color: #ced4da;
+}
+
+.filtri #search_radius {
+  margin-top: 10px;
+  width: 100%;
+  height: 25px;
+  text-align: center;
+  border-color: #ced4da;
+}
+
+.filtri #filtered2 {
+  background-color: #61ce4e;
+  color: white;
+  height: 50px;
+  border: none;
 }
 
 .filtri #apt_address {
-  height: 100%;
-  width: auto;
-  border: 1px solid #8f8e8e;
-  border-radius: 10px;
-  font-size: 18px;
-  padding: 4px 9px;
-  margin: 20px 0;
-}
-
-.filtri .distanza {
-  height: 100%;
-  border: 1px solid #8f8e8e;
-  border-radius: 10px;
-  font-size: 18px;
-  padding: 4px 9px;
-  margin: 20px 0;
-}
-
-.filtri .distanza input {
-  padding-left: 15px;
-  width: 65px;
   border: none;
 }
 
-.filtri .filtro_cerca {
-  background-color: #1b3c59;
-  color: white;
-  margin-right: 15px;
-  border-radius: 10px;
-  border: 1px solid #1b3c59;
-  font-size: 18px;
-  padding: 4px 9px;
-  margin: 20px 0;
-}
-
-.filtri .filtro_cerca button {
-  border: none;
-  background-color: #1b3c59;
-  color: white;
+.filtri span {
+  padding-top: 10px;
 }
 
 .results {

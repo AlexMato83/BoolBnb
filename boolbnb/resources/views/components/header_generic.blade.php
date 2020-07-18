@@ -1,7 +1,8 @@
 
 {{-- Navbar --}}
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-4 d-flex justify-content-between">
 
 
   <a class="navbar-brand" href="{{route('welcome')}}">
