@@ -13,10 +13,30 @@ nav {
 }
 
 
-.autocomplete {
+.search_container{
   position: relative;
-  & > ul {
-    position: absolute;
-    list-style-type: none;
-  }
+}
+.autocomplete{
+  z-index: 99999;
+  position: absolute;
+  width: 100%;
+  border-radius: 5px;
+  background: #1c3d58e0;
+  color: white;
+  padding: 20px;
+  top: 48px;
+  left: 0;
+  display:none;
+  p{
+    font-size:15px;
+    cursor: pointer;
+    width: 100%;
+    padding: 3px;
+    &:hover{
+      background-color: #1C3D58;
+      box-shadow: 2px 2px 2px black;
+      border-radius: 4px;
+      padding: 3px 3px 3px 15px;
+    }
+}
 }

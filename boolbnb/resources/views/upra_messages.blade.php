@@ -1,6 +1,7 @@
 @extends('layouts.mainLayout')
 
 @section('content')
+  @include('components.header_generic')
 <h1>I Miei Messaggi</h1>
   <div class="contenitore_messaggi">
   @foreach ($ordered_messages as $message)

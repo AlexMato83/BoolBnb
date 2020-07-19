@@ -61,8 +61,7 @@
     @endauth
 
     {{-- Dove vuoi andare  --}}
-    <form class="form-inline my-2 my-lg-0" action="{{route('ui_apartments')}}" method="post">
-        <form  autocomplete="off" action="{{route('ui_apartments')}}" method="post">
+    <form autocomplete="off" class="form-inline my-2 my-lg-0" action="{{route('ui_apartments')}}" method="post">
           @csrf
              @method("POST")
              @if ($errors->any())
@@ -74,21 +73,23 @@
                  </ul>
                </div>
              @endif
-          <input id="apt_address" type="text" name="address" value="" placeholder="Dove vuoi andare?" class="form-control mr-sm-2 dove" type="search" placeholder="Search" aria-label="Search">
-          <div class="autocomplete">
-            <ul>
-            </ul>
+
+          <div class='search_container'>
+            <input id="apt_address" type="text" name="address" value="" placeholder="Dove vuoi andare?" class="form-control mr-sm-2 dove" type="search" placeholder="Search" aria-label="Search">
+            <div class="autocomplete">
+              <div>
+              </div>
+            </div>
           </div>
+
           <input class="dispna" id="longitude" type="text" name="longitude" value="">
           <input class="dispna" id="latitude" type="text" name="latitude" value="">
           <input id="search_radius" class="dispna" type="number" name="search_radius" value="20">
           <input id="search_welcome" class="dispna" type="submit" name="">
         </form>
       <button class="cerca btn btn-outline-success my-2 my-sm-0" id="search_welcome2" type="button" name="" value="">Cerca</button>
-    </form>
   </div>
 </nav>
-
 
   <div class="accedi off">
 

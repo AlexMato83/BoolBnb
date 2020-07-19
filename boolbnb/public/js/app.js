@@ -37282,6 +37282,7 @@ function turfjs() {
 function address_to_coord(button, submit, next_funct) {
   $(button).click(function () {
     var address = $("#apt_address").val();
+    $(".autocomplete").hide();
     var longitude, latitude;
     $.ajax({
       url: "https://api.tomtom.com/search/2/search/" + address + ".json?",
@@ -37318,6 +37319,7 @@ function prova_api() {
     method: "GET",
     success: function success(data) {
       var apartments_found = JSON.parse(data);
+      console.log(data);
 
       var _iterator = _createForOfIteratorHelper(apartments_found),
           _step;
@@ -37590,6 +37592,7 @@ function autocomplete() {
   $(window).ready(function () {
     $("#apt_address").on("keyup", function () {
       var address = $("#apt_address").val();
+      $(".autocomplete").hide();
       address = address.charAt(0).toUpperCase() + address.slice(1);
       $(".autocomplete ul").html("");
       $.ajax({
@@ -37617,7 +37620,9 @@ function autocomplete() {
             }
           }
 
-          console.log("cinque risultati " + final_address);
+          if (data['results'].length > 0) {
+            $('.autocomplete').show();
+          }
 
           if (final_address.length > 5) {
             number_autocomplete(5, final_address);
@@ -37634,15 +37639,16 @@ function autocomplete() {
 
 function number_autocomplete(array_length, array) {
   for (var i = 0; i < array_length; i++) {
-    $(".autocomplete ul").append("<li>" + array[i] + "</li>");
+    $(".autocomplete div").append("<p>" + array[i] + "</p>");
   }
 }
 
-function click_after_autocomplete() {
-  $("body").on("click", ".autocomplete ul li", function () {
+function click_after_autocomplete(search_button) {
+  $("body").on("click", ".autocomplete div p", function () {
     var each_address = $(this).text();
     $("#apt_address").val(each_address);
-    document.getElementById("search_welcome2").click();
+    $('.autocomplete').hide();
+    document.getElementById(search_button).click();
   });
 }
 
@@ -37651,7 +37657,7 @@ function init() {
 
   if (document.getElementById("search_welcome2")) {
     address_to_coord('#search_welcome2', 'search_welcome');
-    click_after_autocomplete();
+    click_after_autocomplete('search_welcome2');
     keypress("search_welcome2", ".content");
     prova_api();
   }
@@ -37675,8 +37681,10 @@ function init() {
   }
 
   if (document.getElementById("filtered2")) {
+    autocomplete();
     keypress("filtered2", ".filtri");
     address_to_coord('#filtered2', null, filtered_search_api);
+    click_after_autocomplete("filtered2");
     filtered_search_api();
   }
 

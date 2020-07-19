@@ -1,6 +1,7 @@
 @extends('layouts.mainLayout')
 
 @section('content')
+  @include('components.header_generic')
   <div class="contenitore_statistiche">
     <h1>Statistiche appartamento</h1>
     <div class="statistics">

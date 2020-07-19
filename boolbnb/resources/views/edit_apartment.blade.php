@@ -1,6 +1,7 @@
 @extends('layouts.mainLayout')
 
 @section('content')
+  @include('components.header_generic')
 
   <form  action="{{route('update_apartment' , $apartment['id'])}}" method="post" enctype="multipart/form-data">
     @csrf

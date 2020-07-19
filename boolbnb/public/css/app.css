@@ -10942,13 +10942,35 @@ nav .nav-link {
   margin-right: 10px;
 }
 
-.autocomplete {
+.search_container {
   position: relative;
 }
 
-.autocomplete > ul {
+.autocomplete {
+  z-index: 99999;
   position: absolute;
-  list-style-type: none;
+  width: 100%;
+  border-radius: 5px;
+  background: #1c3d58e0;
+  color: white;
+  padding: 20px;
+  top: 48px;
+  left: 0;
+  display: none;
+}
+
+.autocomplete p {
+  font-size: 15px;
+  cursor: pointer;
+  width: 100%;
+  padding: 3px;
+}
+
+.autocomplete p:hover {
+  background-color: #1C3D58;
+  box-shadow: 2px 2px 2px black;
+  border-radius: 4px;
+  padding: 3px 3px 3px 15px;
 }
 
 footer {
@@ -11055,184 +11077,42 @@ footer img {
   padding-top: 10px;
 }
 
-.results {
-  margin: 100px 0;
+.appartamento {
+  border: 1px solid #ced4da;
 }
 
-.results h1 {
-  margin: 20px 0;
+.search_container2 {
+  position: relative;
 }
 
-.results .apartments_reserch .row #sponsored_apt,
-.results .apartments_reserch .row #normal_apt {
-  display: flex;
-  flex-wrap: wrap;
+.search_container2 .autocomplete {
+  z-index: 99999;
+  position: absolute;
   width: 100%;
-}
-
-.results .apartments_reserch .row #sponsored_apt .container_,
-.results .apartments_reserch .row #normal_apt .container_ {
-  width: 33%;
-  height: 350px;
-}
-
-.results .apartments_reserch .row #sponsored_apt .apartment_,
-.results .apartments_reserch .row #normal_apt .apartment_ {
-  margin: auto;
-  max-width: 95%;
-}
-
-.results .apartments_reserch .row #sponsored_apt .apartment_ img,
-.results .apartments_reserch .row #normal_apt .apartment_ img {
-  width: 100%;
-  height: 250px;
-}
-
-.results .apartments_reserch .row #sponsored_apt .apartment_ h3,
-.results .apartments_reserch .row #normal_apt .apartment_ h3 {
-  font-size: 25px;
-}
-
-.results .apartments_reserch .row #sponsored_apt .apartment_ p,
-.results .apartments_reserch .row #normal_apt .apartment_ p {
-  font-size: 20px;
-}
-
-.results .apartments_reserch .row .caratteristiche_reserch {
-  height: 100%;
-  width: 100%;
-}
-
-.results .apartments_reserch .row .caratteristiche_reserch {
-  height: 100%;
-  width: 100%;
-}
-
-@media screen and (max-width: 575px) {
-  .results {
-    margin: 150px 0;
-  }
-}
-
-.content {
-  margin: 0 7%;
-}
-
-h1 {
-  margin-top: 30px;
-  font-weight: 700;
-  font-size: 26px;
-}
-
-.foto {
-  margin-top: 30px;
-  margin-bottom: 20px;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-}
-
-.foto img {
-  height: 100%;
-  width: 100%;
-  margin-bottom: 60px;
   border-radius: 5px;
-}
-
-.descr {
-  font-size: 20px;
-  text-align: center;
-  height: 100%;
-  margin-bottom: 20px;
-}
-
-.carat {
-  text-align: left;
-  height: 100%;
-  margin-bottom: 20px;
-}
-
-.carat ul li {
-  font-size: 20px;
-}
-
-.map {
-  text-align: center;
-  height: 100%;
-  margin-top: 40px;
-}
-
-.map #map {
-  height: 350px !important;
-  width: 450px !important;
-}
-
-.map_proprietario {
-  height: 350px;
-  width: 100%;
-  margin: 5% 0;
-}
-
-.map_proprietario #map {
-  height: 100% !important;
-  width: 100% !important;
-}
-
-.msg {
-  border: 1px solid #1b3c59;
-  margin-top: 40px;
-  text-align: center;
-  height: 350px !important;
-  width: 450px !important;
-}
-
-.msg h1 {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-}
-
-.modifica {
-  display: flex;
-  margin: auto;
-  justify-content: space-around;
-}
-
-.modifica div {
-  font-size: 20px;
-}
-
-.insert_dati #mail_msg {
-  height: 50px;
-  width: 80%;
-  margin: auto;
-  margin-bottom: 10px;
-  font-size: 18px;
-}
-
-.insert_dati #message {
-  height: 100px;
-  width: 80%;
-  font-size: 18px;
-  margin: auto;
-}
-
-.invia button {
-  font-size: 15px;
-  font-weight: bold;
-  padding: 2% 5%;
-  background-color: #1b3c59;
+  background: #1c3d58e0;
   color: white;
-  box-shadow: none;
-  border-radius: 5px;
-  margin: 5% 0;
-  border: none;
+  padding: 20px;
+  top: 105px;
+  left: 0;
 }
 
-@media screen and (min-width: 767.98px) {
-  .descr {
-    text-align: left;
-  }
+.search_container2 .autocomplete div {
+  width: 100%;
+}
+
+.search_container2 .autocomplete div p {
+  font-size: 15px;
+  cursor: pointer;
+  width: 100%;
+  padding: 3px;
+}
+
+.search_container2 .autocomplete div p:hover {
+  background-color: #1C3D58;
+  box-shadow: 2px 2px 2px black;
+  border-radius: 4px;
+  padding: 3px 3px 3px 15px;
 }
 
 .crea_appartamento {

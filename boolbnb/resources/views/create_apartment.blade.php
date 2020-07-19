@@ -1,6 +1,7 @@
 @extends('layouts.mainLayout')
 
 @section('content')
+  @include('components.header_generic')
 
   <form  action="{{route('store_apartment')}}" method="post" enctype="multipart/form-data">
     @csrf

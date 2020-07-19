@@ -4,9 +4,9 @@
 
 {{-- FILTRI DI RICERCA --}}
 <div class="container-fluid">
-  <div class="row ml-2 ">
+  <div class="row mx-2">
 
-    <div class="col-2">
+    <div class="col-12 col-sm-6 col-md-3 col-lg-2">
       <form  autocomplete="off" id="search_form"action="{{route('ui_filtered_apt')}}" method="post">
         @csrf
         @method("POST")
@@ -21,7 +21,13 @@
         @endif
 
         {{-- Dove vuoi andare --}}
-        <input class="dove mt-5 mr-5 pl-3" id="apt_address" type="location" name="address" value="{{$add}}" class="form-control" placeholder="Dove vuoi andare?">
+        <div class='search_container2'>
+          <input class="dove mt-5 mr-5 pl-3" id="apt_address" type="location" name="address" value="{{$add}}" class="form-control" placeholder="Dove vuoi andare?">
+          <div class="autocomplete">
+            <div>
+            </div>
+          </div>
+        </div>
 
         <div class="filtri">
           <div class="space_search"></div>
@@ -48,7 +54,7 @@
               {{$service['name']}}
             </div>
           @endforeach
-          <div class="space_search"></div><hr>
+          <hr>
 
           {{-- Distanza --}}
           <div class="distanza mx-3">
@@ -68,21 +74,16 @@
     </div>
 
 
-    <div class="col-9">
-      <div class="results">
-        <h1>Risultati ricerca</h1>
-        <div class="apartments_reserch">
-          <div class="row">
-            <div id="sponsored_apt">
-
-            </div>
-            <div id="normal_apt">
-
-            </div>
-          </div>
+    <div class="col-12 col-md-9 col-lg-10">
+      <div class="results mt-5">
+        <h1 class="titolo-principale mb-3">I risultati della tua ricerca</h1>
+        <div class="row" id="sponsored_apt">
+        </div>
+        <div class="row" id="normal_apt">
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -90,14 +91,19 @@
 {{-- HANDELBARS --}}
 
 <script id="giacomino-template" type="text/x-handlebars-template">
-<div class="container_ @{{add_class}}">
-<div class="apartment_ ">
-<h3><a href="/ui_apartment/@{{id}}">@{{title}}</a></h3>
-<img src="@{{image_route}}" alt="">
- <p>@{{address}}</p>
- <span>@{{sponsorship}}</span>
-</div>
-</div>
+  <div class="appartamento rounded-left mx-4 mb-4 col-12 @{{add_class}}">
+    <div class="row">
+      <div class="col-5 p-0">
+        <img class="w-100 rounded-left" src="@{{image_route}}" alt="">
+      </div>
+      <div class="col-6">
+        <h3><a href="/ui_apartment/@{{id}}">@{{title}}</a></h3>
+        <p>@{{address}}</p>
+        <span>@{{sponsorship}}</span>
+      </div>
+
+    </div>
+  </div>
 </script>
 
 {{-- HANDELBARS --}}

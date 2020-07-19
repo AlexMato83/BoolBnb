@@ -1,6 +1,7 @@
 @extends('layouts.mainLayout')
 
 @section('content')
+  @include('components.header_generic')
   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
     <h1>I miei appartamenti</h1>
   <div class="col-md-6 col-lg-6 col-xl-6">

@@ -1,5 +1,6 @@
 @extends('layouts.payment_layout')
 @section('content')
+  @include('components.header_generic')
 <p id='apt_name'>{{$apartment['name']}}</p>
 <p id='id' class='dispna'>{{$apartment['id']}}</p>
 <p id='price' class="dispna">{{$sponsorshipstype['price']}}</p>
