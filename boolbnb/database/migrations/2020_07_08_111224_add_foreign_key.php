@@ -19,10 +19,10 @@ class AddForeignKey extends Migration
               ->references('id')
               ->on('users')
               ->onDelete('cascade');
-        $table->foreign('category_id', 'category_apt')
-              ->references('id')
-              ->on('categories')
-              ->onDelete('cascade');
+        // $table->foreign('category_id', 'category_apt')
+        //       ->references('id')
+        //       ->on('categories')
+        //       ->onDelete('cascade');
 
       });
 
@@ -81,7 +81,7 @@ class AddForeignKey extends Migration
         Schema::table('apartments', function (Blueprint $table) {
 
           $table->dropForeign('user_apt');
-          $table->dropForeign('category_apt');
+        //   $table->dropForeign('category_apt');
 
         });
 
@@ -107,7 +107,7 @@ class AddForeignKey extends Migration
 
         Schema::table('views', function (Blueprint $table) {
 
-          $table->dropForeign('apart_view');    
+          $table->dropForeign('apart_view');
         });
     }
 }

@@ -11235,6 +11235,8 @@ a.text-dark:focus {
   padding: 3px;
   border-radius: 5px;
   background-color: #f0f1f2;
+  display: flex;
+  justify-content: space-between;
 }
 
 .search .dove {
@@ -11254,14 +11256,43 @@ a.text-dark:focus {
   box-shadow: none;
   border-radius: 5px;
   border: none;
-  margin-top: -40px;
-  float: right;
 }
 
 .search button i {
   padding-right: 7px;
   font-size: 15px;
   font-weight: 550;
+}
+
+.search_container {
+  position: relative;
+}
+
+.autocomplete {
+  z-index: 99999;
+  position: absolute;
+  width: 100%;
+  border-radius: 5px;
+  background: #1c3d58e0;
+  color: white;
+  padding: 20px;
+  top: 48px;
+  left: 0;
+  display: none;
+}
+
+.autocomplete p {
+  font-size: 15px;
+  cursor: pointer;
+  width: 100%;
+  padding: 3px;
+}
+
+.autocomplete p:hover {
+  background-color: #1c3d58;
+  box-shadow: 2px 2px 2px black;
+  border-radius: 4px;
+  padding: 3px 3px 3px 15px;
 }
 
 .evidenza {
@@ -11300,7 +11331,7 @@ a.text-dark:focus {
   align-items: center;
 }
 
-.evidenza .apartments #welcome_sponsored_apt img {
+.evidenza .apartments #welcome_sponsored_apt .apartment_ .image-box img {
   max-height: 250px;
   width: 95%;
   border-radius: 3%;
@@ -11314,15 +11345,6 @@ a.text-dark:focus {
 
 .apartment {
   width: 100%;
-}
-
-.autocomplete {
-  position: relative;
-}
-
-.autocomplete > ul {
-  position: absolute;
-  list-style-type: none;
 }
 
 .filtri {
@@ -11412,14 +11434,47 @@ a.text-dark:focus {
   margin: 4px 9px 6px;
 }
 
+.filtri .search_container {
+  position: relative;
+}
+
 .filtri #apt_address {
-  height: 100%;
   width: auto;
   border: 1px solid #8f8e8e;
   border-radius: 10px;
   font-size: 18px;
   padding: 4px 9px;
   margin: 20px 0;
+}
+
+.filtri .autocomplete {
+  z-index: 99999;
+  position: absolute;
+  width: 100%;
+  border-radius: 5px;
+  background: #1c3d58e0;
+  color: white;
+  padding: 20px;
+  top: 61px;
+  left: 0;
+}
+
+.filtri .autocomplete div {
+  width: 100%;
+}
+
+.filtri .autocomplete div p {
+  font-size: 15px;
+  cursor: pointer;
+  width: 100%;
+  padding: 3px;
+}
+
+.filtri .autocomplete div p:hover {
+  background-color: #1c3d58;
+  box-shadow: 2px 2px 2px black;
+  border-radius: 4px;
+  padding: 3px 3px 3px 15px;
 }
 
 .filtri .distanza {

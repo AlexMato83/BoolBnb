@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Apartment;
-use App\Category;
+// use App\Category;
 use App\User;
 
 
@@ -19,8 +19,8 @@ class ApartmentSeeder extends Seeder
                                     -> each(function ($apartment){
             $user = User::inRandomOrder() -> first();
             $apartment->user() -> associate($user);
-            $category = Category::inRandomOrder() -> first();
-            $apartment -> category() -> associate($category);
+            // $category = Category::inRandomOrder() -> first();
+            // $apartment -> category() -> associate($category);
             $apartment -> save();
         });
     }

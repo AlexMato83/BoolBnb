@@ -18,11 +18,12 @@
               </ul>
             </div>
           @endif
-
-          <input class="dove" id="apt_address" type="text" name="address" value="" placeholder="Dove vuoi andare?">
-          <div class="autocomplete">
-            <ul>
-            </ul>
+          <div class="search_container">
+              <input class="dove" id="apt_address" type="text" name="address" value="" placeholder="Dove vuoi andare?">
+              <div class="autocomplete">
+                <div>
+                </div>
+              </div>
           </div>
           <input class="dispna" id="longitude" type="text" name="longitude" value="">
           <input class="dispna" id="latitude" type="text" name="latitude" value="">
@@ -54,7 +55,7 @@
       <script id="giacomino-template" type="text/x-handlebars-template">
         <div class="container_ col-4 @{{add_class}}">
           <div class="apartment_ ">
-            <h3><a href="/ui_apartment/@{{id}}">@{{title}}</a></h3>
+            <h3><a href="/new_view/@{{id}}">@{{title}}</a></h3>
             <div class="image-box">
               <img src="@{{image_route}}" alt="">
             </div>
@@ -63,19 +64,6 @@
           </div>
         </div>
        </script>
-
-
-
-      {{-- HANDELBARS --}}
-
-        {{-- @foreach ($app as $a)
-          <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-            <a href="{{route('ui_apartment' , ['id' => $a->id ])}}">
-              <img src='{{$a->images}}'>
-              <h3>{{$a->name}}</h3>
-            </a>
-          </div>
-        @endforeach --}}
     </div>
     </div>
   </div>

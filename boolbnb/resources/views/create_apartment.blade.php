@@ -52,10 +52,10 @@
 
 
       <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue">
-        <label for="descr">Descrizione</label>
-        <input type="text" name="descr" value="">
+        <label for="description">Descrizione</label>
+        <input type="text" name="description" value="">
       </div>
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue ridim selectsi">
+      {{-- <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue ridim selectsi">
 
         <label for="category_id">Tipo di appartamento</label>
         <select class="" name="category_id">
@@ -64,7 +64,7 @@
 
           @endforeach
         </select>
-      </div>
+      </div> --}}
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 dimdue">
 
 
@@ -74,9 +74,8 @@
     </div>
 
 
-    <label class="color" for="services[] ">SERVICES</label>
+    <label class="color" for="services[] ">Servizi</label>
     @foreach ($services as $service)
-
       <div class="col-4 col-sm-4 col-md-3 col-lg-3 col-xl-3 display">
         <div class="flexino">
           <input class="checkbox" type="checkbox" name="services[]" value="{{$service['id']}}">

@@ -55,8 +55,8 @@
 
 
       <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue">
-        <label for="descr">Descrizione</label>
-        <input type="text" name="descr" value="">
+        <label for="description">Descrizione</label>
+        <input type="text" name="description" value="{{$apartment['description']}}">
       </div>
       <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 dimdue">
 
@@ -86,7 +86,7 @@
 
       <!-- </div> -->
     @endforeach
-    <div class="selectsi">
+    {{-- <div class="selectsi">
 
 
       <label for="category_id">Tipo di appartamento</label>
@@ -100,8 +100,8 @@
           >{{$category['name']}}</option>
 
         @endforeach
-      </div>
-    </select>
+    </div>
+    </select> --}}
     <div class=" col-12  col-sm-12  col-md-12  col-lg-12  col-xl-12 selectsi d-flex align-items-end">
       <div>
         <label for="visibility">Appartamento visibile sul sito</label>
@@ -116,7 +116,7 @@
         </select>
       </div>
 
-      <label for="visibility">visibility</label>
+      {{-- <label for="visibility">visibility</label>
             <select class="" name="visibility">
               <option value="0" @if ($apartment["visibility"] == 0)
                 selected
@@ -126,7 +126,7 @@
               @endif>Si</option>
             </select>
 
-      </select>
+      </select> --}}
     </div>
 
     <input id="update" class="dispna" type="submit" name="" value="">

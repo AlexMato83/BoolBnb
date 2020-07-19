@@ -47,9 +47,13 @@
           @endforeach
         </div>
       </div>
-
-      <input id="apt_address" type="location" name="address" value="{{$add}}" class="form-control" placeholder="Dove vuoi andare?">
-
+      <div class="search_container">
+          <input id="apt_address" type="location" name="address" value="{{$add}}" class="form-control" placeholder="Dove vuoi andare?">
+          <div class="autocomplete">
+            <div>
+            </div>
+          </div>
+      </div>
       <div class="distanza">
         <span>Distanza</span>
         <input class="dist" id="search_radius" type="number" name="search_radius" value="20">
@@ -97,7 +101,7 @@
         <script id="giacomino-template" type="text/x-handlebars-template">
           <div class="container_ @{{add_class}}">
             <div class="apartment_ ">
-              <h3><a href="/ui_apartment/@{{id}}">@{{title}}</a></h3>
+              <h3><a href="/new_view/@{{id}}">@{{title}}</a></h3>
               <img src="@{{image_route}}" alt="">
                <p>@{{address}}</p>
                <span>@{{sponsorship}}</span>

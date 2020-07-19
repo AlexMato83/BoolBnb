@@ -12,7 +12,7 @@ use App\Apartment;
 use App\Sponsorshipstype;
 use Auth;
 use App\Sponsorship;
-use App\Category;
+// use App\Category;
 use App\Service;
 class ApiController extends Controller
 {
@@ -33,6 +33,12 @@ class ApiController extends Controller
 
         return view("prova_api" , compact("apartments"));
     }
+
+    public function error()
+    {
+        return view('error');
+    }
+
     public function token_generate()
     {
         return view("token_generate");
@@ -90,7 +96,7 @@ class ApiController extends Controller
         $latitude = $_GET['latitude'];
         $add = $_GET['add'];
         $services = Service::all();
-        $categories = Category::all();
+        // $categories = Category::all();
         $center_lat = $latitude;
         $center_long = $longitude;
         $apartments_all = Apartment::all();

@@ -18,6 +18,7 @@ $factory->define(Apartment::class, function (Faker $faker) {
       'bathrooms'=>rand(1,6),
       'beds'=>rand(1,6),
       'images'=> $faker-> imageUrl(),
+      'description'=> $faker -> sentence(),
       'visibility'=>$faker ->boolean(50),
 
     ];

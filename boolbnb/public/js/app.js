@@ -37282,6 +37282,7 @@ function turfjs() {
 function address_to_coord(button, submit, next_funct) {
   $(button).click(function () {
     var address = $("#apt_address").val();
+    $('.autocomplete').hide();
     var longitude, latitude;
     $.ajax({
       url: "https://api.tomtom.com/search/2/search/" + address + ".json?",
@@ -37290,7 +37291,6 @@ function address_to_coord(button, submit, next_funct) {
         key: "fSCco31rI9Of9Ud1l5pLOfJen1zv8Gw0"
       },
       success: function success(data) {
-        console.log(data);
         var position = data.results[0]["position"];
         latitude = position.lat;
         longitude = position.lon;
@@ -37309,14 +37309,79 @@ function address_to_coord(button, submit, next_funct) {
     }).done(function (submit) {// document.getElementById(submit).click()
     });
   });
+}
+
+function autocomplete() {
+  $(window).ready(function () {
+    $("#apt_address").on("keyup", function () {
+      var address = $("#apt_address").val();
+      $('.autocomplete').hide();
+      address = address.charAt(0).toUpperCase() + address.slice(1);
+      $('.autocomplete div').html('');
+      $.ajax({
+        url: "https://api.tomtom.com/search/2/search/" + address + ".json?",
+        method: "GET",
+        data: {
+          key: "luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt"
+        },
+        success: function success(data) {
+          //   console.log(data);
+          var final_address = [];
+
+          for (var i = 0; i < data['results'].length; i++) {
+            var found_address = data['results'][i]['address'];
+
+            for (var variable in found_address) {
+              var found_address_value = found_address[variable];
+              found_address_value = found_address_value.charAt(0).toUpperCase() + found_address_value.slice(1);
+
+              if (found_address_value.includes(address) && !final_address.includes(found_address_value)) {
+                final_address.push(found_address_value);
+              }
+
+              break;
+            }
+          }
+
+          if (data['results'].length > 0) {
+            $('.autocomplete').show();
+          }
+
+          if (final_address.length > 5) {
+            number_autocomplete(5, final_address);
+          } else {
+            number_autocomplete(final_address.length, final_address);
+          }
+        },
+        complete: function complete() {// console.log(data);
+        }
+      }); // return false;
+    });
+  });
+}
+
+function number_autocomplete(array_length, array) {
+  for (var i = 0; i < array_length; i++) {
+    $('.autocomplete div').append('<p>' + array[i] + '</p>');
+  }
+}
+
+function click_after_autocomplete(search_button) {
+  $('body').on("click", ".autocomplete div p", function () {
+    var each_address = $(this).text();
+    $('#apt_address').val(each_address);
+    document.getElementById(search_button).click();
+    $('.autocomplete').hide();
+  });
 } //****************//
 
 
 function prova_api() {
   $.ajax({
-    url: "http://localhost:8000/welcome_show",
+    url: "http://127.0.0.1:8000/welcome_show",
     method: "GET",
     success: function success(data) {
+      console.log(JSON.parse(data));
       var apartments_found = JSON.parse(data);
 
       var _iterator = _createForOfIteratorHelper(apartments_found),
@@ -37393,9 +37458,10 @@ function create_paymethond_and_pay() {
   var token, apartment_id, price, title, start_date, nonce;
   $.ajax({
     type: "GET",
-    url: "http://localhost:8000/token_generate",
+    url: "http://127.0.0.1:8000/token_generate",
     success: function success(token_generate) {
-      token = token_generate;
+      token = token_generate; // console.log(token);
+
       braintree.dropin.create({
         authorization: "sandbox_ykkqhk4c_3fq8j6rpxv3kwq76",
         selector: '#dropin-container'
@@ -37418,7 +37484,7 @@ function create_paymethond_and_pay() {
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
-      url: "http://localhost:8000/payment",
+      url: "http://127.0.0.1:8000/payment",
       method: "POST",
       data: {
         nonce: nonce,
@@ -37429,13 +37495,15 @@ function create_paymethond_and_pay() {
       },
       success: function success(speriamo) {},
       complete: function complete(speriamo) {
+        console.log(speriamo);
+
         if (speriamo.responseText == '"successo"') {
           var data = "ok";
         } else {
           var data = "NO";
         }
 
-        window.location.href = 'http://localhost:8000/successo/' + data;
+        window.location.href = 'http://127.0.0.1:8000/successo/' + data;
       }
     });
   });
@@ -37458,30 +37526,36 @@ function keypress(button, space) {
 }
 
 function layout_commands() {
+  $('.ham').hide();
+  $(".fa-times").hide();
   $(".tasto").click(function () {
-    $(".accedi").removeClass("off").addClass("on");
-    $(".registrati").removeClass("on").addClass("off");
+    $(".accedi").toggleClass("off");
+    $(".registrati").addClass("off"); //   $(".registrati").removeClass("on").addClass("off");
   });
   $(".continua").click(function () {
     $(".accedi").removeClass("on").addClass("off");
   });
   $(".reg").click(function () {
-    $(".registrati").removeClass("off").addClass("on");
-    $(".accedi").removeClass("on").addClass("off");
+    $(".registrati").toggleClass("off");
+    $(".accedi").addClass("off"); //   $(".accedi").removeClass("on").addClass("off");
   });
   $(".continua").click(function () {
     $(".registrati").removeClass("on").addClass("off");
   });
   $(".fa-bars").click(function () {
-    $(".hamburger-menu").removeClass("off").addClass("on");
-    $(".barre").removeClass("on").addClass("off");
+    $(".hamburger-menu").toggleClass("off");
+    $(".barre").toggleClass("off");
+    $(".fa-times").addClass('on');
+    $(".ham").show();
+    $(".fa-times").show();
   });
   $(".continua").click(function () {
     $(".accedi").removeClass("on").addClass("off");
   });
   $(".fa-times").click(function () {
-    $(".hamburger-menu").removeClass("on").addClass("off");
-    $(".barre").addClass("on");
+    $(".hamburger-menu").toggleClass("off");
+    $(".barre").toggleClass("off");
+    $(".ham").hide();
   });
   $(".continua").click(function () {
     $(".registrati").removeClass("on").addClass("off");
@@ -37501,12 +37575,11 @@ function filtered_search_api() {
     if ($(".checkbox")[i].checked) {
       services.push($(".checkbox")[i].getAttribute("value"));
     }
-  } // console.log("service: ",services, "beds: ", beds, "rooms: ", rooms,"add: " ,add);
-
+  }
 
   $('#longitude').val();
   $.ajax({
-    url: 'http://localhost:8000/first_search',
+    url: 'http://127.0.0.1:8000/first_search',
     method: 'GET',
     data: {
       add: add,
@@ -37520,7 +37593,7 @@ function filtered_search_api() {
     success: function success(data) {
       $("#sponsored_apt").html("");
       $("#normal_apt").html("");
-      console.log("apart_found: ", JSON.parse(data));
+      console.log(JSON.parse(data));
       var apartments_found = JSON.parse(data); //qui c e da usare handlebars
 
       var _iterator2 = _createForOfIteratorHelper(apartments_found["sponsored"]),
@@ -37589,74 +37662,16 @@ function set_template(add_class, title, image_route, address, is_sponsored, id) 
   return print_apt;
 }
 
-function autocomplete() {
-  $(window).ready(function () {
-    $("#apt_address").on("keyup", function () {
-      var address = $("#apt_address").val();
-      address = address.charAt(0).toUpperCase() + address.slice(1);
-      $(".autocomplete ul").html("");
-      $.ajax({
-        url: "https://api.tomtom.com/search/2/search/" + address + ".json?",
-        method: "GET",
-        data: {
-          key: "luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt"
-        },
-        success: function success(data) {
-          console.log(data);
-          var final_address = [];
-
-          for (var i = 0; i < data["results"].length; i++) {
-            var found_address = data["results"][i]["address"];
-
-            for (var variable in found_address) {
-              var found_address_value = found_address[variable];
-              found_address_value = found_address_value.charAt(0).toUpperCase() + found_address_value.slice(1);
-
-              if (found_address_value.includes(address) && !final_address.includes(found_address_value)) {
-                final_address.push(found_address_value);
-              }
-
-              break;
-            }
-          }
-
-          console.log("cinque risultati " + final_address);
-
-          if (final_address.length > 5) {
-            number_autocomplete(5, final_address);
-          } else {
-            number_autocomplete(final_address.length, final_address);
-          }
-        },
-        complete: function complete() {// console.log(data);
-        }
-      }); // return false;
-    });
-  });
-}
-
-function number_autocomplete(array_length, array) {
-  for (var i = 0; i < array_length; i++) {
-    $(".autocomplete ul").append("<li>" + array[i] + "</li>");
-  }
-}
-
-function click_after_autocomplete() {
-  $("body").on("click", ".autocomplete ul li", function () {
-    var each_address = $(this).text();
-    $("#apt_address").val(each_address);
-    document.getElementById("search_welcome2").click();
-  });
-}
-
 function init() {
-  autocomplete();
-
   if (document.getElementById("search_welcome2")) {
-    address_to_coord('#search_welcome2', 'search_welcome');
-    click_after_autocomplete();
-    keypress("search_welcome2", ".content");
-    prova_api();
+    autocomplete();
+
+    if (document.getElementById("search_welcome2")) {
+      address_to_coord('#search_welcome2', 'search_welcome');
+      click_after_autocomplete('search_welcome2');
+      keypress("search_welcome2", ".content");
+      prova_api();
+    }
   }
 
   if (document.getElementById("dropin-container")) {
@@ -37678,8 +37693,10 @@ function init() {
   }
 
   if (document.getElementById("filtered2")) {
+    autocomplete();
     keypress("filtered2", ".filtri");
     address_to_coord('#filtered2', null, filtered_search_api);
+    click_after_autocomplete("filtered2");
     filtered_search_api();
   }
 
@@ -37766,8 +37783,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\RepoGitNuovo\BoolBnb\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\RepoGitNuovo\BoolBnb\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/paolo/Desktop/Github/Boolean/BoolBnb/boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/paolo/Desktop/Github/Boolean/BoolBnb/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -9,7 +9,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Service;
-use App\Category;
+// use App\Category;
 use App\Apartment;
 use App\Message;
 use App\View;
@@ -27,12 +27,18 @@ class UiController extends Controller
     }
 
     public function show_ui_apartments(Request $request){
-       $services = Service::all();
-       $categories = Category::all();
-      $latitude = $request['latitude'];
-      $longitude = $request['longitude'];
-      $add = $request['address'];
-      return view('ui_apartments',compact('latitude','longitude','add','services','categories'));
+
+        $services = Service::all();
+        $latitude = $request['latitude'];
+        $longitude = $request['longitude'];
+        $add = $request['address'];
+
+        return view('ui_apartments',compact('latitude','longitude','add','services'));
+
+    }
+    public function error()
+    {
+        return view('error');
     }
 
     public function show_ui_apartment($id){
@@ -102,7 +108,7 @@ class UiController extends Controller
         }
       }
       $services = Service::all();
-      $categories = Category::all();
+    //   $categories = Category::all();
       $r_services = [];
       $validate = $request -> validate([
           //
@@ -247,7 +253,7 @@ class UiController extends Controller
 
         $add = $request['address'];
 
-    return view("ui_apartments", compact("apartments_found",'apartments','services','categories','add'));
+    return view("ui_apartments", compact("apartments_found",'apartments','services','add'));
 
     // AGGIUNGERE FILTRI : N° stanze, N° posti letto, servizi
     }
