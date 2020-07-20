@@ -6,19 +6,20 @@
   <div class="container.fluid">
 
     <!-- titolo e foto appartamento -->
-    <div class="row my-5">
+    <div class="row">
       <div class="offset-1 col-10">
         <div class="space"></div>
-        <h1 class="titolo-principale mb-3">{{$apartment['name']}}</h1>
+        <div class="space"></div>
+        <h1 class="titolo-appartamento text-center mb-3">{{$apartment['name']}}</h1>
         <h3 class="blu mb-3">{{$apartment['address']}}</h3>
       </div>
     </div>
 
     <div class="row">
       <div class="offset-1 col-7">
-        <img class="w-100" src="{{ asset($apartment['images']) }}"/>
+        <img class="w-100" src="{{asset($apartment['images']) }}"/>
       </div>
-      <div class="col-3">
+      <div class="col-3 text-center align-items-center">
         <ul>
           <li>{{$apartment['rooms']}} stanze</li>
           <li>{{$apartment['beds']}} letti</li>
@@ -28,47 +29,31 @@
       </div>
     </div>
 
-
-
-
     <!-- descrizione appartamento  -->
-    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <div class="offset-1 col-10">
+      <div class="space"></div>
+      <p class="paragrafo_appartamento">Bellissima Villa nel verde del Salento, 85 mq, tranquilla e lussuosa. La Casa è stat recentemente ristrutturata completamente. Ha un pergolato bellissimo e una terrazza grande, molto romantica.<br>
 
+      Lo spazio
+      La posizione in una zona bellissima nel cuore del Salento, residenziale e naturale allo stesso momento. 25 Km a sud di Lecce, a 5 minuti da Galatina e 3 minuti da Cutrofiano ed Aradeo.<br>
 
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-        <div class="descr">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor7
-           incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-           exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </div>
-      </div>
-
-    <!-- caratteristiche appartamento -->
-      <div class="col-12 col-sm-12 offset-md-2 col-md-4 offset-lg-2 col-lg-4 offset-xl-2 col-xl-4 ">
-        <div class="carat">
-
-        </div>
-      </div>
-
+      Accesso per gli ospiti
+      Grande giardino bellissimo con molte piante, Palme e alberi di frutta. Parcheggio privato per 2 auto. Spazi al esterno, pergolato, terrazza grande e molto di più.</p>
     </div>
 
 
-
-
     {{-- MAPPA --}}
-      <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 ">
-        <div class="map">
-
-          <div id="latitude" class="dispna">
-            {{$apartment["latitude"]}}
-          </div>
-          <div id="longitude" class="dispna">
-            {{$apartment["longitude"]}}
-          </div>
-          <div id='map'></div>
+    <div class="offset-1 col-10">
+      <div class="map">
+        <div id="latitude" class="dispna">
+          {{$apartment["latitude"]}}
         </div>
-
+        <div id="longitude" class="dispna">
+          {{$apartment["longitude"]}}
+        </div>
+        <div class="" id='map'></div>
       </div>
+    </div>
 
     <!-- scrivi + email + messaggio -->
       <div class="col-12 col-sm-12 col-md-12 col-lg-5  col-xl-5 ">

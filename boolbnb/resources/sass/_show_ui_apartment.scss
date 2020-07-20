@@ -1,6 +1,22 @@
 
+.titolo-appartamento {
+  font-size: 36px;
+}
 
+.paragrafo_appartamento {
+  font-size: 20px;
+}
 
+  // {{-- MAPPA --}}
+  .map{
+    text-align: center;
+    height: 350px;
+    margin-top:40px;
+    #map{
+      height: 400px !important;
+      width: 100% !important;
+    }
+  }
 
 // .content {
 //   margin: 0 7%;

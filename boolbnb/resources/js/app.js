@@ -243,6 +243,7 @@ function keypress(button,space){
         function() {
           $(".accedi").removeClass("off").addClass("on");
           $(".registrati").removeClass("on").addClass("off");
+          $('#myModalAccedi').appendTo("body").modal('show');
         }
       );
       $(".continua").click(
@@ -255,6 +256,7 @@ function keypress(button,space){
         function() {
           $(".registrati").removeClass("off").addClass("on");
           $(".accedi").removeClass("on").addClass("off");
+          $('#myModalRegistrati').appendTo("body").modal('show');
         }
       );
       $(".continua").click(
@@ -396,7 +398,7 @@ function keypress(button,space){
                 }
             }
               if (data['results'].length > 0) {
-                            $('.autocomplete').show();
+                  $('.autocomplete').show();
               }
 
              if (final_address.length > 5) {

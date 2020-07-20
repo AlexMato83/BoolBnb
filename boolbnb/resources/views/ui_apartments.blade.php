@@ -3,7 +3,7 @@
   @include('components.header_generic')
 
 {{-- FILTRI DI RICERCA --}}
-<div class="container-fluid">
+<div class="container-fluid content">
   <div class="row mx-2">
 
     <div class="col-12 col-sm-6 col-md-3 col-lg-2">

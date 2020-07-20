@@ -37460,6 +37460,7 @@ function layout_commands() {
   $(".tasto").click(function () {
     $(".accedi").removeClass("off").addClass("on");
     $(".registrati").removeClass("on").addClass("off");
+    $('#myModalAccedi').appendTo("body").modal('show');
   });
   $(".continua").click(function () {
     $(".accedi").removeClass("on").addClass("off");
@@ -37467,6 +37468,7 @@ function layout_commands() {
   $(".reg").click(function () {
     $(".registrati").removeClass("off").addClass("on");
     $(".accedi").removeClass("on").addClass("off");
+    $('#myModalRegistrati').appendTo("body").modal('show');
   });
   $(".continua").click(function () {
     $(".registrati").removeClass("on").addClass("off");

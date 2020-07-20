@@ -11115,101 +11115,55 @@ footer img {
   padding: 3px 3px 3px 15px;
 }
 
+.titolo-appartamento {
+  font-size: 36px;
+}
+
+.paragrafo_appartamento {
+  font-size: 20px;
+}
+
+.map {
+  text-align: center;
+  height: 350px;
+  margin-top: 40px;
+}
+
+.map #map {
+  height: 400px !important;
+  width: 100% !important;
+}
+
 .crea_appartamento {
   border-radius: 5px;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 300px;
+  height: 350px;
   background-color: #DBDBDB;
   opacity: 0.5;
   text-align: center;
 }
 
-.crea_appartamento h1 {
-  margin: auto;
-}
-
-.crea_appartamento h1 a {
-  color: #1b3c59;
-}
-
-.risultati_appartamenti_proprietario {
-  height: 100%;
-  width: 100%;
-  margin-top: 20px;
-}
-
-.risultati_appartamenti_proprietario .appartamenti_proprietario {
-  float: left;
-  height: 100%;
-  width: 100%;
-  margin-bottom: 35px;
-}
-
-.risultati_appartamenti_proprietario .appartamenti_proprietario .appartamenti_proprietario_foto {
-  height: 100%;
-  width: 100%;
-}
-
-.risultati_appartamenti_proprietario .appartamenti_proprietario .appartamenti_proprietario_foto img {
-  border-radius: 5px;
-  width: 100%;
-  height: 300px;
-  margin-bottom: 20px;
-}
-
-.risultati_appartamenti_proprietario .appartamenti_proprietario .appartamenti_proprietario_nome {
-  height: 100%;
-  width: 100%;
-}
-
-.risultati_appartamenti_proprietario .appartamenti_proprietario .appartamenti_proprietario_nome a {
-  color: #1b3c59;
-  font-size: 20px;
-}
-
-.fas {
+.crea_appartamento .fas {
   padding-top: 20px;
   padding-right: 20px;
   font-size: 250%;
 }
 
-.prova2 {
+.img-apartment {
   border-radius: 5px;
-  width: 500px;
-  height: 300px;
-  margin-bottom: 20px;
+  height: 350px;
 }
 
-.contenitore_messaggi {
-  height: 100%;
-  width: 100%;
-}
-
-.contenitore_messaggi .messaggio_destinatario {
-  height: 100%;
-  width: 70%;
-  margin-top: 25px;
+.messaggio_destinatario {
   border-bottom: 1px dotted grey;
 }
 
-.contenitore_messaggi .messaggio_destinatario h3 {
+.messaggio_destinatario h3 {
   font-size: 22px;
   font-weight: 700;
-  color: #1b3c59 !important;
 }
 
-.contenitore_messaggi .messaggio_destinatario p {
-  color: #1b3c59 !important;
+.messaggio_destinatario p {
   font-size: 15px;
-  color: black;
-  margin-bottom: 20px;
-}
-
-h1 {
-  margin-bottom: 60px;
-  color: #1b3c59 !important;
 }
 
 .contenitore_statistiche {
@@ -11328,17 +11282,20 @@ h1 {
 
 body {
   background-color: white;
+  margin-top: 85px;
 }
 
 body .accedi,
 body .registrati {
   width: 340px;
   margin: auto;
-  margin-top: 100px;
   border-radius: 5px;
   text-align: center;
   background-color: white;
   font-size: 15px;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 1060;
 }
 
 body .accedi .input,
@@ -11405,7 +11362,6 @@ body .card {
   border-radius: 5px;
   text-align: center;
   border: none;
-  border: 1px solid #DDDDDD;
 }
 
 body .bordo {
@@ -11434,15 +11390,16 @@ body .btn-primary {
   position: absolute;
 }
 
-.content {
-  padding-top: 100px;
-  width: 100%;
-  height: 100%;
-  padding-top: 130px;
-}
-
 .form-control {
   height: 40px;
   font-size: 15px;
+}
+
+.modal-content {
+  width: 80%;
+}
+
+.content {
+  min-height: 1000px;
 }
 
