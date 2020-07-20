@@ -37381,7 +37381,6 @@ function prova_api() {
     url: "http://127.0.0.1:8000/welcome_show",
     method: "GET",
     success: function success(data) {
-      console.log(JSON.parse(data));
       var apartments_found = JSON.parse(data);
 
       var _iterator = _createForOfIteratorHelper(apartments_found),
@@ -37396,7 +37395,8 @@ function prova_api() {
           var image_route = apartment["images"];
           var address = apartment["address"];
           var is_sponsored = "SPONSORED";
-          var print_template = set_template(add_class, title, image_route, address, is_sponsored, id);
+          var description = apartment['description'];
+          var print_template = set_template(add_class, title, image_route, address, is_sponsored, id, description);
           $("#welcome_sponsored_apt").append(print_template);
         } // for (var i = 0; i < variabile.length; i++) {
         // $(".apartment").append('<div class="col-4"><img src='+variabile[i].images+'><h3>'+variabile[i].name+'</h3></div>');
@@ -37608,7 +37608,8 @@ function filtered_search_api() {
           var image_route = apartment["images"];
           var address = apartment["address"];
           var is_sponsored = "SPONSORED";
-          var print_template = set_template(add_class, title, image_route, address, is_sponsored, id);
+          var description = apartment['description'];
+          var print_template = set_template(add_class, title, image_route, address, is_sponsored, id, description);
           $("#sponsored_apt").append(print_template);
         }
       } catch (err) {
@@ -37635,7 +37636,8 @@ function filtered_search_api() {
           var image_route = apartment["images"];
           var address = apartment["address"];
           var is_sponsored = "";
-          var print_template = set_template(add_class, title, image_route, address, is_sponsored, id);
+          var description = apartment['description'];
+          var print_template = set_template(add_class, title, image_route, address, is_sponsored, id, description);
           $("#normal_apt").append(print_template);
         }
       } catch (err) {
@@ -37647,7 +37649,7 @@ function filtered_search_api() {
   });
 }
 
-function set_template(add_class, title, image_route, address, is_sponsored, id) {
+function set_template(add_class, title, image_route, address, is_sponsored, id, description) {
   var source = $("#giacomino-template").html();
   var template = Handlebars.compile(source);
   var apartment_template = {
@@ -37656,7 +37658,8 @@ function set_template(add_class, title, image_route, address, is_sponsored, id) 
     "title": title,
     "image_route": image_route,
     "address": address,
-    "sponsorship": is_sponsored
+    "sponsorship": is_sponsored,
+    "description": description
   };
   var print_apt = template(apartment_template);
   return print_apt;

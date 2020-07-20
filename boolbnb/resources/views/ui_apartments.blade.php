@@ -104,6 +104,7 @@
               <h3><a href="/new_view/@{{id}}">@{{title}}</a></h3>
               <img src="@{{image_route}}" alt="">
                <p>@{{address}}</p>
+               <p>@{{description}}</p>
                <span>@{{sponsorship}}</span>
             </div>
           </div>

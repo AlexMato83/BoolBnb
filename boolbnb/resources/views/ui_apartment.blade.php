@@ -16,9 +16,7 @@
 
     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
       <div class="descr">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor7
-         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-         exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        <p>{{$apartment['description']}}</p>
       </div>
     </div>
 
@@ -30,6 +28,13 @@
           <li>{{$apartment['beds']}} letti</li>
           <li>{{$apartment['bathrooms']}} bagni</li>
           <li>{{$apartment['mq']}} mq</li>
+        </ul>
+        <ul>
+          servizi:<br>
+
+          @foreach ($apartment -> services as $service)
+             <li>{{$service['name']}}</li>
+          @endforeach
         </ul>
       </div>
     </div>

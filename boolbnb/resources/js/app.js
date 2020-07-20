@@ -149,7 +149,6 @@ function address_to_coord(button, submit, next_funct ){
       url:"http://127.0.0.1:8000/welcome_show",
       method: "GET",
       success: function(data){
-        console.log(JSON.parse(data));
         var apartments_found = JSON.parse(data)
         for (var apartment of apartments_found) {
           var id = apartment["id"];
@@ -158,7 +157,8 @@ function address_to_coord(button, submit, next_funct ){
           var image_route = apartment["images"]
           var address = apartment["address"]
           var is_sponsored = "SPONSORED"
-          var print_template = set_template(add_class,title,image_route,address,is_sponsored,id);
+          var description = apartment['description']
+          var print_template = set_template(add_class,title,image_route,address,is_sponsored,id,description);
           $("#welcome_sponsored_apt").append(print_template)
 
         }
@@ -401,7 +401,8 @@ function keypress(button,space){
           var image_route = apartment["images"]
           var address = apartment["address"]
           var is_sponsored = "SPONSORED"
-          var print_template = set_template(add_class,title,image_route,address,is_sponsored,id);
+          var description = apartment['description']
+          var print_template = set_template(add_class,title,image_route,address,is_sponsored,id,description);
           $("#sponsored_apt").append(print_template)
 
         }
@@ -415,14 +416,15 @@ function keypress(button,space){
           var image_route = apartment["images"];
           var address = apartment["address"];
           var is_sponsored = "";
-          var print_template = set_template(add_class,title,image_route,address,is_sponsored,id);
+          var description = apartment['description']
+          var print_template = set_template(add_class,title,image_route,address,is_sponsored,id,description);
           $("#normal_apt").append(print_template)
         }
       }
     });
 
   }
-  function set_template(add_class,title,image_route,address,is_sponsored,id){
+  function set_template(add_class,title,image_route,address,is_sponsored,id,description){
     var source = $("#giacomino-template").html();
     var template = Handlebars.compile(source);
     var apartment_template = {
@@ -431,7 +433,8 @@ function keypress(button,space){
      "title": title,
      "image_route": image_route,
      "address":address,
-     "sponsorship": is_sponsored
+     "sponsorship": is_sponsored,
+     "description": description
     }
     var print_apt = template(apartment_template);
     return print_apt;

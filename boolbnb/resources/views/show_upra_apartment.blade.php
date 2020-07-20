@@ -14,9 +14,7 @@
 <!-- descrizione appartamento  -->
   <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
     <div class="descr">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor7
-       incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-       exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      <p>{{$apartment['description']}}</p>
     </div>
   </div>
 

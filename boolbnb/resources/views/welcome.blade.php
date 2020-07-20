@@ -60,6 +60,7 @@
               <img src="@{{image_route}}" alt="">
             </div>
              <p>@{{address}}</p>
+             <p>@{{description}}</p>
              <span>@{{sponsorship}}</span>
           </div>
         </div>
