@@ -3,6 +3,11 @@
 @section('content')
   @include('components.header_generic')
 
+  <div class="container-fluid content">
+    <div class="row mx-5">
+
+
+
   <form  action="{{route('update_apartment' , $apartment['id'])}}" method="post" enctype="multipart/form-data">
     @csrf
     @method("POST")
@@ -18,32 +23,32 @@
 
     <div class="dim">
 
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue">
+      <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 dimdue">
         <label for="name">Nome</label>
         <input type="text" name="name" value="{{$apartment['name']}}">
       </div>
 
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue ridim">
-        <label for="mq">Metri Quadri</label>
-        <input  type="number" name="mq" value="{{$apartment['mq']}}">
-      </div>
-
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue ridim">
-        <label for="rooms">Stanze</label>
-        <input  type="number" name="rooms" value="{{$apartment['rooms']}}">
-      </div>
-
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue">
+      <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 dimdue">
         <label for="address">Indirizzo</label>
         <input id="apt_address" type="text" name="address" value="{{$apartment['address']}}">
       </div>
 
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue ridim">
+      <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 dimdue ridim">
+        <label for="mq">Metri Quadri</label>
+        <input  type="number" name="mq" value="{{$apartment['mq']}}">
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 dimdue ridim">
+        <label for="rooms">Stanze</label>
+        <input  type="number" name="rooms" value="{{$apartment['rooms']}}">
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 dimdue ridim">
         <label for="bathrooms">Bagni</label>
         <input  type="number" name="bathrooms" value="{{$apartment['bathrooms']}}">
       </div>
 
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue ridim">
+      <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 dimdue ridim">
         <label for="beds">Posti Letto</label>
         <input type="number" name="beds" value="{{$apartment['beds']}}">
       </div>
@@ -55,11 +60,11 @@
       <input class="dispna" id="latitude" type="text" name="latitude" value="">
 
 
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 dimdue">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3 dimdue">
         <label for="descr">Descrizione</label>
         <input type="text" name="descr" value="">
       </div>
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 dimdue">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 dimdue">
 
 
         <label for="images">Foto</label>
@@ -90,7 +95,7 @@
     <div class="selectsi">
 
 
-      <label for="category_id">Tipo di appartamento</label>
+      {{-- <label for="category_id">Tipo di appartamento</label>
       <select class="" name="category_id">
         @foreach ($categories as $category)
           <option value="{{$category['id']}}"
@@ -100,7 +105,7 @@
 
           >{{$category['name']}}</option>
 
-        @endforeach
+        @endforeach --}}
       </div>
     </select>
     <div class=" col-12  col-sm-12  col-md-12  col-lg-12  col-xl-12 selectsi d-flex align-items-end">
@@ -117,15 +122,7 @@
         </select>
       </div>
 
-      <label for="visibility">visibility</label>
-            <select class="" name="visibility">
-              <option value="0" @if ($apartment["visibility"] == 0)
-                selected
-              @endif>No</option>
-              <option value="1" @if ($apartment["visibility"] == 1)
-                selected
-              @endif>Si</option>
-            </select>
+
 
       </select>
     </div>
@@ -138,4 +135,11 @@
     <button id="update2" type="button" name="" value="">Modifica appartamento</button>
 
   </div>
+</div>
+
+</div>
+</div>
+
+<div class="space">
+</div>
 @endsection

@@ -1,7 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.mainLayout')
 
 @section('content')
-<div class="container">
+  @include('components.header_generic')
+<div class="container content">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

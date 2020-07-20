@@ -1,5 +1,7 @@
 @extends('layouts.mainLayout')
 @section('content')
   @include('components.header_generic')
-    <h1>ERRORE</h1>
+  <div class="container-fluid content" style="background-color: #FEA918">
+    <img class="w-100" src="/img/err.jpg" alt="">
+  </div>
 @endsection

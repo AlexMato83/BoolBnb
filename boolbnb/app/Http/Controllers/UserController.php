@@ -13,7 +13,6 @@ use Str;
 use Auth;
 use App\Service;
 use App\User;
-use App\Category;
 use App\Message;
 use App\Sponsorshipstype;
 class UserController extends Controller
@@ -27,16 +26,16 @@ class UserController extends Controller
     public function create(){
 
         $services = Service::all();
-        $categories = Category::all();
 
-      return view("create_apartment", compact('services', "categories"));
+
+      return view("create_apartment", compact('services'));
     }
 
     // funzione per salvare l'appartamento creato
     public function store(Request $request){
 
       $user_id =Auth::user() ->id;
-      $categories = Category::all();
+
       $validate = $request -> validate([
 
           "name" => "required",
@@ -47,7 +46,6 @@ class UserController extends Controller
           "beds" => "required",
           "images" => "required|image",
           "services" => "required",
-          "category_id" => "required",
           "visibility" => "required"
           ]);
 
@@ -64,7 +62,7 @@ class UserController extends Controller
       $apartment["images"] = $validate["images"];
       $apartment["visibility"] = $validate["visibility"];
       $apartment["user_id"] = $user_id;
-      $apartment["category_id"] = $validate["category_id"];
+
 
       // *********************************
 
@@ -99,9 +97,8 @@ class UserController extends Controller
         $user = Auth::user();
         $apartment = Apartment::findOrFail($id);
         $services = Service::all();
-        $categories = Category::all();
         if ($apartment -> user_id == $user-> id) {
-            return view('edit_apartment', compact('apartment', 'services','categories'));
+            return view('edit_apartment', compact('apartment', 'services'));
         }else {
             return view('error');
         }
@@ -124,7 +121,6 @@ class UserController extends Controller
             "beds" => "required",
             "images" => "image",
             "services" => "required",
-            "category_id" => "required",
             "visibility" => "required"
 
             ]);
@@ -144,7 +140,7 @@ class UserController extends Controller
             }
             $apartment["user_id"] = $user_id;
             $apartment["visibility"] = $validate["visibility"];
-            $apartment["category_id"] = $validate["category_id"];
+
 
 
         // *********************************
@@ -290,9 +286,9 @@ class UserController extends Controller
 
     function result_payment($data) {
            if ($data === "ok") {
-             $result = "transazione effettuata";
+             $result = "La transazione è stata effettuata";
            } else {
-             $result = "transazione negata";
+             $result = "La transazione è stata negata";
 
            }
 

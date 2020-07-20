@@ -18,9 +18,7 @@ class ApartmentSeeder extends Seeder
         factory(Apartment::class, 40)-> make()
                                     -> each(function ($apartment){
             $user = User::inRandomOrder() -> first();
-            $apartment->user() -> associate($user);
-            $category = Category::inRandomOrder() -> first();
-            $apartment -> category() -> associate($category);
+            $apartment->user() -> associate($user);          
             $apartment -> save();
         });
     }

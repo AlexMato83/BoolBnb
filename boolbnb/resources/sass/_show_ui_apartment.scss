@@ -7,16 +7,18 @@
   font-size: 20px;
 }
 
+
+
   // {{-- MAPPA --}}
-  .map{
-    text-align: center;
-    height: 350px;
-    margin-top:40px;
-    #map{
-      height: 400px !important;
-      width: 100% !important;
-    }
-  }
+  // .map{
+  //   text-align: center;
+  //   height: 350px;
+  //   margin-top:40px;
+  //   #map{
+  //     height: 400px !important;
+  //     width: 100% !important;
+  //   }
+  // }
 
 // .content {
 //   margin: 0 7%;
@@ -68,16 +70,16 @@
 //       width: 450px !important;
 //     }
 //   }
-// // {{-- MAPPA PAGINA PROPRIETARIO--}}
-//   .map_proprietario {
-//     height: 350px;
-//     width: 100%;
-//     margin: 5% 0;
-//     #map{
-//       height: 100% !important;
-//       width: 100% !important;
-//     }
-//   }
+// {{-- MAPPA PAGINA PROPRIETARIO--}}
+  .map_proprietario {
+    height: 350px;
+    width: 100%;
+    margin: 5% 0;
+    #map{
+      height: 100% !important;
+      width: 100% !important;
+    }
+  }
 //
 // // {{-- MSG --}}
 //   .msg{
@@ -92,48 +94,49 @@
 //       margin-bottom:20px;
 //     }
 //   }
-// // {{-- MODIFICA CANCELLA APPARTAMENTO --}}
-//
-// .modifica {
-//   display: flex;
-//   margin: auto;
-//   justify-content:space-around;
-//   div {
-//     font-size: 20px;
-//   }
-// }
-//
-// .insert_dati{
-//   #mail_msg{
-//     height: 50px;
-//     width: 80%;
-//     margin:auto;
-//     margin-bottom: 10px;
-//     font-size: 18px;
-//   }
-//   #message{
-//     height:100px;
-//     width:80%;
-//     font-size: 18px;
-//     margin:auto;
-//   }
-// }
-// .invia{
-//   button{
-//     font-size: 15px;
-//     font-weight: bold;
-//     padding: 2% 5%;
-//     background-color:#1b3c59 ;
-//     color: white;
-//     box-shadow: none;
-//     border-radius: 5px;
-//     margin: 5% 0;
-//     border: none;
-//   }
-// }
-//
-// @media screen and (min-width: 767.98px){
-//   .descr {
-//     text-align: left;
-//   }
-// }
+// {{-- MODIFICA CANCELLA APPARTAMENTO --}}
+
+.modifica {
+  display: flex;
+  margin: auto;
+  justify-content:space-around;
+  div, label {
+    font-size: 20px;
+  }
+
+}
+
+.insert_dati{
+  #mail_msg{
+    height: 50px;
+    width: 80%;
+    margin:auto;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  #message{
+    height:100px;
+    width:80%;
+    font-size: 18px;
+    margin:auto;
+  }
+}
+.invia{
+  button{
+    font-size: 15px;
+    font-weight: bold;
+    padding: 2% 5%;
+    background-color:#1b3c59 ;
+    color: white;
+    box-shadow: none;
+    border-radius: 5px;
+    margin: 5% 0;
+    border: none;
+  }
+}
+
+@media screen and (min-width: 767.98px){
+  .descr {
+    text-align: left;
+  }
+}

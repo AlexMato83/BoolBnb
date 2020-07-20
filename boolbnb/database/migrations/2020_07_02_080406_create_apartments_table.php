@@ -24,8 +24,7 @@ class CreateApartmentsTable extends Migration
             $table->tinyInteger('bathrooms');
             $table->tinyInteger('beds');
             $table->string('images')->nullable();
-            $table->boolean('visibility');
-            $table->bigInteger('category_id')->unsigned()->index()->nullable();
+            $table->boolean('visibility');          
             $table->bigInteger('user_id')->unsigned()->index();
             $table->timestamps();
         });

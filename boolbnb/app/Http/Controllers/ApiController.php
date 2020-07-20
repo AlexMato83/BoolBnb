@@ -12,7 +12,7 @@ use App\Apartment;
 use App\Sponsorshipstype;
 use Auth;
 use App\Sponsorship;
-use App\Category;
+
 use App\Service;
 class ApiController extends Controller
 {
@@ -90,7 +90,6 @@ class ApiController extends Controller
         $latitude = $_GET['latitude'];
         $add = $_GET['add'];
         $services = Service::all();
-        $categories = Category::all();
         $center_lat = $latitude;
         $center_long = $longitude;
         $apartments_all = Apartment::all();

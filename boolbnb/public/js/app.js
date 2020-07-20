@@ -37596,7 +37596,7 @@ function autocomplete() {
       var address = $("#apt_address").val();
       $(".autocomplete").hide();
       address = address.charAt(0).toUpperCase() + address.slice(1);
-      $(".autocomplete ul").html("");
+      $(".autocomplete div").html("");
       $.ajax({
         url: "https://api.tomtom.com/search/2/search/" + address + ".json?",
         method: "GET",

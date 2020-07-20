@@ -121,5 +121,48 @@
 
 //per far stare il footer in basso
 .content{
-  min-height: 1000px;
+  min-height: calc(100vh - 85px);
+}
+
+//pagamento
+h4{
+	 font-size: 20px;
+}
+.sear_bar{
+	border:1px solid #1B3C59;
+	height: 30px;
+	border-radius:5px;
+  width: 150px;
+  font-size: 16px;
+  text-align: center;
+
+}
+#apt_name{
+	 font-weight:700;
+	 font-size:25px;
+	 color:#1b3c59;
+}
+#submit-button, #pay{
+	font-size: 15px;
+	font-weight: 700;
+	height:30px;
+	color:white;
+	border-radius:5px;
+	border:1px solid #1B3C59;
+	background-color:#1b3c59;
+}
+#pay{
+	background-color: #61CE4E!important;
+}
+.braintree-sheet {
+
+  width: 36%;
+}
+
+.paypay {
+  margin-top: 160px;
+  h1 {
+  font-size: 50px;
+  font-weight: 700;
+  }
 }

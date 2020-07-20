@@ -11123,15 +11123,59 @@ footer img {
   font-size: 20px;
 }
 
-.map {
-  text-align: center;
+.map_proprietario {
   height: 350px;
-  margin-top: 40px;
+  width: 100%;
+  margin: 5% 0;
 }
 
-.map #map {
-  height: 400px !important;
+.map_proprietario #map {
+  height: 100% !important;
   width: 100% !important;
+}
+
+.modifica {
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+}
+
+.modifica div,
+.modifica label {
+  font-size: 20px;
+}
+
+.insert_dati #mail_msg {
+  height: 50px;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.insert_dati #message {
+  height: 100px;
+  width: 80%;
+  font-size: 18px;
+  margin: auto;
+}
+
+.invia button {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 2% 5%;
+  background-color: #1b3c59;
+  color: white;
+  box-shadow: none;
+  border-radius: 5px;
+  margin: 5% 0;
+  border: none;
+}
+
+@media screen and (min-width: 767.98px) {
+  .descr {
+    text-align: left;
+  }
 }
 
 .crea_appartamento {
@@ -11183,17 +11227,13 @@ footer img {
 }
 
 .dim {
-  width: 100%;
-  height: 100%;
-  margin: auto;
   font-size: 15px;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .dim .dimdue {
   float: left;
   color: #1b3c59;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -11204,6 +11244,7 @@ footer img {
   margin-top: 30px;
   color: #1b3c59;
   font-size: 15px;
+  font-weight: 700;
 }
 
 .dim input {
@@ -11247,7 +11288,7 @@ footer img {
   height: 50px;
   float: right;
   color: white;
-  background-color: #1b3c59;
+  background-color: #1B3C59;
   font-weight: 700;
   height: 42px;
   width: 77px;
@@ -11263,6 +11304,7 @@ footer img {
   margin-top: 30px;
   color: #1b3c59;
   font-size: 15px;
+  font-weight: 700;
   margin-right: 10px;
 }
 
@@ -11270,6 +11312,11 @@ footer img {
   height: 28px;
   width: 125px;
   font-size: 15px;
+}
+
+.content_create {
+  width: 100%;
+  height: 100%;
 }
 
 .blu {
@@ -11400,6 +11447,53 @@ body .btn-primary {
 }
 
 .content {
-  min-height: 1000px;
+  min-height: calc(100vh - 85px);
+}
+
+h4 {
+  font-size: 20px;
+}
+
+.sear_bar {
+  border: 1px solid #1B3C59;
+  height: 30px;
+  border-radius: 5px;
+  width: 150px;
+  font-size: 16px;
+  text-align: center;
+}
+
+#apt_name {
+  font-weight: 700;
+  font-size: 25px;
+  color: #1b3c59;
+}
+
+#submit-button,
+#pay {
+  font-size: 15px;
+  font-weight: 700;
+  height: 30px;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #1B3C59;
+  background-color: #1b3c59;
+}
+
+#pay {
+  background-color: #61CE4E !important;
+}
+
+.braintree-sheet {
+  width: 36%;
+}
+
+.paypay {
+  margin-top: 160px;
+}
+
+.paypay h1 {
+  font-size: 50px;
+  font-weight: 700;
 }
 
