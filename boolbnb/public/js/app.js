@@ -37378,7 +37378,7 @@ function click_after_autocomplete(search_button) {
 
 function prova_api() {
   $.ajax({
-    url: "http://127.0.0.1:8000/welcome_show",
+    url: "http://localhost:8000/welcome_show",
     method: "GET",
     success: function success(data) {
       var apartments_found = JSON.parse(data);
@@ -37456,7 +37456,7 @@ function create_paymethond_and_pay() {
   var token, apartment_id, price, title, start_date, nonce;
   $.ajax({
     type: "GET",
-    url: "http://127.0.0.1:8000/token_generate",
+    url: "http://localhost:8000/token_generate",
     success: function success(token_generate) {
       token = token_generate; // console.log(token);
 
@@ -37482,7 +37482,7 @@ function create_paymethond_and_pay() {
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
-      url: "http://127.0.0.1:8000/payment",
+      url: "http://localhost:8000/payment",
       method: "POST",
       data: {
         nonce: nonce,
@@ -37501,7 +37501,7 @@ function create_paymethond_and_pay() {
           var data = "NO";
         }
 
-        window.location.href = 'http://127.0.0.1:8000/successo/' + data;
+        window.location.href = 'http://localhost:8000/successo/' + data;
       }
     });
   });
@@ -37579,7 +37579,7 @@ function filtered_search_api() {
 
   $('#longitude').val();
   $.ajax({
-    url: 'http://127.0.0.1:8000/first_search',
+    url: 'http://localhost:8000/first_search',
     method: 'GET',
     data: {
       add: add,
@@ -37786,8 +37786,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/alemato/Desktop/BOOLEAN/BoolBnb/boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/alemato/Desktop/BOOLEAN/BoolBnb/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\RepoGitNuovo\BoolBnb\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\RepoGitNuovo\BoolBnb\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
