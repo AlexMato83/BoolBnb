@@ -3,16 +3,6 @@
 
 // Bootstrap l'ho commentato perché non mi prendeva le modifiche al file _home
 @import '~bootstrap/scss/bootstrap';
-@import '_header';
-@import '_footer';
-@import '_welcome';
-@import '_ui_apartaments';
-@import '_show_ui_apartment';
-@import '_user_apartments';
-@import '_upra_messages';
-@import '_statistics';
-@import '_create_apartment';
-
 
   .blu {
     color: #1b3c59 !important;
@@ -119,6 +109,99 @@
   width: 80%;
 }
 
+//_header
+
+nav {
+  position: fixed;
+  a{
+    img {
+      height:60px
+    }
+  }
+  .nav-link {
+    font-size: 18px;
+    color: #1b3c59;
+    margin-right: 10px;
+  }
+  .btn-outline-success {
+    color: white;
+    background-color: #1b3c59;
+    border-color: #1b3c59 !important;
+}
+}
+
+.scrollHeader {
+  background-color: rgba(255, 255, 255, 0.9);
+
+}
+
+
+.search_container{
+  position: relative;
+}
+.autocomplete{
+  z-index: 99999;
+  position: absolute;
+  width: 100%;
+  border-radius: 5px;
+  background: #1c3d58e0;
+  color: white;
+  padding: 20px;
+  top: 48px;
+  left: 0;
+  display:none;
+  p{
+    font-size:15px;
+    cursor: pointer;
+    width: 100%;
+    padding: 3px;
+    &:hover{
+      background-color: #1C3D58;
+      box-shadow: 2px 2px 2px black;
+      border-radius: 4px;
+      padding: 3px 3px 3px 15px;
+    }
+  }
+}
+
+//_welcome
+
+.carousel-item {
+  max-height: 550px;
+  img {
+    text-align: center;
+  }
+ .titolo-slide{
+    font-weight: 700;
+    margin-bottom: 0;
+    color: white !important;
+    text-shadow: 1px 1px grey;
+    font-size: 50px;
+  }
+  span {
+    font-size: 25px;
+    font-weight: 700;
+    text-shadow: 0.5px 0.5px black;
+  }
+}
+
+.titolo-principale {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.space {
+  width: 100%;
+  height: 20px;
+}
+
+.dettagli-welcome {
+  border: 1px solid #ced4da;
+  span {
+    font-size: 18px;
+  }
+}
+
 //footer bottom
 .content{
   min-height: calc(100vh - 85px);
@@ -164,5 +247,341 @@ h4{
   h1 {
   font-size: 50px;
   font-weight: 700;
+  }
+}
+
+//_user_apartments
+.crea_appartamento {
+  border-radius:5px;
+  height: 350px;
+  background-color: #DBDBDB	;
+  opacity:0.5;
+  text-align: center;
+  .fas{
+    padding-top: 20px;
+    padding-right: 20px;
+    font-size:250%;
+  }
+}
+
+.img-apartment{
+  border-radius:5px;
+  height: 350px;
+}
+
+//_ui_apartaments
+
+.space_search {
+  width: 100%;
+  height: 20px;
+}
+
+.dove {
+  font-size: 18px;
+  color: #1b3c59;
+  border: 1px solid #ced4da;
+  border-top-right-radius: 5px;
+  width: 100%;
+  height: 50px;
+}
+
+.filtri {
+  border: 1px solid #ced4da;
+
+  border-top: none;
+  font-size: 18px;
+  color: #1b3c59;
+  #rooms, #beds {
+    margin: 4px 9px 6px;
+    width: 45px;
+    height: 25px;
+    text-align: center;
+    border-color: #ced4da;
+  }
+  #search_radius {
+    margin-top: 10px;
+    width: 100%;
+    height: 25px;
+    text-align: center;
+    border-color: #ced4da;
+  }
+  #filtered2{
+    background-color: #61ce4e;
+    color: white;
+    height: 50px;
+    border: none;
+  }
+  #apt_address {
+    border: none;
+  }
+  span {
+    padding-top: 10px;
+  }
+}
+
+.appartamento {
+  border: 1px solid #ced4da;
+}
+
+.search_container2{
+      position: relative;
+  .autocomplete{
+    z-index: 99999;
+    position: absolute;
+    width: 100%;
+    border-radius: 5px;
+    background: #1c3d58e0;
+    color: white;
+    padding: 20px;
+    top: 105px;
+    left: 0;
+    div{
+      width: 100%;
+      p{
+        font-size:15px;
+        cursor: pointer;
+        width: 100%;
+        padding: 3px;
+        &:hover{
+          background-color: #1C3D58;
+          box-shadow: 2px 2px 2px black;
+          border-radius: 4px;
+          padding: 3px 3px 3px 15px;
+        }
+      }
+    }
+  }
+}
+
+
+.results {
+
+  img {
+    height: 300px;
+    width: auto;
+  }
+  .font_search {
+    font-size: 18px;
+  }
+}
+
+.sponsored {
+  background-color: #61ce4e;
+  color: white;
+  float: right;
+  font-size: 22px;
+  width: 153px;
+  text-align: center;
+  font-weight: 700;
+}
+
+//_create_apartment
+
+.dim{
+  font-size:15px;
+  margin-top:50px;
+  .dimdue{
+    float: left;
+    color:#1b3c59;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom:20px;
+  }
+  label{
+    margin-top:30px;
+    color:#1b3c59;
+    font-size:18px;
+    font-weight: 700;
+  }
+  input{
+    float: right;
+  }
+}
+.ridim{
+  input{
+      height: 100%;
+  }
+}
+.display{
+  display:inline-block;
+  .flexino{
+    height: 50px;
+    width: 100%;
+    margin-top:40px;
+    display: flex;
+    align-items: baseline;
+    margin-right:2%;
+    margin-bottom:5%;
+    font-size:20px;
+    .checkbox{
+      margin-right:8%;
+    }
+  }
+}
+.color{
+  width: 100%;
+  margin-top: 40px;
+  float: left;
+  font-size: 25px !important;
+  font-weight: 500 !important;
+  color:#1b3c59;
+}
+#create2, #update2 {
+  color: white;
+  background-color: #1B3C59;
+  font-weight: 700;
+  height: 42px;
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 0 10px;
+}
+.selectsi{
+  label{
+    margin-top:30px;
+    color:#1b3c59;
+    font-size:15px;
+    font-weight: 700;
+    margin-right: 10px;
+  }
+  select{
+    height: 28px;
+    width: 125px;
+    font-size: 15px;
+  }
+  margin-bottom:15px;
+}
+
+//_show_ui_apartment
+
+.titolo-appartamento {
+  font-size: 36px;
+}
+
+.paragrafo_appartamento {
+  font-size: 20px;
+  text-align:justify;
+}
+
+// {{-- MAPPA --}}
+.map{
+  text-align: center;
+  height: 400px;
+  width: 100%;
+  margin: 5% 0;
+  #map{
+    height: 100% !important;
+    width: 100% !important;
+  }
+}
+
+// {{-- MODIFICA CANCELLA APPARTAMENTO --}}
+.map_proprietario {
+  height: 400px;
+  width: 100%;
+  margin: 5% 0;
+  #map{
+    height: 100% !important;
+    width: 100% !important;
+  }
+}
+
+.modifica {
+  display: flex;
+  margin: auto;
+  justify-content:space-around;
+  div, label {
+    font-size: 20px;
+  }
+
+}
+
+.insert_dati{
+  #mail_msg{
+    height: 50px;
+    width: 80%;
+    margin:auto;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  #message{
+    height:100px;
+    width:80%;
+    font-size: 18px;
+    margin:auto;
+  }
+}
+.invia{
+  button{
+    font-size: 15px;
+    font-weight: bold;
+    padding: 2% 5%;
+    background-color:#1b3c59 ;
+    color: white;
+    box-shadow: none;
+    border-radius: 5px;
+    margin: 5% 0;
+    border: none;
+  }
+}
+
+@media screen and (min-width: 767.98px){
+  .descr {
+    text-align: left;
+  }
+}
+
+.msg {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+select {
+  height: 36px;
+}
+
+//_upra_messages
+
+.messaggio_destinatario {
+  border-bottom:1px dotted grey;
+  h3 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  p {
+    font-size:15px;
+  }
+}
+
+
+//_statistics
+
+
+.contenitore_statistiche{
+  margin-top: 100px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  h1 {
+    margin-bottom: 30px;
+  }
+  .statistics {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+
+//_footer
+
+footer{
+  width: 100%;
+  min-height: 85px;
+  background-color: #1b3c59;
+  color: white;
+  img {
+    margin-top: 5%;
+    height:60px;
   }
 }
