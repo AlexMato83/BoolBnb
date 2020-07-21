@@ -10,7 +10,6 @@
   border-top-right-radius: 5px;
   width: 100%;
   height: 50px;
-
 }
 
 .filtri {
@@ -78,4 +77,26 @@
       }
     }
   }
+}
+
+
+.results {
+
+  img {
+    height: 300px;
+    width: auto;
+  }
+  .font_search {
+    font-size: 18px;
+  }
+}
+
+.sponsored {
+  background-color: #61ce4e;
+  color: white;
+  float: right;
+  font-size: 22px;
+  width: 153px;
+  text-align: center;
+  font-weight: 700;
 }

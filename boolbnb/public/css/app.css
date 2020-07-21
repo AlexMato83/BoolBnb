@@ -10996,7 +10996,7 @@ footer img {
 }
 
 .carousel-item {
-  max-height: 480px;
+  max-height: 550px;
 }
 
 .carousel-item img {
@@ -11008,10 +11008,11 @@ footer img {
   margin-bottom: 0;
   color: white !important;
   text-shadow: 1px 1px grey;
+  font-size: 50px;
 }
 
 .carousel-item span {
-  font-size: 18px;
+  font-size: 25px;
   font-weight: 700;
   text-shadow: 0.5px 0.5px black;
 }
@@ -11123,6 +11124,25 @@ footer img {
   box-shadow: 2px 2px 2px black;
   border-radius: 4px;
   padding: 3px 3px 3px 15px;
+}
+
+.results img {
+  height: 300px;
+  width: auto;
+}
+
+.results .font_search {
+  font-size: 18px;
+}
+
+.sponsored {
+  background-color: #61ce4e;
+  color: white;
+  float: right;
+  font-size: 22px;
+  width: 153px;
+  text-align: center;
+  font-weight: 700;
 }
 
 .titolo-appartamento {

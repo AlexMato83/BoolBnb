@@ -10,7 +10,7 @@
       <div class="carousel-inner">
         {{-- Prima slide --}}
         <div class="carousel-item active">
-          <img class="d-block w-100" src="/img/vaticano.webp" alt="First slide">
+          <img class="d-block w-100" src="/img/firenze.jpg" alt="First slide">
           <div class="carousel-caption d-none d-md-block">
             <h1 class="titolo-slide">Città d'arte</h1>
             <span>Prenota la tua stanza nelle più belle capitali del mondo</span>
@@ -18,7 +18,7 @@
         </div>
         {{-- Seconda slide --}}
         <div class="carousel-item">
-          <img class="d-block w-100" src="/img/mare3.webp" alt="Second slide">
+          <img class="d-block w-100" src="/img/mare.jpg" alt="Second slide">
           <div class="carousel-caption d-none d-md-block">
             <h1 class="titolo-slide">Vacanza al mare</h1>
             <span>Prenota il tuo appartamento in una località da sogno</span>
@@ -44,21 +44,19 @@
     </div>
 
     <div class="space"></div>
-    <div class="space"></div>
 
     {{-- In evidenza --}}
     <div class="container-fluid">
       <div class="row mx-2">
         <div class="col-12">
+          <div class="space"></div>
           <h1 class="titolo-principale blu">Trova ispirazione per i tuoi prossimi viaggi</h1>
-        </div>
+          <div class="space"></div>
+        </div>      
       </div>
       <div class="row mx-2" id="welcome_sponsored_apt">
       </div>
     </div>
-
-    <div class="space"></div>
-
 
   {{-- HANDELBARS --}}
 

@@ -4,9 +4,9 @@
 
 {{-- FILTRI DI RICERCA --}}
 <div class="container-fluid content">
-  <div class="row mx-2">
+  <div class="row mx-5">
 
-    <div class="col-12 col-sm-6 col-md-3 col-lg-2">
+    <div class="col-12 col-md-3 col-lg-2">
       <form  autocomplete="off" id="search_form"action="{{route('ui_filtered_apt')}}" method="post">
         @csrf
         @method("POST")
@@ -37,12 +37,12 @@
 
           {{-- Stanze e letti --}}
           <div class="ml-3">
-            <label for="rooms">Stanze</label>
-            <input id="rooms" type="number" name="rooms" value="">
-          </div>
-          <div class="ml-3">
             <label for="beds">Letti</label>
             <input id="beds" type="number" name="beds" value="">
+          </div>
+          <div class="ml-3">
+            <label for="rooms">Stanze</label>
+            <input id="rooms" type="number" name="rooms" value="">
           </div>
           <hr>
           <div class="space_search"></div>
@@ -73,10 +73,10 @@
       </form>
     </div>
 
-
     <div class="col-12 col-md-9 col-lg-10">
       <div class="results mt-5">
-        <h1 class="titolo-principale mb-3">I risultati della tua ricerca</h1>
+        <h1 class="titolo-principale mb-3 ml-2">I risultati della tua ricerca</h1>
+        <div class="space"></div>
         <div class="row" id="sponsored_apt">
         </div>
         <div class="row" id="normal_apt">
@@ -91,15 +91,20 @@
 {{-- HANDELBARS --}}
 
 <script id="giacomino-template" type="text/x-handlebars-template">
-  <div class="appartamento rounded-left mx-4 mb-4 col-12 @{{add_class}}">
+  <div class="appartamento rounded mx-4 mb-4 col-12 @{{add_class}}">
     <div class="row">
-      <div class="col-5 p-0">
+      <div class="col-4 p-0">
         <img class="w-100 rounded-left" src="@{{image_route}}" alt="">
       </div>
-      <div class="col-6">
-        <h3><a href="/ui_apartment/@{{id}}">@{{title}}</a></h3>
-        <p>@{{address}}</p>
-        <span>@{{sponsorship}}</span>
+      <div class="col-8 p-4">
+        <h3><a class="titolo-principale blu" href="/ui_apartment/@{{id}}">@{{title}}</a></h3>
+        <p class="blu font_search">@{{address}}</p>
+        <!-- <p>@{{description}}</p> -->
+        <p class="blu font_search">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <!-- <span>@{{services}}</span> -->
+        <span class="blu font_search">Lavatrice - Posto Macchina - Vista mare</span>
+        <span class="sponsored">@{{sponsorship}}</span>
+
       </div>
 
     </div>
