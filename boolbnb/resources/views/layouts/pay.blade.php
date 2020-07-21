@@ -1,6 +1,7 @@
 @extends('layouts.mainLayout')
 
 @section('content')
+  @include('components.header_generic')
 
 <div class="card-form">
   <div class="card-form__inner cf">

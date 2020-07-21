@@ -1,121 +1,117 @@
 @extends('layouts.mainLayout')
 @section('content')
+  @include('components.header_generic')
 
 {{-- FILTRI DI RICERCA --}}
-<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
-  <form  autocomplete="off" id="search_form"action="{{route('ui_filtered_apt')}}" method="post">
-    @csrf
-    @method("POST")
-    @if ($errors->any())
-      <div class="alert alert-danger">
-        <ul>
-          @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-          @endforeach
-        </ul>
-      </div>
-    @endif
+<div class="container-fluid content">
+  <div class="row ml-2 mr-5">
 
-    <div class="filtri d-flex justify-content-between flex-wrap">
-
-      <div class="dropdown">
-        <button class="stanze btn btn-secondary dropdown-toggle" type="button" name="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Stanze e letti
-        </button>
-        <div class="dropdown-menu stanze_letti" aria-labelledby="dropdownMenuButton">
-          <div class="bedrooms">
-            <label for="rooms">Stanze</label>
-            <input id="rooms" type="number" name="rooms" value="">
+    <div class="p-5 p-sm-0 col-12 col-sm-4 col-md-4 col-lg-3">
+      <form  autocomplete="off" id="search_form"action="{{route('ui_filtered_apt')}}" method="post">
+        @csrf
+        @method("POST")
+        @if ($errors->any())
+          <div class="alert alert-danger">
+            <ul>
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+            </ul>
           </div>
-          <div class="bedrooms">
-            <label for="beds">Letti</label>
-            <input id="beds" type="number" name="beds" value="">
-          </div>
-        </div>
-      </div>
+        @endif
 
-      <div class="dropdown">
-        <button class="serv btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Servizi
-        </button>
-        <div class="servizi dropdown-menu" aria-labelledby="dropdownMenuButton">
-          @foreach ($services as $service)
-            <div>
-              <input class="checkbox" type="checkbox" name="services[]" value="{{$service['id']}}">
-              {{$service['name']}}
-            </div>
-          @endforeach
-        </div>
-      </div>
-      <div class="search_container">
-          <input id="apt_address" type="location" name="address" value="{{$add}}" class="form-control" placeholder="Dove vuoi andare?">
+        {{-- Dove vuoi andare --}}
+        <div class='search_container2'>
+          <input class="dove mt-5 mr-5 pl-3" id="apt_address" type="location" name="address" value="{{$add}}" class="form-control" placeholder="Dove vuoi andare?">
           <div class="autocomplete">
             <div>
             </div>
           </div>
-      </div>
-      <div class="distanza">
-        <span>Distanza</span>
-        <input class="dist" id="search_radius" type="number" name="search_radius" value="20">
-        <span>Km</span>
-      </div>
-
-      <div class="filtro_cerca">
-        <button id="filtered2" type="button" name="" value=""><strong>Cerca</strong></button>
-      </div>
-    </div>
-
-    {{-- MENU A TENDINA SERVIZI --}}
-  <div class="servizi off">
-    @foreach ($services as $service)
-      <div>
-        <input class="checkbox" type="checkbox" name="services[]" value="{{$service['id']}}">
-        {{$service['name']}}
-      </div>
-    @endforeach
-  </div>
-
-
-
-    <input class="dispna" id="longitude" type="text" name="longitude" value="{{$longitude}}">
-    <input class="dispna" id="latitude" type="text" name="latitude" value="{{$latitude}}">
-    {{-- <input id="filtered" class="dispna" type="submit" name=""> --}}
-  </form>
-</div>
-
-
-<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-  <div class="results">
-    <h1>Risultati ricerca</h1>
-    <div class="apartments_reserch">
-      <div class="row">
-        <div id="sponsored_apt">
-
-        </div>
-        <div id="normal_apt">
-
         </div>
 
-        {{-- HANDELBARS --}}
+        <div class="filtri rounded-bottom">
+          <div class="space_search"></div>
+          <span class="ml-3 pt-3">Filtra per...</span><hr>
 
-        <script id="giacomino-template" type="text/x-handlebars-template">
-          <div class="container_ @{{add_class}}">
-            <div class="apartment_ ">
-              <h3><a href="/new_view/@{{id}}">@{{title}}</a></h3>
-              <img src="@{{image_route}}" alt="">
-               <p>@{{address}}</p>
-               <p>@{{description}}</p>
-               <span>@{{sponsorship}}</span>
-            </div>
+          <div class="space_search"></div>
+
+          {{-- Stanze e letti --}}
+          <div class="ml-3">
+            <label for="beds">Letti</label>
+            <input id="beds" type="number" name="beds" value="">
           </div>
-         </script>
+          <div class="ml-3">
+            <label for="rooms">Stanze</label>
+            <input id="rooms" type="number" name="rooms" value="">
+          </div>
+          <hr>
+          <div class="space_search"></div>
 
+          {{-- Servizi --}}
+          @foreach ($services as $service)
+            <div class="ml-3">
+              <input class="checkbox mr-1" type="checkbox" name="services[]" value="{{$service['id']}}">
+              {{$service['name']}}
+            </div>
+          @endforeach
+          <hr>
 
+          {{-- Distanza --}}
+          <div class="distanza mx-3">
+            <span>Distanza in km</span>
+            <input class="dist" id="search_radius" type="number" name="search_radius" value="20">
+          </div>
+          <input class="dispna" id="longitude" type="text" name="longitude" value="{{$longitude}}">
+          <input class="dispna" id="latitude" type="text" name="latitude" value="{{$latitude}}">
+          <div class="space_search"></div>
 
-        {{-- HANDELBARS --}}
+          {{-- Cerca  --}}
+          <div class="filtro_cerca">
+            <button class="w-100 rounded-bottom" id="filtered2" type="button" name="" value=""><strong>FILTRA LA RICERCA</strong></button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-12 col-sm-8 col-md-8 col-lg-9">
+      <div class="results mt-5">
+        <h1 class="titolo-principale mb-3 ml-2">I risultati della tua ricerca</h1>
+        <div class="space"></div>
+        <div class="row" id="sponsored_apt">
+        </div>
+        <div class="row" id="normal_apt">
+        </div>
       </div>
     </div>
+
   </div>
 </div>
+
+
+{{-- HANDELBARS --}}
+
+<script id="giacomino-template" type="text/x-handlebars-template">
+  <div class="appartamento rounded mx-4 mb-4 col-12 @{{add_class}}">
+    <div class="row">
+      <div class="col-12 col-lg-5 p-0">
+        <img class="w-100 rounded-left" src="@{{image_route}}" alt="">
+      </div>
+      <div class="col-12 col-lg-7 p-4">
+        <h3><a class="titolo-principale blu" href="/ui_apartment/@{{id}}">@{{title}}</a></h3>
+        <p class="blu font_search">@{{address}}</p>
+        <!-- <p>@{{description}}</p> -->
+        <p class="blu font_search">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua sed do eiusmod ...</p>
+        <!-- <span>@{{services}}</span> -->
+        <span class="blu font_search">Lavatrice - Posto Macchina - Vista mare</span>
+        <span class="sponsored rounded">@{{sponsorship}}</span>
+
+      </div>
+
+    </div>
+  </div>
+</script>
+
+{{-- HANDELBARS --}}
+
 
 @endsection

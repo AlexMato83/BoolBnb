@@ -150,6 +150,7 @@ function address_to_coord(button, submit, next_funct ){
       method: "GET",
       success: function(data){
         var apartments_found = JSON.parse(data)
+        console.log(data);
         for (var apartment of apartments_found) {
           var id = apartment["id"];
           var add_class = "sponsored_apt"
@@ -162,10 +163,6 @@ function address_to_coord(button, submit, next_funct ){
           $("#welcome_sponsored_apt").append(print_template)
 
         }
-        // for (var i = 0; i < variabile.length; i++) {
-
-          // $(".apartment").append('<div class="col-4"><img src='+variabile[i].images+'><h3>'+variabile[i].name+'</h3></div>');
-        // }
       }
     })
   }
@@ -187,26 +184,10 @@ function getData(data,id_canvas,type) {
               label: id_canvas,
               data: views,
               backgroundColor: [
-                'rgba(150, 33, 146, 1)',
-                'rgba(82, 40, 204, 1)',
-                'rgba(4, 51, 255, 1)',
-                'rgba(0, 146, 146, 1)',
-                'rgba(0, 249, 0, 1)',
-                'rgba(202, 250, 0, 1)',
-                'rgba(255, 251, 0, 1)',
-                'rgba(255, 199, 0, 1)',
-                'rgba(255, 147, 0, 1)',
-                'rgba(255, 80, 0, 1)',
-                'rgba(255, 38, 0, 1)',
-                'rgba(216, 34, 83, 1)'
+                '#61ce4e'
               ],
               borderColor: [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)'
+                  '#1b3c59'
               ],
               borderWidth: 1
           }]
@@ -305,9 +286,9 @@ function keypress(button,space){
       $(".fa-times").hide();
     $(".tasto").click(
         function() {
-          $(".accedi").toggleClass("off");
-          $(".registrati").addClass("off");
-        //   $(".registrati").removeClass("on").addClass("off");
+          $(".accedi").removeClass("off").addClass("on");
+          $(".registrati").removeClass("on").addClass("off");
+          $('#myModalAccedi').appendTo("body").modal('show');
         }
       );
       $(".continua").click(
@@ -318,9 +299,9 @@ function keypress(button,space){
 
       $(".reg").click(
         function() {
-          $(".registrati").toggleClass("off");
-          $(".accedi").addClass("off");
-        //   $(".accedi").removeClass("on").addClass("off");
+          $(".registrati").removeClass("off").addClass("on");
+          $(".accedi").removeClass("on").addClass("off");
+          $('#myModalRegistrati').appendTo("body").modal('show');
         }
       );
       $(".continua").click(

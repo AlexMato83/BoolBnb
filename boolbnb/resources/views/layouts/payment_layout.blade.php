@@ -29,26 +29,12 @@
 
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="header">
-            @include('components.header')
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="content">
-            @yield('content')
-        </div>
-      </div>
-    </div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="footer">
-          @include('components.footer')
-        </div>
-      </div>
-    </div>
+
+    @include('components.header_generic')
+      
+    @yield('content')
+
+    @include('components.footer')
+
   </body>
 </html>

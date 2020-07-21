@@ -72,6 +72,7 @@ class UserController extends Controller
       $apartment["user_id"] = $user_id;
     //   $apartment["category_id"] = $validate["category_id"];
 
+
       // *********************************
 
       $image = $request->file('images');
@@ -152,7 +153,7 @@ class UserController extends Controller
             }
             $apartment["user_id"] = $user_id;
             $apartment["visibility"] = $validate["visibility"];
-            // $apartment["category_id"] = $validate["category_id"];
+
 
 
         // *********************************
@@ -298,9 +299,9 @@ class UserController extends Controller
 
     function result_payment($data) {
            if ($data === "ok") {
-             $result = "transazione effettuata";
+             $result = "La transazione è stata effettuata";
            } else {
-             $result = "transazione negata";
+             $result = "La transazione è stata negata";
 
            }
 
