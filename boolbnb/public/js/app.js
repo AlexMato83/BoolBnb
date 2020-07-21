@@ -37654,6 +37654,31 @@ function click_after_autocomplete(search_button) {
   });
 }
 
+$(window).scroll(function () {
+  if ($(document).scrollTop() > 90) {
+    if ($(".navbar").hasClass('scrollHeader') == false) {
+      $(".navbar").css("display", "none");
+      $(".navbar").addClass("scrollHeader");
+      $(".navbar").removeClass("bg-light");
+      $(".btn-outline-success").css({
+        "backgroundColor": "#61ce4e",
+        "color": "white",
+        "borderColor": "#61ce4e"
+      });
+      $(".navbar").fadeIn(800);
+    }
+  } else {
+    if ($(".navbar").hasClass('scrollHeader')) {
+      $(".navbar").removeClass("scrollHeader");
+      $(".btn-outline-success").css({
+        "backgroundColor": "#1b3c59",
+        "color": "white",
+        "borderColor": "#1b3c59"
+      });
+    }
+  }
+});
+
 function init() {
   autocomplete();
 

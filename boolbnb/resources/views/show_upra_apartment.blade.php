@@ -74,13 +74,13 @@
 
         </div>
         <div class="row">
-          <div class="modifica offset-4 col-6">
+          <div class="offset-3 col-6 text-center">
             <form  action="{{route('sponsorship_pay', $apartment['id'])}}" method="post">
                   @csrf
                   @method('POST')
-                  <label class="blu paragrafo_appartamento" for="sponsorship_type">SPONSORIZZAZIONE</label>
+                  <label class="blu paragrafo_appartamento" for="sponsorship_type">SPONSORIZZAZIONE</label><br>
                   <select class="blu" name="sponsorship_type" id="">
-                      <option class="blu" value="" selected> - </option>
+                      <option class="blu" value="" selected> 0€ </option>
                       <option class="blu" value="1">2.99€ - 24H</option>
                       <option value="2">5.99€ - 72H</option>
                       <option value="3">9.99€ - 144H</option>

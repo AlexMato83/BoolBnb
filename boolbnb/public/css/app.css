@@ -10942,6 +10942,16 @@ nav .nav-link {
   margin-right: 10px;
 }
 
+nav .btn-outline-success {
+  color: white;
+  background-color: #1b3c59;
+  border-color: #1b3c59 !important;
+}
+
+.scrollHeader {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
 .search_container {
   position: relative;
 }
@@ -11121,10 +11131,23 @@ footer img {
 
 .paragrafo_appartamento {
   font-size: 20px;
+  text-align: justify;
+}
+
+.map {
+  text-align: center;
+  height: 400px;
+  width: 100%;
+  margin: 5% 0;
+}
+
+.map #map {
+  height: 100% !important;
+  width: 100% !important;
 }
 
 .map_proprietario {
-  height: 350px;
+  height: 400px;
   width: 100%;
   margin: 5% 0;
 }
@@ -11176,6 +11199,15 @@ footer img {
   .descr {
     text-align: left;
   }
+}
+
+.msg {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+select {
+  height: 36px;
 }
 
 .crea_appartamento {
@@ -11243,7 +11275,7 @@ footer img {
 .dim label {
   margin-top: 30px;
   color: #1b3c59;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -11278,22 +11310,20 @@ footer img {
   width: 100%;
   margin-top: 40px;
   float: left;
-  font-size: 20px;
+  font-size: 25px !important;
+  font-weight: 500 !important;
   color: #1b3c59;
 }
 
 #create2,
 #update2 {
-  width: 100% !important;
-  height: 50px;
-  float: right;
   color: white;
   background-color: #1B3C59;
   font-weight: 700;
   height: 42px;
-  width: 77px;
   font-size: 15px;
   border-radius: 5px;
+  padding: 0 10px;
 }
 
 .selectsi {
@@ -11312,11 +11342,6 @@ footer img {
   height: 28px;
   width: 125px;
   font-size: 15px;
-}
-
-.content_create {
-  width: 100%;
-  height: 100%;
 }
 
 .blu {

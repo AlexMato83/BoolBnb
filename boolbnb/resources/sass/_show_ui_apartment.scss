@@ -5,20 +5,32 @@
 
 .paragrafo_appartamento {
   font-size: 20px;
+  text-align:justify;
 }
 
 
 
-  // {{-- MAPPA --}}
-  // .map{
-  //   text-align: center;
-  //   height: 350px;
-  //   margin-top:40px;
-  //   #map{
-  //     height: 400px !important;
-  //     width: 100% !important;
-  //   }
-  // }
+// {{-- MAPPA --}}
+.map{
+  text-align: center;
+  height: 400px;
+  width: 100%;
+  margin: 5% 0;
+  #map{
+    height: 100% !important;
+    width: 100% !important;
+  }
+}
+
+.map_proprietario {
+  height: 400px;
+  width: 100%;
+  margin: 5% 0;
+  #map{
+    height: 100% !important;
+    width: 100% !important;
+  }
+}
 
 // .content {
 //   margin: 0 7%;
@@ -71,15 +83,7 @@
 //     }
 //   }
 // {{-- MAPPA PAGINA PROPRIETARIO--}}
-  .map_proprietario {
-    height: 350px;
-    width: 100%;
-    margin: 5% 0;
-    #map{
-      height: 100% !important;
-      width: 100% !important;
-    }
-  }
+
 //
 // // {{-- MSG --}}
 //   .msg{
@@ -139,4 +143,13 @@
   .descr {
     text-align: left;
   }
+}
+
+.msg {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+select {
+  height: 36px;
 }
