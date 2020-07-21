@@ -26,7 +26,13 @@
         <div class="space"></div>
         <span class="blu text-center paragrafo_appartamento">{{$apartment['rooms']}} stanze - {{$apartment['beds']}} letti - {{$apartment['bathrooms']}} bagni - {{$apartment['mq']}} mq</span></li><br>
         <div class="space"></div>
-        <span class="blu text-center paragrafo_appartamento">Servizi</span>
+        <h4 class="blu text-center paragrafo_appartamento"><b>Servizi</b></h4>
+        <ul class="serviceul">
+          @foreach ($apartment -> services as $service)
+            <li>{{$service -> name}}</li>
+          @endforeach
+
+        </ul>
         <div class="space"></div>
       </div>
     </div>
@@ -36,13 +42,7 @@
       <!-- descrizione appartamento  -->
       <div class="col-12 text-center">
         <div class="space"></div>
-        <p class="paragrafo_appartamento">Bellissima Villa nel verde del Salento, 85 mq, tranquilla e lussuosa. La Casa è stat recentemente ristrutturata completamente. Ha un pergolato bellissimo e una terrazza grande, molto romantica.<br>
-
-        Lo spazio
-        La posizione in una zona bellissima nel cuore del Salento, residenziale e naturale allo stesso momento. 25 Km a sud di Lecce, a 5 minuti da Galatina e 3 minuti da Cutrofiano ed Aradeo.<br>
-
-        Accesso per gli ospiti
-        Grande giardino bellissimo con molte piante, Palme e alberi di frutta. Parcheggio privato per 2 auto. Spazi al esterno, pergolato, terrazza grande e molto di più.</p>
+        <p class="paragrafo_appartamento">{{$apartment["description"]}}</p>
       </div>
     </div>
 

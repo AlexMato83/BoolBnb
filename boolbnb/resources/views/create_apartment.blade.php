@@ -65,7 +65,7 @@
 
         <div class="col-12 col-md-6 dimdue">
           <label for="descr">Descrizione</label>
-          <input type="text" name="descr" value="">
+          <input type="textarea" name="description" value="">
         </div>
 
         <div class="col-12 col-md-6 dimdue">

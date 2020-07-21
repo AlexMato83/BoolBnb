@@ -25,6 +25,12 @@
             <span class="blu text-center paragrafo_appartamento">{{$apartment['rooms']}} stanze - {{$apartment['beds']}} letti - {{$apartment['bathrooms']}} bagni - {{$apartment['mq']}} mq</span></li><br>
             <div class="space"></div>
             <span class="blu text-center paragrafo_appartamento">Servizi</span>
+            <ul class="serviceul">
+              @foreach ($apartment -> services as $service)
+                  <li>{{$service -> name}}</li>
+              @endforeach
+
+            </ul>
             <div class="space"></div>
 
         </div>
@@ -32,9 +38,7 @@
       <!-- descrizione appartamento  -->
         <div class="col-12">
           <div class="descr paragrafo_appartamento blu">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor7
-             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            {{$apartment["description"]}}
           </div>
         </div>
     </div>

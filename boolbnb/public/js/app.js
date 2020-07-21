@@ -37314,6 +37314,13 @@ function address_to_coord(button, submit, next_funct) {
 function autocomplete() {
   $(window).ready(function () {
     $("#apt_address").on("keyup", function () {
+      var keyPressed = event.keyCode || event.which;
+
+      if (keyPressed === 13) {
+        $('.autocomplete').hide();
+        return false;
+      }
+
       var address = $("#apt_address").val();
       $('.autocomplete').hide();
       address = address.charAt(0).toUpperCase() + address.slice(1);
@@ -37668,13 +37675,10 @@ function set_template(add_class, title, image_route, address, is_sponsored, id, 
 function init() {
   if (document.getElementById("search_welcome2")) {
     autocomplete();
-
-    if (document.getElementById("search_welcome2")) {
-      address_to_coord('#search_welcome2', 'search_welcome');
-      click_after_autocomplete('search_welcome2');
-      keypress("search_welcome2", ".content");
-      prova_api();
-    }
+    address_to_coord('#search_welcome2', 'search_welcome');
+    click_after_autocomplete('search_welcome2');
+    keypress("search_welcome2", "#apt_address");
+    prova_api();
   }
 
   if (document.getElementById("dropin-container")) {
@@ -37697,7 +37701,7 @@ function init() {
 
   if (document.getElementById("filtered2")) {
     autocomplete();
-    keypress("filtered2", ".filtri");
+    keypress("filtered2", "#apt_address");
     address_to_coord('#filtered2', null, filtered_search_api);
     click_after_autocomplete("filtered2");
     filtered_search_api();

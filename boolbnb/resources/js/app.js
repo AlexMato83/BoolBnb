@@ -86,47 +86,52 @@ function address_to_coord(button, submit, next_funct ){
 
   function autocomplete(){
     $(window).ready(function() {
-              $("#apt_address").on("keyup", function () {
-                    var address = $("#apt_address").val();
-                    $('.autocomplete').hide();
-                    address = address.charAt(0).toUpperCase() + address.slice(1);
-                    $('.autocomplete div').html('');
-                    $.ajax({
-                        url: "https://api.tomtom.com/search/2/search/" + address + ".json?",
-                        method: "GET",
-                        data: {
-                          key: "luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt"
-                        },
-                        success: function(data){
-                        //   console.log(data);
-                          var final_address = [];
-                          for (var i = 0; i < data['results'].length; i++) {
-                            var found_address = data['results'][i]['address'];
-                              for (var variable in found_address) {
-                                 var found_address_value = found_address[variable];
-                                 found_address_value = found_address_value.charAt(0).toUpperCase() + found_address_value.slice(1);
-                                if (found_address_value.includes(address) && !(final_address.includes(found_address_value))) {
-                                  final_address.push(found_address_value);
-                                }
-                               break;
-                              }
-                          }
-                          if (data['results'].length > 0) {
-                            $('.autocomplete').show();
-                        }
-                           if (final_address.length > 5) {
-                             number_autocomplete(5,final_address);
-                           } else {
-                             number_autocomplete(final_address.length,final_address);
-                           }
-                        },
-                        complete: function(){
-                          // console.log(data);
-                        }
-                      })
-                      // return false;
-                  });
-        });
+      $("#apt_address").on("keyup", function () {
+        var keyPressed = event.keyCode || event.which;
+        if (keyPressed === 13) {
+            $('.autocomplete').hide();
+            return false;
+        }
+        var address = $("#apt_address").val();
+        $('.autocomplete').hide();
+        address = address.charAt(0).toUpperCase() + address.slice(1);
+        $('.autocomplete div').html('');
+        $.ajax({
+          url: "https://api.tomtom.com/search/2/search/" + address + ".json?",
+          method: "GET",
+          data: {
+            key: "luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt"
+          },
+          success: function(data){
+          //   console.log(data);
+            var final_address = [];
+            for (var i = 0; i < data['results'].length; i++) {
+              var found_address = data['results'][i]['address'];
+                for (var variable in found_address) {
+                   var found_address_value = found_address[variable];
+                   found_address_value = found_address_value.charAt(0).toUpperCase() + found_address_value.slice(1);
+                  if (found_address_value.includes(address) && !(final_address.includes(found_address_value))) {
+                    final_address.push(found_address_value);
+                  }
+                 break;
+                }
+            }
+            if (data['results'].length > 0) {
+              $('.autocomplete').show();
+          }
+             if (final_address.length > 5) {
+               number_autocomplete(5,final_address);
+             } else {
+               number_autocomplete(final_address.length,final_address);
+             }
+          },
+          complete: function(){
+              // console.log(data);
+          }
+        })
+            // return false;
+      });
+    });
   }
   function number_autocomplete(array_length,array) {
     for (var i = 0; i < array_length; i++) {
@@ -423,14 +428,12 @@ function keypress(button,space){
   }
 
   function init(){
-      if (document.getElementById("search_welcome2")) {
-        autocomplete();
-        if (document.getElementById("search_welcome2")) {
-          address_to_coord('#search_welcome2', 'search_welcome');
-          click_after_autocomplete('search_welcome2');
-          keypress("search_welcome2", ".content")
-          prova_api();
-        }
+    if (document.getElementById("search_welcome2")){
+      autocomplete();
+      address_to_coord('#search_welcome2', 'search_welcome');
+      click_after_autocomplete('search_welcome2');
+      keypress("search_welcome2", "#apt_address")
+      prova_api();
     }
     if (document.getElementById("dropin-container")) {
       create_paymethond_and_pay();
@@ -449,7 +452,7 @@ function keypress(button,space){
   }
   if (document.getElementById("filtered2")) {
     autocomplete();
-    keypress("filtered2",".filtri" );
+    keypress("filtered2","#apt_address" );
     address_to_coord('#filtered2',null, filtered_search_api);
     click_after_autocomplete("filtered2");
     filtered_search_api();

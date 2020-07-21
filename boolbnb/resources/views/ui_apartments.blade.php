@@ -97,12 +97,12 @@
         <img class="w-100 rounded-left" src="@{{image_route}}" alt="">
       </div>
       <div class="col-12 col-lg-7 p-4">
-        <h3><a class="titolo-principale blu" href="/ui_apartment/@{{id}}">@{{title}}</a></h3>
+        <h3><a class="titolo-principale blu" href="/new_view/@{{id}}">@{{title}}</a></h3>
         <p class="blu font_search">@{{address}}</p>
         <!-- <p>@{{description}}</p> -->
-        <p class="blu font_search">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua sed do eiusmod ...</p>
+        <p class="blu font_search">@{{description}}</p>
         <!-- <span>@{{services}}</span> -->
-        <span class="blu font_search">Lavatrice - Posto Macchina - Vista mare</span>
+        <!-- <span class="blu font_search">Lavatrice - Posto Macchina - Vista mare</span> -->
         <span class="sponsored rounded">@{{sponsorship}}</span>
 
       </div>

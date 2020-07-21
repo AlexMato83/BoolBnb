@@ -52,7 +52,7 @@
           <div class="space"></div>
           <h1 class="titolo-principale blu">Trova ispirazione per i tuoi prossimi viaggi</h1>
           <div class="space"></div>
-        </div>      
+        </div>
       </div>
       <div class="row mx-2" id="welcome_sponsored_apt">
       </div>
@@ -64,7 +64,7 @@
     <div class="apartmenti-welcome mb-4 col-12 col-md-6 col-lg-4 @{{add_class}}">
       <img class="w-100 rounded-top" src="@{{image_route}}" alt="">
       <div class="p-3 dettagli-welcome rounded-bottom">
-        <h3><a class=" blu" href="/ui_apartment/@{{id}}">@{{title}}</a></h3>
+        <h3><a class=" blu" href="/new_view/@{{id}}">@{{title}}</a></h3>
              <p>@{{description}}</p>
         <span class="blu">@{{address}}</span>
       </div>

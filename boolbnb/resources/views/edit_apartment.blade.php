@@ -63,8 +63,8 @@
             </div>
 
             <div class="col-12 col-md-6 dimdue">
-              <label for="descr">Descrizione</label>
-              <input type="text" name="descr" value="">
+              <label for="description">Descrizione</label>
+              <input type="text" name="description" value="{{$apartment['description']}}">
             </div>
 
             <div class="col-12 col-md-6 dimdue">
