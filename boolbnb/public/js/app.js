@@ -37407,7 +37407,7 @@ function prova_api() {
           var image_route = apartment["images"];
           var address = apartment["address"];
           var is_sponsored = "SPONSORED";
-          description_characters(apartment['description'], 150);
+          description_characters(apartment['description'], 130);
           var print_template = set_template(add_class, title, image_route, address, is_sponsored, id, final_description);
           $("#welcome_sponsored_apt").append(print_template);
         }
@@ -37427,6 +37427,7 @@ function description_characters(description, characters) {
   if (description.length > characters) {
     var over_description = description.substring(characters, description.length);
     final_description = description.replace(over_description, description_hidden);
+    console.log(final_description);
     return final_description;
   } else {
     final_description = description;

@@ -62,14 +62,16 @@
 
   <script id="giacomino-template" type="text/x-handlebars-template">
     <div class="apartmenti-welcome mb-4 col-12 col-md-6 col-lg-4 @{{add_class}}">
-        <div class="img_welcome">
+        <div class="img_welcome h-60">
             <img class="w-100 h-100 rounded-top" src="@{{image_route}}" alt="">
         </div>
-      <div class="p-3 dettagli-welcome rounded-bottom">
-        <h3><a class=" blu" href="/new_view/@{{id}}">@{{title}}</a></h3>
-             <p class="description">@{{description}}</p>
-        <span class="blu">@{{address}}</span>
-      </div>
+        <div class="p-3 h-40 dettagli-welcome rounded-bottom justify-content-between">
+            <div class="conteiner_info">
+                <h3><a class=" blu" href="/new_view/@{{id}}">@{{title}}</a></h3>
+                <p class="description">@{{description}}</p>
+            </div>
+            <span class="blu">@{{address}}</span>
+        </div>
     </div>
   </script>
 

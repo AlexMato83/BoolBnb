@@ -11143,12 +11143,12 @@ nav .btn-outline-success {
 }
 
 .img_welcome {
-  height: 70%;
+  height: 60%;
 }
 
 .dettagli-welcome {
   border: 1px solid #ced4da;
-  height: 30%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -11158,8 +11158,28 @@ nav .btn-outline-success {
   font-size: 1.4rem !important;
 }
 
+.dettagli-welcome p {
+  margin-bottom: 0 !important;
+}
+
 .dettagli-welcome span {
-  font-size: 18px;
+  font-size: 20px;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+@media screen and (min-width: 990px) and (max-width: 1300px) {
+  .dettagli-welcome span {
+    font-size: 14px;
+  }
+
+  .dettagli-welcome h3 {
+    font-size: 1rem !important;
+  }
+
+  .dettagli-welcome p {
+    font-size: 12px;
+  }
 }
 
 .content {
