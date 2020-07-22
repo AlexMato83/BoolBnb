@@ -127,39 +127,48 @@ class ApiController extends Controller
       {
 
           if (isset($rooms)) {
+            foreach ($In_radius_apartments as $key1 => $apartment) {
               foreach ($In_radius_apartments as $key => $apartment) {
                 if ($apartment['rooms'] < $rooms) {
-                    unset($In_radius_apartments[$key]);
-                    // array_splice($In_radius_apartments, $key+1, 1);
-                    $key = $key - 1;
+                  // unset($In_radius_apartments[$key]);
+                  array_splice($In_radius_apartments, $key, 1);
+                  break;
                 }
 
               }
+            }
           }
           if (isset($beds)) {
+            foreach ($In_radius_apartments as $key1 => $apartment) {
               foreach ($In_radius_apartments as $key => $apartment) {
                 if ($apartment['beds'] < $beds) {
-                    unset($In_radius_apartments[$key]);
-                    // array_splice($In_radius_apartments, $key+1, 1);
-                    $key = $key - 1;
+                    // unset($In_radius_apartments[$key]);
+                    array_splice($In_radius_apartments, $key, 1);
+                    break;
                 }
-
               }
+            }
           }
           if (isset($r_services)) {
-            foreach ($In_radius_apartments as $key => $apartment) {
-              foreach ($r_services as $r_service){
-                $possible_apt = false;
-                foreach ($apartment-> services as $service) {
-                  if ($r_service == $service["id"]){
-                    $possible_apt = true;
+            foreach ($In_radius_apartments as $key1 => $apartment) {
+              foreach ($In_radius_apartments as $key => $apartment) {
+                $cutted = false;
+                foreach ($r_services as $r_service){
+                  $possible_apt = false;
+                  foreach ($apartment-> services as $service) {
+                    if ($r_service == $service["id"]){
+                      $possible_apt = true;
+                      break;
+                    }
+                  }
+                  if (!$possible_apt) {
+                    // unset($In_radius_apartments[$key]);
+                    array_splice($In_radius_apartments, $key, 1);
+                    $cutted = true;
                     break;
                   }
                 }
-                if (!$possible_apt) {
-                  unset($In_radius_apartments[$key]);
-                  // array_splice($In_radius_apartments, $key+1, 1);
-                  $key = $key - 1;
+                if ($cutted) {
                   break;
                 }
               }
