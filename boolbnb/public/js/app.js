@@ -37390,11 +37390,10 @@ function click_after_autocomplete(search_button) {
 
 function prova_api() {
   $.ajax({
-    url: "http://localhost:8000/welcome_show",
+    url: "http://127.0.0.1:8000/welcome_show",
     method: "GET",
     success: function success(data) {
-      var apartments_found = JSON.parse(data);
-      console.log(data);
+      var apartments_found = JSON.parse(data); // console.log(data);
 
       var _iterator = _createForOfIteratorHelper(apartments_found),
           _step;
@@ -37408,8 +37407,8 @@ function prova_api() {
           var image_route = apartment["images"];
           var address = apartment["address"];
           var is_sponsored = "SPONSORED";
-          var description = apartment['description'];
-          var print_template = set_template(add_class, title, image_route, address, is_sponsored, id, description);
+          description_characters(apartment['description'], 150);
+          var print_template = set_template(add_class, title, image_route, address, is_sponsored, id, final_description);
           $("#welcome_sponsored_apt").append(print_template);
         }
       } catch (err) {
@@ -37419,6 +37418,22 @@ function prova_api() {
       }
     }
   });
+} // se descrizione oltre i 300 caratteri
+
+
+function description_characters(description, characters) {
+  var description_hidden = "...";
+
+  if (description.length > characters) {
+    var over_description = description.substring(characters, description.length);
+    final_description = description.replace(over_description, description_hidden);
+    return final_description;
+  } else {
+    final_description = description;
+    return final_description;
+  }
+
+  ;
 }
 
 function getData(data, id_canvas, type) {
@@ -37448,7 +37463,7 @@ function getData(data, id_canvas, type) {
         yAxes: [{
           ticks: {
             stepsize: 3,
-            // suggestedMax: 1000,
+            suggestedMax: 10,
             beginAtZero: true
           }
         }]
@@ -37468,7 +37483,7 @@ function create_paymethond_and_pay() {
   var token, apartment_id, price, title, start_date, nonce;
   $.ajax({
     type: "GET",
-    url: "http://localhost:8000/token_generate",
+    url: "http://127.0.0.1:8000/token_generate",
     success: function success(token_generate) {
       token = token_generate; // console.log(token);
 
@@ -37494,7 +37509,7 @@ function create_paymethond_and_pay() {
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
       },
-      url: "http://localhost:8000/payment",
+      url: "http://127.0.0.1:8000/payment",
       method: "POST",
       data: {
         nonce: nonce,
@@ -37513,7 +37528,7 @@ function create_paymethond_and_pay() {
           var data = "NO";
         }
 
-        window.location.href = 'http://localhost:8000/successo/' + data;
+        window.location.href = 'http://127.0.0.1:8000/successo/' + data;
       }
     });
   });
@@ -37591,7 +37606,7 @@ function filtered_search_api() {
 
   $('#longitude').val();
   $.ajax({
-    url: 'http://localhost:8000/first_search',
+    url: 'http://127.0.0.1:8000/first_search',
     method: 'GET',
     data: {
       add: add,
@@ -37676,6 +37691,31 @@ function set_template(add_class, title, image_route, address, is_sponsored, id, 
   var print_apt = template(apartment_template);
   return print_apt;
 }
+
+$(window).scroll(function () {
+  if ($(document).scrollTop() > 90) {
+    if ($(".navbar").hasClass('scrollHeader') == false) {
+      $(".navbar").css("display", "none");
+      $(".navbar").addClass("scrollHeader");
+      $(".navbar").removeClass("bg-light");
+      $(".btn-outline-success").css({
+        "backgroundColor": "#61ce4e",
+        "color": "white",
+        "borderColor": "#61ce4e"
+      });
+      $(".navbar").fadeIn(800);
+    }
+  } else {
+    if ($(".navbar").hasClass('scrollHeader')) {
+      $(".navbar").removeClass("scrollHeader");
+      $(".btn-outline-success").css({
+        "backgroundColor": "#1b3c59",
+        "color": "white",
+        "borderColor": "#1b3c59"
+      });
+    }
+  }
+});
 
 function init() {
   if (document.getElementById("search_welcome2")) {
@@ -37795,8 +37835,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\RepoGitNuovo\BoolBnb\boolbnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\RepoGitNuovo\BoolBnb\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/paolo/Desktop/Github/Boolean/BoolBnb/boolbnb/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/paolo/Desktop/Github/Boolean/BoolBnb/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

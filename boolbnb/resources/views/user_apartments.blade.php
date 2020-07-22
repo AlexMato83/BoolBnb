@@ -3,7 +3,7 @@
 @section('content')
   @include('components.header_generic')
 
-  <div class="container-fluid">
+  <div class="container-fluid content">
     <div class="row mx-1 mx-lg-5">
       <div class="col-12">
         <div class="space"></div>

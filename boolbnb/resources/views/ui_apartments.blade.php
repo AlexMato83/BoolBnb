@@ -93,10 +93,10 @@
 <script id="giacomino-template" type="text/x-handlebars-template">
   <div class="appartamento rounded mx-4 mb-4 col-12 @{{add_class}}">
     <div class="row">
-      <div class="col-12 col-lg-5 p-0">
-        <img class="w-100 rounded-left" src="@{{image_route}}" alt="">
+      <div class="col-12 col-lg-5 col-xl-4 p-0">
+        <img class="w-100 h-100 rounded-left" src="@{{image_route}}" alt="">
       </div>
-      <div class="col-12 col-lg-7 p-4">
+      <div class="col-12 col-lg-7 col-xl-8 p-4">
         <h3><a class="titolo-principale blu" href="/new_view/@{{id}}">@{{title}}</a></h3>
         <p class="blu font_search">@{{address}}</p>
         <!-- <p>@{{description}}</p> -->

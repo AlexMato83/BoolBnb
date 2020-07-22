@@ -165,7 +165,6 @@ nav {
 }
 
 //_welcome
-
 .carousel-item {
   max-height: 550px;
   img {
@@ -194,9 +193,19 @@ nav {
   width: 100%;
   height: 20px;
 }
-
+.img_welcome{
+    height: 70%;
+}
 .dettagli-welcome {
   border: 1px solid #ced4da;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  h3{
+      font-size: 1.4rem!important;
+  }
   span {
     font-size: 18px;
   }
@@ -368,11 +377,13 @@ h4{
 .sponsored {
   background-color: #61ce4e;
   color: white;
-  float: right;
   font-size: 22px;
   width: 153px;
   text-align: center;
   font-weight: 700;
+  position: absolute;
+  bottom: 0px;
+  right: 0;
 }
 
 //_create_apartment
@@ -544,6 +555,8 @@ select {
 
 .messaggio_destinatario {
   border-bottom:1px dotted grey;
+  position: relative;
+  padding: 32px;
   h3 {
     font-size: 22px;
     font-weight: 700;
@@ -551,7 +564,40 @@ select {
   p {
     font-size:15px;
   }
+  &:hover {
+    box-shadow: 4px 5px 7px;
+
+  }
 }
+#section-messages{
+    background-color: #F4F7F7;
+    border-radius: 5px;
+    font-size: 20px;
+  }
+
+.oggetto-messaggi{
+    margin-left: 10px;
+    display: inline;
+  }
+  .oggetto-messaggi:hover{
+    color: grey;
+    cursor: pointer;
+  }
+  .date_msg{
+      position: absolute;
+      bottom:0;
+      right: 0;
+      font-size:13px;
+  }
+
+  .checkbox{
+    background-color: #b3b0ae;
+    border: 1px solid black;
+  }
+  .background-color-checkbox{
+    background-color: white;
+    border: 1px solid black;
+  }
 
 
 //_statistics

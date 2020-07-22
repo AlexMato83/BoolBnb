@@ -25,7 +25,7 @@ class ApiController extends Controller
             date_add($date,date_interval_create_from_date_string($duration . ' days'));
             // date_add($date,date_interval_create_from_date_string("3 days"));
             $end_date = date_format($date,"Y-m-d");
-            if (($sponsorship['startDate'] < date('Y-m-d')) && ($end_date > date('Y-m-d'))) {
+            if (($sponsorship['startDate'] <= date('Y-m-d')) && ($end_date > date('Y-m-d'))) {
                 $apartments [] = $sponsorship -> apartment;
             }
 

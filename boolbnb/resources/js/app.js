@@ -156,26 +156,41 @@ function address_to_coord(button, submit, next_funct ){
 
   function prova_api(){
     $.ajax({
-      url:"http://localhost:8000/welcome_show",
+      url:"http://127.0.0.1:8000/welcome_show",
       method: "GET",
       success: function(data){
         var apartments_found = JSON.parse(data)
-        console.log(data);
+        // console.log(data);
         for (var apartment of apartments_found) {
-          var id = apartment["id"];
-          var add_class = "sponsored_apt"
-          var title = apartment["name"]
-          var image_route = apartment["images"]
-          var address = apartment["address"]
-          var is_sponsored = "SPONSORED"
-          var description = apartment['description']
-          var print_template = set_template(add_class,title,image_route,address,is_sponsored,id,description);
-          $("#welcome_sponsored_apt").append(print_template)
+            var id = apartment["id"];
+            var add_class = "sponsored_apt"
+            var title = apartment["name"]
+            var image_route = apartment["images"]
+            var address = apartment["address"]
+            var is_sponsored = "SPONSORED"
+            description_characters(apartment['description'], 150);
+            var print_template = set_template(add_class,title,image_route,address,is_sponsored,id,final_description);
+            $("#welcome_sponsored_apt").append(print_template)
 
         }
       }
     })
   }
+// se descrizione oltre i 300 caratteri
+function description_characters(description, characters) {
+    var description_hidden = "...";
+
+    if (description.length > characters) {
+
+        var over_description = description.substring(characters, description.length);
+        final_description = description.replace(over_description, description_hidden);
+        return final_description;
+    }else{
+        final_description = description;
+        return final_description;
+    };
+
+    }
 
 
 function getData(data,id_canvas,type) {
@@ -207,7 +222,7 @@ function getData(data,id_canvas,type) {
               yAxes: [{
                   ticks: {
                       stepsize:3,
-                      // suggestedMax: 1000,
+                      suggestedMax: 10,
                       beginAtZero: true
                   }
               }]
@@ -226,7 +241,7 @@ function create_paymethond_and_pay() {
     var token,apartment_id,price,title,start_date,nonce;
     $.ajax({
         type: "GET",
-        url: "http://localhost:8000/token_generate",
+        url: "http://127.0.0.1:8000/token_generate",
         success: function (token_generate) {
             token = token_generate;
             // console.log(token);
@@ -252,7 +267,7 @@ function create_paymethond_and_pay() {
         headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        url: "http://localhost:8000/payment",
+        url: "http://127.0.0.1:8000/payment",
         method: "POST",
         data:{
           nonce: nonce,
@@ -271,7 +286,7 @@ function create_paymethond_and_pay() {
           } else {
             var data = "NO";
           }
-          window.location.href = 'http://localhost:8000/successo/' + data ;
+          window.location.href = 'http://127.0.0.1:8000/successo/' + data ;
 
         }
       });
@@ -366,7 +381,7 @@ function keypress(button,space){
 
     $.ajax({
 
-      url:'http://localhost:8000/first_search',
+      url:'http://127.0.0.1:8000/first_search',
       method:'GET',
       data: {
         add: add,
@@ -431,6 +446,23 @@ function keypress(button,space){
     return print_apt;
 
   }
+  $(window).scroll(function() {
+    if ($(document).scrollTop() > 90) {
+      if ($(".navbar").hasClass('scrollHeader') == false) {
+        $(".navbar").css("display", "none");
+        $(".navbar").addClass("scrollHeader");
+         $(".navbar").removeClass("bg-light");
+        $(".btn-outline-success").css({"backgroundColor":"#61ce4e", "color":"white","borderColor":"#61ce4e"} );
+
+        $(".navbar").fadeIn(800);
+      }
+    } else {
+      if ($(".navbar").hasClass('scrollHeader')) {
+        $(".navbar").removeClass("scrollHeader");
+        $(".btn-outline-success").css({"backgroundColor":"#1b3c59", "color":"white","borderColor":"#1b3c59"} );
+      }
+    }
+  });
 
   function init(){
     if (document.getElementById("search_welcome2")){
