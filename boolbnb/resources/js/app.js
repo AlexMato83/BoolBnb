@@ -95,7 +95,6 @@ function address_to_coord(button, submit, next_funct ){
         var address = $("#apt_address").val();
         $('.autocomplete').hide();
         address = address.charAt(0).toUpperCase() + address.slice(1);
-        $('.autocomplete div').html('');
         $.ajax({
           url: "https://api.tomtom.com/search/2/search/" + address + ".json?",
           method: "GET",
@@ -103,7 +102,7 @@ function address_to_coord(button, submit, next_funct ){
             key: "luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt"
           },
           success: function(data){
-          //   console.log(data);
+            $('.autocomplete div').html('');
             var final_address = [];
             for (var i = 0; i < data['results'].length; i++) {
               var found_address = data['results'][i]['address'];
