@@ -134,7 +134,6 @@ class ApiController extends Controller
                   array_splice($In_radius_apartments, $key, 1);
                   break;
                 }
-
               }
             }
           }

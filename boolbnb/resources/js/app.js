@@ -93,41 +93,47 @@ function address_to_coord(button, submit, next_funct ){
             return false;
         }
         var address = $("#apt_address").val();
-        $('.autocomplete').hide();
-        address = address.charAt(0).toUpperCase() + address.slice(1);
-        $.ajax({
-          url: "https://api.tomtom.com/search/2/search/" + address + ".json?",
-          method: "GET",
-          data: {
-            key: "luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt"
-          },
-          success: function(data){
-            $('.autocomplete div').html('');
-            var final_address = [];
-            for (var i = 0; i < data['results'].length; i++) {
-              var found_address = data['results'][i]['address'];
+        if (address.length < 2) {
+          $('.autocomplete').hide();
+
+        }else {
+
+          $('.autocomplete').hide();
+          address = address.charAt(0).toUpperCase() + address.slice(1);
+          $.ajax({
+            url: "https://api.tomtom.com/search/2/search/" + address + ".json?",
+            method: "GET",
+            data: {
+              key: "luWzKOCtK4KkgiYWrGvKmUyo3hn8Huwt"
+            },
+            success: function(data){
+              $('.autocomplete div').html('');
+              var final_address = [];
+              for (var i = 0; i < data['results'].length; i++) {
+                var found_address = data['results'][i]['address'];
                 for (var variable in found_address) {
-                   var found_address_value = found_address[variable];
-                   found_address_value = found_address_value.charAt(0).toUpperCase() + found_address_value.slice(1);
+                  var found_address_value = found_address[variable];
+                  found_address_value = found_address_value.charAt(0).toUpperCase() + found_address_value.slice(1);
                   if (found_address_value.includes(address) && !(final_address.includes(found_address_value))) {
                     final_address.push(found_address_value);
                   }
-                 break;
+                  break;
                 }
-            }
-            if (data['results'].length > 0) {
-              $('.autocomplete').show();
-          }
-             if (final_address.length > 5) {
-               number_autocomplete(5,final_address);
-             } else {
-               number_autocomplete(final_address.length,final_address);
-             }
-          },
-          complete: function(){
+              }
+              if (data['results'].length > 0) {
+                $('.autocomplete').show();
+              }
+              if (final_address.length > 5) {
+                number_autocomplete(5,final_address);
+              } else {
+                number_autocomplete(final_address.length,final_address);
+              }
+            },
+            complete: function(){
               // console.log(data);
-          }
-        })
+            }
+          })
+        }
             // return false;
       });
     });
