@@ -64,25 +64,29 @@ function address_to_coord(button, submit, next_funct ){
           key: "fSCco31rI9Of9Ud1l5pLOfJen1zv8Gw0",
         },
         success: function(data){
-          var position = data.results[0]["position"];
-        latitude =  position.lat;
-        longitude = position.lon;
-        $("#latitude").val(latitude);
-        $("#longitude").val(longitude);
-        },
-        complete: function(){
-          if (next_funct) {
-            next_funct()
-          }
-          if (submit) {
-            document.getElementById(submit).click()
-          }
-        }
-      }).done(function(submit){
-        // document.getElementById(submit).click()
-      })
+            console.log(data.results[0]);
+            if (data.results[0] != undefined) {
+              var position = data.results[0]["position"];
+              latitude =  position.lat;
+              longitude = position.lon;
+              $("#latitude").val(latitude);
+              $("#longitude").val(longitude);
+              if (next_funct) {
+                next_funct()
+              }
+              if (submit) {
+                document.getElementById(submit).click()
+              }
+
+            }else {
+              alert("Gionni, stai provando ad hackerare il sito? E secondo te non dovevo trovarti. Ho capito. Ho gia avvisato la finanza. Corri. Tanto lo so che non hai il CIR e sei abusivo")
+            }
+          },
+     });
     });
-  }
+}
+
+
 
   function autocomplete(){
     $(window).ready(function() {

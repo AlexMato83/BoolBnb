@@ -44,14 +44,13 @@ class UserController extends Controller
       $validate = $request -> validate([
 
           "name" => "required",
-          "mq" => "required",
+          "mq" => "required|integer| min:1",
           "address" => "required",
-          "rooms" => "required",
-          "bathrooms" => "required",
-          "beds" => "required",
+          "rooms" => 'required|integer| min:1',
+          "bathrooms" => 'required|integer| min:1',
+          "beds" => 'required|integer| min:1',
           "images" => "required|image",
           "services" => "required",
-        //   "category_id" => "required",
           "description" => "required",
           "visibility" => "required"
           ]);
@@ -124,14 +123,13 @@ class UserController extends Controller
        $validate = $request -> validate([
 
             "name" => "required",
-            "mq" => "required",
+            "mq" => "required|integer| min:1",
             "address" => "required",
-            "rooms" => "required",
-            "bathrooms" => "required",
-            "beds" => "required",
+            "rooms" => 'required|integer| min:1',
+            "bathrooms" => 'required|integer| min:1',
+            "beds" => 'required|integer| min:1',
             "images" => "image",
             "services" => "required",
-            // "category_id" => "required",
             "description" => "required",
             "visibility" => "required"
 

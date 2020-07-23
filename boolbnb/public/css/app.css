@@ -11154,11 +11154,16 @@ nav .btn-outline-success {
   justify-content: flex-start;
 }
 
-.dettagli-welcome h3 {
+.dettagli-welcome .conteiner_info {
+  height: 75%;
+  overflow: hidden;
+}
+
+.dettagli-welcome .conteiner_info h3 {
   font-size: 1.4rem !important;
 }
 
-.dettagli-welcome p {
+.dettagli-welcome .conteiner_info p {
   margin-bottom: 0 !important;
 }
 
@@ -11166,20 +11171,6 @@ nav .btn-outline-success {
   font-size: 20px;
   margin-top: 5px;
   display: inline-block;
-}
-
-@media screen and (min-width: 990px) and (max-width: 1300px) {
-  .dettagli-welcome span {
-    font-size: 14px;
-  }
-
-  .dettagli-welcome h3 {
-    font-size: 1rem !important;
-  }
-
-  .dettagli-welcome p {
-    font-size: 12px;
-  }
 }
 
 .content {
