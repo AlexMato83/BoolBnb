@@ -30,7 +30,7 @@
 
       {{-- Link Registrati più modal --}}
       <li class="nav-item">
-        <div class="container">
+        {{-- <div class="container"> --}}
         <!-- Link to Open the Modal -->
         <a class="nav-link reg" data-toggle="modal" data-target="#myModal" href="#">Registrati</a>
         <!-- The Modal -->
@@ -147,13 +147,13 @@
             </div>
           </div>
         </div>
-        </div>
+        {{-- </div> --}}
       </li>
 
       {{-- Link Accedi più modal --}}
       <li class="nav-item dropdown">
         {{-- Modal --}}
-        <div class="container">
+        {{-- <div class="container"> --}}
           <a class="nav-link tasto" href="#" id="navbarDropdown" role="button" data-toggle="modal" data-target="#myModal" aria-haspopup="true" aria-expanded="false">
             Accedi
           </a>
@@ -239,7 +239,7 @@
               </div>
             </div>
           </div>
-        </div>
+        {{-- </div> --}}
       </li>
     </ul>
     @endauth

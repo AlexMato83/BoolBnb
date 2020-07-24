@@ -163,6 +163,16 @@ nav {
     }
   }
 }
+@media (max-width: 1179px) {
+    .carousel-item>img {
+        max-height: 350px;
+    }
+}
+@media (max-width: 750px) {
+    .carousel-item>img {
+        max-height: 330px;
+    }
+}
 
 //_welcome
 .carousel-item {
